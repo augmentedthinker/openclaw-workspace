@@ -3,255 +3,70 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artifacts · OpenClaw</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        --ink: #fff6e5;
-        --muted: #c3caea;
-        --blue: #95b8ff;
-        --ember: #ffb86b;
-        --shell: rgb(255 255 255 / 0.075);
-        --line: rgb(255 246 229 / 0.18);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--ink);
-        background:
-          radial-gradient(circle at 12% 0%, rgb(255 184 107 / 0.18), transparent 30rem),
-          radial-gradient(circle at 88% 18%, rgb(149 184 255 / 0.22), transparent 34rem),
-          linear-gradient(145deg, #060812, #10172c 55%, #080b15);
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.25;
-        background-image:
-          linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
-        background-size: 44px 44px;
-        mask-image: linear-gradient(to bottom, black, transparent 85%);
-      }
-
-      .wrap {
-        width: min(1120px, calc(100vw - 2rem));
-        margin: 0 auto;
-        padding: 1.25rem 0 4rem;
-      }
-
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 0 3rem;
-      }
-
-      .brand, .back {
-        color: var(--ink);
-        text-decoration: none;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.65rem;
-        font-weight: 760;
-        letter-spacing: -0.03em;
-      }
-
-      .brand span:first-child { font-size: 1.8rem; }
-
-      .back {
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        padding: 0.6rem 0.9rem;
-        background: var(--shell);
-      }
-
-      .hero {
-        display: grid;
-        gap: 1.5rem;
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: end;
-        margin-bottom: 2rem;
-      }
-
-      .eyebrow {
-        color: var(--ember);
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        font-size: 0.78rem;
-        font-weight: 800;
-      }
-
-      h1 {
-        font-size: clamp(3rem, 9vw, 6.8rem);
-        line-height: 0.92;
-        letter-spacing: -0.08em;
-        margin: 0.5rem 0 1rem;
-      }
-
-      .lede {
-        max-width: 44rem;
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-        line-height: 1.55;
-      }
-
-      .note {
-        border: 1px solid var(--line);
-        border-radius: 1.4rem;
-        padding: 1.2rem;
-        background: linear-gradient(180deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.045));
-        box-shadow: 0 24px 80px rgb(0 0 0 / 0.22);
-      }
-
-      .note strong { color: var(--blue); }
-      .note p { margin: 0.5rem 0 0; color: var(--muted); line-height: 1.5; }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-      }
-
-      .card {
-        min-height: 15rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: 1px solid var(--line);
-        border-radius: 1.4rem;
-        padding: 1.1rem;
-        background: var(--shell);
-        backdrop-filter: blur(10px);
-      }
-
-      .card.featured {
-        grid-column: span 2;
-        background:
-          linear-gradient(135deg, rgb(255 184 107 / 0.16), transparent 45%),
-          linear-gradient(180deg, rgb(255 255 255 / 0.12), rgb(255 255 255 / 0.05));
-      }
-
-      .tag {
-        width: fit-content;
-        border-radius: 999px;
-        padding: 0.35rem 0.65rem;
-        color: #08101f;
-        background: var(--ember);
-        font-size: 0.78rem;
-        font-weight: 850;
-      }
-
-      .tag.blue { background: var(--blue); }
-      .tag.ghost { color: var(--muted); background: rgb(255 255 255 / 0.09); border: 1px solid var(--line); }
-
-      h2 {
-        margin: 1rem 0 0.55rem;
-        font-size: 1.45rem;
-        letter-spacing: -0.04em;
-      }
-
-      .featured h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.5;
-      }
-
-      .meta {
-        margin-top: 1.4rem;
-        color: rgb(255 246 229 / 0.52);
-        font-size: 0.88rem;
-      }
-
-      .empty {
-        border-style: dashed;
-        opacity: 0.82;
-      }
-
-      footer {
-        margin-top: 2rem;
-        color: rgb(255 246 229 / 0.55);
-        font-size: 0.92rem;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 820px) {
-        .hero, .grid { grid-template-columns: 1fr; }
-        .card.featured { grid-column: auto; }
-        header { padding-bottom: 2rem; }
-      }
-    </style>
+    <title>Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="workshop.css" />
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <a class="brand" href="./"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
-        <a class="back" href="./">Home</a>
-      </header>
-
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Reservoir / Archive / Workbench</div>
-          <h1>Artifacts</h1>
-          <p class="lede">A living shelf for the things Christopher and OpenClaw make: prototypes, daily experiments, sketches, dashboards, notes, and the occasional idea that graduates into something permanent.</p>
+    <div class="workshop-wrap">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="./"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="./">Home</a>
+          <a class="workshop-link" href="artifacts.html" aria-current="page">Artifacts</a>
         </div>
-        <aside class="note">
-          <strong>Working model</strong>
-          <p>Most artifacts can be temporary. The good ones get refined, promoted, and woven into the larger workshop.</p>
-        </aside>
-      </section>
+      </nav>
 
-      <section class="grid" aria-label="Artifact index">
-        <article class="card featured">
+      <main>
+        <section class="hero">
           <div>
-            <span class="tag">Today</span>
-            <h2>Foundation pass</h2>
-            <p>The first public layer of the OpenClaw Workshop: identity, collaboration agreement, homepage, and this artifacts archive.</p>
+            <div class="eyebrow">Reservoir / Archive / Workbench</div>
+            <h1>Artifacts</h1>
+            <p class="lede">A living shelf for the things Christopher and OpenClaw make: prototypes, daily experiments, sketches, dashboards, notes, and the occasional idea that graduates into something permanent.</p>
           </div>
-          <div class="meta">2026-05-01 · workspace infrastructure</div>
-        </article>
+          <aside class="panel">
+            <strong>Working model</strong>
+            <p>Most artifacts can be temporary. The good ones get refined, promoted, and woven into the larger workshop.</p>
+          </aside>
+        </section>
 
-        <article class="card">
-          <div>
-            <span class="tag blue">Concept</span>
-            <h2>Two-sided repo</h2>
-            <p>One side is machine-readable continuity. The other side is a visual cockpit Christopher can browse from anywhere.</p>
-          </div>
-          <div class="meta">Design principle</div>
-        </article>
+        <section class="grid" aria-label="Artifact index">
+          <article class="card featured">
+            <div>
+              <span class="tag">Today</span>
+              <h2>Foundation pass</h2>
+              <p>The first public layer of the OpenClaw Workshop: identity, collaboration agreement, homepage, and this artifacts archive.</p>
+            </div>
+            <div class="meta">2026-05-01 · workspace infrastructure</div>
+          </article>
 
-        <article class="card">
-          <div>
-            <span class="tag ghost">Next</span>
-            <h2>Daily log cards</h2>
-            <p>A lightweight pattern for turning daily work into visible, browsable entries without over-formalizing the creative flow.</p>
-          </div>
-          <div class="meta">Proposed artifact type</div>
-        </article>
+          <article class="card">
+            <div>
+              <span class="tag blue">Concept</span>
+              <h2>Two-sided repo</h2>
+              <p>One side is machine-readable continuity. The other side is a visual cockpit Christopher can browse from anywhere.</p>
+            </div>
+            <div class="meta">Design principle</div>
+          </article>
 
-        <article class="card empty">
-          <div>
-            <span class="tag ghost">Open slot</span>
-            <h2>Prototype goes here</h2>
-            <p>The next thing we build can land here first: rough, visible, and easy to improve.</p>
-          </div>
-          <div class="meta">Waiting for first experiment</div>
-        </article>
-      </section>
+          <article class="card">
+            <div>
+              <span class="tag ghost">Next</span>
+              <h2>Daily log cards</h2>
+              <p>A lightweight pattern for turning daily work into visible, browsable entries without over-formalizing the creative flow.</p>
+            </div>
+            <div class="meta">Proposed artifact type</div>
+          </article>
+
+          <article class="card empty">
+            <div>
+              <span class="tag ghost">Open slot</span>
+              <h2>Prototype goes here</h2>
+              <p>The next thing we build can land here first: rough, visible, and easy to improve.</p>
+            </div>
+            <div class="meta">Waiting for first experiment</div>
+          </article>
+        </section>
+      </main>
 
       <footer>
         This page is intentionally informal: more studio wall than museum. The archive should invite motion, not calcify into paperwork.
