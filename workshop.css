@@ -297,6 +297,8 @@ a { color: inherit; }
 
 .hero.center {
   display: block;
+  width: min(900px, 100%);
+  margin: 0 auto;
   text-align: center;
   min-height: 72vh;
   align-content: center;
