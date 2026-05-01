@@ -548,5 +548,4 @@ footer {
   .card.featured { grid-column: auto; }
   .section-heading { align-items: start; flex-direction: column; }
   .artifact-button { grid-template-columns: 1fr; }
-  .prose p { text-align: left; }
 }
