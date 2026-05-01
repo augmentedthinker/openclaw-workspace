@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="workshop.css" />
   </head>
   <body>
-    <div class="workshop-wrap">
+    <div class="workshop-wrap wide">
       <nav class="workshop-nav" aria-label="Workshop navigation">
         <a class="workshop-brand" href="./"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
         <div class="workshop-links">
@@ -17,81 +17,15 @@
       </nav>
 
       <main>
-        <section class="page-hero" aria-labelledby="artifacts-title">
-          <figure class="hero-image-card">
-            <img src="assets/images/artifacts-hero.png" alt="A luminous cosmic archive filled with floating glass project cards and glowing fragments." />
-            <figcaption class="image-credit">
-              <span class="credit-pill">Hero image generated with OpenAI gpt-image-2</span>
-              <span class="credit-pill">Prompt: cosmic AI artifact archive</span>
-            </figcaption>
-          </figure>
-
-          <div class="hero-copy-card">
-            <div>
-              <div class="eyebrow">Reservoir / Archive / Workbench</div>
-              <h1 id="artifacts-title">Artifacts</h1>
-              <p class="lede">A living shelf for the things Christopher and OpenClaw make: prototypes, daily experiments, sketches, dashboards, notes, and the occasional idea that graduates into something permanent.</p>
-              <div class="hero-actions" aria-label="Artifact actions">
-                <a class="button" href="#archive">Browse archive</a>
-                <a class="button secondary" href="#method">How this works</a>
-              </div>
-            </div>
-            <aside class="panel" id="method">
-              <strong>Working model</strong>
-              <p>Most artifacts can be temporary. The good ones get refined, promoted, and woven into the larger Workshop.</p>
-            </aside>
-          </div>
-        </section>
-
-        <section id="archive" aria-label="Artifact index">
-          <div class="section-heading">
-            <h2>Archive shelf</h2>
-            <p>Cards below can point to rough experiments, daily project logs, generated media, or permanent Workshop rooms as they emerge.</p>
-          </div>
-
-          <div class="grid">
-            <article class="card featured">
-              <div>
-                <span class="tag">Today</span>
-                <h2>Foundation pass</h2>
-                <p>The first public layer of the OpenClaw Workshop: identity, collaboration agreement, homepage, shared navigation, and this visual artifacts archive.</p>
-              </div>
-              <div class="meta">2026-05-01 · workspace infrastructure</div>
-            </article>
-
-            <article class="card">
-              <div>
-                <span class="tag blue">Concept</span>
-                <h2>Two-sided repo</h2>
-                <p>One side is machine-readable continuity. The other side is a visual cockpit Christopher can browse from anywhere.</p>
-              </div>
-              <div class="meta">Design principle</div>
-            </article>
-
-            <article class="card">
-              <div>
-                <span class="tag ghost">Pattern</span>
-                <h2>Page hero format</h2>
-                <p>Each major Workshop page can open with a generated image, title, description, and a few clear actions before the content begins.</p>
-              </div>
-              <div class="meta">Reusable layout</div>
-            </article>
-
-            <article class="card empty">
-              <div>
-                <span class="tag ghost">Open slot</span>
-                <h2>Prototype goes here</h2>
-                <p>The next thing we build can land here first: rough, visible, and easy to improve.</p>
-              </div>
-              <div class="meta">Waiting for first experiment</div>
-            </article>
+        <section class="cinematic-hero" aria-labelledby="artifacts-title">
+          <img src="assets/images/artifacts-hero.png" alt="A luminous cosmic archive filled with floating glass project cards and glowing fragments." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">OpenAI gpt-image-2 · 2026-05-01 · 18:21 EDT</span>
+            <h1 id="artifacts-title">Artifacts</h1>
+            <p>A living archive for prototypes, daily experiments, sketches, dashboards, and the ideas that may graduate into permanent rooms of the Workshop.</p>
           </div>
         </section>
       </main>
-
-      <footer>
-        This page is intentionally informal: more studio wall than museum. The archive should invite motion, not calcify into paperwork.
-      </footer>
     </div>
   </body>
 </html>
