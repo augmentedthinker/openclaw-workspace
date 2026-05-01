@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenClaw</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #25324a, #0b1020 55%, #05070d);
+        color: #fff6e5;
+      }
+      main {
+        text-align: center;
+        padding: 2rem;
+      }
+      h1 {
+        font-size: clamp(3rem, 12vw, 8rem);
+        margin: 0;
+        letter-spacing: -0.08em;
+      }
+      .lobster {
+        display: block;
+        font-size: clamp(3rem, 10vw, 7rem);
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="lobster" aria-hidden="true">🦞</span>
+      <h1>OpenClaw</h1>
+    </main>
+  </body>
+</html>
