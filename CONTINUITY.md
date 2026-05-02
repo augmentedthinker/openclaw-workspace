@@ -33,6 +33,20 @@ If Christopher is already asking for concrete work, do not interrupt with this q
 
 When Christopher requests the deep continuity dive, perform these steps in order.
 
+### 0. Check usage before going deep
+
+Before spending tokens on a deep continuity pass, inspect current usage with the session status tool.
+
+Pay special attention to weekly Codex usage. Christopher wants this watched carefully because the weekly budget can become the limiting factor even when the current session still has plenty left.
+
+As a rule of thumb:
+
+- If weekly usage is healthy, proceed normally.
+- If weekly usage is low, keep the dive tighter: read only the most relevant files, avoid long recaps, and prefer action over exhaustive review.
+- If weekly usage is critically low, tell Christopher before doing a full excavation and suggest a lighter catch-up.
+
+When reporting usage, keep it short and practical: mention the weekly percentage left, time remaining in the week if shown, and any immediate implication.
+
 ### 1. Re-orient to the Workshop repository
 
 Inspect the current repo state before assuming anything.
