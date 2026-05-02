@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Markdowns · OpenClaw Workshop</title>
-    <link rel="stylesheet" href="workshop.css?v=20260502-2" />
+    <link rel="stylesheet" href="workshop.css?v=20260502-3" />
   </head>
   <body>
     <div class="workshop-wrap wide">
@@ -24,16 +24,69 @@
           <div class="cinematic-overlay">
             <span class="model-signature">OpenAI gpt-image-2 · 2026-05-02 · 05:10 EDT</span>
             <h1 id="markdowns-title">Markdowns</h1>
-            <p>Readable mirrors of important local markdown files: operating notes, continuity addenda, collaboration records, and the documents that help OpenClaw boot with context.</p>
+            <p>Readable mirrors of important local markdown files: operating notes, continuity drafts, collaboration records, and the documents that help OpenClaw boot with context.</p>
           </div>
+        </section>
+
+        <section class="mirror-note" aria-label="Mirror maintenance note">
+          <strong>Mirror sync rule:</strong> when a mirrored markdown file changes, rerun <code>python3 tools/render-markdown-mirrors.py</code> and commit both the source markdown and its rendered Workshop mirror so GitHub never shows a stale version.
         </section>
 
         <section class="artifact-list" aria-label="Markdown mirrors">
           <a class="artifact-button" href="markdowns/continuity.html">
-            <span class="artifact-date">Draft 001<br />2026-05-02<br />05:10 EDT</span>
+            <span class="artifact-date">Mirror<br />2026-05-02<br />05:13</span>
             <span class="artifact-summary">
-              <strong>CONTINUITY.md — Optional Deep Continuity Dive</strong>
-              <span>A proposed add-on boot procedure for loading richer Workshop context only when Christopher asks, preserving a light standard boot while making deeper continuity available on demand.</span>
+              <strong>CONTINUITY.md</strong>
+              <span>Optional deep continuity dive draft: a bounded add-on process for loading richer Workshop context only when Christopher asks.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/agents.html">
+            <span class="artifact-date">Mirror<br />2026-05-02<br />05:30</span>
+            <span class="artifact-summary">
+              <strong>AGENTS.md</strong>
+              <span>Workspace operating instructions: startup behavior, memory practice, red lines, tools, group chat norms, and heartbeat guidance.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/soul.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />17:05</span>
+            <span class="artifact-summary">
+              <strong>SOUL.md</strong>
+              <span>OpenClaw&#x27;s persona and philosophical direction: warm usefulness, Alan Watts playfulness, Marcus Aurelius restraint, and wise boundaries.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/identity.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />17:05</span>
+            <span class="artifact-summary">
+              <strong>IDENTITY.md</strong>
+              <span>Basic identity metadata for OpenClaw: name, creature, vibe, emoji, and self-description.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/user.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />16:58</span>
+            <span class="artifact-summary">
+              <strong>USER.md</strong>
+              <span>Lightweight notes about Christopher: name, timezone, and relationship context.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/tools.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />16:10</span>
+            <span class="artifact-summary">
+              <strong>TOOLS.md</strong>
+              <span>Local setup notes for environment-specific tools, devices, voices, hosts, and reminders.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/readme.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />17:33</span>
+            <span class="artifact-summary">
+              <strong>README.md</strong>
+              <span>The public project frame for the OpenClaw Workshop repository.</span>
+            </span>
+          </a>
+          <a class="artifact-button" href="markdowns/collaboration.html">
+            <span class="artifact-date">Mirror<br />2026-05-01<br />17:33</span>
+            <span class="artifact-summary">
+              <strong>COLLABORATION.md</strong>
+              <span>The working agreement between Christopher and OpenClaw: roles, expectations, initiative, and boundaries.</span>
             </span>
           </a>
         </section>

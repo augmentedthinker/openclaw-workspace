@@ -22,11 +22,12 @@ Do not manually reread startup files unless:
 2. The provided context is missing something you need
 3. You need a deeper follow-up read beyond the provided startup context
 
-### Optional Deep Continuity
 
-Treat the ordinary startup context as standard continuity. If Christopher asks to "load continuity," "catch up," "do the deep continuity dive," or resume a longer Workshop thread, read `CONTINUITY.md` and follow its bounded procedure.
+## Markdown Mirrors
 
-When there is no urgent task and it feels appropriate after a fresh boot, ask whether Christopher wants standard continuity only or the optional deep continuity dive. Do not load the deep dive automatically on every boot; it exists to preserve richer context without making routine starts expensive.
+Some core markdown files are mirrored into Workshop pages under `markdowns/` for Christopher to inspect online.
+
+When you edit a mirrored markdown source such as `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`, `TOOLS.md`, `README.md`, `COLLABORATION.md`, or `CONTINUITY.md`, also run `python3 tools/render-markdown-mirrors.py` and commit the regenerated mirror pages so the online view does not drift from the local source.
 
 ## Memory
 

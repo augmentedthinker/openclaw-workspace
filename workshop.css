@@ -363,6 +363,28 @@ a { color: inherit; }
   background: rgb(255 255 255 / 0.055);
 }
 
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgb(5 7 13 / 0.62);
+}
+
+.mirror-note {
+  width: min(1120px, calc(100% - 1rem));
+  margin: 1rem auto 0;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  color: var(--muted);
+  background: rgb(255 255 255 / 0.055);
+  line-height: 1.5;
+}
+
+.mirror-note strong { color: var(--ember); }
+
 code {
   overflow-wrap: anywhere;
   word-break: break-word;
