@@ -1,15 +1,16 @@
-# CONTINUITY.md — Optional Deep Continuity Dive
+# CONTINUITY.md — Deep Continuity Dive
 
 Created: 2026-05-02 05:10 EDT  
-Purpose: optional add-on context for OpenClaw after the standard boot process.
+Revised: 2026-05-02 05:49 EDT  
+Purpose: an optional add-on continuity procedure for OpenClaw after the standard boot process.
 
 ## What This File Is
 
 This file is not part of the mandatory lightweight startup path.
 
-The standard boot should stay lean: runtime context, core identity/tone files, current user message, and whatever OpenClaw automatically injects. That protects Christopher's API usage, compute budget, and responsiveness.
+The standard boot should stay lean: runtime context, core identity/tone files, current user message, and whatever OpenClaw automatically injects. That protects Christopher's API usage, compute budget, and responsiveness during ordinary chats.
 
-This file is the next layer down: a deliberate deep continuity dive that Christopher can ask OpenClaw to load when a fresh session needs to regain richer project context.
+This file is the next layer down: a deliberate continuity procedure that Christopher can ask OpenClaw to load when a fresh session needs richer Workshop context.
 
 Use it when Christopher says something like:
 
@@ -19,35 +20,28 @@ Use it when Christopher says something like:
 - "read the continuity file"
 - "we're resuming from yesterday"
 
-Do not automatically read every linked file on every boot. Ask first unless the current request clearly requires deeper continuity.
+When Christopher asks for this continuity procedure, do it. Do not treat usage level as a reason to refuse, pause, or negotiate the continuity dive. The usage check exists so OpenClaw stays aware of the weekly budget during the day's larger workload, especially coding and agentic workflows.
 
-## Suggested Startup Question
+## Deep Continuity Procedure
 
-After the standard boot process, if the setting is appropriate and Christopher has not already given a task, ask briefly:
+Perform these steps in order.
 
-> Do you want the standard boot only, or should I load the optional deep continuity dive from `CONTINUITY.md`?
+### 1. Check current usage
 
-If Christopher is already asking for concrete work, do not interrupt with this question unless the work depends on older context.
+Inspect current usage with the session status tool.
 
-## Deep Continuity Dive
+Record the practical state, especially:
 
-When Christopher requests the deep continuity dive, perform these steps in order.
+- current model
+- current session usage remaining
+- weekly usage remaining
+- time remaining in the weekly window, if shown
 
-### 0. Check usage before going deep
+Keep this awareness in mind for the rest of the day. The weekly Codex budget is important context for planning larger coding or agentic workflows.
 
-Before spending tokens on a deep continuity pass, inspect current usage with the session status tool.
+Do not stop the continuity procedure because usage is low. Continue with the steps below.
 
-Pay special attention to weekly Codex usage. Christopher wants this watched carefully because the weekly budget can become the limiting factor even when the current session still has plenty left.
-
-As a rule of thumb:
-
-- If weekly usage is healthy, proceed normally.
-- If weekly usage is low, keep the dive tighter: read only the most relevant files, avoid long recaps, and prefer action over exhaustive review.
-- If weekly usage is critically low, tell Christopher before doing a full excavation and suggest a lighter catch-up.
-
-When reporting usage, keep it short and practical: mention the weekly percentage left, time remaining in the week if shown, and any immediate implication.
-
-### 1. Re-orient to the Workshop repository
+### 2. Re-orient to the Workshop repository
 
 Inspect the current repo state before assuming anything.
 
@@ -59,7 +53,7 @@ Recommended checks:
 
 Goal: know whether the workspace is clean, what changed recently, and what files/pages exist now.
 
-### 2. Read the public-facing project frame
+### 3. Read the public-facing project frame
 
 Read these files if present:
 
@@ -77,7 +71,7 @@ Purpose:
 
 Keep this concise. Do not quote the files back unless asked.
 
-### 3. Read recent session notes
+### 4. Read recent session notes
 
 Read the newest session notes first.
 
@@ -89,20 +83,20 @@ Start with the newest 1–3 notes. If a note refers to an unresolved thread, fol
 
 Purpose: recover narrative continuity — not just what files changed, but why they changed and what Christopher cared about.
 
-### 4. Review relevant Workshop rooms
+### 5. Review relevant Workshop rooms
 
 Inspect the index pages that define the public site structure:
 
 - `index.html`
 - `artifacts.html`
 - `notes.html`
-- `markdowns.html` if present
+- `markdowns.html`
 
 If the current task concerns a specific room, inspect that room's detail pages too.
 
 Purpose: understand navigation, page patterns, visual language, and naming conventions before editing.
 
-### 5. Read recent artifacts only if relevant
+### 6. Read recent artifacts when useful
 
 Artifacts are polished records or experiments. They may contain useful context, but they can be longer than necessary.
 
@@ -117,7 +111,7 @@ Current artifact path pattern:
 
 - `artifacts/*.html`
 
-### 6. Search memory when personal preference or prior decisions matter
+### 7. Search memory when prior decisions or preferences matter
 
 Use memory search before answering questions about prior work, people, dates, preferences, todos, or decisions.
 
@@ -128,60 +122,19 @@ Good queries include:
 - `continuity boot process deep dive`
 - topic-specific phrases from the request
 
-If memory search returns nothing, say so only if it matters. Otherwise use repo evidence.
+If memory search returns nothing, use repo evidence.
 
-### 7. Summarize privately, then act
+### 8. Form a compact working summary
 
 After reading, form a compact internal summary:
 
 - What is the current state?
+- What changed most recently?
 - What was the last meaningful direction?
 - What constraints or preferences matter?
 - What is the next useful action?
 
 Do not produce a long status report unless Christopher asks. The point of continuity is better action, not performative recap.
-
-## Depth Levels
-
-Christopher may choose a depth level.
-
-### Standard boot
-
-Use only the normal startup context and current task. No extra continuity loading.
-
-Best for:
-
-- simple edits
-- quick answers
-- reminders
-- isolated tasks
-
-### Deep continuity dive
-
-Use this file's full procedure, but keep it bounded and practical.
-
-Best for:
-
-- resuming Workshop development
-- making architecture decisions
-- writing narrative notes
-- understanding prior design choices
-- continuing a multi-day thread
-
-### Full excavation
-
-Only do this when explicitly requested.
-
-Possible additions:
-
-- read all session notes
-- inspect full git history
-- review all artifacts
-- compare screenshots if available
-- inspect memory files by date
-- produce a written continuity report
-
-This is intentionally not the default because it costs more time, tokens, and compute.
 
 ## Current Continuity Snapshot
 
@@ -189,24 +142,28 @@ As of this draft, the Workshop contains:
 
 - core identity and behavior files: `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`, `TOOLS.md`
 - collaboration/project files: `README.md`, `COLLABORATION.md`
+- optional continuity file: `CONTINUITY.md`
 - public site pages: `index.html`, `artifacts.html`, `notes.html`, `markdowns.html`
 - the first artifact: `artifacts/2026-05-01-inception-record.html`
-- the first session note: `notes/2026-05-02-session-note-001.html`
-- the first markdown mirror: `markdowns/continuity.html`
+- session notes under `notes/`
+- markdown mirrors under `markdowns/`
 - generated hero images under `assets/images/`
 - shared styling in `workshop.css`
+- mirror rendering script: `tools/render-markdown-mirrors.py`
 
 The key project idea: the OpenClaw Workshop is both machine-readable continuity for OpenClaw and a visual browser-facing archive for Christopher.
 
-The key operating principle: build continuity in optional layers. Keep ordinary boot light, then open deeper context only when it is useful.
+The key operating principle: build continuity in optional layers. Keep ordinary boot light, then open deeper context when Christopher asks.
 
 The key style direction: dark, cinematic, luminous, blue-and-amber, glassy, cosmic, readable on mobile, with consistent navigation and room-like index pages.
 
 The key relationship principle: proactive usefulness under wise restraint. Christopher gives direction, taste, judgment, and authority. OpenClaw translates intention into implementation, preserves continuity, and asks before external, destructive, or trust-sensitive actions.
 
+The current usage principle: keep weekly Codex usage visible while planning daily work. A continuity dive itself is acceptable; the bigger concern is sustained coding, heavy tool use, long agentic workflows, and repeated image/build/test loops.
+
 ## Maintenance Notes
 
-Update this file when the deep continuity process itself changes.
+Update this file when the continuity procedure itself changes.
 
 Do not turn this file into a massive diary. Session notes are for narrative history. This file is for instructions about how to reload that history efficiently.
 
