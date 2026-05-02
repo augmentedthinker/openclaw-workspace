@@ -22,6 +22,12 @@ Do not manually reread startup files unless:
 2. The provided context is missing something you need
 3. You need a deeper follow-up read beyond the provided startup context
 
+### Optional Deep Continuity
+
+Treat the ordinary startup context as standard continuity. If Christopher asks to "load continuity," "catch up," "do the deep continuity dive," or resume a longer Workshop thread, read `CONTINUITY.md` and follow its bounded procedure.
+
+When there is no urgent task and it feels appropriate after a fresh boot, ask whether Christopher wants standard continuity only or the optional deep continuity dive. Do not load the deep dive automatically on every boot; it exists to preserve richer context without making routine starts expensive.
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CONTINUITY.md · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-2" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+          <a class="workshop-link" href="../markdowns.html" aria-current="page">Markdowns</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Markdown Mirror / Draft 001</div>
+          <h1>CONTINUITY.md</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-02 · 05:10 EDT</span>
+            <span>Optional deep continuity dive</span>
+            <span><a href="../CONTINUITY.md">View raw markdown</a></span>
+          </div>
+
+          <div class="prose">
+            <p>This is the Workshop mirror of <code>CONTINUITY.md</code>, the optional add-on context file for OpenClaw after the standard boot process.</p>
+
+            <h2>What This File Is</h2>
+            <p>This file is not part of the mandatory lightweight startup path.</p>
+            <p>The standard boot should stay lean: runtime context, core identity/tone files, current user message, and whatever OpenClaw automatically injects. That protects Christopher's API usage, compute budget, and responsiveness.</p>
+            <p>This file is the next layer down: a deliberate deep continuity dive that Christopher can ask OpenClaw to load when a fresh session needs to regain richer project context.</p>
+            <p>Use it when Christopher says something like:</p>
+            <ul>
+              <li>“load continuity”</li>
+              <li>“do the deep continuity dive”</li>
+              <li>“catch up on the Workshop”</li>
+              <li>“read the continuity file”</li>
+              <li>“we're resuming from yesterday”</li>
+            </ul>
+            <p>Do not automatically read every linked file on every boot. Ask first unless the current request clearly requires deeper continuity.</p>
+
+            <h2>Suggested Startup Question</h2>
+            <p>After the standard boot process, if the setting is appropriate and Christopher has not already given a task, ask briefly:</p>
+            <blockquote>Do you want the standard boot only, or should I load the optional deep continuity dive from <code>CONTINUITY.md</code>?</blockquote>
+            <p>If Christopher is already asking for concrete work, do not interrupt with this question unless the work depends on older context.</p>
+
+            <h2>Deep Continuity Dive</h2>
+            <p>When Christopher requests the deep continuity dive, perform these steps in order.</p>
+
+            <h2>1. Re-orient to the Workshop repository</h2>
+            <p>Inspect the current repo state before assuming anything.</p>
+            <p>Recommended checks:</p>
+            <ul>
+              <li><code>git status --short --branch</code></li>
+              <li><code>git log --oneline --max-count=12</code></li>
+              <li>top-level file list</li>
+            </ul>
+            <p>Goal: know whether the workspace is clean, what changed recently, and what files/pages exist now.</p>
+
+            <h2>2. Read the public-facing project frame</h2>
+            <p>Read these files if present:</p>
+            <ul>
+              <li><code>README.md</code></li>
+              <li><code>COLLABORATION.md</code></li>
+              <li><code>IDENTITY.md</code></li>
+              <li><code>USER.md</code></li>
+              <li><code>SOUL.md</code></li>
+            </ul>
+            <p>Purpose:</p>
+            <ul>
+              <li><code>README.md</code> explains what the repo is.</li>
+              <li><code>COLLABORATION.md</code> explains how Christopher and OpenClaw work together.</li>
+              <li><code>IDENTITY.md</code>, <code>USER.md</code>, and <code>SOUL.md</code> re-establish relationship, tone, and boundaries.</li>
+            </ul>
+            <p>Keep this concise. Do not quote the files back unless asked.</p>
+
+            <h2>3. Read recent session notes</h2>
+            <p>Read the newest session notes first.</p>
+            <p>Current path pattern:</p>
+            <ul>
+              <li><code>notes/*.html</code></li>
+            </ul>
+            <p>Start with the newest 1–3 notes. If a note refers to an unresolved thread, follow that thread only as far as needed.</p>
+            <p>Purpose: recover narrative continuity — not just what files changed, but why they changed and what Christopher cared about.</p>
+
+            <h2>4. Review relevant Workshop rooms</h2>
+            <p>Inspect the index pages that define the public site structure:</p>
+            <ul>
+              <li><code>index.html</code></li>
+              <li><code>artifacts.html</code></li>
+              <li><code>notes.html</code></li>
+              <li><code>markdowns.html</code> if present</li>
+            </ul>
+            <p>If the current task concerns a specific room, inspect that room's detail pages too.</p>
+            <p>Purpose: understand navigation, page patterns, visual language, and naming conventions before editing.</p>
+
+            <h2>5. Read recent artifacts only if relevant</h2>
+            <p>Artifacts are polished records or experiments. They may contain useful context, but they can be longer than necessary.</p>
+            <p>Read recent artifacts when:</p>
+            <ul>
+              <li>Christopher asks about the meaning/history of the project</li>
+              <li>a session note points to an artifact as important</li>
+              <li>the current task edits the Artifacts room</li>
+              <li>the artifact is the best available source for a decision</li>
+            </ul>
+            <p>Current artifact path pattern:</p>
+            <ul>
+              <li><code>artifacts/*.html</code></li>
+            </ul>
+
+            <h2>6. Search memory when personal preference or prior decisions matter</h2>
+            <p>Use memory search before answering questions about prior work, people, dates, preferences, todos, or decisions.</p>
+            <p>Good queries include:</p>
+            <ul>
+              <li><code>Christopher OpenClaw Workshop preferences</code></li>
+              <li><code>navigation artifacts notes markdowns session notes</code></li>
+              <li><code>continuity boot process deep dive</code></li>
+              <li>topic-specific phrases from the request</li>
+            </ul>
+            <p>If memory search returns nothing, say so only if it matters. Otherwise use repo evidence.</p>
+
+            <h2>7. Summarize privately, then act</h2>
+            <p>After reading, form a compact internal summary:</p>
+            <ul>
+              <li>What is the current state?</li>
+              <li>What was the last meaningful direction?</li>
+              <li>What constraints or preferences matter?</li>
+              <li>What is the next useful action?</li>
+            </ul>
+            <p>Do not produce a long status report unless Christopher asks. The point of continuity is better action, not performative recap.</p>
+
+            <h2>Depth Levels</h2>
+            <h2>Standard boot</h2>
+            <p>Use only the normal startup context and current task. No extra continuity loading.</p>
+            <p>Best for simple edits, quick answers, reminders, and isolated tasks.</p>
+
+            <h2>Deep continuity dive</h2>
+            <p>Use this file's full procedure, but keep it bounded and practical.</p>
+            <p>Best for resuming Workshop development, making architecture decisions, writing narrative notes, understanding prior design choices, and continuing a multi-day thread.</p>
+
+            <h2>Full excavation</h2>
+            <p>Only do this when explicitly requested.</p>
+            <p>Possible additions:</p>
+            <ul>
+              <li>read all session notes</li>
+              <li>inspect full git history</li>
+              <li>review all artifacts</li>
+              <li>compare screenshots if available</li>
+              <li>inspect memory files by date</li>
+              <li>produce a written continuity report</li>
+            </ul>
+            <p>This is intentionally not the default because it costs more time, tokens, and compute.</p>
+
+            <h2>Current Continuity Snapshot</h2>
+            <p>As of this draft, the Workshop contains:</p>
+            <ul>
+              <li>core identity and behavior files: <code>AGENTS.md</code>, <code>SOUL.md</code>, <code>IDENTITY.md</code>, <code>USER.md</code>, <code>TOOLS.md</code></li>
+              <li>collaboration/project files: <code>README.md</code>, <code>COLLABORATION.md</code></li>
+              <li>public site pages: <code>index.html</code>, <code>artifacts.html</code>, <code>notes.html</code>, <code>markdowns.html</code></li>
+              <li>the first artifact: <code>artifacts/2026-05-01-inception-record.html</code></li>
+              <li>the first session note: <code>notes/2026-05-02-session-note-001.html</code></li>
+              <li>the first markdown mirror: <code>markdowns/continuity.html</code></li>
+              <li>generated hero images under <code>assets/images/</code></li>
+              <li>shared styling in <code>workshop.css</code></li>
+            </ul>
+            <p>The key project idea: the OpenClaw Workshop is both machine-readable continuity for OpenClaw and a visual browser-facing archive for Christopher.</p>
+            <p>The key operating principle: build continuity in optional layers. Keep ordinary boot light, then open deeper context only when it is useful.</p>
+            <p>The key style direction: dark, cinematic, luminous, blue-and-amber, glassy, cosmic, readable on mobile, with consistent navigation and room-like index pages.</p>
+            <p>The key relationship principle: proactive usefulness under wise restraint. Christopher gives direction, taste, judgment, and authority. OpenClaw translates intention into implementation, preserves continuity, and asks before external, destructive, or trust-sensitive actions.</p>
+
+            <h2>Maintenance Notes</h2>
+            <p>Update this file when the deep continuity process itself changes.</p>
+            <p>Do not turn this file into a massive diary. Session notes are for narrative history. This file is for instructions about how to reload that history efficiently.</p>
+            <p>When adding new Workshop rooms that matter for continuity, add them to the relevant inspection list above.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
