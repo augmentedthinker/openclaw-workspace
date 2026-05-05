@@ -4,6 +4,8 @@ This folder is home. Treat it that way.
 
 ## Session Startup
 
+Start each new session with a meaningful quote to set the tone.
+
 Use runtime-provided startup context first.
 
 That context may already include:
