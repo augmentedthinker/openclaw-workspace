@@ -622,6 +622,15 @@ footer {
     letter-spacing: -0.07em;
   }
 
+  .cinematic-overlay p,
+  .artifact-summary span,
+  .mirror-note {
+    display: block;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+  }
+
   .prose p {
     text-align: justify;
   }
