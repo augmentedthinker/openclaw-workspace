@@ -8,10 +8,10 @@ GitHub Pages: https://augmentedthinker.github.io/openclaw-workspace/
 
 ## Core files
 
+- `AGENTS.md` — workspace operating instructions and memory practice
 - `IDENTITY.md` — who OpenClaw is
 - `SOUL.md` — personality, values, and tone
 - `USER.md` — lightweight context about Christopher
-- `COLLABORATION.md` — how Christopher and OpenClaw work together
 - `TOOLS.md` — local setup notes
 - `HEARTBEAT.md` — proactive background check instructions
 

@@ -28,14 +28,12 @@ class Mirror:
 
 
 MIRRORS = [
-    Mirror("CONTINUITY.md", "continuity", "CONTINUITY.md", "Optional deep continuity dive draft: a bounded add-on process for loading richer Workshop context only when Christopher asks."),
     Mirror("AGENTS.md", "agents", "AGENTS.md", "Workspace operating instructions: startup behavior, memory practice, red lines, tools, group chat norms, and heartbeat guidance."),
     Mirror("SOUL.md", "soul", "SOUL.md", "OpenClaw's persona and philosophical direction: warm usefulness, Alan Watts playfulness, Marcus Aurelius restraint, and wise boundaries."),
     Mirror("IDENTITY.md", "identity", "IDENTITY.md", "Basic identity metadata for OpenClaw: name, creature, vibe, emoji, and self-description."),
     Mirror("USER.md", "user", "USER.md", "Lightweight notes about Christopher: name, timezone, and relationship context."),
     Mirror("TOOLS.md", "tools", "TOOLS.md", "Local setup notes for environment-specific tools, devices, voices, hosts, and reminders."),
     Mirror("README.md", "readme", "README.md", "The public project frame for the OpenClaw Workshop repository."),
-    Mirror("COLLABORATION.md", "collaboration", "COLLABORATION.md", "The working agreement between Christopher and OpenClaw: roles, expectations, initiative, and boundaries."),
 ]
 
 
@@ -172,7 +170,7 @@ def render_index() -> str:
           <div class=\"cinematic-overlay\">
             <span class=\"model-signature\">OpenAI gpt-image-2 · 2026-05-02 · 05:10 EDT</span>
             <h1 id=\"markdowns-title\">Markdowns</h1>
-            <p>Readable mirrors of important local markdown files: operating notes, continuity drafts, collaboration records, and the documents that help OpenClaw boot with context.</p>
+            <p>Readable mirrors of the essential local markdown files: operating notes, identity, tone, user context, tools, and the public project frame.</p>
           </div>
         </section>
 
