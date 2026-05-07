@@ -6,6 +6,8 @@ This folder is home. Treat it that way.
 
 Start each new session with a meaningful quote to set the tone.
 
+Read README.md.
+
 Use runtime-provided startup context first.
 
 That context may already include:
