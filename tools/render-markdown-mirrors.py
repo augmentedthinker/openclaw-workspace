@@ -127,9 +127,9 @@ def render_markdown(md: str) -> str:
 
 def nav(prefix: str = "") -> str:
     return f"""      <nav class=\"workshop-nav\" aria-label=\"Workshop navigation\">
-        <a class=\"workshop-brand\" href=\"{prefix}./\"><span aria-hidden=\"true\">🦞</span><span>OpenClaw Workshop</span></a>
+        <a class=\"workshop-brand\" href=\"{prefix}index.html\"><span aria-hidden=\"true\">🦞</span><span>OpenClaw Workshop</span></a>
         <div class=\"workshop-links\">
-          <a class=\"workshop-link\" href=\"{prefix}./\">Home</a>
+          <a class=\"workshop-link\" href=\"{prefix}index.html\">Home</a>
           <a class=\"workshop-link\" href=\"{prefix}artifacts.html\">Artifacts</a>
           <a class=\"workshop-link\" href=\"{prefix}notes.html\">Notes</a>
           <a class=\"workshop-link\" href=\"{prefix}markdowns.html\" aria-current=\"page\">Markdowns</a>

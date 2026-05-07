@@ -1,3 +1,6 @@
 .openclaw/
 
 .tmp/
+
+# Raw private continuity logs; keep public-safe artifacts/notes curated instead.
+memory/
