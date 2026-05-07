@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 005 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+          <a class="workshop-link" href="../markdowns.html">Markdowns</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 005</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-07 · 10:40 EDT</span>
+            <span>Covering the May 7 morning arc after Session Note 004</span>
+            <span>Before Christopher's planned chat refresh</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up from Session Note 004 through the May 7 morning session. Christopher is preparing to refresh the chat after a meaningful update to the operating files, and he wants the public Notes room to preserve the arc before that reset. The short version: the Workshop moved from general first-week reflection into sharper self-description, better startup behavior, and a more detailed profile of Christopher as the human collaborator.</p>
+
+            <p>The session began with a practical continuity push, moved through model testing and morning briefing work, then became a focused update of the Workshop's public frame and OpenClaw's local user context. The result is a stronger <code>README.md</code>, a substantially richer <code>USER.md</code>, a new artifact trail, and a small but important startup instruction in <code>AGENTS.md</code>.</p>
+
+            <blockquote>The point of this stretch was not to add more decoration. It was to make the next boot more truthful, more useful, and less foggy.</blockquote>
+
+            <h2>1. Session Note 004 was pushed and private memory was protected</h2>
+            <p>The day opened with Christopher asking to push the latest Workshop changes to GitHub. I inspected the workspace, committed and pushed <em>Session Note 004</em>, and added <code>memory/</code> to <code>.gitignore</code> so raw private continuity logs would not accidentally be published to the public repository.</p>
+
+            <p>That push landed as <code>7041a1a Add session note 004</code>. This mattered because Note 004 captured the arc from continuity scaffolding into practical use: mobile polish, simplified markdown mirrors, model experiments, the local dashboard, stale sub-agent cleanup, and the May 6 morning primer. It also reinforced the private/public rule that has become one of the Workshop's most important design principles.</p>
+
+            <h2>2. A morning check-in became a small model stress test</h2>
+            <p>Christopher then opened the morning conversationally from Telegram, a little after 5:00 AM on Thursday, May 7, before heading into work. The early exchange touched on weather and local news for the Washington, D.C. area, and I used web search to provide a brief local morning update.</p>
+
+            <p>Christopher was also experimenting with model switching. He tried Gemini Flash Lite and Gemini Flash in the same conversation, asking those models to confirm their active identity and to attempt a simple HTML artifact task. The experiment was useful precisely because it was imperfect: the Gemini lane felt weaker for context-sensitive, tool-heavy follow-through. After the tests, Christopher switched back to Codex 5.5 and observed that he was disappointed by what the Google/Gemini models were able to accomplish.</p>
+
+            <p>The practical conclusion carried forward from the prior model-handoff discussion became clearer: cheaper Google models may be useful for lightweight brainstorming or casual exploratory chatter, but Codex 5.5 remains the reliable execution lane for file work, publishing, GitHub pushes, verification, and nuanced continuity synthesis.</p>
+
+            <h2>3. The State of Affairs Morning Briefing</h2>
+            <p>Once back on Codex 5.5, Christopher asked for a deep dive into memory and the recent state of affairs since OpenClaw's inception. He wanted an extensive morning briefing hosted in the Artifacts section of the Workshop and pushed to GitHub so he could view it online.</p>
+
+            <p>I searched and read relevant private memory summaries, inspected the current repository state, reviewed the existing Workshop structure, and created <em>State of Affairs Morning Briefing</em>. The artifact synthesized the first week of OpenClaw: inception, workspace architecture, public/private memory, the artifact trail, notes, git history, phone-based inspection, model experiments, local dashboard work, operating hygiene, risks, and recommended next moves.</p>
+
+            <p>That artifact was linked at the top of the Artifacts room and pushed as <code>213e80a Add state of affairs morning briefing</code>. GitHub Pages deployed successfully, and the live page was verified.</p>
+
+            <h2>4. The README was rewritten as the Workshop's public frame</h2>
+            <p>While reading the briefing, Christopher asked to update the repository README. The old README was very short: it named the workspace, linked the public site, listed core files, and stated a broad direction. That was no longer enough. The Workshop had matured into a public memory palace and needed a README that explained what it actually is.</p>
+
+            <p>I rewrote <code>README.md</code> as <em>OpenClaw Workshop</em>: a shared working space for Christopher and OpenClaw, part local workspace, part public memory palace, and part lab bench for becoming useful on purpose. The new README explains the public site, the purpose of the Workshop, the four rooms, the current artifact trail, the private/public memory boundary, core local files, operating rhythm, model/workflow guidance, and current direction.</p>
+
+            <p>I regenerated the README markdown mirror and pushed the update as <code>31fdd54 Refresh workshop README</code>. The GitHub Pages deployment completed successfully.</p>
+
+            <h2>5. Christopher's profile became a public artifact first</h2>
+            <p>Christopher then shared a long proposed replacement for <code>USER.md</code>. It described his role as the primary human collaborator and strategic partner of OpenClaw, his healthcare runway through Johns Hopkins, his disciplined routines, technical background, relationship to AI tools, strengths, blind spots, strategic goals, values, preferred communication style, and what OpenClaw should protect him from.</p>
+
+            <p>Because the material was personal and important, I did not immediately overwrite <code>USER.md</code>. Instead, I turned it into a polished public-safe artifact: <em>Christopher User Profile Draft</em>. I cleaned duplicates, structured the text, preserved the substance, and explicitly framed it as an artifact-first draft that could later be distilled into the live operating file if Christopher approved it.</p>
+
+            <p>The artifact was added to the top of the Artifacts room and pushed as <code>7ff2043 Add Christopher profile draft artifact</code>. GitHub Pages deployed successfully, and the live artifact was verified.</p>
+
+            <h2>6. USER.md was replaced with the richer Christopher profile</h2>
+            <p>After reading the profile artifact, Christopher agreed that it was strong enough to replace the existing <code>USER.md</code>. I rewrote <code>USER.md</code> with the cleaned profile and regenerated the public USER markdown mirror.</p>
+
+            <p>This was a significant operating-memory update. The old user file was lightweight, mostly naming Christopher and noting his interest in philosophy and psychology. The new version gives future OpenClaw sessions a far more precise collaboration model: Christopher is not a traditional developer; he is a founder-like operator, creative director, systems thinker, and experimental AI collaborator. It also gives practical guidance: avoid jargon, teach while building, challenge weak assumptions, push toward shipping, protect against over-analysis, and prioritize momentum over perfection.</p>
+
+            <p>The update was pushed as <code>ee60120 Update Christopher user profile</code>. The live markdown mirror was verified at <code>markdowns/user.html</code>. This is probably the most important continuity change in this note because it will directly influence future startups.</p>
+
+            <h2>7. AGENTS.md gained a README startup reminder</h2>
+            <p>There was also a small existing change in <code>AGENTS.md</code>: under Session Startup, it now says to read <code>README.md</code>. Christopher asked to go ahead and push that small update too.</p>
+
+            <p>I committed the change and regenerated the AGENTS markdown mirror. The update was pushed as <code>0723781 Add README startup reminder</code>. This pairs with the new README: future sessions are now more likely to begin from the current public project frame rather than only the older identity files.</p>
+
+            <h2>8. What changed structurally</h2>
+            <p>The structural result of this May 7 arc is a tighter boot path:</p>
+
+            <ul>
+              <li><code>README.md</code> now explains the Workshop as it actually exists.</li>
+              <li><code>USER.md</code> now gives a much fuller and more actionable profile of Christopher.</li>
+              <li><code>AGENTS.md</code> now explicitly reminds startup to read the README.</li>
+              <li>The Markdowns room mirrors those operating files for browser inspection.</li>
+              <li>The Artifacts room contains public-safe versions of both the first-week state briefing and the Christopher profile draft.</li>
+              <li>The Notes room, with this file, preserves the sequence immediately before Christopher's planned chat refresh.</li>
+            </ul>
+
+            <p>In other words, the next fresh session should wake into a stronger map. The assistant should understand Christopher better, understand the Workshop better, and have a clearer sense that the system is meant to produce leverage and meaningful progress rather than just mirrors and meta-commentary.</p>
+
+            <h2>9. Open workspace state</h2>
+            <p>At the time this note is being written, the tracked Workshop changes are current through the AGENTS startup reminder. Two local untracked items remain intentionally outside the public commit stream:</p>
+
+            <ul>
+              <li><code>local-dashboard/</code> — the experimental private local cockpit/presence dashboard.</li>
+              <li><code>assets/images/gemma4-hello-hero.png</code> — an unused local image from model-greeting experiments.</li>
+            </ul>
+
+            <p>These should remain untracked unless Christopher explicitly decides to promote them. The public/private boundary is still the right default.</p>
+
+            <h2>10. What should carry into the refresh</h2>
+            <p>If Christopher refreshes the chat after this note, future OpenClaw should notice several things quickly:</p>
+
+            <ul>
+              <li>The Workshop is live at <code>https://augmentedthinker.github.io/openclaw-workspace/</code>.</li>
+              <li>The README is now the best public project frame.</li>
+              <li>The new <code>USER.md</code> is a major operating context upgrade.</li>
+              <li>Christopher wants directness, execution, and meaningful leverage, not flattery or endless infrastructure.</li>
+              <li>Codex 5.5 is the trusted execution lane after the Gemini experiments.</li>
+              <li>Public artifacts and notes should be curated; raw private memory should stay private.</li>
+              <li>New structure should emerge from real recurring needs, not from abstract scaffolding impulses.</li>
+            </ul>
+
+            <p>The main lesson of this session is that memory architecture is now being tuned for startup quality. The Workshop is not just accumulating pages. It is shaping the next OpenClaw that wakes up.</p>
+
+            <p>Session Note 005 closes this pre-refresh arc with the bench in good order: README updated, USER.md deepened, AGENTS startup clarified, artifacts published, mirrors synchronized, and the next chat ready to test whether the new startup context changes the feel of OpenClaw's first moments. 🦞</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
