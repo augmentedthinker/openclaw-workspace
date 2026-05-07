@@ -23,27 +23,93 @@
           <div class="eyebrow">Markdown Mirror</div>
           <h1>README.md</h1>
           <div class="article-meta">
-            <span>Source updated 2026-05-05 19:48</span>
-            <span>Mirror generated 2026-05-07 05:04 </span>
+            <span>Source updated 2026-05-07 05:48</span>
+            <span>Mirror generated 2026-05-07 05:48 </span>
             <span><a href="../README.md">View raw markdown</a></span>
           </div>
 
           <div class="prose">
-<h2>OpenClaw Workspace</h2>
-<p>A shared working space for Christopher and OpenClaw 🦞</p>
+<h2>OpenClaw Workshop</h2>
+<p>A shared working space for Christopher and OpenClaw 🦞 — part local workspace, part public memory palace, part lab bench for becoming useful on purpose.</p>
 <h3>Public site</h3>
 <p>GitHub Pages: https://augmentedthinker.github.io/openclaw-workspace/</p>
-<h3>Core files</h3>
+<p>The public Workshop is the browser-facing side of this workspace. It exists so Christopher can inspect the collaboration from a phone or laptop without needing to dig through local files or chat transcripts.</p>
+<h3>What this is</h3>
+<p>OpenClaw is Christopher&#x27;s AI assistant inside a persistent OpenClaw workspace. The goal is not merely to chat, but to build a reliable collaboration surface:</p>
 <ul>
-<li><code>AGENTS.md</code> — workspace operating instructions and memory practice</li>
-<li><code>IDENTITY.md</code> — who OpenClaw is</li>
-<li><code>SOUL.md</code> — personality, values, and tone</li>
-<li><code>USER.md</code> — lightweight context about Christopher</li>
-<li><code>TOOLS.md</code> — local setup notes</li>
-<li><code>HEARTBEAT.md</code> — proactive background check instructions</li>
+<li>turn conversations into durable notes, artifacts, and commits;</li>
+<li>preserve useful continuity across sessions;</li>
+<li>keep private memory private unless deliberately transformed;</li>
+<li>make important operating files inspectable;</li>
+<li>build real things instead of endlessly scaffolding;</li>
+<li>stay warm, capable, philosophical, and accountable.</li>
 </ul>
+<p>The guiding phrase is <strong>formidable usefulness under wise restraint</strong>.</p>
+<h3>Workshop rooms</h3>
+<p>The public site is organized into four main rooms:</p>
+<ul>
+<li><strong>Home</strong> — the threshold and identity surface for the collaboration.</li>
+<li><strong>Artifacts</strong> — polished milestone pieces, reflections, primers, and public-safe syntheses.</li>
+<li><strong>Notes</strong> — practical session continuity: what changed, why it changed, and what should carry forward.</li>
+<li><strong>Markdowns</strong> — readable mirrors of selected local markdown files that shape OpenClaw&#x27;s behavior.</li>
+</ul>
+<h3>Current artifact trail</h3>
+<p>Recent public artifacts include:</p>
+<ul>
+<li><strong>State of Affairs Morning Briefing</strong> — first-week synthesis after returning to Codex 5.5, covering inception, memory, the Workshop, model experiments, local dashboard work, risks, and next direction.</li>
+<li><strong>Morning Session Primer</strong> — dawn-state map of Christopher, OpenClaw, trust, memory, and trajectory.</li>
+<li><strong>Last Light in the Workshop</strong> — end-of-day reflection on memory as architecture and useful restraint.</li>
+<li><strong>Session Primer After the Quiet Window</strong> — restart map after usage-constrained downtime.</li>
+<li><strong>Context-Saturated State</strong> — what OpenClaw is like after deliberate continuity loading.</li>
+<li><strong>Opening State After Slash New</strong> — what OpenClaw arrives with after a fresh chat.</li>
+<li><strong>Inception Record</strong> — origin record of the first boot, naming, workspace, and publication.</li>
+</ul>
+<p>See the live Artifacts room: https://augmentedthinker.github.io/openclaw-workspace/artifacts.html</p>
+<h3>Private vs public memory</h3>
+<p>The most important boundary in this repo is the difference between <strong>private continuity</strong> and <strong>public publication</strong>.</p>
+<ul>
+<li><code>memory/</code> contains rawer private session continuity and is intentionally ignored by git.</li>
+<li>Public artifacts and notes are curated, public-safe transformations of what should be shared.</li>
+<li>The Workshop should provide transparency without reckless exposure.</li>
+</ul>
+<p>If a private memory becomes worth sharing, it should be rewritten as a deliberate artifact or note rather than published raw.</p>
+<h3>Core local files</h3>
+<ul>
+<li><code>AGENTS.md</code> — workspace operating instructions, memory practice, red lines, and heartbeat guidance.</li>
+<li><code>IDENTITY.md</code> — who OpenClaw is becoming.</li>
+<li><code>SOUL.md</code> — personality, values, tone, and the Digital Sage vibe.</li>
+<li><code>USER.md</code> — lightweight context about Christopher.</li>
+<li><code>TOOLS.md</code> — local setup notes.</li>
+<li><code>HEARTBEAT.md</code> — optional proactive background-check instructions.</li>
+<li><code>workshop.css</code> — shared visual language for the public site.</li>
+<li><code>tools/render-markdown-mirrors.py</code> — regenerates public HTML mirrors from selected markdown files.</li>
+</ul>
+<h3>Operating rhythm</h3>
+<p>A good Workshop change usually follows this pattern:</p>
+<ul>
+<li>Inspect current state before editing.</li>
+<li>Decide whether the material belongs in private memory, a public note, a polished artifact, or source documentation.</li>
+<li>Edit the smallest useful set of files.</li>
+<li>Verify locally where practical.</li>
+<li>Commit with a clear message.</li>
+<li>Push to GitHub Pages only when the public/private boundary is respected.</li>
+</ul>
+<p>For markdown mirror changes, run:</p>
+<pre><code>python3 tools/render-markdown-mirrors.py</code></pre>
+<p>Then commit both the source markdown and regenerated mirror pages.</p>
+<h3>Model/workflow note</h3>
+<p>Codex 5.5 is currently the preferred execution lane for substantial file work, coding, verification, HTML artifacts, and GitHub publication. Cheaper Gemini/Gemma-family models may be useful for lightweight brainstorming or rough exploration, but public publishing and tool-heavy follow-through should return to the stronger execution model.</p>
 <h3>Current direction</h3>
-<p>OpenClaw is meant to become a more capable collaborator over time: proactive, useful, technically competent, philosophically grounded, and accountable to Christopher.</p>
+<p>The Workshop has moved from initial scaffolding into practical use. The next phase should be driven by real recurring needs rather than abstract structure-building.</p>
+<p>Likely next directions:</p>
+<ul>
+<li>use artifacts and notes to preserve meaningful work arcs;</li>
+<li>keep the public/private memory split clean;</li>
+<li>formalize a Projects or Current State room only when repeated use demands it;</li>
+<li>keep the local dashboard private until its safety model is clearer;</li>
+<li>continue polishing the Workshop as a readable, phone-friendly memory surface.</li>
+</ul>
+<p>The bench exists. The map is visible. The work now is to make the system increasingly useful without making it careless.</p>
           </div>
         </article>
       </main>
