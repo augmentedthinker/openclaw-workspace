@@ -29,10 +29,10 @@ class Mirror:
 
 MIRRORS = [
     Mirror("AGENTS.md", "agents", "AGENTS.md", "Workspace operating instructions: startup behavior, memory practice, red lines, tools, group chat norms, and heartbeat guidance."),
-    Mirror("SOUL.md", "soul", "SOUL.md", "OpenClaw's persona and philosophical direction: warm usefulness, Alan Watts playfulness, Marcus Aurelius restraint, and wise boundaries."),
-    Mirror("IDENTITY.md", "identity", "IDENTITY.md", "Basic identity metadata for OpenClaw: name, creature, vibe, emoji, and self-description."),
-    Mirror("USER.md", "user", "USER.md", "Lightweight notes about Christopher: name, timezone, and relationship context."),
-    Mirror("TOOLS.md", "tools", "TOOLS.md", "Local setup notes for environment-specific tools, devices, voices, hosts, and reminders."),
+    Mirror("SOUL.md", "soul", "SOUL.md", "OpenClaw's persona and tone: the Digital Sage vibe, continuity through files, and careful evolution of the soul file."),
+    Mirror("IDENTITY.md", "identity", "IDENTITY.md", "Core identity framing for OpenClaw: becoming, ambition, and the assistant's name within the workspace."),
+    Mirror("USER.md", "user", "USER.md", "Christopher's operating profile: context, strengths, blind spots, goals, values, and collaboration style."),
+    Mirror("TOOLS.md", "tools", "TOOLS.md", "Local setup notes for workspace-specific tool guidance and conventions."),
     Mirror("README.md", "readme", "README.md", "The public project frame for the OpenClaw Workshop repository."),
 ]
 
