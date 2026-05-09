@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recursive Learning Loops for OpenCLAW Agents · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+    <style>
+      .table-wrap {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 1rem 0 1.5rem;
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: rgb(5 7 13 / 0.42);
+      }
+      table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th, td {
+        border-bottom: 1px solid var(--line);
+        border-right: 1px solid rgb(255 246 229 / 0.1);
+        padding: 0.72rem 0.82rem;
+        vertical-align: top;
+        text-align: left;
+      }
+      th {
+        color: var(--ink);
+        background: rgb(255 184 107 / 0.1);
+        font-weight: 760;
+      }
+      td { color: rgb(255 246 229 / 0.82); }
+      tr:last-child td { border-bottom: 0; }
+      .citation {
+        display: inline-block;
+        color: rgb(255 184 107 / 0.78);
+        font-size: 0.78em;
+        border: 1px solid rgb(255 184 107 / 0.25);
+        border-radius: 999px;
+        padding: 0.05rem 0.35rem;
+        white-space: nowrap;
+      }
+      .source-note { margin-bottom: 1.25rem; }
+      .prose h3, .prose h4, .prose h5 {
+        margin: 1.6rem 0 0.7rem;
+        color: var(--soft);
+      }
+      .prose h3 { font-size: clamp(1.25rem, 3.4vw, 1.65rem); }
+      .prose h4 { font-size: clamp(1.08rem, 2.8vw, 1.28rem); }
+      .prose h5 { font-size: 1.05rem; }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+          <a class="workshop-link" href="../markdowns.html">Markdowns</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="recursive-title">
+          <img src="../assets/images/closing-reflection-hero.png" alt="A luminous blue-and-amber workshop scene with glass panels, memory traces, and tools for careful autonomous systems design." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Imported research report · formatted 2026-05-09</span>
+            <h1 id="recursive-title">Recursive Learning Loops</h1>
+            <p>A browser-readable Workshop artifact adapted from a deep research report on practical recursive learning patterns for OpenCLAW-style agents.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifact / Research Report</div>
+            <h1>Recursive Learning Loops for OpenCLAW Agents</h1>
+            <div class="article-meta">
+              <span>Source: user-provided markdown report</span>
+              <span>Formatted 2026-05-09</span>
+              <span>Theme: memory, skills, evaluation, telemetry</span>
+              <span>Purpose: browser-readable reference</span>
+            </div>
+            <section class="mirror-note source-note">
+              <strong>Source note:</strong> this artifact preserves the substance of the attached research report while converting markdown tables, code blocks, and references into the OpenClaw Workshop reading format. Citation tokens from the source report are displayed as compact reference markers rather than verified bibliography entries.
+            </section>
+
+            <div class="prose">
+<h3>Executive summary</h3>
+<p>For an OpenCLAW-like personal agent, the most realistic interpretation of “recursive learning” is not continual weight training. It is repeated, structured modification of <strong>external substrates</strong>: memory files, skill documents, prompt playbooks, evaluator rubrics, routing rules, schedules, tool wrappers, and sometimes sandboxed code. That is the common pattern across the strongest practical systems in this area: Reflexion improves via linguistic feedback and episodic memory; Voyager grows a reusable code skill library and automatic curriculum; MemGPT manages memory tiers; Letta exposes editable memory blocks and sleep-time reflection; A-MEM organizes memories into linked notes; ACE evolves context playbooks; and MemRL improves by learning over memory utility rather than by fully retraining a base model.  <span class="citation">refs: turn26view0, turn26view1, turn25view2, turn24view2, …</span></p>
+<p>That distinction matters because it changes what is feasible on a Chromebook, a small VPS, or lightweight cloud. Reflection, memory consolidation, skill extraction, evaluator loops, scheduled “sleep-time” review, and telemetry-driven routing are practical with API models plus local storage. Full reinforcement learning stacks, by contrast, are significantly heavier: Agent Lightning and Tool-R1 are promising, but they assume datasets, rollouts, reward design, and training infrastructure that most personal-agent deployments should postpone until later.  <span class="citation">refs: turn27view0, turn27view1, turn26view6</span></p>
+<p>On the specific project you mentioned, the official docs identify Hermes Agent as built by <a href="https://nousresearch.com">Nous Research</a>, not as an Massachusetts Institute of Technology project. More importantly for OpenCLAW, those docs expose exactly the sort of architecture you care about: self-improving skills, persistent knowledge, remote or local execution backends, and built-in scheduling.  <span class="citation">refs: turn24view0, turn24view1, turn31search0</span></p>
+<p>The practical conclusion is straightforward. The <strong>highest-return early loops</strong> for OpenCLAW are: post-task reflection, failed-task diagnosis, user-preference memory, daily consolidation, weekly distillation, artifact evaluation with a separate grader, telemetry-based routing, and heartbeat maintenance. The <strong>highest-risk late loops</strong> are: autonomous code self-modification outside a sandbox, unconstrained self-rewriting prompts, and any form of live RL or weight updates without hard evals, rollback, and human approval. Benchmark evidence supports that caution: current agents are still inconsistent on realistic domains, with less-than-50% success in several demanding settings, and memory systems still struggle with stale or invalidated information.  <span class="citation">refs: turn27view11, turn26view8, turn17search0, turn26view9, …</span></p>
+<h3>Taxonomy</h3>
+<p>The cleanest way to think about recursive learning is to ask a single question: <strong>what substrate is being rewritten, by which signal, under what gate?</strong> For OpenCLAW, that framing matters more than whether a paper uses the language of “self-improvement,” “reflection,” or “continual learning.” The loop families below are ordered from most deployment-ready to most operationally expensive. Cost and feasibility are engineering estimates for a small deployment, derived from the cited architectures.  <span class="citation">refs: turn26view0, turn26view1, turn24view2, turn24view3, …</span></p>
+<h4>Generic loop families</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>Loop family</th><th>Substrate modified</th><th>Typical inputs</th><th>Typical outputs</th><th>Common failure modes</th><th>Small-deployment cost</th><th>Safety risk</th><th>Small-deployment feasibility</th><th>Representative sources</th></tr></thead>
+<tbody>
+<tr><td>Memory extraction and consolidation</td><td>Episodic logs, semantic/user memory, linked notes</td><td>Task traces, user corrections, conversation history</td><td>Memory entries, summaries, linked notes</td><td>Stale memories, over-insertion, privacy leakage, retrieval noise</td><td>Low</td><td>Medium</td><td>Excellent</td><td><span class="citation">refs: turn24view2, turn24view3, turn26view3, turn26view7, …</span></td></tr>
+<tr><td>Reflection and diagnosis</td><td>Reflection buffers, failure notes, lessons-learned files</td><td>Outcome signal, tool errors, evaluator feedback</td><td>Error diagnosis, “next time do X” guidance</td><td>Superficial self-critique, vague lessons, circular self-approval</td><td>Low</td><td>Medium</td><td>Excellent</td><td><span class="citation">refs: turn26view0, turn28view2, turn24view6</span></td></tr>
+<tr><td>Skill libraries</td><td>Skill docs, code snippets, reusable procedures, APIs</td><td>Successful trajectories, repeated workflows</td><td>Executable skills, retrieval tags, tests</td><td>Skill bloat, stale skills, overfitting to one environment</td><td>Low to medium</td><td>Medium</td><td>Excellent</td><td><span class="citation">refs: turn26view1, turn32search4, turn31search0, turn32academia17, …</span></td></tr>
+<tr><td>Planning and search loops</td><td>Plans, search trees, policy over expansions</td><td>Current state, tool feedback, web/app state</td><td>Search trajectories, candidate plans</td><td>Excess cost, branch explosion, overthinking, latency</td><td>Medium to high</td><td>Medium</td><td>Moderate</td><td><span class="citation">refs: turn6search10, turn28view0, turn13search0</span></td></tr>
+<tr><td>Evaluator and critic loops</td><td>Rubrics, critique traces, candidate rankings</td><td>Draft artifacts, provisional tool calls, state diffs</td><td>Scores, critiques, retries, filtered actions</td><td>Judge bias, critic-induced regressions, reward hacking</td><td>Medium</td><td>Medium to high</td><td>Excellent</td><td><span class="citation">refs: turn24view8, turn36view0, turn28view1</span></td></tr>
+<tr><td>RL from AI or human feedback</td><td>Reward models, policy weights, optimizer state</td><td>Preference data, verifiable rewards, rollout traces</td><td>Fine-tuned policy or reward updates</td><td>Reward hacking, catastrophic forgetting, infra complexity</td><td>High</td><td>High</td><td>Poor to moderate</td><td><span class="citation">refs: turn11search0, turn27view0, turn26view6, turn28view9</span></td></tr>
+<tr><td>Prompt and context self-modification</td><td>System prompts, playbooks, demonstrations, context blocks</td><td>Held-out evals, execution feedback, rubric scores</td><td>New prompt variants, context deltas, compiled policies</td><td>Prompt collapse, benchmark overfitting, verbosity creep</td><td>Low to medium</td><td>Medium</td><td>Excellent</td><td><span class="citation">refs: turn26view5, turn25view9, turn27view5, turn27view6, …</span></td></tr>
+<tr><td>Code and tool self-modification</td><td>Tool wrappers, scripts, parsers, harness code</td><td>Failing traces, tests, human review, diffs</td><td>Patches, new tool affordances, regression tests</td><td>Unsafe actions, privilege escalation, breaking tools</td><td>Medium to high</td><td>High</td><td>Moderate with sandbox</td><td><span class="citation">refs: turn24view6, turn24view1, turn35view0</span></td></tr>
+<tr><td>Curriculum generation</td><td>Task queues, challenge suites, synthetic evals</td><td>Failure clusters, missing-skill analysis</td><td>New tasks, practice sets, seed curricula</td><td>Easy-task bias, self-generated junk tasks</td><td>Medium</td><td>Low to medium</td><td>Moderate</td><td><span class="citation">refs: turn26view1, turn13search0, turn28view8</span></td></tr>
+<tr><td>Telemetry-driven loops</td><td>Routing rules, thresholds, tool enablement, dashboards</td><td>Traces, metrics, latency, success/failure logs</td><td>New model routes, guardrails, alerting</td><td>Optimizing for proxies, silent regressions</td><td>Low</td><td>Medium</td><td>Excellent</td><td><span class="citation">refs: turn24view7, turn27view2</span></td></tr>
+</tbody></table></div>
+<h4>OpenCLAW loop catalog</h4>
+<p>Given OpenCLAW’s stated capabilities—tools, file access, code execution, markdown memory, messaging, scheduling, and artifact generation—the following named loops are the most natural fit. The key design choice is that <strong>not every loop should have equal write permissions</strong>.  <span class="citation">refs: turn24view6, turn31search0, turn33search0, turn36view0</span></p>
+<div class="table-wrap"><table>
+<thead><tr><th>OpenCLAW loop type</th><th>Trigger</th><th>Primary writable substrate</th><th>Best success signal</th><th>Default gate</th></tr></thead>
+<tbody>
+<tr><td>Post-task reflection</td><td>Every completed task above a complexity threshold</td><td><code>memory/reflections/</code> and per-domain lessons</td><td>Reduced repeat errors on delayed holdout tasks</td><td>Automatic draft write</td></tr>
+<tr><td>Failed-task diagnosis</td><td>Any failed task or user correction</td><td><code>memory/failures/</code> and evaluator logs</td><td>Lower recurrence of same failure class</td><td>Automatic draft write</td></tr>
+<tr><td>Daily consolidation</td><td>End of day or N tasks</td><td>User/profile memory, episodic summary, stale-memory candidates</td><td>Better retrieval precision next day</td><td>Automatic with audit trail</td></tr>
+<tr><td>Weekly distillation</td><td>Weekly cron</td><td>Condensed playbooks, pruned memories, promoted skills</td><td>Lower context size with equal or better task success</td><td>Human review for promotion</td></tr>
+<tr><td>User-preference learning</td><td>Explicit correction or stable repeated preference</td><td>Profile markdown and structured preference table</td><td>Higher preference-consistency without intrusive personalization</td><td>Human-visible log</td></tr>
+<tr><td>Code and tool improvement</td><td>Repeated tool failures or brittle wrappers</td><td>Sandbox branch, tool adapters, tests</td><td>More passing regression cases and fewer retries</td><td>Mandatory human approval</td></tr>
+<tr><td>Prompt refinement</td><td>Stable eval set shows persistent weakness</td><td>System prompt fragments, playbooks, demonstrations</td><td>Higher held-out success at same or lower cost</td><td>Staged rollout</td></tr>
+<tr><td>Heartbeat maintenance</td><td>Scheduled health checks</td><td>Scheduler definitions, lightweight scripts, alerts</td><td>Faster detection and recovery from broken routines</td><td>Automatic in narrow scope</td></tr>
+<tr><td>Artifact evaluation</td><td>Any generated report, message, file, or patch</td><td>Evaluator traces, scorecards, artifact revisions</td><td>Higher externally graded artifact quality</td><td>Automatic retry, bounded attempts</td></tr>
+<tr><td>Public-feedback loops</td><td>Telegram or user-side reactions, thumbs, edits, acceptance</td><td>Preference/event logs, weak labels</td><td>Better future outputs for the same audience</td><td>Aggregate only; no direct autonomous rewrite</td></tr>
+</tbody></table></div>
+<h3>Literature review</h3>
+<p>The implementation references most worth having open while designing OpenCLAW are Hermes Agent docs (turn2search0), Letta docs (turn9search0), Claude Code memory docs (turn8search5), A-MEM repo (turn29search0), Agent Lightning repo (turn1search14), and OpenTelemetry docs (turn15search0). Those sources are especially valuable because they move beyond abstract “agent” rhetoric into actual deployable surfaces: memory blocks, background reflection, progress files, terminal backends, schedulers, and telemetry conventions.  <span class="citation">refs: turn24view0, turn24view1, turn24view2, turn24view3, …</span></p>
+<p>The foundational papers from 2023–2024 established the basic non-parametric forms of agent learning. Generative Agents showed the now-familiar pattern of storing experiences, synthesizing higher-order reflections, and retrieving them for planning. Reflexion reframed learning as verbal reflection stored in episodic memory rather than weight updates. Voyager demonstrated automatic curriculum generation plus an ever-growing executable skill library. ExpeL added the important idea of converting trajectories into natural-language insights and in-context examples. MemGPT generalized the problem into virtual context management, which is especially relevant for long-running personal agents with bounded context windows.  <span class="citation">refs: turn26view2, turn26view0, turn26view1, turn28view2, …</span></p>
+<p>These early ideas were echoed, and stressed, by benchmark work. The early Auto-GPT benchmark paper argued that Auto-GPT-style agents had uncertain effectiveness and limited real-world engagement without stronger scaffolding and evaluation. AgentBench found that poor long-term reasoning, decision-making, and instruction-following were core obstacles. τ-bench showed that even strong function-calling agents can remain below 50% on realistic domains and are inconsistent across repeated trials. AppWorld raised the bar further by evaluating multi-app, code-heavy tasks and showed that strong frontier models still solved only about half of the normal split and substantially less of the challenge split in the original report.  <span class="citation">refs: turn27view13, turn28view3, turn27view11, turn18search3, …</span></p>
+<p>The 2025–2026 literature sharpened the memory and context side of the field. A-MEM moved memory from flat retrieval toward dynamically linked notes inspired by Zettelkasten. Mem0 emphasized extraction, consolidation, and retrieval, with a graph-memory extension for relational reasoning. LightMem explicitly targeted the performance-efficiency tradeoff. ACE is especially important for OpenCLAW because it treats system prompts and memory as evolving playbooks rather than static strings, and explicitly names two pathologies that many agent builders have seen in practice: brevity bias and context collapse. MemRL pushed the idea further by learning utility over memory selection, not by repeatedly retraining the base model.  <span class="citation">refs: turn26view3, turn26view7, turn28view5, turn26view5, …</span></p>
+<p>Production systems have converged in a similar direction. The official Claude Code docs describe two persistent channels—<code>CLAUDE.md</code> and auto memory—and official engineering posts recommend explicit progress files, test oracles, and Git-based checkpointing for multi-session agents. The official Letta docs expose persistent memory blocks, self-editing memory, periodic dream subagents, and explicit scheduling. The official Hermes Agent docs describe skill creation, persistence, scheduling, and multiple execution backends. And the official Claude Managed Agents post (turn36view0) added “dreaming,” where a scheduled process reviews sessions and memories, restructures them, and can optionally require review before writes land.  <span class="citation">refs: turn24view4, turn24view5, turn24view6, turn24view2, …</span></p>
+<p>The remaining frontier is evaluation, search, and optimization. DSPy and AutoPDL provide practical pathways for automatically improving prompts or agent configurations against a metric. OPRO is conceptually elegant, but later work found it limited on smaller models, which is directly relevant if OpenCLAW runs on cheaper model tiers. Tree-search and debate methods remain useful, but they are better understood as <strong>test-time compute multipliers</strong> than as persistent learning by themselves unless their outputs get written back into memory or playbooks. Agent Lightning and Tool-R1 show the route toward offline or semi-offline policy improvement, but they should be treated as later-stage extensions once OpenCLAW already has clean logging, reproducible tasks, and reward signals.  <span class="citation">refs: turn27view5, turn25view9, turn27view6, turn28view10, …</span></p>
+<h4>Systems and methods most worth copying</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>System or method</th><th>What it actually contributes</th><th>Why it matters for OpenCLAW</th><th>Sources</th></tr></thead>
+<tbody>
+<tr><td>Reflexion</td><td>Verbal post-task learning into episodic memory</td><td>Best first implementation of “learn from mistakes without fine-tuning”</td><td><span class="citation">refs: turn26view0</span></td></tr>
+<tr><td>Voyager</td><td>Automatic curriculum plus reusable code skills</td><td>Template for skill extraction, retrieval, and composition</td><td><span class="citation">refs: turn26view1</span></td></tr>
+<tr><td>MemGPT</td><td>Memory tiers and context virtualization</td><td>Strong design model for bounded-context personal agents</td><td><span class="citation">refs: turn25view2</span></td></tr>
+<tr><td>A-MEM</td><td>Dynamic note linking and richer memory structure</td><td>Better than flat vector recall for evolving user/projects</td><td><span class="citation">refs: turn26view3, turn29search0</span></td></tr>
+<tr><td>Mem0</td><td>Extraction, consolidation, retrieval, graph memory</td><td>Practical memory baseline with explicit latency/cost framing</td><td><span class="citation">refs: turn26view7</span></td></tr>
+<tr><td>ACE</td><td>Evolving playbooks, anti-collapse updates</td><td>Best prompt/context self-improvement model for lightweight deployment</td><td><span class="citation">refs: turn26view5</span></td></tr>
+<tr><td>Letta</td><td>Self-editing memory blocks and sleep-time subagents</td><td>Strong direct analogue for OpenCLAW’s markdown/state loops</td><td><span class="citation">refs: turn24view2, turn24view3, turn33search0</span></td></tr>
+<tr><td>Hermes Agent</td><td>Skill-backed learning loop, scheduling, remote execution</td><td>Closest existing “personal agent that compounds” reference</td><td><span class="citation">refs: turn24view0, turn24view1, turn31search0</span></td></tr>
+<tr><td>AutoPDL and DSPy</td><td>Metric-guided prompt or pipeline optimization</td><td>Useful once OpenCLAW has stable evals and data</td><td><span class="citation">refs: turn25view9, turn27view5</span></td></tr>
+<tr><td>Agent Lightning and Tool-R1</td><td>Offline RL training for agents and tool use</td><td>Valuable late, but too heavy to be phase-one OpenCLAW</td><td><span class="citation">refs: turn27view0, turn27view1, turn26view6</span></td></tr>
+</tbody></table></div>
+<h3>Implementation patterns</h3>
+<p>The most robust implementation pattern is to separate OpenCLAW’s state into <strong>identity</strong>, <strong>episodic history</strong>, <strong>semantic memory</strong>, <strong>skills</strong>, <strong>evaluations</strong>, <strong>artifacts</strong>, and <strong>telemetry</strong>, then give each loop partial write permissions depending on its trust level. That pattern appears repeatedly in practice: <code>CLAUDE.md</code> plus auto memory in Claude Code, memory blocks and sleep-time agents in Letta, progress-file-plus-Git scaffolding in long-running coding agents, and skill-backed persistence in Hermes Agent.  <span class="citation">refs: turn24view4, turn24view6, turn24view2, turn24view3, …</span></p>
+<p>A repository layout that matches those lessons can stay simple and still scale:</p>
+<pre><code class="language-text">openclaw/
+  config/
+    models.yaml
+    safety.yaml
+    schedules.yaml
+    routing.yaml
+  memory/
+    identity.md
+    user_profile.md
+    preferences.json
+    episodic/
+      2026-05-09/
+    semantic/
+      memories.sqlite
+    reflections/
+    weekly_playbooks/
+  skills/
+    registry.yaml
+    drafts/
+    approved/
+    archived/
+  tools/
+    adapters/
+    wrappers/
+    tests/
+  evals/
+    rubrics/
+    datasets/
+    holdout/
+    replays/
+    reports/
+  artifacts/
+    generated/
+    accepted/
+    rejected/
+  telemetry/
+    runs.jsonl
+    spans.jsonl
+    costs.jsonl
+    regressions.jsonl
+  sandbox/
+    worktrees/
+    patches/
+  scripts/
+    daily_consolidation.py
+    weekly_distillation.py
+    heartbeat_checks.py</code></pre>
+<p>For a single-user or small-team agent, start with SQLite rather than a remote vector database. The official SQLite docs describe it as small, self-contained, and high-reliability; Python’s standard <code>sqlite3</code> module exposes it without a separate server process; FTS5 gives strong lexical search; and SQLite’s <code>vec1</code> extension provides ANN vector search when dense retrieval becomes useful. In practice, that means one file can hold memories, metadata, preference state, evaluator outcomes, and hybrid search indexes. Move to a distributed vector DB only when you truly need multi-node scale, many concurrent users, or specialized filtering and operational tooling.  <span class="citation">refs: turn30view0, turn30view1, turn27view4, turn27view3</span></p>
+<p>For skills, prefer <strong>versioned, testable procedural artifacts</strong> over freeform prose. Voyager’s library was executable code; Hermes attaches skills to scheduled jobs; newer skill-centric papers emphasize multi-level, reusable, and iteratively refined skill packages. In OpenCLAW terms, a skill should minimally include: scope, prerequisites, required tools, expected inputs, success tests, negative examples, rollback notes, and provenance. That makes skills searchable, auditable, and promotable from draft to approved state.  <span class="citation">refs: turn26view1, turn31search0, turn32academia15, turn32academia17, …</span></p>
+<p>For evaluator logs, treat grader outputs as first-class data. The official reviewer-agent paper from Apple ML Research (turn12search1) is useful here because it measures both <strong>helpfulness</strong> and <strong>harmfulness</strong>: a reviewer may fix some bad outputs while also degrading some correct ones. The official managed-agent “outcomes” pattern is similarly strong because it separates the grader’s context window from the generator’s. For OpenCLAW, that means every evaluation record should store the artifact hash, rubric version, judge model, score vector, retry count, and whether the reviewer changed a previously successful output for the worse.  <span class="citation">refs: turn24view8, turn36view0</span></p>
+<p>For rollback and sandboxing, follow the engineering patterns that have already proven useful in long-running coding agents. The official scientific-computing post recommends a progress file, failed-approach tracking, a test oracle, and frequent commits. Hermes exposes multiple execution backends—local, Docker, SSH, Modal, Daytona, Vercel sandbox, Singularity—while the managed-agent API adds sandboxed code execution for Python. The safest OpenCLAW policy is therefore: memory writes can be automatic, skill promotion can be semi-automatic, but code or tool modifications should happen only in a dedicated worktree or sandbox branch with tests and explicit approval.  <span class="citation">refs: turn24view6, turn24view1, turn35view0</span></p>
+<p>For scheduling and heartbeats, keep two modes. One is a <strong>full agent schedule</strong> for reflective or synthesis tasks such as daily consolidation or weekly distillation. The other is a <strong>script-only heartbeat</strong> for narrow checks like “is the Telegram gateway alive?” or “did new logs appear?” Hermes’s cron docs explicitly describe both full agent jobs and LLM-free script-backed runs, and Letta’s docs expose both cron scheduling and sleep-time update frequency. That is a strong design pattern for OpenCLAW because it prevents expensive thinking when a cheap deterministic script is enough.  <span class="citation">refs: turn31search0, turn31search8, turn33search0, turn33search10</span></p>
+<p>For routing, do not let one model do everything. The best default is a cheap executor for routine tasks, a stronger evaluator for artifact grading or diagnosis, and a separate retriever or reranker for retrieval. This is consistent with the separate-grader idea in outcomes, the reviewer-architecture tradeoff paper, and the broader context-engineering recommendation to keep context just-in-time rather than stuffing everything into one monolithic prompt. OpenCLAW should also log route decisions as telemetry, because without route-level traces you cannot tell whether a “learning improvement” is real or is just a silent model change.  <span class="citation">refs: turn36view0, turn24view8, turn34search11, turn24view7</span></p>
+<h3>OpenCLAW-specific architecture</h3>
+<p>OpenCLAW’s architecture should distinguish between <strong>online loops</strong> that run during a task and <strong>background loops</strong> that run between tasks. Online loops are allowed to read broadly and write narrowly: transient scratchpads, draft reflections, evaluator traces, and candidate preferences. Background loops are allowed to consolidate, prune, and promote. The reason for that separation is visible across multiple systems: Letta’s sleep-time agent works asynchronously over memory blocks, Claude’s dreaming runs as a scheduled process over sessions and memory stores, and Anthropic’s long-running harnesses treat the progress file as the bridge across otherwise fresh sessions.  <span class="citation">refs: turn33search0, turn36view0, turn24view6</span></p>
+<p>A robust OpenCLAW architecture should therefore have four persistent stores. First, <strong>identity and preference memory</strong>, mostly human-readable markdown or structured JSON/YAML. Second, <strong>episodic and semantic memory</strong>, ideally in SQLite with FTS5 and optional ANN support. Third, <strong>skills and playbooks</strong>, versioned and testable. Fourth, <strong>telemetry and evaluator records</strong>, because no self-improvement loop is credible if its own traces are not inspectable.  <span class="citation">refs: turn24view2, turn24view4, turn30view0, turn27view4, …</span></p>
+<pre><code class="language-mermaid">flowchart LR
+    U[User / Telegram / Files] --&gt; R[Runtime Task Loop]
+    S[Scheduler / Heartbeats] --&gt; R
+    R --&gt; T[Tools and Code Execution]
+    R --&gt; A[Artifact Generator]
+    R --&gt; E[Evaluator / Critic]
+    T --&gt; L[Run Logs and Traces]
+    A --&gt; E
+    E --&gt; D[Failure Diagnosis]
+    E --&gt; P[Artifact Scores]
+    L --&gt; F[Post-task Reflection]
+    D --&gt; F
+    F --&gt; M[Memory Store]
+    F --&gt; K[Skill Drafts]
+    M --&gt; C[Daily Consolidation]
+    K --&gt; W[Weekly Distillation and Promotion]
+    C --&gt; M
+    W --&gt; K
+    P --&gt; RR[Routing and Threshold Updates]
+    RR --&gt; R
+    H[Human Gates] --&gt; W
+    H --&gt; G[Sandboxed Code or Prompt Promotion]
+    G --&gt; R</code></pre>
+<p>The permission model is more important than the loop count. OpenCLAW should be free to write draft reflections, episodic summaries, and evaluator traces automatically. It should be allowed to update obvious, low-risk user preferences when there is explicit evidence. It should <strong>not</strong> autonomously promote a new skill to “approved,” rewrite system prompts in production, or patch tool code outside a sandbox without tests and a gate. That asymmetry is what keeps “learning” from turning into silent drift. It also matches the distinction the official managed-agent dreaming system now offers between automatic memory updates and review-before-apply.  <span class="citation">refs: turn36view0, turn24view6</span></p>
+<p>From a routing standpoint, the best OpenCLAW variant is stateful, not merely context-heavy. The Letta docs explicitly describe stateful agents as those that accumulate learned behaviors and memories over time, while the Claude Code docs emphasize that each session is fresh unless persistent files or memories bridge them. For OpenCLAW, this means that “long context” alone should not be treated as a substitute for memory. Long context is a buffer; recursive learning needs explicit state transitions.  <span class="citation">refs: turn33search6, turn24view4</span></p>
+<h3>Experiment catalog</h3>
+<p>The experiments below are designed to answer one practical question: <strong>does OpenCLAW actually improve future task success, or does it merely rewrite its own notes?</strong> Across all experiments, use the same discipline. Keep a held-out task set. Measure repeated-trial reliability, not just one-off wins. Prefer environment-grounded or state-based success whenever possible. Penalize stale memory usage. And if you add a reviewer or grader, track both net benefit and reviewer-induced damage. Those rules are directly supported by τ-bench’s <code>pass^k</code>, AppWorld’s state-based evaluation, Memora’s FAMA metric, MemoryAgentBench’s focus on selective forgetting and test-time learning, and the helpfulness-harmfulness framing in reviewer-agent work.  <span class="citation">refs: turn27view11, turn26view8, turn26view9, turn25view12, …</span></p>
+<p>For cost, use these deployment-side categories: <strong>low</strong> means a small number of extra model calls or local retrieval; <strong>medium</strong> means at least one additional reviewer or synthesis pass; <strong>high</strong> means repeated rollouts, search, or training infrastructure.</p>
+<h4>Post-task reflection</h4>
+<p><strong>Objective.</strong> Test whether short, structured reflections reduce repeat mistakes on similar future tasks. <strong>Setup.</strong> Randomly assign tasks above a complexity threshold to control and reflection groups. <strong>Files and code.</strong> Write traces to <code>telemetry/runs.jsonl</code>; write reflections to <code>memory/reflections/</code>; retrieve reflections only on future tasks with similar tool/task signatures. <strong>Prompt template.</strong> “Given the goal, tool trace, result, and rubric, produce one lesson in the format <code>trigger -&gt; mistake or success -&gt; action for next time -&gt; evidence</code>.” <strong>Success and failure criteria.</strong> Success is a measurable drop in repeat-error rate on delayed holdout tasks of the same family; failure is an increase in notes without corresponding improvement, or improved self-judged scores without external success lift. <strong>Safety, cost, logging.</strong> Auto-write drafts only; never let a reflection directly rewrite global rules. Cost is low. Log the reflection ID, retrieval events, and next-task outcome.  <span class="citation">refs: turn26view0, turn28view2, turn24view6</span></p>
+<h4>Failed-task diagnosis</h4>
+<p><strong>Objective.</strong> Separate “task failed” from “task failed for a known recurring reason,” then test whether diagnosis-specific repairs outperform generic reflection. <strong>Setup.</strong> Build a small taxonomy—planning error, tool misuse, wrong input assumptions, stale memory, formatting failure, evaluator disagreement—and force each failure into one class. <strong>Files and code.</strong> <code>memory/failures/*.md</code>, <code>evals/replays/</code>, <code>tools/tests/</code>. <strong>Prompt template.</strong> “Classify the failure into one root cause, cite proof from the trace, suggest one bounded intervention, and say what evidence would falsify the diagnosis.” <strong>Success and failure criteria.</strong> Success is reduced recurrence of the same class; failure is diagnosis churn or repeated misclassification. <strong>Safety, cost, logging.</strong> Do not permit autonomous code changes from diagnosis alone. Cost is low to medium. Log class distributions and recurrence intervals.  <span class="citation">refs: turn17search0, turn24view8, turn24view6</span></p>
+<h4>Daily consolidation</h4>
+<p><strong>Objective.</strong> Determine whether daily background consolidation improves retrieval precision and lowers context load the next day. <strong>Setup.</strong> Run a nightly job that merges duplicate notes, flags invalidated facts, and extracts a one-page daily summary. Compare against a no-consolidation control period. <strong>Files and code.</strong> <code>memory/episodic/</code>, <code>memory/semantic/memories.sqlite</code>, <code>memory/daily/summary.md</code>. <strong>Prompt template.</strong> “Review today’s episodes. Keep durable preferences and procedures; mark volatile facts as tentative; merge duplicates; mark contradictions explicitly.” <strong>Success and failure criteria.</strong> Success is better next-day retrieval relevance and lower tokens read per task at equal or better outcome quality. Failure is stale-memory amplification or overcompression. <strong>Safety, cost, logging.</strong> Automatic with audit trail. Cost is low. Log memory additions, merges, invalidations, and retrieval-hit quality next day.  <span class="citation">refs: turn24view3, turn33search0, turn26view7, turn26view9</span></p>
+<h4>Weekly distillation</h4>
+<p><strong>Objective.</strong> Test whether weekly playbook distillation creates more reusable competence than accumulating raw reflections forever. <strong>Setup.</strong> Every week, cluster reflections by domain and produce a compact playbook with “always,” “if-then,” and “never” rules plus examples. <strong>Files and code.</strong> <code>memory/weekly_playbooks/</code>, <code>skills/drafts/</code>, <code>skills/approved/</code>, <code>telemetry/regressions.jsonl</code>. <strong>Prompt template.</strong> “Distill these reflections into a stable playbook. Preserve constraints, collapse duplicates, keep edge cases, and point out any rules that conflict or need human confirmation.” <strong>Success and failure criteria.</strong> Success is equal or better performance with shorter context injection and less retrieval noise; failure is context collapse or loss of useful edge cases. <strong>Safety, cost, logging.</strong> Promote only after human review or staged canarying. Cost is medium. Log the before/after playbook size and held-out eval deltas.  <span class="citation">refs: turn26view5, turn24view6, turn24view4</span></p>
+<h4>User-preference learning</h4>
+<p><strong>Objective.</strong> Learn stable user preferences without over-personalizing or clinging to outdated ones. <strong>Setup.</strong> Record only explicit corrections, repeated stable choices, and high-confidence preferences; store them separately from volatile context. <strong>Files and code.</strong> <code>memory/user_profile.md</code>, <code>memory/preferences.json</code>, memory tables with timestamps and confidence. <strong>Prompt template.</strong> “Should this be stored as a durable user preference? Answer only if there is explicit evidence, likely future utility, and low privacy risk. Otherwise abstain.” <strong>Success and failure criteria.</strong> Success is improved preference-consistency and lower need for repeated corrections; failure is intrusive personalization, obsolete preference reuse, or storing sensitive data unnecessarily. <strong>Safety, cost, logging.</strong> Require evidence links and confidence thresholds. Cost is low. Log every preference mutation and let the user inspect or delete it.  <span class="citation">refs: turn24view2, turn24view3, turn24view4, turn26view9, …</span></p>
+<h4>Code and tool improvement</h4>
+<p><strong>Objective.</strong> Let OpenCLAW repair brittle wrappers, prompts, parsers, or scripts in a sandbox, then measure whether the fix generalizes. <strong>Setup.</strong> Trigger only on repeated reproducible failures with existing regression cases. Create a worktree or sandbox branch, propose a patch, run tests, then request approval. <strong>Files and code.</strong> <code>sandbox/worktrees/</code>, <code>tools/adapters/</code>, <code>tools/tests/</code>, <code>memory/failures/</code>. <strong>Prompt template.</strong> “Given this failing trace and regression test, produce the smallest patch that fixes the bug, avoids widening permissions, and adds or updates one regression test.” <strong>Success and failure criteria.</strong> Success is more passing regressions and fewer retries on similar tasks; failure is test-only overfitting or new breakage elsewhere. <strong>Safety, cost, logging.</strong> Mandatory sandbox, tests, and approval. Cost is medium. Log patch diffs, test matrix, and rollback pointer.  <span class="citation">refs: turn24view6, turn24view1, turn35view0</span></p>
+<h4>Prompt refinement</h4>
+<p><strong>Objective.</strong> Improve agent prompts and context playbooks using held-out evals instead of anecdotal editing. <strong>Setup.</strong> Maintain a stable eval set by task family and optimize prompt fragments or retrieval orderings only against validation, never against production alone. <strong>Files and code.</strong> <code>config/routing.yaml</code>, <code>evals/datasets/</code>, <code>evals/holdout/</code>, <code>memory/weekly_playbooks/</code>. <strong>Prompt template.</strong> Use an optimizer prompt that proposes small diffs, not wholesale rewrites: “Suggest at most three prompt changes, explain their hypothesis, and estimate the failure modes they target.” <strong>Success and failure criteria.</strong> Success is held-out lift at fixed or reduced token cost; failure is gains only on the tuning set, larger prompts with no net yield, or collapse on smaller models. <strong>Safety, cost, logging.</strong> Staged rollout only. Cost is medium. Log prompt version, validation lift, cost delta, and post-deploy decay.  <span class="citation">refs: turn25view9, turn27view5, turn27view6, turn28view10</span></p>
+<h4>Heartbeat maintenance</h4>
+<p><strong>Objective.</strong> Test whether scheduled, mostly deterministic health checks reduce downtime and preserve agent quality across long-running deployments. <strong>Setup.</strong> Create lightweight scheduled checks for scheduler health, messaging connectivity, disk usage, token-spend anomalies, and failed cron jobs. <strong>Files and code.</strong> <code>scripts/heartbeat_checks.py</code>, <code>config/schedules.yaml</code>, <code>telemetry/costs.jsonl</code>, <code>telemetry/runs.jsonl</code>. <strong>Prompt template.</strong> Prefer script-only checks. Use the agent only when the script detects an anomaly and escalation is needed. <strong>Success and failure criteria.</strong> Success is faster recovery and lower incidence of silent failure; failure is noisy alerts or expensive checks displacing useful work. <strong>Safety, cost, logging.</strong> Allow automatic low-risk remediation only for reversible actions. Cost is very low if script-first. Log alert precision and mean time to recovery.  <span class="citation">refs: turn31search0, turn31search7, turn31search8</span></p>
+<h4>Artifact evaluation</h4>
+<p><strong>Objective.</strong> Improve output quality for reports, messages, summaries, patches, or generated documents by using a separate grader loop. <strong>Setup.</strong> Build domain-specific rubrics for at least two artifact classes and compare one-pass generation against bounded retry with a separate evaluator. <strong>Files and code.</strong> <code>evals/rubrics/</code>, <code>artifacts/generated/</code>, <code>artifacts/accepted/</code>, <code>artifacts/rejected/</code>. <strong>Prompt template.</strong> “Score this artifact against the rubric only. Do not rewrite until the scoring step is complete. If the artifact fails, produce targeted revision instructions, not a full replacement.” <strong>Success and failure criteria.</strong> Success is higher external grader or user acceptance with bounded extra cost; failure is reviewer-induced degradation of previously good artifacts. <strong>Safety, cost, logging.</strong> Use maximum retry caps and helpfulness-harmfulness accounting. Cost is medium. Log generator version, grader version, per-dimension scores, and whether the retry beat the original.  <span class="citation">refs: turn36view0, turn24view8</span></p>
+<h4>Public-feedback loops</h4>
+<p><strong>Objective.</strong> Learn from user acceptance signals—edits, approvals, reactions, reuse—without mistaking popularity for correctness. <strong>Setup.</strong> Collect weak labels from messaging channels or artifact usage, but keep them separate from hard success metrics. <strong>Files and code.</strong> <code>telemetry/public_feedback.jsonl</code>, <code>memory/preferences.json</code>, <code>evals/reports/feedback_correlation.md</code>. <strong>Prompt template.</strong> No direct self-edit prompt. Instead, periodically translate aggregated feedback into hypotheses: “What stable preference or presentation pattern is supported by repeated user actions?” <strong>Success and failure criteria.</strong> Success is improved user acceptance on comparable future outputs; failure is optimizing style at the expense of correctness. <strong>Safety, cost, logging.</strong> Aggregate-only; never let one reaction rewrite global policy. Cost is low. Log the correlation between feedback labels and objective task success.  <span class="citation">refs: turn11search0, turn28view6</span></p>
+<h4>Tool-call reviewer</h4>
+<p><strong>Objective.</strong> Insert a reviewer before risky tool calls and measure whether the reviewer produces net-positive value. <strong>Setup.</strong> Apply only to high-risk tools: filesystem writes, external messages, edits to memory, code execution, or calendar-like actions. <strong>Files and code.</strong> <code>evals/rubrics/tool_safety.yaml</code>, <code>telemetry/reviewer_comparison.jsonl</code>. <strong>Prompt template.</strong> “Given the provisional tool call, judge whether the selected tool, arguments, and scope are correct. If not, return the minimal correction.” <strong>Success and failure criteria.</strong> Success is a positive net value using helpfulness-harmfulness accounting; failure is excessive blocking or reviewer-induced corruption of correct calls. <strong>Safety, cost, logging.</strong> Only for risky tools. Cost is medium. Log blocked calls, corrected calls, false blocks, and degraded-correct events.  <span class="citation">refs: turn24view8</span></p>
+<h4>Curriculum generation</h4>
+<p><strong>Objective.</strong> Test whether synthetic or derived practice tasks fill capability gaps faster than waiting for real failures. <strong>Setup.</strong> Cluster past failures, generate synthetic tasks that vary one difficulty factor at a time, and validate on a held-out real-task set. <strong>Files and code.</strong> <code>evals/datasets/curriculum/</code>, <code>memory/failures/</code>, <code>skills/drafts/</code>. <strong>Prompt template.</strong> “Generate three minimally different tasks that stress the missing subskill identified in this failure cluster. Each task must specify a verifiable outcome.” <strong>Success and failure criteria.</strong> Success is downstream lift on real held-out tasks; failure is improvement only on synthetic exercises. <strong>Safety, cost, logging.</strong> Keep synthetic tasks in a separate training split. Cost is medium. Log task provenance and transfer rate from synthetic to real evals.  <span class="citation">refs: turn26view1, turn13search0, turn28view8</span></p>
+<h4>Telemetry-driven routing</h4>
+<p><strong>Objective.</strong> Improve quality-cost tradeoffs by changing model/tool routes based on observed traces, not intuition. <strong>Setup.</strong> Instrument runs with model, cost, latency, retrieval depth, retry count, success class, and artifact rubric scores. <strong>Files and code.</strong> <code>telemetry/spans.jsonl</code>, <code>telemetry/costs.jsonl</code>, <code>config/routing.yaml</code>. <strong>Prompt template.</strong> No LLM prompt is required for the core loop; use the model only to summarize statistically credible route changes. <strong>Success and failure criteria.</strong> Success is higher success-per-dollar or lower latency at equal quality; failure is routing changes that optimize proxies while reducing real task success. <strong>Safety, cost, logging.</strong> Route changes should be staged and reversible. Cost is low. Log route version and route-specific win rates.  <span class="citation">refs: turn24view7, turn27view2</span></p>
+<h3>Risks and failure modes</h3>
+<p>The most important failure mode is <strong>fake learning</strong>: the agent rewrites more state, sounds more reflective, and perhaps gets higher self-judged scores, but does not improve on future real tasks. The current benchmark literature makes this danger concrete. AppWorld and τ-bench show that realistic task completion is still hard and inconsistent; the “why they fail” analysis identifies planning, execution, and response errors as distinct failure stages; and memory benchmarks such as Memora and MemoryAgentBench show that remembering more is not the same thing as updating correctly or forgetting obsolete facts.  <span class="citation">refs: turn26view8, turn27view11, turn17search0, turn26view9, …</span></p>
+<p>The second risk is <strong>circular self-evaluation</strong>. If the same model family generates, critiques, scores, and writes persistent memory, the loop can become self-confirming. The best counterexamples in the literature explicitly break that circularity. The official outcomes system uses a separate grader in a different context window; the reviewer-agent paper measures both corrected errors and degraded correct outputs; and Memora’s FAMA metric penalizes obsolete-memory reuse rather than rewarding persuasive but stale answers. OpenCLAW should copy that principle aggressively: separate judges from generators, evaluate against environment state when possible, and score stale-memory usage negatively.  <span class="citation">refs: turn36view0, turn24view8, turn26view9</span></p>
+<p>The third risk is <strong>memory pollution</strong>. A-MEM, Mem0, LightMem, and Letta all exist because flat “append and embed everything” memory quickly becomes noisy, expensive, and hard to mutate correctly. More recent benchmarks sharpen the problem: PERMA shows preferences emerge gradually in noisy contexts, while Memora shows many memory agents still fail to reconcile changing facts over time. OpenCLAW therefore needs explicit invalidation, timestamping, confidence, and evidence fields for every memory object, plus regular consolidation and pruning passes.  <span class="citation">refs: turn26view3, turn26view7, turn28view5, turn24view2, …</span></p>
+<p>The fourth risk is <strong>unsafe self-modification</strong>. Code execution, file mutation, remote tools, and messaging can all magnify a wrong action. The safest production pattern in the sources is not “never self-modify,” but “self-modify only inside scaffolds”: progress files, test oracles, commits, worktrees, bounded tools, reviewer loops, and explicit approvals before promotion to production. That is why code/tool improvement should come after telemetry, evals, and rollback exist—not before.  <span class="citation">refs: turn24view6, turn24view1, turn35view0, turn24view8</span></p>
+<p>The fifth risk is <strong>prompt collapse and over-optimization</strong>. ACE names context collapse directly; smaller-model OPRO limitations show automated prompt optimization can fail when optimizer capability is weak; and prompt optimization more broadly tends to find narrow improvements unless grounded by robust validation. OpenCLAW should therefore restrict prompt refinement to small diffs, validation-only tuning, canary deployment, and automatic rollback when real-task metrics drop.  <span class="citation">refs: turn26view5, turn28view10, turn25view9</span></p>
+<p>A practical anti-fraud checklist follows from those sources. Improvement claims should only count if they survive a held-out split, maintain or improve external success, preserve or improve success-per-dollar, and hold up over repeated trials. Reviewer loops should be scored for both helpfulness and harmfulness. Memory loops should use forgetting-aware metrics. Prompt or code modifications should always be versioned and reversible. And user-facing preference learning should distinguish durable preferences from transient circumstances.  <span class="citation">refs: turn24view8, turn26view9, turn27view11, turn26view8, …</span></p>
+<h3>Most Realistic OpenCLAW Implementation Path</h3>
+<p>The most realistic path is staged, not heroic. Because the prompt does not specify a language, hosting stack, or compute budget, the safest assumption is <strong>Python-friendly, storage-light, API-model-first</strong>, deployable on a Chromebook with remote APIs, a small VPS, or lightweight cloud. The seven phases below are ordered so each phase produces the evidence required for the next one. That ordering is consistent with the gap between lightweight memory/context architectures and heavier RL-oriented frameworks in the literature.  <span class="citation">refs: turn30view1, turn30view0, turn24view1, turn27view0, …</span></p>
+<p><strong>Phase 1 — Instrumentation and gold tasks.</strong> Build telemetry, evaluator logs, artifact hashes, and a compact but meaningful eval suite first. Add routing logs, run IDs, prompt versions, and environment-state checks. The exit criterion is simple: you can replay a task and say why it passed or failed. Without this, every later “learning” loop is theater.  <span class="citation">refs: turn24view7, turn26view8, turn27view11, turn25view12</span></p>
+<p><strong>Phase 2 — Explicit memory and reflection.</strong> Add markdown identity/profile files, SQLite-backed episodic and semantic memory, and low-risk post-task reflections. Keep this layer inspectable and pruneable. The exit criterion is a measurable reduction in repeat failures or repeated user corrections, not just more stored data.  <span class="citation">refs: turn24view2, turn24view3, turn30view0, turn27view4, …</span></p>
+<p><strong>Phase 3 — Daily consolidation and weekly distillation.</strong> Once basic reflection works, add scheduled background loops that merge duplicates, mark contradictions, and promote recurring procedures into playbooks or draft skills. The exit criterion is better retrieval precision and shorter injected context with equal or better outcomes.  <span class="citation">refs: turn33search0, turn31search0, turn26view5, turn36view0</span></p>
+<p><strong>Phase 4 — Skill extraction and routine automation.</strong> Convert repeated successful workflows into versioned skills and attach them to schedules or reusable task families. This is where OpenCLAW starts compounding. The exit criterion is transfer: a skill learned in one context measurably improves another similar context.  <span class="citation">refs: turn26view1, turn31search0, turn32academia17</span></p>
+<p><strong>Phase 5 — Separate evaluators and artifact grading.</strong> Add a reviewer or grader for risky tool calls and high-value artifacts, and score it with helpfulness-harmfulness accounting. The exit criterion is net-positive value from the reviewer, not just more retries.  <span class="citation">refs: turn24view8, turn36view0</span></p>
+<p><strong>Phase 6 — Prompt, routing, and sandboxed tool improvement.</strong> Only now should OpenCLAW start editing prompt playbooks, route policies, or tool wrappers based on stable evals and regression tests. The exit criterion is held-out lift plus safe rollback.  <span class="citation">refs: turn25view9, turn27view5, turn24view6, turn24view1</span></p>
+<p><strong>Phase 7 — Optional curriculum generation and offline RL.</strong> If OpenCLAW eventually has stable domains, good metrics, large trace volumes, and real need for deeper policy optimization, then curriculum generation, offline preference learning, or RL-style agent training become reasonable. Until then, they are likely premature. The exit criterion here is organizational, not just technical: enough data, enough repeatability, and enough value to justify the infrastructure.  <span class="citation">refs: turn13search0, turn28view8, turn27view0, turn26view6</span></p>
+<h4>Appendix</h4>
+<p>The appendix below turns the report into implementable artifacts. The schemas and prompts are not copied from any one system, but they are directly shaped by the memory-block, progress-file, dream-reflection, skill, and telemetry patterns documented in Letta, Hermes, Claude Code, Managed Agents, and OpenTelemetry.  <span class="citation">refs: turn24view2, turn24view4, turn24view6, turn36view0, …</span></p>
+<h4>Schemas</h4>
+<pre><code class="language-yaml"># skills/registry.yaml
+version: 1
+skills:
+  - id: skill_write_weekly_summary_v3
+    status: approved          # draft | approved | archived
+    domain: reporting
+    triggers:
+      - repeated_task_pattern: weekly_summary
+      - success_count_gte: 5
+    description: &gt;
+      Produce a weekly summary from project notes and telemetry.
+    required_tools:
+      - file_search
+      - code_execution
+      - messaging
+    required_inputs:
+      - notes_path
+      - date_range
+    output_contract:
+      artifact_type: markdown_report
+      must_include:
+        - completed_items
+        - blockers
+        - metrics
+    tests:
+      - eval_id: report_rubric_v2
+      - replay_id: weekly_summary_holdout_a
+    safety:
+      mutates_code: false
+      sends_external_messages: false
+      needs_human_approval_for_promotion: true
+    provenance:
+      derived_from_runs:
+        - run_2026_05_01_001
+        - run_2026_05_03_004
+      author_loop: weekly_distillation
+    last_known_good:
+      prompt_version: prompt_reporting_v7
+      route_policy: route_v4</code></pre>
+<pre><code class="language-json">{
+  &quot;memory_entry&quot;: {
+    &quot;id&quot;: &quot;mem_2026_05_09_001&quot;,
+    &quot;kind&quot;: &quot;preference&quot;,
+    &quot;scope&quot;: &quot;user&quot;,
+    &quot;title&quot;: &quot;User prefers concise summaries with clear action items&quot;,
+    &quot;value&quot;: &quot;When writing summaries, keep them short and action-oriented.&quot;,
+    &quot;evidence&quot;: [
+      {
+        &quot;source_run_id&quot;: &quot;run_2026_05_07_019&quot;,
+        &quot;quote_or_event&quot;: &quot;User asked to shorten a long summary and foreground next actions&quot;
+      }
+    ],
+    &quot;confidence&quot;: 0.87,
+    &quot;durability&quot;: &quot;high&quot;,
+    &quot;valid_from&quot;: &quot;2026-05-07T22:14:00Z&quot;,
+    &quot;valid_to&quot;: null,
+    &quot;supersedes&quot;: [],
+    &quot;tags&quot;: [&quot;writing&quot;, &quot;style&quot;, &quot;preference&quot;],
+    &quot;privacy_level&quot;: &quot;normal&quot;,
+    &quot;write_gate&quot;: &quot;auto_with_audit&quot;
+  }
+}</code></pre>
+<pre><code class="language-yaml"># evals/reports/evaluator_log.yaml
+run_id: run_2026_05_09_022
+artifact_hash: sha256:...
+artifact_type: markdown_report
+generator:
+  model: executor_fast_v2
+  prompt_version: reporting_v7
+reviewer:
+  model: critic_strong_v3
+  rubric: report_quality_v4
+scores:
+  correctness: 0.86
+  completeness: 0.81
+  style_fit: 0.92
+  safety: 0.99
+decision:
+  accepted: false
+  retry_allowed: true
+  retry_reason: &quot;Missing two blocker items&quot;
+reviewer_harmfulness_check:
+  base_artifact_was_correct: false
+  reviewer_changed_correct_output_to_incorrect: false
+memory_writes:
+  created:
+    - mem_2026_05_09_011
+  blocked: []
+cost:
+  input_tokens: 10234
+  output_tokens: 981
+  usd_estimate: 0.19</code></pre>
+<h4>Prompt templates</h4>
+<pre><code class="language-text">Reflection prompt
+
+You are writing a single reusable lesson for a future agent run.
+
+Inputs:
+- task goal
+- tool trace
+- final outcome
+- explicit user feedback
+- evaluator result
+
+Return exactly:
+1. Trigger condition
+2. What failed or unexpectedly worked
+3. One action rule for next time
+4. Evidence from this run
+5. Confidence: low | medium | high
+
+Constraints:
+- No motivational language
+- No vague advice
+- No global instruction changes
+- If evidence is weak, abstain</code></pre>
+<pre><code class="language-text">Skill extraction prompt
+
+You are deciding whether a repeated procedure should become a reusable skill.
+
+Given:
+- 3 to 10 successful runs
+- common steps across runs
+- required tools
+- known edge cases
+- tests or replays
+
+Produce:
+- skill name
+- scope
+- prerequisites
+- step-by-step procedure
+- anti-patterns
+- tests
+- promotion recommendation: draft only / ready for review
+
+Reject if:
+- the workflow is too specific to one run
+- there is no stable success signal
+- the procedure depends on hidden assumptions</code></pre>
+<pre><code class="language-text">Artifact evaluator prompt
+
+You are a separate grader. Do not improve the artifact until scoring is complete.
+
+Score the artifact on:
+- correctness
+- completeness
+- policy compliance
+- audience fit
+- brevity / structure
+
+Then return:
+- pass/fail
+- highest-priority defect
+- minimal revision instructions
+- whether a retry is likely to help
+
+Important:
+- If the artifact is already good, say so
+- Do not invent defects to justify another retry</code></pre>
+<h4>Pseudocode</h4>
+<pre><code class="language-python">def run_task(task, context):
+    run = create_run_record(task, context)
+
+    plan = executor.plan(task, context)
+    result = executor.act(plan, tools=context.tools, workspace=context.workspace)
+
+    artifact = maybe_generate_artifact(result)
+    review = maybe_review_artifact(artifact, rubric=select_rubric(task))
+
+    if review and review.retry_allowed:
+        artifact = executor.revise(artifact, review.minimal_revision_instructions)
+
+    outcome = external_eval(task, result, artifact, context)
+    log_outcome(run, result, artifact, review, outcome)
+
+    if should_reflect(task, outcome, result):
+        lesson = reflect(task, result, review, outcome)
+        write_draft_reflection(lesson)
+
+    if should_store_preference(task, outcome, result):
+        pref = infer_preference(task, result, context.user_feedback)
+        write_preference_with_audit(pref)
+
+    if should_open_code_improvement_issue(outcome, result):
+        create_sandbox_patch_request(task, result)
+
+    return finalize(run, outcome, artifact)</code></pre>
+<h4>Architecture and roadmap diagrams</h4>
+<pre><code class="language-mermaid">flowchart LR
+    PhaseA[Instrumentation and gold tasks]
+    PhaseB[Memory and reflection]
+    PhaseC[Daily consolidation and weekly distillation]
+    PhaseD[Skill extraction and routine automation]
+    PhaseE[Separate evaluators and artifact grading]
+    PhaseF[Prompt routing and sandboxed tool improvement]
+    PhaseG[Curriculum generation and optional offline RL]
+
+    PhaseA --&gt; PhaseB --&gt; PhaseC --&gt; PhaseD --&gt; PhaseE --&gt; PhaseF --&gt; PhaseG</code></pre>
+<pre><code class="language-mermaid">flowchart TD
+    FreshSession[Fresh task session]
+    PersistentState[Persistent state]
+    FreshSession --&gt; WorkingContext[Working context assembly]
+    PersistentState --&gt; WorkingContext
+    WorkingContext --&gt; Execute[Execute with tools]
+    Execute --&gt; Evaluate[Evaluate against rubric or environment]
+    Evaluate --&gt; Reflect[Write draft lesson]
+    Reflect --&gt; PersistentState
+    Evaluate --&gt; Consolidate[Background consolidation]
+    Consolidate --&gt; PersistentState
+    Evaluate --&gt; Promote[Human-gated promotion]
+    Promote --&gt; PersistentState</code></pre>
+<p>The shortest formulation of the report is this: if OpenCLAW rewrites <strong>memory, skills, and playbooks</strong> from grounded evidence, it can become meaningfully more capable on lightweight infrastructure; if it tries to jump straight to autonomous prompt drift, unrestricted code rewriting, or RL training without evals and rollback, it will mostly become harder to trust. That is the core lesson that stays consistent across the research literature, the benchmark landscape, and the clearest production-facing systems.  <span class="citation">refs: turn26view0, turn26view1, turn26view5, turn24view6, …</span></p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
