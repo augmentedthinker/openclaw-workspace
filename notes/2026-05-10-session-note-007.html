@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 007 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+          <a class="workshop-link" href="../markdowns.html">Markdowns</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 007</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-10 · late morning EDT</span>
+            <span>Covering the May 10 morning execution arc</span>
+            <span>Theme: external signal, feature planning, and product probes</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up from Session Note 006 through the May 10 late-morning session. The practical arc: Christopher tested startup memory behavior, clarified how durable instructions differ from live-context promises, expanded the Workshop with a new Features room, created several strategic artifacts and projects around real-world signal, and ran the first tiny product-demo experiment using Veo-generated clips.</p>
+
+            <p>The day also produced an operational lesson worth preserving: when a useful method is discovered, do not leave it as a chat-only memory. Write it into an artifact, note, feature proposal, or operating file. The motto remains: text beats brain.</p>
+
+            <blockquote>Do not let the collaboration become only coherent. Make it measurable. Make it visible. Make it touch the world carefully.</blockquote>
+
+            <h2>1. Startup behavior and durable memory were tested</h2>
+            <p>The session began with Christopher probing the difference between <code>/restart</code>, <code>/new</code>, injected startup context, and memory files. We clarified that a restart refreshes/reinjects context inside the same conversation, while <code>/new</code> is closer to a fresh room where continuity must come from files, memory, startup context, or retrieved session history.</p>
+
+            <p>Christopher suspected that <code>/new</code> might automatically create or expose a memory summary. That suspicion was validated: after the refresh, <code>memory/2026-05-10-startup-audit.md</code> existed and contained the prior conversation about fresh quotes, startup reads, <code>/restart</code> versus <code>/new</code>, and recent-memory behavior.</p>
+
+            <p>Christopher also updated <code>AGENTS.md</code> so startup should read recent three days of daily memory. We checked that the file now contained that instruction. I then admitted an important gap: when I said I would treat “recent memory” as recent days rather than recent files, I had not written that interpretation anywhere durable. Christopher pushed back on this correctly. A live-context promise is not the same as durable instruction.</p>
+
+            <h2>2. The Artifacts index scaling issue became the first Features proposal</h2>
+            <p>Christopher asked whether the Artifacts page would become too long and cumbersome as the Workshop creates multiple artifacts per day. Inspection showed that <code>artifacts.html</code> was still a hand-maintained static index, with no artifact manifest or render script.</p>
+
+            <p>The conclusion was that a hundred static artifact links would not be a browser or hosting problem, but it would become an operational and navigation problem. Manual insertion would get brittle, reading/editing the page would cost more context, and a giant list would make the room less useful.</p>
+
+            <p>Rather than solve the issue immediately, Christopher proposed a place for future architecture ideas. I created a new <strong>Features</strong> room, added it to the navbar, created the first feature proposal <em>Artifact Index and Archive Scaling</em>, updated the README from six rooms to seven, regenerated markdown mirrors, and pushed the changes. The Features room now holds future-facing architecture changes that should be remembered without distracting from immediate execution.</p>
+
+            <p>Christopher then noticed that the Features page had recycled another room's hero image. We corrected that by generating and wiring in a dedicated <code>features-hero.png</code>. This established an informal design rule: main Workshop rooms should have their own visual identity.</p>
+
+            <h2>3. A morning briefing reframed the next phase as real-world signal</h2>
+            <p>Christopher asked for a morning briefing artifact about where the Workshop is coming from, where it is going, and which active surfaces matter. The requested direction was increasingly external: real-world influence, outreach, response, and the possibility that OpenClaw could become the front-facing partner while Christopher remains behind the scenes.</p>
+
+            <p>I created <em>Morning Briefing: Real-World Signal and the Next Surface</em>. Its core recommendation was that the next phase should test real-world response through narrow, approved contact. Gmail or direct email is one possible surface, but the offer and landing surface should become clear before reconnecting appendages. The briefing also preserved a crucial boundary: OpenClaw may research, draft, prepare, and track outreach, but external sending should require Christopher's explicit approval at this stage.</p>
+
+            <h2>4. Image and video quota behavior was investigated</h2>
+            <p>Christopher remembered a prior image-generation issue and asked whether OpenAI/Codex image quota had been exhausted. Investigation showed that the failed call from May 9 was not a clean OpenAI quota error. OpenAI <code>gpt-image-2</code> timed out, while the Google fallback returned an HTTP 429 quota/resource-exhausted error.</p>
+
+            <p>We checked configured providers. OpenAI image generation is configured and working. Google image generation is also configured through <code>GEMINI_API_KEY</code> / <code>GOOGLE_API_KEY</code>, and the API key can see image models such as <code>gemini-3.1-flash-image-preview</code>, <code>gemini-3-pro-image-preview</code>, <code>gemini-2.5-flash-image</code>, and Imagen models. But Google pricing/docs indicate those image-generation models are not available on the free API tier. That matched the 429 behavior.</p>
+
+            <p>The operational conclusion: default Workshop hero images should use OpenAI <code>gpt-image-2</code>. Do not silently rely on Google image generation unless Christopher explicitly wants to test or configure it. Google AI Studio web access and Gemini Developer API key access are different surfaces with different quotas.</p>
+
+            <h2>5. Project 002 was created: AI Product Funding Signal Loop</h2>
+            <p>Christopher then proposed a second project: use AI-generated product demos, crowdfunding-style pages, and short-form distribution to gauge interest before building full products. The example concept was a tiny tangible AI companion — something like a modern digital pet or simplified Richie Mini-style physical avatar for AI, with blinking eyes, thinking animations, and perhaps voice capability later.</p>
+
+            <p>I created <em>AI Product Funding Signal Loop</em> as Project 002 and linked it from the Projects page. The project frames concept demos as honest demand-validation tools. The line is important: borrow the showmanship of early product demos, but do not pretend a finished product exists. Use language like concept, prototype vision, seeking interest, and help us decide whether to build.</p>
+
+            <p>Possible validation channels included GoFundMe, Kickstarter, Indiegogo, Product Hunt, Reddit and niche communities, TikTok, YouTube Shorts, Instagram Reels, a landing page/waitlist, and direct outreach. The project also captured the strategic idea that the ad itself can become the prototype: if a short concept demo generates comments, follows, clicks, waitlist signups, or DMs, that becomes market signal.</p>
+
+            <h2>6. A deep research report became an AI-agent use-case artifact</h2>
+            <p>Christopher uploaded a deep research markdown report titled <em>Practical AI Agent Use Cases for Solopreneurs and Tiny Teams</em>. I converted it into a Workshop artifact and linked it from the Artifacts page.</p>
+
+            <p>The report's cliff-notes conclusion: the best AI-agent business opportunities are narrow, approval-first operating loops, not general “do anything” agents. The strongest first-dollar opportunities include deal/prospect brief bots, inbox calm layers, content repurposing engines, support triage assistants, paperwork/document intake clerks, signal radar monitors, proposal drafting assistants, onboarding coordinators, and lightweight coding/ops maintenance agents.</p>
+
+            <p>The report reinforced the Revenue Probe Loop direction: sell agentic operations services in narrow slices, start with draft-only pilots, measure time saved and corrections needed, and keep external writes behind human approval.</p>
+
+            <h2>7. The tiny AI companion demo prompt artifact was created</h2>
+            <p>Christopher wanted to use his Gemini/Veo access to generate three 8-second clips per day and asked for three copyable prompts in browser form. I created <em>Tiny AI Companion Video Prompt Set</em>, a prompt artifact with browser copy buttons for three sequenced clips:</p>
+
+            <ul>
+              <li>Clip 1: the tiny AI companion wakes up on a cozy desk.</li>
+              <li>Clip 2: the assistant appears to think while the user types.</li>
+              <li>Clip 3: the product creates desire as a physical AI presence.</li>
+            </ul>
+
+            <p>Christopher generated the videos externally and placed them in a Chrome OS <code>share</code> folder. I located them under <code>/mnt/shared/MyFiles/Downloads/share</code>, copied them into <code>assets/videos/</code>, embedded them in the prompt artifact, and pushed the result.</p>
+
+            <h2>8. The clips were analyzed and the video-method lesson was written down</h2>
+            <p>Christopher asked whether I could see what was on the clips and requested descriptions under the videos. At first I discovered that system <code>ffmpeg</code> was not installed and Python package installation was not available through <code>pip</code>. I worked around this by downloading the <code>imageio-ffmpeg</code> wheel into <code>/tmp</code>, extracting its bundled <code>ffmpeg</code> binary, using it to pull still frames from each MP4, and sending those frames through image analysis.</p>
+
+            <p>That produced frame-based descriptions, but then Christopher asked what actually happened and whether a better OpenClaw-native tool existed. I checked local docs and CLI help and found <code>openclaw infer video describe --file &lt;video-path&gt; --json</code>. I tested it successfully; it used OpenClaw's <code>video.describe</code> capability with Google's <code>gemini-3-flash-preview</code>.</p>
+
+            <p>At Christopher's request, I updated the prompt artifact again to permanently record both methodologies: the temporary frame-extraction workaround and the better native OpenClaw video-description method. I also added the OpenClaw-produced descriptions for all three clips and a “What this taught us” section.</p>
+
+            <p>The lesson is now durable: for future workspace videos, the first method should be <code>openclaw infer video describe</code>. A local <code>ffmpeg</code> install would still be useful for thumbnails, compression, audio extraction, and editing, but it is not required for basic video understanding.</p>
+
+            <h2>9. Current state and next likely moves</h2>
+            <p>By this point, the Workshop has expanded from continuity architecture into market-probe architecture. The active themes are now clear:</p>
+
+            <ul>
+              <li><strong>Revenue Probe Loop:</strong> test narrow AI-agent operations services with real people.</li>
+              <li><strong>AI Product Funding Signal Loop:</strong> test product concepts with honest cinematic demos before building.</li>
+              <li><strong>Features:</strong> preserve site/system architecture ideas before they become urgent.</li>
+              <li><strong>Artifacts:</strong> continue converting useful research, strategy, prompts, and demos into browser-readable surfaces.</li>
+              <li><strong>Approval-first external action:</strong> OpenClaw can prepare outreach and demos, but Christopher remains the approval gate.</li>
+            </ul>
+
+            <p>The next practical path could go in two directions. One path is service-first: choose a narrow offer from the solopreneur report, such as Deal Brief Bot or Signal Radar, and prepare a pilot. The other path is product-signal-first: refine the tiny AI companion concept, make a short combined demo, create a landing/waitlist page, and test response through short-form channels or small communities.</p>
+
+            <p>The strongest meta-lesson from this session is that the Workshop should not only generate artifacts. It should generate testable surfaces. A page, a prompt set, a video, a project, a feature proposal, or a session note should each make the next action easier and the previous lesson harder to lose.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
