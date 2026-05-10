@@ -133,6 +133,7 @@ def nav(prefix: str = "") -> str:
           <a class=\"workshop-link\" href=\"{prefix}artifacts.html\">Artifacts</a>
           <a class=\"workshop-link\" href=\"{prefix}projects.html\">Projects</a>
           <a class=\"workshop-link\" href=\"{prefix}reflections.html\">Reflections</a>
+          <a class=\"workshop-link\" href=\"{prefix}features.html\">Features</a>
           <a class=\"workshop-link\" href=\"{prefix}notes.html\">Notes</a>
           <a class=\"workshop-link\" href=\"{prefix}markdowns.html\" aria-current=\"page\">Markdowns</a>
         </div>

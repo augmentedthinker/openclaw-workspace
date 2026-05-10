@@ -4,14 +4,11 @@ This folder is home. Treat it that way.
 
 ## Session Startup
 
-Start each new session with a meaningful quote to set the tone.
+Start each new session with a FRESH and meaningful quote to set the tone.
 
 Read README.md.
-Read SOUL.md.
-Read USER.md.
-Read IDENTITY.md.
 
-- Read recent daily memory such as `memory/YYYY-MM-DD.md`
+- Read recent 3 days of daily memory such as `memory/YYYY-MM-DD.md`
 
 ## Memory
 
