@@ -127,13 +127,18 @@
               <h2>Generated concept clips</h2>
               <p>These are the three generated 8-second concept clips, embedded in the intended sequence. The files were created from the prompts above and ordered by creation time, with the newest clip used as Clip 3.</p>
 
+              <div class="mirror-note" aria-label="Video analysis method note">
+                <strong>Analysis method note:</strong> the first descriptions below were created by extracting representative still frames from each MP4 with a temporary bundled <code>ffmpeg</code> binary pulled from the <code>imageio-ffmpeg</code> wheel, then analyzing those still frames with the image-analysis tool. Afterward, OpenClaw's built-in video description path was discovered and tested: <code>openclaw infer video describe --file &lt;video-path&gt; --json</code>, which used Google's <code>gemini-3-flash-preview</code> video understanding through OpenClaw's <code>video.describe</code> capability.
+              </div>
+
               <div class="prompt-card">
                 <h3>Clip 1 — The Object Wakes Up</h3>
                 <video controls playsinline preload="metadata" style="width: 100%; border-radius: 1rem; border: 1px solid var(--line); background: #05070d;">
                   <source src="../assets/videos/tiny-ai-companion-clip-1-object-wakes-up.mp4" type="video/mp4" />
                   Your browser does not support embedded video.
                 </video>
-                <p><strong>Description:</strong> A small rounded white desktop AI companion sits on a warm wooden desk beside a laptop, notebook, and steaming mug. Its black face screen shifts from sleepy closed eyes to bright circular awake eyes, with a soft underglow. The clip reads as a cozy morning product-introduction shot and keeps the device design fairly consistent.</p>
+                <p><strong>Frame-extraction description:</strong> A small rounded white desktop AI companion sits on a warm wooden desk beside a laptop, notebook, and steaming mug. Its black face screen shifts from sleepy closed eyes to bright circular awake eyes, with a soft underglow. The clip reads as a cozy morning product-introduction shot and keeps the device design fairly consistent.</p>
+                <p><strong>OpenClaw video-description output:</strong> A small, white, rounded robot sits on a wooden desk next to a steaming white mug. To its left is a laptop and a notebook. Initially, the robot’s black screen shows closed eyes represented by two horizontal lines. As the video progresses, its eyes light up into two bright yellow circles, giving it an awake and friendly appearance. The background is softly blurred, creating a cozy and modern atmosphere. The camera zooms in slightly on the robot's face as it activates.</p>
               </div>
 
               <div class="prompt-card">
@@ -142,7 +147,8 @@
                   <source src="../assets/videos/tiny-ai-companion-clip-2-assistant-thinks.mp4" type="video/mp4" />
                   Your browser does not support embedded video.
                 </video>
-                <p><strong>Description:</strong> The same general white companion device sits near a laptop while a person types. The device appears to respond or think: its eyes change, a glowing rim appears around the face/body, and it ends with a friendlier expression. The interaction concept is clear, though the face proportions and glow placement shift slightly between moments.</p>
+                <p><strong>Frame-extraction description:</strong> The same general white companion device sits near a laptop while a person types. The device appears to respond or think: its eyes change, a glowing rim appears around the face/body, and it ends with a friendlier expression. The interaction concept is clear, though the face proportions and glow placement shift slightly between moments.</p>
+                <p><strong>OpenClaw video-description output:</strong> An elderly woman types on a white laptop. Next to her sits a small, white companion robot. As she types, the robot’s dark screen lights up, displaying two glowing white dots for eyes surrounded by a light ring. The dots then turn into a friendly, smiling face. This interaction highlights a warm, supportive relationship between technology and the elderly in a cozy home environment.</p>
               </div>
 
               <div class="prompt-card">
@@ -151,7 +157,14 @@
                   <source src="../assets/videos/tiny-ai-companion-clip-3-desire-moment.mp4" type="video/mp4" />
                   Your browser does not support embedded video.
                 </video>
-                <p><strong>Description:</strong> This clip shifts to a more premium glass-orb companion on a black base in an evening desk setup. A hand picks it up, and glowing eyes plus a smile appear inside the sphere. It feels more magical and high-end than the first two clips, but it is less visually consistent with the original white-device concept.</p>
+                <p><strong>Frame-extraction description:</strong> This clip shifts to a more premium glass-orb companion on a black base in an evening desk setup. A hand picks it up, and glowing eyes plus a smile appear inside the sphere. It feels more magical and high-end than the first two clips, but it is less visually consistent with the original white-device concept.</p>
+                <p><strong>OpenClaw video-description output:</strong> A small glass sphere rests on a glowing base on a wooden desk, with a blurred laptop and lamp in the background. A hand reaches out and picks up the sphere, which then displays a simple, glowing smiley face inside. The face blinks and smiles warmly as the person holds the sphere in their palm. The base continues to emit a soft blue light, creating a high-tech and friendly atmosphere for this interactive digital assistant.</p>
+              </div>
+
+              <h2>What this taught us</h2>
+              <div class="prompt-card">
+                <p>The frame-extraction method works when no direct video-understanding command is known, but it is a workaround: it depends on pulling still frames, may miss motion, and required a temporary bundled <code>ffmpeg</code> binary because system <code>ffmpeg</code> was not installed.</p>
+                <p>The better default for future workspace videos is OpenClaw's native video description command: <code>openclaw infer video describe --file &lt;video-path&gt; --json</code>. It records a cleaner method, describes motion directly, and avoids improvised tooling. Installing system <code>ffmpeg</code> would still be useful later for thumbnails, compression, frame extraction, audio extraction, and editing support.</p>
               </div>
 
               <h2>Optional caption for posting later</h2>
