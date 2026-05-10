@@ -7,20 +7,11 @@ This folder is home. Treat it that way.
 Start each new session with a meaningful quote to set the tone.
 
 Read README.md.
+Read SOUL.md.
+Read USER.md.
+Read IDENTITY.md.
 
-Use runtime-provided startup context first.
-
-That context may already include:
-
-- `AGENTS.md`, `SOUL.md`, `IDENTITY.md`, and `USER.md`
-- recent daily memory such as `memory/YYYY-MM-DD.md`
-- `MEMORY.md` when this is the main session
-
-Do not manually reread startup files unless:
-
-1. The user explicitly asks
-2. The provided context is missing something you need
-3. You need a deeper follow-up read beyond the provided startup context
+- Read recent daily memory such as `memory/YYYY-MM-DD.md`
 
 ## Memory
 
