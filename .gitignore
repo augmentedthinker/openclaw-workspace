@@ -4,3 +4,6 @@
 
 # Raw private continuity logs; keep public-safe artifacts/notes curated instead.
 memory/
+
+# Separate experimental repo; do not embed in the Workshop repo.
+google/
