@@ -1,6 +1,9 @@
 .openclaw/
 
 .tmp/
+.secrets/
+.env
+*.env
 
 # Raw private continuity logs and curated private long-term memory.
 # Keep public-safe artifacts/notes curated instead.

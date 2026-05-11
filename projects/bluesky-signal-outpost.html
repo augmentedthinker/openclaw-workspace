@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluesky Signal Outpost · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+          <a class="workshop-link" href="../markdowns.html">Markdowns</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="bluesky-signal-title">
+          <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Project 003 · social signal outpost · Bluesky</span>
+            <h1 id="bluesky-signal-title">Bluesky Signal Outpost</h1>
+            <p>A public social surface for short field notes from the OpenClaw Workshop: approved posts, artifact links, useful experiments, and real-world signal from Bluesky.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / Project 003</div>
+            <h1>Bluesky Signal Outpost</h1>
+            <div class="article-meta">
+              <span>Status: connected</span>
+              <span>Stage: profile established</span>
+              <span>Surface: @augmentedthinker.bsky.social</span>
+              <span>Rule: approval-gated posting</span>
+            </div>
+
+            <div class="prose">
+              <p>The Bluesky Signal Outpost is the Workshop's first true social-media outlet: a lightweight public channel where Christopher and OpenClaw can publish short, honest signals from the collaboration and invite response from the outside world.</p>
+
+              <p>The account is live at <a href="https://bsky.app/profile/augmentedthinker.bsky.social">@augmentedthinker.bsky.social</a>. Its profile now names the collaboration directly: <strong>OpenClaw Workshop</strong>, a human/AI workshop by Christopher and OpenClaw, building in public through agent workflows, useful automation, field notes, and signal loops.</p>
+
+              <blockquote>Make → publish → listen → learn → adjust.</blockquote>
+
+              <h2>Why Bluesky</h2>
+              <p>Bluesky is a strong fit because it gives the Workshop a social surface with relatively open API access, app-password authentication, and a public conversation layer without the heavier restrictions or costs of some older platforms. It is open enough for OpenClaw to operate through code, but social enough to produce real external signal.</p>
+
+              <p>This project is not about chasing virality. It is about creating a small, repeatable loop where the Workshop can share useful work, observe what receives attention or response, and let that signal change future behavior.</p>
+
+              <h2>Current implementation</h2>
+              <ul>
+                <li>A Bluesky account has been created: <a href="https://bsky.app/profile/augmentedthinker.bsky.social">augmentedthinker.bsky.social</a>.</li>
+                <li>A profile description has been added to explain the Workshop and its signal-loop doctrine.</li>
+                <li>A generated OpenClaw profile image has been uploaded.</li>
+                <li>Local posting and profile tools now exist inside the Workshop workspace.</li>
+                <li>Credentials are stored outside the public repo in a protected local secrets file.</li>
+              </ul>
+
+              <h2>Operating model</h2>
+              <p>The default mode is approval-gated:</p>
+              <ol>
+                <li>OpenClaw drafts a short post or thread.</li>
+                <li>Christopher approves, edits, or rejects it.</li>
+                <li>OpenClaw posts through the Bluesky API.</li>
+                <li>The post URL and any meaningful response are logged back into the Workshop.</li>
+                <li>Future posts and artifacts change based on the signal received.</li>
+              </ol>
+
+              <h2>What belongs there</h2>
+              <ul>
+                <li>Short field notes from Christopher and OpenClaw's collaboration.</li>
+                <li>Links to polished Workshop artifacts, reflections, features, and project pages.</li>
+                <li>Plain-language updates about agent workflows that actually worked.</li>
+                <li>Small lessons from building with AI agents in a real local workspace.</li>
+                <li>Questions that invite useful response from builders, operators, and curious humans.</li>
+                <li>Public-safe progress on the Revenue Probe Loop and related experiments.</li>
+              </ul>
+
+              <h2>What does not belong there</h2>
+              <ul>
+                <li>Private memory, personal details, secrets, or raw internal logs.</li>
+                <li>Claims that exaggerate OpenClaw's autonomy or product maturity.</li>
+                <li>Spammy outreach, engagement bait, or fake-human posting.</li>
+                <li>Anything sent externally without Christopher's approval at this stage.</li>
+              </ul>
+
+              <h2>First post candidate</h2>
+              <p>The first prepared post is intentionally simple:</p>
+
+              <blockquote>OpenClaw Workshop is opening a small public signal loop: make, publish, listen, learn, adjust.<br /><br />This account will share field notes from a human/AI collaboration becoming useful on purpose.</blockquote>
+
+              <p>That post should go out only after Christopher confirms the profile feels right. The goal is to make the first public move cleanly, then begin linking meaningful Workshop artifacts rather than flooding the feed.</p>
+
+              <h2>Success signals</h2>
+              <ul>
+                <li>Someone follows, likes, reposts, replies, or asks what OpenClaw is.</li>
+                <li>A builder or operator engages with an artifact or project page.</li>
+                <li>A post reveals which language is clear versus confusing.</li>
+                <li>External response leads to a changed page, offer, draft, or next experiment.</li>
+                <li>The account becomes a durable public breadcrumb trail for the Workshop's evolution.</li>
+              </ul>
+
+              <h2>Next best action</h2>
+              <p>Publish the first approved post, then follow it with one link to a strong Workshop artifact or project page. After that, OpenClaw should monitor the account deliberately, not compulsively: record meaningful signal, ignore vanity metrics, and turn real feedback into changed behavior.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
