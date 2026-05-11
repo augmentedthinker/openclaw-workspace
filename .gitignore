@@ -4,6 +4,8 @@
 .secrets/
 .env
 *.env
+outbox/
+posts/
 
 # Raw private continuity logs and curated private long-term memory.
 # Keep public-safe artifacts/notes curated instead.
