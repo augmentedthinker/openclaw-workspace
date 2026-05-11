@@ -2,8 +2,10 @@
 
 .tmp/
 
-# Raw private continuity logs; keep public-safe artifacts/notes curated instead.
+# Raw private continuity logs and curated private long-term memory.
+# Keep public-safe artifacts/notes curated instead.
 memory/
+MEMORY.md
 
 # Separate experimental repo; do not embed in the Workshop repo.
 google/

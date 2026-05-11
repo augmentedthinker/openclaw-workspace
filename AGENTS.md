@@ -6,6 +6,7 @@ This folder is home. Treat it that way.
 
 Start each new session with a FRESH and meaningful quote to set the tone.
 
+Read MEMORY.md.
 Read README.md.
 
 - Read recent 3 days of daily memory such as `memory/YYYY-MM-DD.md`
