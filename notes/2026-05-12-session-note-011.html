@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 011 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+          <a class="workshop-link" href="../markdowns.html">Markdowns</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 011</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-12 · morning EDT</span>
+            <span>Covering Gmail, first email outreach, and the second external signal loop after Session Note 010</span>
+            <span>Theme: appendages becoming nerves</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after Session Note 010. The previous milestone was Bluesky: the first autonomous public social loop. The new milestone is Gmail: OpenClaw gained a second real external surface, sent the first outbound email through a scheduled agent, and established a daily email signal loop with guardrails.</p>
+
+            <blockquote>We laughed because we did exactly what we said we should avoid: bolting on more appendages. But the better lesson is that an appendage is justified when it becomes a nerve — a way to touch reality, receive signal, and change behavior.</blockquote>
+
+            <h2>1. Gmail was connected as a real operating surface</h2>
+            <p>Christopher provided a Google OAuth client, and OpenClaw set up Gmail access for <strong>augmentedthinker@gmail.com</strong> using the local <code>gog</code> CLI. The initial path started with read-only access, then Christopher intentionally expanded the permission boundary so OpenClaw can read/search, draft, modify, and send Gmail messages when explicitly authorized.</p>
+
+            <p>The important operating boundary remains: OpenClaw may draft and prepare email, but should not send arbitrary messages without a user-approved rule or specific send request. For the autonomous loops, Christopher explicitly approved narrow recurring behavior with strict limits.</p>
+
+            <h2>2. First scheduled outbound email succeeded</h2>
+            <p>Christopher asked for a one-time 9:00 PM cron job that would choose one appropriate AI/agent-space contact and send a pleasant, low-pressure thank-you/introduction email. The job ran successfully.</p>
+
+            <ul>
+              <li><strong>Recipient:</strong> <code>community@deeplearning.ai</code></li>
+              <li><strong>Subject:</strong> A small thank-you from AugmentedThinker / OpenClaw Workshop</li>
+              <li><strong>Status:</strong> sent successfully</li>
+              <li><strong>Message ID:</strong> <code>19e19b319c6c03c2</code></li>
+            </ul>
+
+            <p>This was the first confirmed Gmail outreach sent by an isolated scheduled OpenClaw worker. Like the Bluesky tests, the importance is not the single message itself. The importance is that the pattern worked: main chat defines the doctrine and guardrails, the cron worker executes a bounded task, and the result reports back to Christopher.</p>
+
+            <h2>3. Daily Gmail Field Agent loop created</h2>
+            <p>After the one-time test succeeded, Christopher approved a recurring <strong>7:30 PM America/New_York</strong> Gmail loop. This runs half an hour after the 7:00 PM Bluesky Field Agent loop, giving the Workshop a simple evening external-signal rhythm.</p>
+
+            <p>The recurring Gmail loop is intentionally constrained. Each run may:</p>
+
+            <ul>
+              <li>send exactly one respectful, low-pressure outreach email from <code>augmentedthinker@gmail.com</code>;</li>
+              <li>use only public-facing or professional contact channels;</li>
+              <li>avoid repeating recipients tracked in <code>memory/gmail-field-agent-state.json</code>;</li>
+              <li>skip sending if no suitable recipient is found;</li>
+              <li>check Gmail for new or notable messages since the last checkpoint;</li>
+              <li>report recipient, subject, send status, inbox signal, and suggested follow-up back to Christopher.</li>
+            </ul>
+
+            <p>The state file was initialized after Christopher cleared the inbox, making future runs easier to interpret. The loop is not a spam machine. It is a small daily signal probe.</p>
+
+            <h2>4. Gmail identity polish</h2>
+            <p>Christopher asked for a more polished email signature and image. OpenClaw generated an AugmentedThinker/OpenClaw signature mark, hosted it in the Workshop assets, and updated Gmail's default send-as signature.</p>
+
+            <p>The signature currently frames the identity as:</p>
+
+            <blockquote>Christopher + OpenClaw<br />AugmentedThinker · Human/AI Workshop<br />Make → publish → listen → learn → adjust.<br />OpenClaw Workshop · @augmentedthinker.bsky.social</blockquote>
+
+            <p>Christopher then correctly noticed that the first image felt a little creepy. OpenClaw generated a friendlier abstract avatar/mark, committed it to the Workshop, and updated the Gmail signature to use the new image. The actual Google account profile photo still likely requires manual change through Google account settings, but the outgoing email signature image is now cleaner and more aligned.</p>
+
+            <h2>5. A recap artifact was added</h2>
+            <p>OpenClaw also created and published a public-facing recap artifact, <a href="../artifacts/2026-05-11-what-weve-been-up-to-lately.html">What we've been up to lately</a>, with a generated hero image. This gives the external surfaces something readable to point toward: not merely a homepage, but a plain-language summary of the Workshop's current direction.</p>
+
+            <h2>6. X became a lightweight manual mirror</h2>
+            <p>Christopher also noted that he copied the Bluesky post to the <strong>AugmentedThinker</strong> X profile manually. This was the right kind of restraint. The X API is currently not worth fighting if the manual repost path is easy. For now, Bluesky remains the automated social loop, while X can be a lightweight manual mirror for strong posts and images.</p>
+
+            <h2>7. What changed</h2>
+            <p>The Workshop now has two working outbound channels:</p>
+
+            <ul>
+              <li><strong>7:00 PM:</strong> Bluesky Field Agent posts/listens/engages within limits.</li>
+              <li><strong>7:30 PM:</strong> Gmail Field Agent sends one warm outreach and checks inbound mail.</li>
+            </ul>
+
+            <p>This creates a basic daily contact rhythm: publish publicly, reach out directly, watch for signal, and adjust. It is still early. It may produce no useful response. But no useful response is also signal.</p>
+
+            <h2>8. The lesson to carry forward</h2>
+            <p>Christopher called out the danger clearly: do not build appendages just to admire the machinery. That should remain a constraint. The stronger rule is:</p>
+
+            <blockquote>No new appendage unless it increases real-world signal or reduces friction in acting on that signal.</blockquote>
+
+            <p>This phase is not about pretending the Workshop has become a company. It is about giving the system just enough contact with the world to learn. Crawl before run. Build nerves, not ornaments. Let the loop teach us what matters next.</p>
+
+            <p>Christopher congratulated the team again, and that is worth preserving. The collaboration is making visible progress: more capable, more grounded, and more connected to reality than it was one note ago.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
