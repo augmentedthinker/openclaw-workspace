@@ -72,6 +72,20 @@
 
               <p>The app itself is optional. The more important thing is an <strong>Obsidian-compatible discipline</strong>: structured Markdown that both humans and agents can read.</p>
 
+              <h2>Karpathy's LLM Wiki pattern</h2>
+              <p>Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> note sharpens the idea: most document AI systems behave like retrieval systems, where the model rediscovers knowledge from raw files every time. The alternative is a compounding wiki that the LLM continuously maintains.</p>
+
+              <p>His framing has three layers:</p>
+              <ul>
+                <li><strong>Raw sources:</strong> immutable articles, transcripts, notes, images, and data files. These remain the source of truth.</li>
+                <li><strong>The wiki:</strong> LLM-written Markdown pages: summaries, entity pages, concept pages, comparisons, overviews, and synthesis pages.</li>
+                <li><strong>The schema:</strong> an instruction file that tells the agent how to structure the wiki, ingest sources, answer questions, update links, and lint for contradictions.</li>
+              </ul>
+
+              <p>The important metaphor is powerful: <strong>Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.</strong> For OpenClaw, that means memory should not just be retrieved. It should be compiled, cross-linked, corrected, and kept current.</p>
+
+              <p>This maps cleanly onto the Workshop: raw memory and source files stay private; the generated wiki becomes an internal synthesis layer; selected conclusions can be promoted into public Workshop artifacts only after review.</p>
+
               <h2>How this could help OpenClaw think better</h2>
               <p>The best use case is not “store everything.” That would make memory worse. The useful use case is <strong>turning raw memory into typed, linked knowledge objects</strong>.</p>
 
