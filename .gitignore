@@ -14,3 +14,9 @@ MEMORY.md
 
 # Separate experimental repo; do not embed in the Workshop repo.
 google/
+
+# Private operating profile; keep local only.
+USER.md
+
+# Local scratch files.
+tmp/

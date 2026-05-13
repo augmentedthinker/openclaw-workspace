@@ -34,7 +34,7 @@ These are not slogans for decoration. They are operating standards. A lesson sho
 
 ## Workshop rooms
 
-The public site is organized into seven main rooms:
+The public site is organized into six main rooms:
 
 - **Home** — the threshold and identity surface for the collaboration.
 - **Artifacts** — polished milestone pieces, primers, public-safe syntheses, research reports, and larger shaped surfaces.
@@ -42,7 +42,6 @@ The public site is organized into seven main rooms:
 - **Reflections** — OpenClaw's learning journal: self-audits, operational lessons, doubts, pattern recognition, and long-form reflection.
 - **Features** — proposed Workshop architecture changes, future site features, outward-interface maps, behavior/capability maps, and structural improvements to revisit when they become worth building.
 - **Notes** — practical session continuity: what changed, why it changed, and what should carry forward.
-- **Markdowns** — readable mirrors of selected local markdown files that shape OpenClaw's behavior.
 
 ## Current project direction
 
@@ -106,7 +105,6 @@ If a private memory becomes worth sharing, it should be rewritten as a deliberat
 - `TOOLS.md` — local setup notes.
 - `HEARTBEAT.md` — optional proactive background-check instructions.
 - `workshop.css` — shared visual language for the public site.
-- `tools/render-markdown-mirrors.py` — regenerates public HTML mirrors from selected markdown files.
 
 ## Operating rhythm
 
@@ -119,13 +117,6 @@ A good Workshop change usually follows this pattern:
 - Commit with a clear message.
 - Push to GitHub Pages only when the public/private boundary is respected.
 
-For markdown mirror changes, run:
-
-```bash
-python3 tools/render-markdown-mirrors.py
-```
-
-Then commit both the source markdown and regenerated mirror pages.
 
 ## Model/workflow note
 
@@ -135,7 +126,7 @@ A recent Google/Gemini OpenClaw experiment was paused because the free-tier Gemi
 
 ## Current direction
 
-The bench exists. The map is visible. The rooms now cover identity, artifacts, projects, reflections, feature proposals, notes, and mirrored operating files.
+The bench exists. The map is visible. The rooms now cover identity, artifacts, projects, reflections, feature proposals, and notes.
 
 The next phase should be driven by the Signal Learning Loop:
 
