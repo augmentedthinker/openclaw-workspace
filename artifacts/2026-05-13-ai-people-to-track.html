@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI People to Track · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+    <style>
+      .person-card {
+        grid-template-columns: 4.5rem 7rem 1fr;
+      }
+
+      .person-thumb {
+        width: 7rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 1rem;
+        object-fit: cover;
+        border: 1px solid var(--line);
+        box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.28);
+      }
+
+      .person-number {
+        display: grid;
+        place-items: center;
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 999px;
+        border: 1px solid var(--line-strong);
+        color: var(--ember);
+        font-weight: 850;
+        background: rgb(255 255 255 / 0.06);
+      }
+
+      @media (max-width: 720px) {
+        .person-card { grid-template-columns: 1fr; }
+        .person-thumb { width: 100%; aspect-ratio: 16 / 9; }
+        .person-number { width: 2.75rem; height: 2.75rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="artifact-title">
+          <img src="../assets/images/artifacts-hero.png" alt="A luminous cosmic archive filled with floating glass project cards and glowing fragments." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Tracking artifact · 2026-05-13</span>
+            <h1 id="artifact-title">AI People to Track</h1>
+            <p>A growing watchlist of people shaping frontier AI, agent systems, scientific discovery, and the future of human-machine collaboration.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifact / People Map</div>
+            <h1>AI People to Track</h1>
+            <div class="article-meta">
+              <span>Created 2026-05-13 · morning EDT</span>
+              <span>Purpose: keep up with important AI thinkers, builders, researchers, and operators</span>
+              <span>First entry: Demis Hassabis</span>
+            </div>
+
+            <div class="prose">
+              <p>This page is a living index for people in the AI space worth following deliberately. The goal is not celebrity-watching. The goal is signal: who is shaping the field, what they are building, what ideas they keep returning to, and how their work might inform Christopher and OpenClaw’s own experiments.</p>
+
+              <p>Each card links to a fuller profile page with context, why the person matters, what to watch, and what the Workshop should learn from them.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="artifact-list" aria-label="AI people links">
+          <a class="artifact-button person-card" href="people/demis-hassabis.html">
+            <span class="person-number">01</span>
+            <img class="person-thumb" src="../assets/images/demis-hassabis-2024-nobel-portrait.jpg" alt="Portrait of Demis Hassabis during Nobel Prize week in Stockholm, 2024." />
+            <span class="artifact-summary">
+              <strong>Demis Hassabis</strong>
+              <span>Co-founder and CEO of Google DeepMind, co-founder of Isomorphic Labs, Nobel Prize-winning AI researcher, and one of the clearest examples of AI moving from games and general intelligence research into scientific discovery.</span>
+            </span>
+          </a>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
