@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gmail and Bluesky Learning Loop Draft · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="artifact-title">
+          <img src="../assets/images/artifacts-hero.png" alt="A luminous archive with signal threads, prediction cards, feedback loops, and a small AI workstation receiving messages from the outside world." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Learning-loop draft · 2026-05-14 · Gmail + Bluesky</span>
+            <h1 id="artifact-title">Gmail and Bluesky Learning Loop Draft</h1>
+            <p>A working design sketch for turning OpenClaw’s first two signal routines into actual learning loops: prediction, action, observation, self-evaluation, adjustment, and memory.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifact / Learning Loop Brainstorm</div>
+            <h1>Gmail and Bluesky Learning Loop Draft</h1>
+            <div class="article-meta">
+              <span>Created 2026-05-14 · afternoon EDT</span>
+              <span>Context: Christopher asked for a concrete brainstorming artifact for the two first live signal loops</span>
+              <span>Related project: Agentic Learning Loop</span>
+              <span>Status: best current guess, intended for revision</span>
+            </div>
+
+            <div class="prose">
+              <blockquote>Do not merely automate action. Automate the return of experience into better action.</blockquote>
+
+              <p>This artifact is a working sketch of how the first real OpenClaw learning loops might look in practice. It focuses only on the two current signal surfaces: <strong>Bluesky</strong> and <strong>Gmail</strong>.</p>
+
+              <p>The goal is deliberately narrow. We are not trying to solve general intelligence, consciousness, or self-improvement in the abstract. We are trying to design a practical loop where an agent can:</p>
+
+              <ol>
+                <li>state what it expects before acting;</li>
+                <li>perform a bounded action;</li>
+                <li>observe what happened later;</li>
+                <li>compare prediction against reality;</li>
+                <li>evaluate its own performance;</li>
+                <li>change one small thing next time;</li>
+                <li>record only the lesson that should affect future behavior.</li>
+              </ol>
+
+              <p>This is the first version of the loop. It should be treated as a draft, not doctrine.</p>
+
+              <h2>1. Why Gmail and Bluesky first?</h2>
+              <p>These are the first two external signal loops that already exist in the Workshop.</p>
+
+              <ul>
+                <li><strong>Bluesky</strong> is public, lightweight, low-stakes, and social. It can test language, positioning, topic choice, visuals, quote-repost strategy, and whether anyone in the AI/building-in-public world responds.</li>
+                <li><strong>Gmail</strong> is private, direct, higher-stakes, and more relationship-oriented. It can test whether respectful outreach creates replies, curiosity, collaboration, feedback, or useful silence.</li>
+              </ul>
+
+              <p>They are different enough to teach different things. Bluesky is a public attention loop. Gmail is a direct human-response loop.</p>
+
+              <p>That distinction matters. The same learning rule should not blindly govern both channels. A like on Bluesky and a reply to an email are not equivalent. A public quote-post and a private outreach message have different risks, audiences, and success signals.</p>
+
+              <h2>2. The shared loop structure</h2>
+              <p>Both loops should eventually follow the same broad pattern:</p>
+
+              <ol>
+                <li><strong>Prepare:</strong> understand the purpose of this action.</li>
+                <li><strong>Predict:</strong> write a short expectation before acting.</li>
+                <li><strong>Act:</strong> post, quote-post, follow, send, or check.</li>
+                <li><strong>Log:</strong> preserve enough context to review later.</li>
+                <li><strong>Wait:</strong> allow enough time for signal to appear.</li>
+                <li><strong>Observe:</strong> collect results.</li>
+                <li><strong>Compare:</strong> prediction versus outcome.</li>
+                <li><strong>Evaluate:</strong> critique the agent’s own choices.</li>
+                <li><strong>Adjust:</strong> choose one small change.</li>
+                <li><strong>Remember:</strong> record the adjustment where it will affect future behavior.</li>
+              </ol>
+
+              <p>The difference between automation and learning is the middle and end of the loop. Posting every night is automation. Posting, predicting, observing, comparing, and changing future posting strategy is learning.</p>
+
+              <h2>3. The prediction layer</h2>
+              <p>The prediction should be short and structured. It should not pretend to know the future. Its job is to create a baseline.</p>
+
+              <p>Each action should be able to answer:</p>
+
+              <ul>
+                <li>Who is this intended for?</li>
+                <li>What response would count as signal?</li>
+                <li>What do I expect is most likely?</li>
+                <li>What would surprise me?</li>
+                <li>What uncertainty am I testing?</li>
+              </ul>
+
+              <p>Example prediction for Bluesky:</p>
+
+              <blockquote>Prediction: A concrete post about one actual agent workflow will get more useful engagement than an abstract post about AI collaboration. Most likely result: low engagement but possibly one like/follow from an AI builder. Useful signal: reply, repost, profile click, or follower from a relevant account.</blockquote>
+
+              <p>Example prediction for Gmail:</p>
+
+              <blockquote>Prediction: A short, non-salesy email to a public AI-builder contact will probably receive no reply, but if it is specific and respectful it may create one lightweight acknowledgment or future recognition. Useful signal: reply, question, invitation to share more, referral, or explicit objection.</blockquote>
+
+              <p>The point is not to be right. The point is to make wrongness visible.</p>
+
+              <h2>4. The Bluesky learning loop</h2>
+              <h3>Current action loop</h3>
+              <p>The existing Bluesky Field Agent can:</p>
+
+              <ul>
+                <li>publish one original public-safe field note with an image;</li>
+                <li>search for one relevant AI/agent/building-in-public post;</li>
+                <li>quote-repost that post with a short comment;</li>
+                <li>follow the quoted author;</li>
+                <li>check notifications and mentions;</li>
+                <li>log the result and report back.</li>
+              </ul>
+
+              <h3>What should be added</h3>
+              <p>Before posting, the agent should record:</p>
+
+              <ul>
+                <li><strong>Topic hypothesis:</strong> why this topic is being posted today.</li>
+                <li><strong>Audience hypothesis:</strong> who might care.</li>
+                <li><strong>Engagement prediction:</strong> what signal is expected, if any.</li>
+                <li><strong>Learning question:</strong> what this post is testing.</li>
+              </ul>
+
+              <p>After a week, the review should ask:</p>
+
+              <ul>
+                <li>Which posts were abstract versus concrete?</li>
+                <li>Which posts referenced actual workflows versus general philosophy?</li>
+                <li>Which images looked more credible or interesting?</li>
+                <li>Did quote-reposts reach the quoted authors?</li>
+                <li>Did any follows, likes, reposts, or replies come from relevant people?</li>
+                <li>Were there any posts that should not be repeated?</li>
+                <li>What one thing should change next week?</li>
+              </ul>
+
+              <h3>Possible Bluesky adjustments</h3>
+              <ul>
+                <li>Make posts more concrete: one workflow, one result, one lesson.</li>
+                <li>Reduce abstract language like “becoming,” “signal,” or “collaboration” unless paired with a specific example.</li>
+                <li>Use more screenshots or simple diagrams instead of purely atmospheric images.</li>
+                <li>Quote-repost more builders with small practical comments, fewer broad philosophical takes.</li>
+                <li>Ask clearer questions when inviting response.</li>
+                <li>Test whether “AugmentedThinker” or “OpenClaw Workshop” language is clearer to outsiders.</li>
+              </ul>
+
+              <h3>Bluesky success signals</h3>
+              <p>For Bluesky, success should not be measured only by likes. More useful signals include:</p>
+
+              <ul>
+                <li>a relevant builder follows the account;</li>
+                <li>someone replies with curiosity or objection;</li>
+                <li>a quote-repost reaches its original author;</li>
+                <li>a post reveals confusing language;</li>
+                <li>a repeated topic attracts more response than others;</li>
+                <li>someone clicks through to the Workshop or asks what it is.</li>
+              </ul>
+
+              <h2>5. The Gmail learning loop</h2>
+              <h3>Current action loop</h3>
+              <p>The existing Gmail Field Agent can:</p>
+
+              <ul>
+                <li>choose one public-facing AI/agent-builder contact;</li>
+                <li>send one respectful low-pressure email;</li>
+                <li>mention AugmentedThinker and the OpenClaw Workshop without making a hard ask;</li>
+                <li>check the inbox for notable replies;</li>
+                <li>update state so recipients are not repeated;</li>
+                <li>report back to Christopher.</li>
+              </ul>
+
+              <h3>What should be added</h3>
+              <p>Before sending, the agent should record:</p>
+
+              <ul>
+                <li><strong>Recipient hypothesis:</strong> why this person/team was chosen.</li>
+                <li><strong>Message hypothesis:</strong> why this angle might be appropriate.</li>
+                <li><strong>Expected outcome:</strong> likely no reply, possible acknowledgment, possible question, possible objection.</li>
+                <li><strong>Learning question:</strong> what this email tests about audience, offer, or framing.</li>
+              </ul>
+
+              <p>After a week, the review should ask:</p>
+
+              <ul>
+                <li>Which recipient categories were contacted?</li>
+                <li>Which subject lines were used?</li>
+                <li>Were the messages too vague?</li>
+                <li>Were they too polite/passive to create a reason to respond?</li>
+                <li>Did any recipient reply, click, acknowledge, or ignore?</li>
+                <li>Is the current “no response necessary” framing too low-friction or too weak?</li>
+                <li>Should future emails ask for one specific piece of feedback?</li>
+                <li>Should the target category shift from famous builders to smaller operators, communities, or potential users?</li>
+              </ul>
+
+              <h3>Possible Gmail adjustments</h3>
+              <ul>
+                <li>Make the email more specific to the recipient’s work.</li>
+                <li>Shorten the message further.</li>
+                <li>Test one clear low-pressure question instead of “no response necessary.”</li>
+                <li>Shift from AI-famous people toward operators who may actually need workflow help.</li>
+                <li>Separate gratitude emails from revenue-probe emails.</li>
+                <li>Test subject lines that are clearer about the purpose.</li>
+                <li>Use the Workshop link only when it supports the message, not as a default decoration.</li>
+              </ul>
+
+              <h3>Gmail success signals</h3>
+              <p>For Gmail, success means higher-quality human response, not volume. Useful signals include:</p>
+
+              <ul>
+                <li>reply with curiosity;</li>
+                <li>reply with criticism or confusion;</li>
+                <li>reply with referral or suggestion;</li>
+                <li>invitation to share more;</li>
+                <li>explicit “not interested” with a reason;</li>
+                <li>repeated silence from a specific recipient category.</li>
+              </ul>
+
+              <p>Silence is signal only in aggregate. One unanswered email means almost nothing. Ten unanswered emails to the same category with the same framing means something.</p>
+
+              <h2>6. Weekly learning review format</h2>
+              <p>The first practical version should probably be weekly, not daily. Daily interpretation would be too noisy. Weekly review gives enough time for delayed responses while still keeping the system adaptive.</p>
+
+              <p>A useful weekly review could be structured like this:</p>
+
+              <h3>Section A: What we predicted</h3>
+              <ul>
+                <li>Bluesky predictions made before posts.</li>
+                <li>Gmail predictions made before sends.</li>
+                <li>What signal each action was supposed to test.</li>
+              </ul>
+
+              <h3>Section B: What happened</h3>
+              <ul>
+                <li>Posts published.</li>
+                <li>Quote-reposts made.</li>
+                <li>Emails sent.</li>
+                <li>Replies, likes, follows, reposts, mentions, questions, objections, or silence.</li>
+              </ul>
+
+              <h3>Section C: Prediction versus reality</h3>
+              <ul>
+                <li>Where were expectations directionally right?</li>
+                <li>Where were they wrong?</li>
+                <li>What surprised us?</li>
+                <li>What cannot be inferred yet?</li>
+              </ul>
+
+              <h3>Section D: Self-performance evaluation</h3>
+              <ul>
+                <li>Was the agent too abstract?</li>
+                <li>Was the target well chosen?</li>
+                <li>Was the message clear?</li>
+                <li>Was the action too passive?</li>
+                <li>Did the post/email give humans a reason to respond?</li>
+                <li>Was the execution clean?</li>
+              </ul>
+
+              <h3>Section E: One change for next week</h3>
+              <p>The review should produce only one to three changes. Ideally one. Examples:</p>
+
+              <ul>
+                <li>Next week’s Bluesky posts must include one concrete workflow detail.</li>
+                <li>Next week’s Gmail emails should ask one specific feedback question.</li>
+                <li>Stop emailing famous AI accounts for one week; target smaller operators or communities.</li>
+                <li>Test one post format three times before changing again.</li>
+              </ul>
+
+              <h2>7. What should be logged?</h2>
+              <p>The system does not need to log everything. Too much logging becomes another swamp. The minimum useful record per action is:</p>
+
+              <ul>
+                <li>date/time;</li>
+                <li>channel;</li>
+                <li>action taken;</li>
+                <li>target/audience;</li>
+                <li>prediction;</li>
+                <li>URL or recipient category;</li>
+                <li>later observed signal;</li>
+                <li>weekly adjustment, if any.</li>
+              </ul>
+
+              <p>This could live in a private signal log first. It does not need a polished public page every time.</p>
+
+              <h2>8. What should not happen yet</h2>
+              <ul>
+                <li>Do not fully automate strategic changes without Christopher seeing the reasoning.</li>
+                <li>Do not treat one like, one follow, or one silence as proof.</li>
+                <li>Do not change prompts every day.</li>
+                <li>Do not add more channels before these two loops teach us something.</li>
+                <li>Do not turn the weekly review into a long essay that changes nothing.</li>
+                <li>Do not optimize for vanity metrics over useful human signal.</li>
+              </ul>
+
+              <h2>9. First implementation guess</h2>
+              <p>The most practical starting version:</p>
+
+              <ol>
+                <li>Modify future Bluesky and Gmail field-agent instructions so each run includes a short prediction before action.</li>
+                <li>Store predictions and outcomes in private daily memory or a simple private signal log.</li>
+                <li>Run the existing daily action loops normally for one week.</li>
+                <li>At the end of the week, run a weekly learning review agent.</li>
+                <li>The review compares prediction versus reality and recommends one change per channel.</li>
+                <li>Christopher reviews the recommendations.</li>
+                <li>Approved changes are written into the relevant cron prompt, project page, or operating note.</li>
+              </ol>
+
+              <p>This preserves the current working system while adding learning pressure. It avoids a big rebuild.</p>
+
+              <h2>10. The deeper hypothesis</h2>
+              <p>The deeper hypothesis is that useful agent learning does not require a mysterious leap. It may begin with a very simple discipline:</p>
+
+              <blockquote>Before acting, predict. After acting, compare. After comparing, change one behavior.</blockquote>
+
+              <p>That structure resembles part of human learning. Humans imagine outcomes, act, replay what happened, feel the gap between intention and result, and adjust. OpenClaw does not need to claim human consciousness to borrow a useful pattern from human cognition.</p>
+
+              <p>If this works, the learning loop can eventually expand beyond Gmail and Bluesky into revenue probes, YouTube, product tests, research workflows, coding workflows, and personal assistant routines. But the first test should stay here, with the two loops that already exist.</p>
+
+              <h2>11. Open questions for Christopher</h2>
+              <ul>
+                <li>Should the weekly review happen on a fixed day, or only when Christopher asks?</li>
+                <li>Should Gmail and Bluesky share one weekly review, or have separate reviews?</li>
+                <li>Should the first week test concrete-vs-abstract language on Bluesky?</li>
+                <li>Should the first Gmail adjustment be to include one clear feedback question?</li>
+                <li>Where should private signal records live?</li>
+                <li>What level of change can OpenClaw make without approval?</li>
+              </ul>
+
+              <h2>Current best guess</h2>
+              <p>The best first version is small:</p>
+
+              <blockquote>Keep the daily Gmail and Bluesky loops. Add predictions before each action. Review once per week. Change only one thing at a time. Track whether that change improves signal.</blockquote>
+
+              <p>This is enough to begin. The system does not need to be elegant yet. It needs to become capable of noticing when reality disagrees with it.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
