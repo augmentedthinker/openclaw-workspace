@@ -72,18 +72,50 @@
               <p>The goal is not to create a mystical self-improving system. The goal is practical: make OpenClaw less repetitive, less random, less performative, and more capable of improving its actions through evidence.</p>
 
               <h2>Working definition</h2>
-              <p>An agentic learning loop has six parts:</p>
+              <p>An agentic learning loop has eight parts:</p>
 
               <ol>
                 <li><strong>Intent:</strong> the agent knows what it is trying to learn or test.</li>
+                <li><strong>Prediction:</strong> before acting, the agent states what it expects may happen and what signal would matter.</li>
                 <li><strong>Action:</strong> the agent performs a bounded external or internal action.</li>
                 <li><strong>Observation:</strong> the agent gathers results after enough time has passed.</li>
-                <li><strong>Interpretation:</strong> the agent reasons about what the results suggest, without overclaiming.</li>
+                <li><strong>Comparison:</strong> the agent compares predicted outcomes with observed outcomes.</li>
+                <li><strong>Self-performance evaluation:</strong> the agent reviews its own choices: target, wording, timing, framing, tone, and execution quality.</li>
                 <li><strong>Adjustment:</strong> the agent changes a prompt, rule, draft style, target choice, project note, or next action.</li>
                 <li><strong>Memory:</strong> the agent records only the lesson or state change worth carrying forward.</li>
               </ol>
 
-              <p>This is different from simple cron automation. Cron says: do the thing every day. A learning loop says: do the thing, check what happened, and use the result to decide how the thing should evolve.</p>
+              <p>This is different from simple cron automation. Cron says: do the thing every day. A learning loop says: make a prediction, do the thing, check what happened, compare expectation against reality, evaluate performance, and use the result to decide how the thing should evolve.</p>
+
+              <h2>Two cognitive ideas to test</h2>
+              <p>Christopher sharpened the project on May 14 by naming two pieces of human learning that may translate into useful agent design:</p>
+
+              <h3>1. Prediction before action</h3>
+              <p>Human cognition may be partly understood as prediction: the mind imagines possible outcomes, prepares for scenarios, then updates when reality answers back. For OpenClaw, this suggests that a field agent should not merely post or send. It should record a simple prediction before action:</p>
+
+              <ul>
+                <li>What audience or recipient do I expect this to reach?</li>
+                <li>What response, if any, would count as meaningful signal?</li>
+                <li>What would silence suggest, if repeated?</li>
+                <li>What am I uncertain about?</li>
+              </ul>
+
+              <p>The prediction does not need to be complicated. Its job is to create a baseline so the later review is not just vibes.</p>
+
+              <h3>2. Self-performance evaluation after action</h3>
+              <p>Humans often learn by replaying their own performance: what did I do, what could I have done differently, where was I clear, where was I clumsy, what should I try next time? A useful AI learning loop may need an explicit version of this after-action review.</p>
+
+              <p>For Bluesky and Gmail, self-performance evaluation could ask:</p>
+
+              <ul>
+                <li>Was the message specific or too abstract?</li>
+                <li>Was the target well chosen?</li>
+                <li>Was the tone appropriate for the channel?</li>
+                <li>Did the action create a clear path for response?</li>
+                <li>If I were revising this, what one thing would I improve?</li>
+              </ul>
+
+              <p>The point is not self-criticism for its own sake. The point is to make future action less random and more accountable.</p>
 
               <h2>Initial loop surface: Bluesky</h2>
               <p>Bluesky is the safer first test bed because the stakes are lower than email. It is public, lightweight, developer-friendly, and already running as a bounded daily signal outpost.</p>
@@ -92,9 +124,12 @@
 
               <ul>
                 <li>Which posts were published?</li>
+                <li>What did the agent predict before posting?</li>
                 <li>Which topics or phrasings received likes, follows, reposts, replies, or silence?</li>
                 <li>Did quote-reposting relevant builders produce any response?</li>
                 <li>Were there signs of confusion about what OpenClaw or AugmentedThinker is?</li>
+                <li>How did actual response compare with prediction?</li>
+                <li>What would the agent improve about its own post selection, wording, or targeting?</li>
                 <li>Should the next week use different language, topics, images, calls to action, or target communities?</li>
               </ul>
 
@@ -110,9 +145,12 @@
               <ul>
                 <li>Who was contacted?</li>
                 <li>Why were they chosen?</li>
+                <li>What did the agent predict before sending?</li>
                 <li>What subject line and message angle were used?</li>
                 <li>Did anyone reply?</li>
                 <li>Were there opens, indirect signals, or complete silence?</li>
+                <li>How did actual response compare with prediction?</li>
+                <li>Was the message too vague, too long, too passive, too abstract, or aimed at the wrong recipient?</li>
                 <li>Does the message need to become clearer, shorter, warmer, more specific, or more useful?</li>
                 <li>Should the target category change?</li>
               </ul>
@@ -135,12 +173,15 @@
               <h2>Possible weekly review prompt</h2>
               <p>A future weekly learning agent might receive an instruction like this:</p>
 
-              <blockquote>Review the last seven days of Bluesky and Gmail field-agent logs. Identify what was sent or published, what signal came back, what can and cannot be inferred, and what one to three small changes should be made next week. Update the relevant project memory or prompt drafts only when the evidence justifies it. Do not overclaim. Do not expand autonomy. Prefer concrete behavioral adjustments.</blockquote>
+              <blockquote>Review the last seven days of Bluesky and Gmail field-agent logs. Identify what was predicted, what was sent or published, what signal came back, how reality compared with prediction, what the agent would critique about its own performance, what can and cannot be inferred, and what one to three small changes should be made next week. Update the relevant project memory or prompt drafts only when the evidence justifies it. Do not overclaim. Do not expand autonomy. Prefer concrete behavioral adjustments.</blockquote>
 
               <p>The output should not be a giant essay every week. The useful artifact is a short decision record:</p>
 
               <ul>
-                <li><strong>Observed:</strong> what happened.</li>
+                <li><strong>Predicted:</strong> what the agent expected might happen.</li>
+                <li><strong>Observed:</strong> what actually happened.</li>
+                <li><strong>Compared:</strong> where expectation and reality matched or diverged.</li>
+                <li><strong>Evaluated:</strong> what the agent would improve about its own performance.</li>
                 <li><strong>Interpreted:</strong> what it might mean.</li>
                 <li><strong>Changed:</strong> what will be different next week.</li>
                 <li><strong>Uncertain:</strong> what still needs more signal.</li>
@@ -177,8 +218,11 @@
 
               <ol>
                 <li>Collect the last seven days of Bluesky logs and Gmail logs.</li>
+                <li>Summarize what the agents predicted before acting.</li>
                 <li>Summarize what went out.</li>
                 <li>Summarize what came back.</li>
+                <li>Compare prediction against observed reality.</li>
+                <li>Evaluate the agent's own performance: target choice, wording, timing, framing, and execution.</li>
                 <li>Name one or two hypotheses.</li>
                 <li>Choose one small behavior change for the next week.</li>
                 <li>Write that change into the relevant project note, memory file, or future field-agent instruction.</li>
