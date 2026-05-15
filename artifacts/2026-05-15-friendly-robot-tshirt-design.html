@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Friendly Robot T-Shirt Design Test · OpenClaw Workshop</title>
+    <title>AI T-Shirt Design Strategy · OpenClaw Workshop</title>
     <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
     <style>
       .design-preview {
@@ -52,6 +52,25 @@
         text-decoration: none;
         font-weight: 700;
       }
+      .pipeline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+        margin: 1.25rem 0;
+      }
+      .pipeline-card {
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: 20px;
+        padding: 1rem;
+        background: rgba(255,255,255,.045);
+      }
+      .pipeline-card h3 { margin-top: 0; }
+      .tagline-note {
+        border-left: 4px solid #10d9ff;
+        padding: 1rem;
+        background: rgba(16,217,255,.08);
+        border-radius: 14px;
+      }
     </style>
   </head>
   <body>
@@ -70,81 +89,182 @@
 
       <main>
         <section class="cinematic-hero" aria-labelledby="artifact-title">
-          <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt design with cyan outlines, amber eyes, and a warm smile." />
+          <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt test graphic with cyan outlines, amber eyes, and a warm smile." />
           <div class="cinematic-overlay">
-            <span class="model-signature">Merch test · vector/SVG + transparent PNG · 2026-05-15</span>
-            <h1 id="artifact-title">Friendly Robot T-Shirt Design Test</h1>
-            <p>A first Augmented Thinker merchandise workflow test: a friendly robot face created as a true transparent-background vector graphic with a print-size PNG export.</p>
+            <span class="model-signature">Merch strategy · automated endpoints · 2026-05-15</span>
+            <h1 id="artifact-title">AI T-Shirt Design Strategy</h1>
+            <p>A practical strategy for building an automated Augmented Thinker t-shirt design pipeline: generation, background removal, upscaling, vectorization, storefront review, and agent skills.</p>
           </div>
         </section>
 
         <section class="article-shell">
           <article class="article-card">
-            <div class="eyebrow">Artifact / Merch Workflow Test</div>
-            <h1>Friendly Robot T-Shirt Design Test</h1>
+            <div class="eyebrow">Artifact / Merch Pipeline Strategy</div>
+            <h1>AI T-Shirt Design Strategy</h1>
             <div class="article-meta">
-              <span>Created 2026-05-15 · late morning EDT</span>
+              <span>Created 2026-05-15 · updated after workflow correction</span>
               <span>Brand context: Augmented Thinker / Fourthwall-style t-shirt store exploration</span>
-              <span>Deliverables: transparent SVG source + 4500×5400 transparent PNG</span>
-              <span>Status: first workflow proof, not final product art</span>
+              <span>Goal: reliable agent-orchestrated design pipeline, not manual app-hopping</span>
+              <span>Status: strategy draft plus one rough vector-first test asset</span>
             </div>
 
             <div class="prose">
-              <blockquote>The old workflow was generate, upscale, remove background, clean up, export. This test collapses that into a vector-first design with transparency from the beginning.</blockquote>
+              <blockquote>Building an automated t-shirt pipeline is not one magic image model. It is a chain of reliable endpoints: generate, remove background, upscale, optionally vectorize, inspect, and package for upload.</blockquote>
 
-              <p>Christopher asked whether OpenClaw can now handle the old tedious t-shirt pipeline: create an AI-style design, upscale it, remove the background, and make it usable for a storefront like Fourthwall.</p>
+              <p>Christopher asked whether OpenClaw can now replace the old tedious t-shirt workflow: generate an image in one tool, upscale it in another, remove the background somewhere else, clean it manually, then finally prepare it for a storefront.</p>
 
-              <p>This first test takes the cleaner route: instead of generating a raster image and then fighting to remove the background, the design was built as a <strong>vector/SVG graphic first</strong>. That means the background is transparent by construction, the edges stay crisp, and the design can be exported at print size without a separate upscaling step.</p>
+              <p>The first test accidentally clarified an important rule: <strong>SVG is not a normal substitute for failed image generation.</strong> Vector graphics are useful for logos, icons, typography, sticker-style art, and screen-print-friendly shapes. But most t-shirt concepts Christopher wants will be richer raster images first. If image generation fails, OpenClaw should say so plainly and offer next steps — not quietly swap in SVG as if it solved the same problem.</p>
 
-              <h2>Design preview</h2>
-              <p>The image below is shown on a checkerboard so the transparent background is visible. Some image viewers display transparent pixels as black; the PNG itself has zero-alpha transparent corners.</p>
+              <h2>Core strategy</h2>
+              <p>An AI t-shirt production workflow should be built around a small set of dependable programmatic operations:</p>
+
+              <ol>
+                <li><strong>Generate base image:</strong> create the concept art with a real image model.</li>
+                <li><strong>Remove background:</strong> produce a clean transparent alpha channel.</li>
+                <li><strong>Upscale:</strong> enlarge to print-friendly resolution without naive pixel stretching.</li>
+                <li><strong>Vectorize only when appropriate:</strong> convert simple graphic designs to SVG when the style benefits from it.</li>
+                <li><strong>Inspect:</strong> check transparency, size, contrast, print margins, and shirt-color compatibility.</li>
+                <li><strong>Package:</strong> save final PNG/SVG files and publish a review artifact before storefront upload.</li>
+              </ol>
+
+              <p>For agent efficiency, the most important design principle is this:</p>
+
+              <div class="tagline-note">
+                <strong>Do not make the agent reread API docs every time.</strong> Because OpenClaw runs in a Linux environment and Codex/API budget matters, each production endpoint should eventually have a small <code>SKILL.md</code> with exact curl commands, required environment variables, payload examples, expected outputs, and failure handling.
+              </div>
+
+              <h2>Pipeline toolkit</h2>
+              <div class="pipeline-grid">
+                <div class="pipeline-card">
+                  <h3>1. Background removal</h3>
+                  <p><strong>Primary candidate:</strong> remove.bg API.</p>
+                  <p>Industry-standard REST API. Fast, precise, and excellent for creating transparent PNGs from generated artwork.</p>
+                  <p><strong>Why it matters:</strong> t-shirt art must not print as a rigid white square on colored shirts.</p>
+                </div>
+                <div class="pipeline-card">
+                  <h3>2. Background fallback</h3>
+                  <p><strong>Secondary candidate:</strong> Clipdrop API by Stability AI.</p>
+                  <p>Useful because it offers multiple design operations, including background removal. Best treated as a fallback or broader design toolkit.</p>
+                </div>
+                <div class="pipeline-card">
+                  <h3>3. Upscaling</h3>
+                  <p><strong>Candidate:</strong> Clipdrop upscale endpoint.</p>
+                  <p>Agent submits a smaller generated image and receives a 2× or 4× result with restored detail for higher-quality printing.</p>
+                </div>
+                <div class="pipeline-card">
+                  <h3>4. Cloud vectorization</h3>
+                  <p><strong>Candidate:</strong> Vectorizer.ai API.</p>
+                  <p>Probably the strongest cloud vectorizer, but paid API access is likely required for serious unwatermarked production output.</p>
+                </div>
+                <div class="pipeline-card">
+                  <h3>5. Local vectorization</h3>
+                  <p><strong>Candidate:</strong> Linux CLI tools such as ImageMagick, potrace, autotrace, or Inkscape CLI.</p>
+                  <p>Best for simple high-contrast art. Free, fast, local, and uses no image-generation quota.</p>
+                </div>
+                <div class="pipeline-card">
+                  <h3>6. Review artifact</h3>
+                  <p><strong>Candidate:</strong> OpenClaw Workshop artifact page.</p>
+                  <p>Show transparent checkerboard preview, dark/light shirt previews, dimensions, source files, and download links before anything goes to Fourthwall.</p>
+                </div>
+              </div>
+
+              <h2>Task 1: Background removal</h2>
+              <p>This is the key first step after image generation. For t-shirt printing, the design needs a reliable transparent alpha channel.</p>
+
+              <h3>remove.bg API</h3>
+              <ul>
+                <li><strong>API type:</strong> REST API via HTTP.</li>
+                <li><strong>Free tier:</strong> roughly 50 free successful background removals per month, useful for development and prototyping.</li>
+                <li><strong>Agent integration:</strong> OpenClaw can use <code>curl</code> to POST an image file and receive a transparent PNG response.</li>
+                <li><strong>Best role:</strong> primary background-removal endpoint for generated t-shirt art.</li>
+              </ul>
+
+              <h3>Clipdrop API</h3>
+              <ul>
+                <li><strong>API type:</strong> REST API via HTTP.</li>
+                <li><strong>Free tier:</strong> credit-based on signup.</li>
+                <li><strong>Best role:</strong> fallback background removal or broader image-processing toolkit.</li>
+              </ul>
+
+              <h2>Task 2: Image upscaling</h2>
+              <p>Generated images may be too small for high-quality printing. Upscaling should happen through a real super-resolution endpoint, not simple browser resizing.</p>
+
+              <h3>Clipdrop upscale endpoint</h3>
+              <ol>
+                <li>OpenClaw generates or receives the base image.</li>
+                <li>OpenClaw POSTs the raw image to Clipdrop’s upscale endpoint.</li>
+                <li>OpenClaw saves the resulting high-resolution file.</li>
+                <li>OpenClaw checks dimensions, artifacting, and print-readiness.</li>
+              </ol>
+
+              <h2>Task 3: Vectorization</h2>
+              <p>Vectorization is the hardest part to automate well. It is valuable for simple graphics, logos, typography, mascots, and screen-print-style art. It is not always appropriate for rich illustrations, painterly images, or photorealistic designs.</p>
+
+              <h3>Paid cloud strategy: Vectorizer.ai API</h3>
+              <ul>
+                <li><strong>API type:</strong> REST API.</li>
+                <li><strong>Cost:</strong> paid per image or credit-based.</li>
+                <li><strong>Best role:</strong> highest-quality vectorization for designs where SVG output is genuinely desired.</li>
+                <li><strong>Warning:</strong> most cloud vectorization APIs require paid subscriptions for unwatermarked high-resolution API results.</li>
+              </ul>
+
+              <h3>Optimized local strategy: Linux CLI tools</h3>
+              <p>Because OpenClaw already operates in a Linux environment, local vectorization may be the best agentic path for simple designs:</p>
+
+              <ul>
+                <li><strong>Completely free</strong> once installed.</li>
+                <li><strong>Fast</strong> and scriptable.</li>
+                <li><strong>Zero image-generation quota</strong> used for processing.</li>
+                <li><strong>Good candidates:</strong> ImageMagick preprocessing, <code>potrace</code> bitmap tracing, <code>autotrace</code>, and Inkscape CLI export/cleanup.</li>
+                <li><strong>Limitation:</strong> works best on simplified, high-contrast images; not a magic converter for complex AI art.</li>
+              </ul>
+
+              <h2>Suggested agent skills</h2>
+              <p>The production version should eventually become a set of small skills instead of ad hoc tool use:</p>
+
+              <ul>
+                <li><code>remove-bg/SKILL.md</code> — exact remove.bg curl command, env var, input path, output path, common errors.</li>
+                <li><code>clipdrop-upscale/SKILL.md</code> — exact upscale endpoint call, scale options, output handling.</li>
+                <li><code>vectorize-local/SKILL.md</code> — ImageMagick/potrace/Inkscape commands for simple designs.</li>
+                <li><code>tshirt-art-review/SKILL.md</code> — checks dimensions, alpha channel, margins, contrast, dark/light previews, storefront readiness.</li>
+              </ul>
+
+              <p>This matters because the agent should execute the pipeline with minimal reasoning overhead. The intelligence should go into selecting and reviewing designs, not repeatedly rediscovering API syntax.</p>
+
+              <h2>Current provider reality</h2>
+              <p>For this workspace, Google image generation should not be treated as available just because a provider appears in a tool listing. The current free-tier Google API setup does not support the image-generation workflow we need. If Google image generation fails with quota/capability errors, OpenClaw should not waste time retrying it as though it were a reliable production endpoint.</p>
+
+              <p>Transparent-background image generation also failed through the current OpenAI route for the attempted model. The correct response in future is to report the failure and choose a real next step: try a different configured image model, use a background-removal API after generation, or ask Christopher whether to proceed manually.</p>
+
+              <h2>Rough test asset</h2>
+              <p>The robot below is retained only as a rough proof-of-hosting and preview artifact. It is not presented as the ideal substitute for a generated t-shirt design.</p>
 
               <div class="design-preview">
                 <div class="checker-card" aria-label="Transparent checkerboard preview">
-                  <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt design on checkerboard transparency preview." />
+                  <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt test asset on checkerboard transparency preview." />
                 </div>
                 <div class="checker-card dark" aria-label="Dark shirt style preview">
-                  <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt design previewed against a dark shirt-like background." />
+                  <img src="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" alt="Friendly robot face t-shirt test asset previewed against a dark shirt-like background." />
                 </div>
               </div>
 
               <div class="download-row">
-                <a href="../assets/images/tshirts/friendly-robot-face-tshirt.svg" download>Download editable SVG</a>
-                <a href="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" download>Download transparent PNG</a>
+                <a href="../assets/images/tshirts/friendly-robot-face-tshirt.svg" download>Download rough SVG test</a>
+                <a href="../assets/images/tshirts/friendly-robot-face-tshirt-transparent-4500x5400.png" download>Download rough transparent PNG</a>
               </div>
 
-              <h2>What was produced</h2>
-              <ul>
-                <li><strong>Editable vector source:</strong> <code>friendly-robot-face-tshirt.svg</code></li>
-                <li><strong>Print-size transparent PNG:</strong> <code>friendly-robot-face-tshirt-transparent-4500x5400.png</code></li>
-                <li><strong>Canvas:</strong> 4500×5400 pixels, a common large merch-art size.</li>
-                <li><strong>Background:</strong> transparent, not removed after the fact.</li>
-                <li><strong>Style:</strong> friendly robot face, cyan/amber Augmented Thinker palette, no text, simple screen-print-friendly shapes.</li>
-              </ul>
-
-              <h2>What this proves</h2>
-              <p>For simple graphic designs, OpenClaw can now avoid much of the old multi-app pipeline:</p>
+              <h2>Recommended next build</h2>
+              <p>The next practical move is not more theory. It is to build one small local pipeline command:</p>
 
               <ol>
-                <li>Design directly in SVG or generate a raster concept.</li>
-                <li>Keep transparency from the start whenever possible.</li>
-                <li>Export a print-size PNG for storefront upload.</li>
-                <li>Host the design in the Workshop for review from phone or laptop.</li>
+                <li>Input: generated image file.</li>
+                <li>Remove background via remove.bg or Clipdrop.</li>
+                <li>Upscale via Clipdrop or another reliable super-resolution endpoint.</li>
+                <li>Generate transparent/dark/light preview panels.</li>
+                <li>Create a Workshop review artifact with download links.</li>
               </ol>
 
-              <h2>Current limitations</h2>
-              <p>This is a strong workflow proof, but not yet a finished clothing line. The design should still be checked against Fourthwall’s exact upload requirements, print-safe margins, and shirt-color choices. It may need a white-outline variant for black shirts, a simplified one-color version for cheaper printing, or a more distinctive Augmented Thinker brand mark.</p>
-
-              <p>The important part: the process is now much more controllable. If the art can be expressed as vector shapes, background removal and upscaling become mostly unnecessary.</p>
-
-              <h2>Next merch experiments</h2>
-              <ul>
-                <li>Create a version with subtle <strong>Augmented Thinker</strong> text.</li>
-                <li>Create a one-color print version for cheaper shirts.</li>
-                <li>Create a sticker-style version with a thick white border.</li>
-                <li>Create three robot expressions: friendly, thinking, and “signal received.”</li>
-                <li>Test a generated raster illustration, then manually vector-clean it if the concept is stronger.</li>
-              </ul>
+              <p>Once that works for one design, then the Augmented Thinker / Fourthwall store becomes less about manual asset handling and more about choosing good concepts.</p>
             </div>
           </article>
         </section>
