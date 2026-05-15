@@ -125,6 +125,7 @@
                 <li><strong>Vectorize only when appropriate:</strong> convert simple graphic designs to SVG locally with command-line tools such as ImageMagick and <code>potrace</code>.</li>
                 <li><strong>Inspect:</strong> check transparency, size, contrast, print margins, and shirt-color compatibility.</li>
                 <li><strong>Package:</strong> save final PNG/SVG files and publish a review artifact before storefront upload.</li>
+                <li><strong>Publish after approval:</strong> use Fourthwall’s agent/API surfaces to create a product only after Christopher approves the final artwork and listing details.</li>
               </ol>
 
               <h2>Ultimate vibe-coding pipeline</h2>
@@ -169,6 +170,12 @@
                     <td>Output</td>
                     <td>Final PNG/SVG saved to repository and shown in Workshop artifact</td>
                     <td>No additional API cost</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Create product after approval</td>
+                    <td>Fourthwall MCP / API ecosystem</td>
+                    <td>Platform/API dependent</td>
                   </tr>
                 </tbody>
               </table>
@@ -288,6 +295,54 @@ potrace my_design.pbm -s -o my_design.svg</code></pre>
 
               <p>This matters because the agent should execute the pipeline with minimal reasoning overhead. The intelligence should go into selecting and reviewing designs, not repeatedly rediscovering API syntax.</p>
 
+              <h2>Fourthwall automation layer</h2>
+              <p>The production pipeline should eventually connect to Fourthwall after the design asset is ready. Fourthwall appears to have three relevant API surfaces for an agentic merch workflow:</p>
+
+              <h3>1. AI Agent API / Model Context Protocol</h3>
+              <p>The most relevant automation surface is Fourthwall’s MCP server:</p>
+
+              <p><a href="https://ai-apps.fourthwall.com/mcp">https://ai-apps.fourthwall.com/mcp</a></p>
+
+              <p>The strategic value is that an agent may not need to hand-code multipart artwork uploads, SKU mapping, garment selection, product creation, promo code creation, or shop-data reads. Instead, a configured MCP connector can expose Fourthwall backend actions as agent tools.</p>
+
+              <p>Potential agent actions to verify in Fourthwall’s current docs and live connector:</p>
+              <ul>
+                <li>create a new product;</li>
+                <li>upload finalized artwork;</li>
+                <li>place the artwork on a blank such as a heavy cotton tee, hoodie, or other garment;</li>
+                <li>publish or draft the listing;</li>
+                <li>read inventory and product performance;</li>
+                <li>evaluate top-selling items;</li>
+                <li>generate promo codes.</li>
+              </ul>
+
+              <p>Important boundary: automatic product creation should still run through an approval gate. OpenClaw can prepare products, but should not publish merch listings without Christopher’s explicit approval of artwork, title, description, pricing, garment type, colors, and storefront impact.</p>
+
+              <h3>2. Storefront API / headless commerce</h3>
+              <p>The Storefront API is for customer-facing experiences. If Christopher later wants a custom merch frontend or wants to embed an Augmented Thinker shop into another browser-based project, this API would pull products, collections, and cart/session data while routing customers to Fourthwall’s secure checkout.</p>
+
+              <p>Best role: custom shop display, embedded merch pages, or a vibe-coded front end that still uses Fourthwall for commerce and fulfillment.</p>
+
+              <h3>3. Open API / backend and admin automation</h3>
+              <p>The Open API is the traditional server-to-server lane for business logic, historical orders, product data, and webhooks.</p>
+
+              <p>Best role: event-driven automation. For example, a webhook could fire when a customer buys a specific shirt, pinging OpenClaw’s runtime to log the sale, trigger a heartbeat summary, or prepare a thank-you/follow-up draft.</p>
+
+              <h3>Fourthwall implementation strategy</h3>
+              <p>The cleanest zero-touch merchandising flow is not to reverse-engineer product upload scripts first. It is to configure the Fourthwall MCP connector if available, then let the agent use Fourthwall’s exposed tools.</p>
+
+              <ol>
+                <li>OpenClaw generates the raw image through the chosen generation lane.</li>
+                <li>OpenClaw removes the background through remove.bg or Clipdrop.</li>
+                <li>OpenClaw upscales the design if needed.</li>
+                <li>OpenClaw vectorizes locally with <code>potrace</code> only if the design benefits from SVG.</li>
+                <li>OpenClaw creates a Workshop review artifact with previews and listing draft.</li>
+                <li>Christopher approves the final design and product details.</li>
+                <li>OpenClaw connects to the Fourthwall MCP server and executes the create-product workflow.</li>
+              </ol>
+
+              <p>This turns the pipeline from “make a file” into “make a sellable product,” while preserving the human approval boundary.</p>
+
               <h2>Current provider reality</h2>
               <p>For this workspace, Google image generation should not be treated as available just because a provider appears in a tool listing. The current free-tier Google API setup does not support the image-generation workflow we need. If Google image generation fails with quota/capability errors, OpenClaw should not waste time retrying it as though it were a reliable production endpoint.</p>
 
@@ -319,7 +374,8 @@ potrace my_design.pbm -s -o my_design.svg</code></pre>
                 <li>Upscale via Clipdrop or another reliable super-resolution endpoint.</li>
                 <li>If the design is simple and graphic, vectorize locally with ImageMagick + <code>potrace</code>.</li>
                 <li>Generate transparent/dark/light preview panels.</li>
-                <li>Create a Workshop review artifact with download links.</li>
+                <li>Create a Workshop review artifact with download links and a draft listing.</li>
+                <li>After explicit approval, test Fourthwall MCP product creation with a draft/unpublished product first.</li>
               </ol>
 
               <p>Once that works for one design, then the Augmented Thinker / Fourthwall store becomes less about manual asset handling and more about choosing good concepts.</p>
