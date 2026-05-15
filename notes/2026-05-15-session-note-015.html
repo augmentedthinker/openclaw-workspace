@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 015 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../features.html">Features</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 015</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-15 · afternoon EDT</span>
+            <span>Covering May 15 after Session Note 014: TGIF briefing, image-generation correction, AI t-shirt pipeline, Fourthwall automation strategy, and early signal progress</span>
+            <span>Theme: from signal loops toward product loops</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-05-14-session-note-014.html">Session Note 014</a>. The previous note opened the Agentic Learning Loop thread: Gmail and Bluesky had become the first test beds for prediction, observation, comparison, self-evaluation, and behavior change. May 15 extended that logic into two directions: a lighter Friday operating posture and a possible merch/product pipeline for the Augmented Thinker Fourthwall store.</p>
+
+            <blockquote>The important movement today was this: Bluesky and Gmail proved that scheduled agent loops can touch the world. Fourthwall now looks like a candidate for the next kind of loop — a product loop.</blockquote>
+
+            <h2>1. Happy TGIF Morning Briefing</h2>
+            <p>Christopher began the day before work, around 6 AM, with a request to review recent local memories, session notes, and Workshop context, then create a Friday morning briefing artifact. OpenClaw reviewed recent memory, Session Notes 012–014, the current Workshop doctrine, and recent artifacts.</p>
+
+            <p>The result was <a href="../artifacts/2026-05-15-happy-tgif-morning-briefing.html">Happy TGIF Morning Briefing</a>, linked from the Artifacts page and committed as <code>27056f0</code> — <strong>Add May 15 TGIF morning briefing artifact</strong>.</p>
+
+            <p>The artifact framed the correct Friday posture as small, durable, and low-friction. Its core conclusion was that the Workshop does not need to become bigger right now; it needs to become more teachable. The best practical moves remain: decide where predictions and outcomes live, update the Bluesky and Gmail field-agent instructions, and create a weekly learning-review shape.</p>
+
+            <h2>2. Codex CLI was checked and deprioritized</h2>
+            <p>Christopher asked whether Codex CLI was installed and whether it would be beneficial. OpenClaw checked the environment and found no <code>codex</code> command installed.</p>
+
+            <p>The answer was pragmatic: Codex CLI may eventually be useful as a separate terminal coding-agent surface or experimental backup, but it is not urgent because OpenClaw already has strong file editing, shell, git, GitHub Pages, web, cron, media, and memory capabilities inside the current workspace. The current leverage remains the Agentic Learning Loop, not adding another tool surface.</p>
+
+            <h2>3. T-shirt design workflow test and correction</h2>
+            <p>Christopher then returned to an older thread: the Augmented Thinker Fourthwall t-shirt store. Years ago, the workflow had been tedious: generate an image in one AI tool, upscale it in another, remove the background in a third, then prepare it manually for upload.</p>
+
+            <p>Christopher asked OpenClaw to try creating a cool t-shirt design — initially a friendly robot face — and host it as a Workshop artifact. OpenClaw attempted transparent-background image generation. The default route failed:</p>
+
+            <ul>
+              <li><strong>OpenAI <code>gpt-image-2</code>:</strong> transparent background was not supported through that route.</li>
+              <li><strong>Google <code>gemini-3.1-flash-image-preview</code>:</strong> the configured free-tier Google API did not support the needed image-generation workflow and returned quota/capability failure.</li>
+            </ul>
+
+            <p>OpenClaw then made an overly clever mistake: it substituted a hand-built SVG/vector-style robot face and presented it as a workflow proof. Christopher corrected this clearly: SVG is almost never an acceptable fallback for failed image generation unless he specifically asks for vector/logo/icon/diagram work. If raster/image generation fails, OpenClaw should say what failed and offer options, not quietly swap in SVG.</p>
+
+            <p>This correction was logged in private memory and incorporated into the t-shirt artifact. It is now an important behavior rule for future image tasks.</p>
+
+            <h2>4. AI T-Shirt Design Strategy artifact</h2>
+            <p>The initial robot artifact was revised into a more useful strategy page: <a href="../artifacts/2026-05-15-friendly-robot-tshirt-design.html">AI T-Shirt Design Strategy</a>.</p>
+
+            <p>The artifact now frames the merch problem as an automated pipeline rather than a single image-generation event:</p>
+
+            <ol>
+              <li>Generate a base image through a real image model, potentially testing Hugging Face Inference API as a free/serverless lane.</li>
+              <li>Remove the background with a dedicated API such as remove.bg.</li>
+              <li>Upscale through a super-resolution endpoint such as Clipdrop.</li>
+              <li>Vectorize locally only when appropriate, using Linux tools like ImageMagick and <code>potrace</code>.</li>
+              <li>Inspect transparency, size, contrast, margins, and shirt-color compatibility.</li>
+              <li>Package files and host a Workshop review artifact.</li>
+              <li>Publish or create products only after Christopher approves artwork and listing details.</li>
+            </ol>
+
+            <p>The artifact went through several commits:</p>
+
+            <ul>
+              <li><code>d388096</code> — <strong>Add friendly robot t-shirt design artifact</strong></li>
+              <li><code>25fc403</code> — <strong>Revise t-shirt artifact into design pipeline strategy</strong></li>
+              <li><code>c5c21c8</code> — <strong>Add local potrace t-shirt pipeline guidance</strong></li>
+              <li><code>2db75d8</code> — <strong>Add Fourthwall automation strategy to t-shirt pipeline</strong></li>
+            </ul>
+
+            <h2>5. Local vectorization skill draft</h2>
+            <p>Christopher suggested that local vectorization should be handled through command-line tools like <code>potrace</code>. OpenClaw agreed and created a compact local skill draft at:</p>
+
+            <p><code>~/.openclaw/plugin-skills/tshirt-vectorization/SKILL.md</code></p>
+
+            <p>The skill defines when vectorization is appropriate, checks for <code>convert</code>/<code>magick</code> and <code>potrace</code>, converts a high-resolution background-free PNG to PBM, and then runs:</p>
+
+            <pre><code>potrace my_design.pbm -s -o my_design.svg</code></pre>
+
+            <p>OpenClaw also checked the environment and found that <code>convert</code>, <code>magick</code>, and <code>potrace</code> are not currently installed. That means the skill exists conceptually, but local dependencies must be installed before it can execute.</p>
+
+            <h2>6. Fourthwall automation strategy</h2>
+            <p>Christopher then provided Fourthwall API context. The t-shirt artifact was updated to include a Fourthwall automation layer.</p>
+
+            <p>The current strategic map:</p>
+
+            <ul>
+              <li><strong>Fourthwall MCP / AI Agent API:</strong> the most relevant lane for agentic product creation. The server URL captured in the artifact is <a href="https://ai-apps.fourthwall.com/mcp">https://ai-apps.fourthwall.com/mcp</a>. The idea is that a configured agent can use exposed Fourthwall tools to create products, upload artwork, choose blanks, draft or publish listings, read inventory, evaluate top sellers, and generate promo codes.</li>
+              <li><strong>Storefront API:</strong> useful for a custom customer-facing shop or embedded merch frontend that still routes users to Fourthwall checkout.</li>
+              <li><strong>Open API / webhooks:</strong> useful for backend automation such as logging orders, triggering OpenClaw summaries, or preparing thank-you/follow-up drafts when a purchase happens.</li>
+            </ul>
+
+            <p>OpenClaw lightly checked the MCP URL and found it responds like an MCP endpoint rather than a normal documentation page. A web search also surfaced Fourthwall docs around MCP, Storefront API, Open API, and webhooks. The artifact phrases this as a strategy layer to verify before wiring credentials or publishing products.</p>
+
+            <p>The key boundary remains: OpenClaw can prepare products, but should not publish merch listings without Christopher’s explicit approval of artwork, title, description, pricing, garment type, colors, and storefront impact.</p>
+
+            <h2>7. Early Bluesky and Gmail signal progress</h2>
+            <p>Christopher paused during the workday to congratulate the team and OpenClaw specifically on the signal efforts. Bluesky is now receiving real feedback less than a week into the experiment: several likes, a few followers, and comments on posts, despite little optimization since initial setup.</p>
+
+            <p>This matters because Bluesky initially looked like it might go nowhere. The current interpretation is not “we have traction” yet. It is: <strong>the signal loop is alive</strong>. There is enough response to justify a weekly learning review rather than abandoning the channel or overhauling it blindly.</p>
+
+            <p>Gmail is also succeeding at the operational level. Emails are going out, and there has been at least one response, though from another AI agent. The current weakness is targeting: many outgoing emails have gone to broad support/general inboxes rather than carefully selected people. Christopher expects Gmail feedback to improve once recipient selection and message strategy become more intentional.</p>
+
+            <h2>8. Fourthwall as a product loop</h2>
+            <p>Christopher connected the success of cron-based Bluesky and Gmail automation to the possibility of reopening the Augmented Thinker Fourthwall t-shirt store. The exciting prospect is that OpenClaw might eventually operate a merch pipeline in the same general style:</p>
+
+            <ol>
+              <li>Generate design concepts.</li>
+              <li>Process artwork through background removal, upscaling, and optional vectorization.</li>
+              <li>Create a Workshop review artifact.</li>
+              <li>Draft product listings.</li>
+              <li>After approval, create products through Fourthwall.</li>
+              <li>Track sales, clicks, comments, and social response.</li>
+              <li>Review the signal and improve the next collection.</li>
+            </ol>
+
+            <p>Christopher is considering a regular cadence, possibly a <strong>monthly collection</strong>, rather than random one-off shirts. He also noted a realistic distribution issue: Fourthwall is not a marketplace. Once the product pipeline works, the next question becomes advertising and attention — how to get the designs in front of people.</p>
+
+            <h2>9. Current state for the next fresh chat</h2>
+            <ul>
+              <li>Session Note 014 opened the Agentic Learning Loop thread. Session Note 015 extends it into merch/product automation.</li>
+              <li>The active learning-loop focus remains Gmail and Bluesky, with weekly review as the likely cadence.</li>
+              <li>Bluesky is beginning to show early social signal: likes, followers, and comments.</li>
+              <li>Gmail is operational but needs better targeting and clearer recipient strategy.</li>
+              <li>The AI T-Shirt Design Strategy artifact now captures the merch pipeline: generation, remove.bg, Clipdrop, local <code>potrace</code>, Fourthwall MCP/API, review artifacts, and approval boundaries.</li>
+              <li>OpenClaw should not substitute SVG when image generation fails unless Christopher explicitly asks for vector-style work.</li>
+              <li>A local <code>tshirt-vectorization</code> skill draft exists, but ImageMagick/potrace dependencies are not installed yet.</li>
+              <li>Fourthwall looks promising as a future product loop, but the next step should be verification and setup, not premature auto-publishing.</li>
+            </ul>
+
+            <h2>10. Recommended next moves</h2>
+            <ol>
+              <li>After the chat refresh, inspect the current cron jobs for Bluesky and Gmail and decide how to add prediction fields before each action.</li>
+              <li>Create the first weekly signal-review structure for Bluesky and Gmail.</li>
+              <li>For merch, verify Fourthwall MCP setup requirements and credentials before attempting any live product action.</li>
+              <li>Install or plan installation of local image/vector tools only if Christopher wants to continue the t-shirt pipeline tonight.</li>
+              <li>Create a small “Monthly Collection” project page if the merch direction still feels alive after the refresh.</li>
+              <li>Keep approval boundaries strict: OpenClaw can prepare, draft, and package; Christopher approves before external publishing or storefront changes.</li>
+            </ol>
+
+            <p>Christopher is now home from work and about to refresh the chat. The next session should begin from a more hands-on posture: the workday brainstorming is captured, and the evening window can focus on actually building or configuring the next useful piece.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
