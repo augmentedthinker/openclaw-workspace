@@ -119,13 +119,59 @@
               <p>An AI t-shirt production workflow should be built around a small set of dependable programmatic operations:</p>
 
               <ol>
-                <li><strong>Generate base image:</strong> create the concept art with a real image model.</li>
+                <li><strong>Generate base image:</strong> create the concept art with a real image model, with Hugging Face Inference API as a possible free/serverless generation lane to test.</li>
                 <li><strong>Remove background:</strong> produce a clean transparent alpha channel.</li>
                 <li><strong>Upscale:</strong> enlarge to print-friendly resolution without naive pixel stretching.</li>
-                <li><strong>Vectorize only when appropriate:</strong> convert simple graphic designs to SVG when the style benefits from it.</li>
+                <li><strong>Vectorize only when appropriate:</strong> convert simple graphic designs to SVG locally with command-line tools such as ImageMagick and <code>potrace</code>.</li>
                 <li><strong>Inspect:</strong> check transparency, size, contrast, print margins, and shirt-color compatibility.</li>
                 <li><strong>Package:</strong> save final PNG/SVG files and publish a review artifact before storefront upload.</li>
               </ol>
+
+              <h2>Ultimate vibe-coding pipeline</h2>
+              <p>The most resource-conscious version combines free or low-cost APIs with local Linux processing:</p>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Step</th>
+                    <th>Task</th>
+                    <th>System / API used</th>
+                    <th>Cost profile</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Generate</td>
+                    <td>Hugging Face Inference API / serverless image model</td>
+                    <td>Free tier / constrained</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Remove background</td>
+                    <td>remove.bg API</td>
+                    <td>Free tier, about 50/month</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Upscale</td>
+                    <td>Clipdrop upscale endpoint</td>
+                    <td>Credits</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Vectorize when appropriate</td>
+                    <td>OpenClaw executes <code>potrace</code> locally in Linux</td>
+                    <td>Free after install</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Output</td>
+                    <td>Final PNG/SVG saved to repository and shown in Workshop artifact</td>
+                    <td>No additional API cost</td>
+                  </tr>
+                </tbody>
+              </table>
 
               <p>For agent efficiency, the most important design principle is this:</p>
 
@@ -209,15 +255,26 @@
               </ul>
 
               <h3>Optimized local strategy: Linux CLI tools</h3>
-              <p>Because OpenClaw already operates in a Linux environment, local vectorization may be the best agentic path for simple designs:</p>
+              <p>Because OpenClaw already operates in a Linux environment, local vectorization is the best agentic path for simple designs:</p>
 
               <ul>
                 <li><strong>Completely free</strong> once installed.</li>
                 <li><strong>Fast</strong> and scriptable.</li>
                 <li><strong>Zero image-generation quota</strong> used for processing.</li>
-                <li><strong>Good candidates:</strong> ImageMagick preprocessing, <code>potrace</code> bitmap tracing, <code>autotrace</code>, and Inkscape CLI export/cleanup.</li>
+                <li><strong>Best tool:</strong> <code>potrace</code>, with ImageMagick <code>convert</code> or <code>magick</code> used to prepare the bitmap input.</li>
                 <li><strong>Limitation:</strong> works best on simplified, high-contrast images; not a magic converter for complex AI art.</li>
               </ul>
+
+              <p>The optimized <code>potrace</code> flow is intentionally simple:</p>
+
+              <pre><code># 1. Start with a high-res, background-free PNG.
+# 2. Convert PNG to PBM bitmap format.
+convert my_design.png my_design.pbm
+
+# 3. Vectorize PBM to SVG.
+potrace my_design.pbm -s -o my_design.svg</code></pre>
+
+              <p>If this becomes a serious storefront workflow, OpenClaw should use a dedicated local skill for it rather than rediscovering the command sequence every time.</p>
 
               <h2>Suggested agent skills</h2>
               <p>The production version should eventually become a set of small skills instead of ad hoc tool use:</p>
@@ -225,7 +282,7 @@
               <ul>
                 <li><code>remove-bg/SKILL.md</code> — exact remove.bg curl command, env var, input path, output path, common errors.</li>
                 <li><code>clipdrop-upscale/SKILL.md</code> — exact upscale endpoint call, scale options, output handling.</li>
-                <li><code>vectorize-local/SKILL.md</code> — ImageMagick/potrace/Inkscape commands for simple designs.</li>
+                <li><code>tshirt-vectorization/SKILL.md</code> — ImageMagick <code>convert</code>/<code>magick</code> to PBM, then <code>potrace</code> to SVG for simple designs.</li>
                 <li><code>tshirt-art-review/SKILL.md</code> — checks dimensions, alpha channel, margins, contrast, dark/light previews, storefront readiness.</li>
               </ul>
 
@@ -257,9 +314,10 @@
               <p>The next practical move is not more theory. It is to build one small local pipeline command:</p>
 
               <ol>
-                <li>Input: generated image file.</li>
+                <li>Input: generated image file, ideally from a reliable serverless/free-tier generation lane such as Hugging Face Inference API if available.</li>
                 <li>Remove background via remove.bg or Clipdrop.</li>
                 <li>Upscale via Clipdrop or another reliable super-resolution endpoint.</li>
+                <li>If the design is simple and graphic, vectorize locally with ImageMagick + <code>potrace</code>.</li>
                 <li>Generate transparent/dark/light preview panels.</li>
                 <li>Create a Workshop review artifact with download links.</li>
               </ol>
