@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4500 5400" width="4500" height="5400" role="img" aria-labelledby="title desc">
+  <title id="title">Friendly Robot Face T-Shirt Design</title>
+  <desc id="desc">A transparent-background vector t-shirt graphic: a friendly rounded robot face with cyan outlines, amber eyes, antenna, and a simple smile.</desc>
+  <defs>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g id="shirt-design" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- antenna -->
+    <path d="M2250 1200 L2250 770" stroke="#10d9ff" stroke-width="92"/>
+    <circle cx="2250" cy="650" r="145" fill="#ffb43b" stroke="#071827" stroke-width="58"/>
+    <circle cx="2298" cy="598" r="42" fill="#ffe2a5" opacity="0.9"/>
+
+    <!-- side ears -->
+    <rect x="865" y="2125" width="410" height="760" rx="185" fill="#071827" stroke="#10d9ff" stroke-width="92"/>
+    <rect x="3225" y="2125" width="410" height="760" rx="185" fill="#071827" stroke="#10d9ff" stroke-width="92"/>
+    <circle cx="1070" cy="2505" r="82" fill="#ffb43b"/>
+    <circle cx="3430" cy="2505" r="82" fill="#ffb43b"/>
+
+    <!-- head shell -->
+    <rect x="1080" y="1220" width="2340" height="2880" rx="540" fill="#071827" stroke="#10d9ff" stroke-width="108"/>
+    <rect x="1285" y="1430" width="1930" height="2460" rx="410" fill="#0c2538" stroke="#164c63" stroke-width="34"/>
+
+    <!-- forehead accents -->
+    <path d="M1695 1805 H2805" stroke="#10d9ff" stroke-width="70" opacity="0.92"/>
+    <circle cx="1505" cy="1805" r="78" fill="#10d9ff"/>
+    <circle cx="2995" cy="1805" r="78" fill="#10d9ff"/>
+
+    <!-- eyes -->
+    <g filter="url(#softGlow)">
+      <circle cx="1780" cy="2475" r="245" fill="#ffb43b"/>
+      <circle cx="2720" cy="2475" r="245" fill="#ffb43b"/>
+    </g>
+    <circle cx="1780" cy="2475" r="118" fill="#071827" opacity="0.88"/>
+    <circle cx="2720" cy="2475" r="118" fill="#071827" opacity="0.88"/>
+    <circle cx="1695" cy="2385" r="52" fill="#ffe2a5"/>
+    <circle cx="2635" cy="2385" r="52" fill="#ffe2a5"/>
+
+    <!-- smile -->
+    <path d="M1750 3150 C1950 3405 2550 3405 2750 3150" stroke="#10d9ff" stroke-width="112"/>
+    <circle cx="1545" cy="3025" r="60" fill="#ff6f61" opacity="0.9"/>
+    <circle cx="2955" cy="3025" r="60" fill="#ff6f61" opacity="0.9"/>
+
+    <!-- chin plate -->
+    <path d="M1770 3705 H2730" stroke="#ffb43b" stroke-width="80" opacity="0.95"/>
+    <path d="M1970 3890 H2530" stroke="#10d9ff" stroke-width="52" opacity="0.72"/>
+
+    <!-- small bolts -->
+    <circle cx="1435" cy="1575" r="44" fill="#ffb43b"/>
+    <circle cx="3065" cy="1575" r="44" fill="#ffb43b"/>
+    <circle cx="1435" cy="3745" r="44" fill="#10d9ff"/>
+    <circle cx="3065" cy="3745" r="44" fill="#10d9ff"/>
+  </g>
+</svg>
