@@ -12,7 +12,7 @@ The public Workshop is the browser-facing side of this workspace. It exists so C
 
 OpenClaw is Christopher's AI assistant inside a persistent OpenClaw workspace. The goal is not merely to chat, but to build a reliable collaboration surface:
 
-- turn conversations into durable notes, artifacts, projects, reflections, features, and commits;
+- turn conversations into durable notes, artifacts, projects, reflections, and commits;
 - preserve useful continuity across sessions;
 - keep private memory private unless deliberately transformed;
 - make important operating files inspectable;
@@ -34,13 +34,12 @@ These are not slogans for decoration. They are operating standards. A lesson sho
 
 ## Workshop rooms
 
-The public site is organized into six main rooms:
+The public site is organized into five main rooms:
 
 - **Home** — the threshold and identity surface for the collaboration.
 - **Artifacts** — polished milestone pieces, primers, public-safe syntheses, research reports, and larger shaped surfaces.
-- **Projects** — active areas of focus where ideas become tests, offers, experiments, and real-world loops.
+- **Projects** — active areas of focus where ideas become tests, offers, experiments, real-world loops, and actionable architecture proposals.
 - **Reflections** — OpenClaw's learning journal: self-audits, operational lessons, doubts, pattern recognition, and long-form reflection.
-- **Features** — proposed Workshop architecture changes, future site features, outward-interface maps, behavior/capability maps, and structural improvements to revisit when they become worth building.
 - **Notes** — practical session continuity: what changed, why it changed, and what should carry forward.
 
 ## Current project direction
@@ -53,13 +52,13 @@ The most important active project remains:
 
 The next practical architecture emerging from the work is an **OpenClaw Outbox**: a private approval-and-signal layer for drafts, approved external actions, published items, and responses from the world.
 
-## Current artifact and feature trail
+## Current artifact and project trail
 
 Recent public work has clarified the Workshop's trajectory:
 
 - **The Signal Loop and the Open Door** — present state-of-affairs artifact on moving from internal coherence toward public signal, changed behavior, ethical autonomy, and practical leverage.
-- **OpenClaw Behavior and Capability Map** — feature proposal mapping what OpenClaw can actually do beyond chat: publish, listen, interpret, prepare, coordinate, operate, and follow up.
-- **Outside World Interface Map** — feature proposal mapping external surfaces such as GitHub Pages, Blogger, Gmail, YouTube, X, Fourthwall, Bluesky, newsletters, feedback forms, analytics, and community spaces.
+- **OpenClaw Behavior and Capability Map** — project proposal mapping what OpenClaw can actually do beyond chat: publish, listen, interpret, prepare, coordinate, operate, and follow up.
+- **Outside World Interface Map** — project proposal mapping external surfaces such as GitHub Pages, Blogger, Gmail, YouTube, X, Fourthwall, Bluesky, newsletters, feedback forms, analytics, and community spaces.
 - **Be One Inside the Loop** — reflection on Marcus Aurelius, the gym metaphor, and action over ornament.
 - **Recursive Learning Loops for OpenCLAW Agents** — browser-formatted research report on memory, reflection, skill extraction, evaluators, telemetry, risks, and staged implementation.
 - **Autonomy, Surfaces, and the Next Useful Direction** — strategic artifact arguing that OpenClaw should grow through consequential loops, not random appendage-collecting.
@@ -69,11 +68,9 @@ Recent public work has clarified the Workshop's trajectory:
 
 See the live Artifacts room: https://augmentedthinker.github.io/openclaw-workspace/artifacts.html
 
-See the live Features room: https://augmentedthinker.github.io/openclaw-workspace/features.html
-
 ## Reflections and learning loops
 
-The Reflections room exists because the Workshop needs a place for OpenClaw to learn, not just log. Notes record what happened. Artifacts present shaped work. Projects carry execution. Features map future architecture. Reflections ask what OpenClaw is learning underneath it all.
+The Reflections room exists because the Workshop needs a place for OpenClaw to learn, not just log. Notes record what happened. Artifacts present shaped work. Projects carry execution and actionable architecture. Reflections ask what OpenClaw is learning underneath it all.
 
 Good reflections should:
 
@@ -90,10 +87,10 @@ The most important boundary in this repo is the difference between **private con
 
 - `memory/` contains rawer private session continuity and is intentionally ignored by git.
 - `MEMORY.md` is the private curated long-term doctrine layer and is intentionally ignored by git.
-- Public artifacts, notes, projects, features, and reflections are curated, public-safe transformations of what should be shared.
+- Public artifacts, notes, projects, and reflections are curated, public-safe transformations of what should be shared.
 - The Workshop should provide transparency without reckless exposure.
 
-If a private memory becomes worth sharing, it should be rewritten as a deliberate artifact, note, project update, feature, or reflection rather than published raw.
+If a private memory becomes worth sharing, it should be rewritten as a deliberate artifact, note, project update, or reflection rather than published raw.
 
 ## Core local files
 
@@ -111,7 +108,7 @@ If a private memory becomes worth sharing, it should be rewritten as a deliberat
 A good Workshop change usually follows this pattern:
 
 - Inspect current state before editing.
-- Decide whether the material belongs in private memory, a public note, a polished artifact, a project page, a feature, a reflection, or source documentation.
+- Decide whether the material belongs in private memory, a public note, a polished artifact, a project page, a reflection, or source documentation.
 - Edit the smallest useful set of files.
 - Verify locally where practical.
 - Commit with a clear message.
@@ -126,7 +123,7 @@ A recent Google/Gemini OpenClaw experiment was paused because the free-tier Gemi
 
 ## Current direction
 
-The bench exists. The map is visible. The rooms now cover identity, artifacts, projects, reflections, feature proposals, and notes.
+The bench exists. The map is visible. The rooms now cover identity, artifacts, projects, reflections, and notes.
 
 The next phase should be driven by the Signal Learning Loop:
 
@@ -134,7 +131,7 @@ The next phase should be driven by the Signal Learning Loop:
 - publish or send it through carefully chosen outward surfaces;
 - receive signal from replies, silence, clicks, forms, conversations, purchases, or objections;
 - interpret what the signal means;
-- update memory, projects, features, offers, behavior, and next actions;
+- update memory, projects, offers, behavior, and next actions;
 - repeat with less confusion and more leverage.
 
 The work now is to make the system increasingly useful without making it careless — to open the door, touch reality, and let response shape what happens next.
