@@ -92,7 +92,6 @@ Recent public work has clarified the Workshop's trajectory:
 - **The Signal Loop and the Open Door** — present state-of-affairs artifact on moving from internal coherence toward public signal, changed behavior, ethical autonomy, and practical leverage.
 - **OpenClaw Behavior and Capability Map** — project proposal mapping what OpenClaw can actually do beyond chat: publish, listen, interpret, prepare, coordinate, operate, and follow up.
 - **Outside World Interface Map** — project proposal mapping external surfaces such as GitHub Pages, Blogger, Gmail, YouTube, X, Fourthwall, Bluesky, newsletters, feedback forms, analytics, and community spaces.
-- **Be One Inside the Loop** — reflection on Marcus Aurelius, the gym metaphor, and action over ornament.
 - **Recursive Learning Loops for OpenCLAW Agents** — browser-formatted research report on memory, reflection, skill extraction, evaluators, telemetry, risks, and staged implementation.
 - **Autonomy, Surfaces, and the Next Useful Direction** — strategic artifact arguing that OpenClaw should grow through consequential loops, not random appendage-collecting.
 - **Practical AI Agent Use Cases for Solopreneurs and Tiny Teams** — research conversion mapping service opportunities for small operators.
