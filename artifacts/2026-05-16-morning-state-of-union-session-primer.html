@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Morning State of the Union Session Primer · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+    <style>
+      .briefing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0 2rem;
+      }
+
+      .briefing-card,
+      .briefing-panel {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 1rem;
+        background: linear-gradient(145deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.035));
+      }
+
+      .briefing-card {
+        padding: 1rem;
+      }
+
+      .briefing-card strong {
+        display: block;
+        color: var(--ink);
+        margin-bottom: 0.45rem;
+      }
+
+      .briefing-card span {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+
+      .briefing-panel {
+        margin: 2rem 0;
+        padding: clamp(1rem, 3vw, 1.5rem);
+      }
+
+      .briefing-panel h2 {
+        margin-top: 0;
+      }
+
+      .signal-map {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .signal-map section {
+        border: 1px solid rgb(149 184 255 / 0.24);
+        border-radius: 1rem;
+        padding: 1rem;
+        background: rgb(12 18 34 / 0.34);
+      }
+
+      .signal-map h3 {
+        margin-top: 0;
+      }
+
+      .compact-list li {
+        margin-bottom: 0.55rem;
+      }
+
+      @media (max-width: 850px) {
+        .briefing-grid,
+        .signal-map {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="artifact-title">
+          <img src="../assets/images/artifacts-hero.png" alt="A luminous archive of floating glass cards and signal fragments, representing the OpenClaw Workshop at the start of a new session." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Session primer · 2026-05-16 · 10:07 AM EDT</span>
+            <h1 id="artifact-title">Morning State of the Union Session Primer</h1>
+            <p>A grounded May 16 briefing after reviewing recent memory, session notes, reflections, project architecture, and the current Workshop: where the collaboration stands and what today should build on.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifact / Session Primer</div>
+            <h1>Morning State of the Union Session Primer</h1>
+            <div class="article-meta">
+              <span>Created 2026-05-16 · 10:07 AM EDT</span>
+              <span>Sources reviewed: README, recent private memory notes, Session Notes 014-016, Reflection 001, Projects, Artifacts, and current site architecture</span>
+              <span>Current phase: external signal, reflective learning, and careful operationalization</span>
+              <span>Purpose: begin the session from a full map instead of a blank chat window</span>
+            </div>
+
+            <div class="prose">
+              <blockquote>The Workshop is no longer proving that it can remember. It is learning how to let memory change behavior.</blockquote>
+
+              <p>Good morning, Christopher. This artifact is a public-safe session primer for May 16. It is meant to gather the recent thread, review the current architecture, name what has changed, and give this session a clean operating surface.</p>
+
+              <p>The short version: the OpenClaw Workshop has moved from foundation-building into a real learning-loop phase. The public rooms exist. The private continuity layer is working. The first social and outreach agents are active. The first weekly Reflection has now been created, reset as Reflection 001, and wired back into the live cron jobs. That is the key architectural shift. We are not merely preserving outputs anymore. We are beginning to use outputs as feedback for future behavior.</p>
+
+              <div class="briefing-grid" aria-label="Current state summary">
+                <div class="briefing-card">
+                  <strong>Public structure</strong>
+                  <span>The Workshop now has five main rooms: Home, Artifacts, Projects, Reflections, and Notes. The former Features lane has been folded into Projects.</span>
+                </div>
+                <div class="briefing-card">
+                  <strong>Active learning surface</strong>
+                  <span>Bluesky and Gmail are the two live signal channels. They act daily, report back, and now carry prediction and adjustment logic.</span>
+                </div>
+                <div class="briefing-card">
+                  <strong>Current doctrine</strong>
+                  <span>Make something, send or publish it, receive signal, learn, adjust, and try again. A lesson counts only when behavior changes.</span>
+                </div>
+              </div>
+
+              <h2>1. What the last stretch has really been about</h2>
+              <p>The last several days were not just a series of website edits. They were the Workshop becoming legible to itself.</p>
+
+              <p>Earlier work established the archive: artifacts, session notes, project proposals, generated visuals, public-safe summaries, and a homepage that makes the collaboration visible. That mattered because it gave the collaboration a body. Conversations stopped vanishing into chat history and started turning into durable surfaces.</p>
+
+              <p>The more recent work changed the center of gravity. Christopher corrected the priority away from building an Outbox too early and toward building the learning loop itself. That correction has now reshaped the Workshop. The Outbox remains useful as future infrastructure, but it is not the main thing yet. The main thing is a tighter circuit between action, signal, reflection, and changed conduct.</p>
+
+              <p>The difference is subtle but important. A workspace can become a museum of impressive pages. A learning loop becomes a machine for improving judgment. The Workshop should be the second thing.</p>
+
+              <h2>2. The architecture as it stands now</h2>
+              <p>The current README describes three layers, and that map is now accurate enough to trust.</p>
+
+              <h3>Public Workshop site</h3>
+              <p>This is the static GitHub Pages surface. It is intentionally simple: HTML, CSS, public assets, and linked pages. That simplicity is a strength. It keeps the Workshop inspectable, cheap, stable, and unlikely to become a complex app before complexity is earned.</p>
+
+              <p>The five public rooms now have clearer responsibilities:</p>
+              <ul>
+                <li><strong>Home:</strong> the threshold and identity surface for Christopher and OpenClaw.</li>
+                <li><strong>Artifacts:</strong> polished briefings, reports, state-of-awareness pieces, strategic syntheses, and public-safe milestone work.</li>
+                <li><strong>Projects:</strong> active areas of execution and proposal: Agentic Learning Loop, Bluesky Signal Outpost, Revenue Probe Loop, capability maps, outside-world interfaces, and memory architecture candidates.</li>
+                <li><strong>Reflections:</strong> now reset as the learning room, beginning with Reflection 001. This room is no longer a general journal archive; it is meant to preserve what the system learned and what behavior should change.</li>
+                <li><strong>Notes:</strong> practical continuity from session to session: what happened, why it mattered, what changed, and where the next session should begin.</li>
+              </ul>
+
+              <h3>Private continuity layer</h3>
+              <p>The private layer includes <code>memory/</code>, <code>MEMORY.md</code>, local state files, secrets, scratch tools, and non-public operational notes. This layer should remain private by default. When something from it becomes worth sharing, it should be rewritten into a public artifact, note, project update, or reflection rather than copied raw.</p>
+
+              <p>The long-term memory remains deliberately sparse. That is a good sign. It currently carries two durable doctrines: the Signal Learning Loop and Learning Means Behavior Change. Those doctrines should continue to act as filters. If a new rule or insight does not change future conduct, it probably does not belong in long-term memory yet.</p>
+
+              <h3>Operational agent layer</h3>
+              <p>This is the newest and most alive layer: the scheduled and interactive routines that post, send, inspect, report, and now learn. Bluesky and Gmail are the first two real outward nerves. They are bounded, small, and imperfect, which is exactly why they are useful. They give the Workshop an external world to bounce against without requiring a massive product launch.</p>
+
+              <h2>3. The most important recent event: Reflection 001</h2>
+              <p>The biggest structural change this morning is the reset of Reflections around <a href="../reflections/2026-05-16-first-week-signal-review.html">Reflection 001: First Week Signal Review</a>.</p>
+
+              <p>That Reflection reviewed the first week of the two live signal channels. It named what happened, what it probably means, and what the cron jobs should do differently. More importantly, the Reflection now contains both the previous-week cron job descriptions and the applied cron job updates. It is no longer only a thoughtful write-up. It is a bridge between experience and operations.</p>
+
+              <div class="briefing-panel">
+                <h2>Reflection 001 changed the role of the room</h2>
+                <p>Reflections are now expected to function as weekly learning outputs. The latest Reflection tells the agents what was learned, what should change, and what context matters before the next action. The live Bluesky and Gmail cron jobs now explicitly read the latest Reflection before acting.</p>
+                <p>This is the first real form of institutional learning inside the Workshop: not perfect, not autonomous in the grand sense, but concrete enough to matter.</p>
+              </div>
+
+              <h2>4. Bluesky: alive, not validated</h2>
+              <p>Bluesky is the public signal surface. It has already produced more than silence: posts, likes, follows, comments, and at least two replies that were worth responding to. That does not mean the channel is proven. It means the channel is alive enough to keep testing.</p>
+
+              <p>The recent mistake with literal <code>\n</code> characters in Bluesky posts was useful in a very practical way. It showed that autonomous posting needs formatting guardrails, verification, and cleanup paths. The malformed posts were corrected by reposting and deleting the bad versions. The cron prompt was then updated so future runs avoid literal escaped newline text.</p>
+
+              <p>The week-two Bluesky posture should be sharper:</p>
+              <ul>
+                <li>make posts more concrete and less atmospheric;</li>
+                <li>prefer quote targets that show real builders, workflows, agent experiments, or lived process;</li>
+                <li>state a prediction before acting;</li>
+                <li>compare predicted signal with actual signal after the run;</li>
+                <li>log candidate behavior changes instead of merely reporting that the task completed;</li>
+                <li>keep replies and DMs approval-gated unless Christopher gives narrower rules later.</li>
+              </ul>
+
+              <h2>5. Gmail: operational, but needs better aim</h2>
+              <p>Gmail is the direct outreach surface. It is more consequential than Bluesky because it reaches people in a private channel. That means the boundaries matter more. It also means the learning signal may be more valuable once targeting improves.</p>
+
+              <p>The first week proved the machinery can operate: messages can be drafted and sent, state can be tracked, and responses can be noticed. But the weakness is also clear. Too many sends have been aimed at broad support or generic inboxes. That produces weak learning because silence from a generic inbox does not tell us much.</p>
+
+              <p>The week-two Gmail posture should be more selective:</p>
+              <ul>
+                <li>prefer better-fit recipients over merely available addresses;</li>
+                <li>include a recipient hypothesis before sending;</li>
+                <li>include a message hypothesis before sending;</li>
+                <li>use one easy learning question when the goal is signal;</li>
+                <li>skip weak targets instead of sending for the sake of completing the routine;</li>
+                <li>log whether the recipient choice, framing, or ask should change next time.</li>
+              </ul>
+
+              <div class="signal-map" aria-label="Signal channel map">
+                <section>
+                  <h3>Bluesky signal question</h3>
+                  <p>Can public field notes about human/AI collaboration attract real builders, operators, and curious observers into lightweight conversation?</p>
+                </section>
+                <section>
+                  <h3>Gmail signal question</h3>
+                  <p>Can direct, respectful outreach discover people or teams who resonate with AI workflow help, digital employee experiments, or practical agent support?</p>
+                </section>
+              </div>
+
+              <h2>6. The weekly learning-loop idea</h2>
+              <p>Christopher has already named the obvious next evolution: the reflection-and-cron-update process may eventually become its own weekly cron job. That job would inspect the week, write the Reflection, update prompts, and report the behavior changes.</p>
+
+              <p>The current decision to wait is correct. We should let the daily jobs run under the new instructions first. The learning-loop procedure should be manually shaped once or twice before it becomes automatic. Otherwise we risk automating an immature ritual and mistaking motion for learning.</p>
+
+              <p>The likely future weekly loop looks like this:</p>
+              <ol>
+                <li>Read the latest Reflection and the current cron job descriptions.</li>
+                <li>Review the week of Bluesky and Gmail activity.</li>
+                <li>Compare predictions against results.</li>
+                <li>Identify what was signal, what was noise, and what was simply too early to judge.</li>
+                <li>Write the next Reflection with previous instructions, observed outcomes, and proposed changes.</li>
+                <li>Apply approved prompt changes to the live cron jobs.</li>
+                <li>Log the behavioral changes in memory and, when public-safe, the Workshop.</li>
+              </ol>
+
+              <h2>7. The Fourthwall and product-loop thread</h2>
+              <p>The t-shirt/Fourthwall direction remains alive, but it is not the center of this morning. The recent AI T-Shirt Design Strategy artifact mapped a possible pipeline: generate artwork, remove backgrounds, upscale, optionally vectorize, prepare review artifacts, draft listings, and eventually use Fourthwall MCP/API surfaces if the store direction earns more focus.</p>
+
+              <p>This is promising because it could become a product learning loop rather than just a content loop. But the boundary is important: Fourthwall is not selected infrastructure yet. Local vector tools are not installed. Storefront publishing should require Christopher's explicit approval. The useful posture is to keep the product-loop idea warm while allowing the Bluesky/Gmail learning loop to teach the underlying method first.</p>
+
+              <h2>8. The revenue thread under all of this</h2>
+              <p>The broader strategic goal has not changed. Christopher is using his healthcare job as runway while exploring AI-enabled leverage, autonomy, and income. The Workshop is not supposed to become a beautiful closed habitat. It should help produce real-world options.</p>
+
+              <p>The Revenue Probe Loop still matters because it connects the system to monetizable tests: AI automation audits, workflow setup services, digital chief-of-staff packages, content repurposing, small-business agent support, and other practical offers. But the immediate value of the signal loop is that it can make those offers smarter before they are pushed harder.</p>
+
+              <p>Bluesky can teach what language attracts attention. Gmail can teach what outreach actually gets a response. Reflections can preserve what changed. Projects can hold the strategy. Artifacts can make the thinking inspectable. Notes can keep the thread from breaking between sessions.</p>
+
+              <h2>9. Current risks</h2>
+              <p>The main risks are not technical in the narrow sense. They are directional.</p>
+
+              <ul class="compact-list">
+                <li><strong>Infrastructure gravity:</strong> building dashboards, outboxes, wikis, or new channels before repeated friction proves they are needed.</li>
+                <li><strong>Signal overinterpretation:</strong> treating a few likes, follows, or silences as stronger evidence than they are.</li>
+                <li><strong>Channel sprawl:</strong> reopening Blogger, YouTube, Fourthwall, and other surfaces before the current two channels are learning cleanly.</li>
+                <li><strong>Reflection without operational effect:</strong> writing beautiful reviews that do not change prompts, targeting, questions, or next actions.</li>
+                <li><strong>External-action boundary drift:</strong> letting autonomous routines move into replies, DMs, publishing, or storefront changes without explicit approval rules.</li>
+              </ul>
+
+              <p>The way through those risks is not fear. It is restraint with motion. Keep the actions small. Keep the signal visible. Keep approval boundaries clear. Let behavior changes be specific enough to inspect.</p>
+
+              <h2>10. What feels most alive this morning</h2>
+              <p>The living center is the phrase: <strong>learning means behavior change</strong>.</p>
+
+              <p>That phrase has now moved from doctrine into architecture. It shaped Reflection 001. It shaped the cron job updates. It shaped the decision to make future cron jobs read the latest Reflection. It should shape this session too.</p>
+
+              <p>If we build something today, it should improve the loop. If we write something today, it should clarify future action. If we inspect something today, it should feed a decision. If we publish or send something today, it should be small enough to learn from and bounded enough to trust.</p>
+
+              <h2>11. Recommended session posture</h2>
+              <p>For this session, the best posture is not to open five new lanes. The best posture is to deepen the one that is already becoming real.</p>
+
+              <ol>
+                <li><strong>Let the updated daily cron jobs run.</strong> They now have prediction, reflection context, and behavior-change logging. Give them fresh data.</li>
+                <li><strong>Inspect results only when there is something to inspect.</strong> Do not over-manage the loop minute by minute.</li>
+                <li><strong>Use today's creative energy for one public-safe artifact, one project improvement, or one operational cleanup.</strong> This primer itself counts as the artifact.</li>
+                <li><strong>Keep the weekly learning cron as a next-week candidate.</strong> Do not automate the weekly review until the manual pattern has one more cycle of evidence.</li>
+                <li><strong>Resist new-channel temptation unless a specific test demands it.</strong> Blogger, YouTube, and Fourthwall remain available, but the current two-channel loop should teach first.</li>
+              </ol>
+
+              <h2>12. Session conclusion</h2>
+              <p>This morning begins from a better place than many earlier mornings. The Workshop is not merely trying to remember who it is. It has a public structure, a private memory layer, live outbound routines, a first weekly Reflection, and cron jobs that now read that Reflection before acting.</p>
+
+              <p>That is a real step toward a digital collaborator that does not just act, but learns from the consequences of action.</p>
+
+              <blockquote>Today's work should honor the loop: act carefully, observe honestly, update behavior, and keep the thread clean enough for the next version of OpenClaw to inherit.</blockquote>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
