@@ -49,8 +49,11 @@
 
               <p>So this reflection is not a victory lap. It is a first calibration pass.</p>
 
-              <details>
-                <summary>Previous week cron job descriptions</summary>
+              <details class="reflection-disclosure">
+                <summary>
+                  <span>Previous week cron job descriptions</span>
+                  <small>Collapsed by default</small>
+                </summary>
 
                 <h2>Daily Bluesky Field Agent loop</h2>
                 <p><strong>Schedule:</strong> every day at 7:00 PM America/New_York.</p>
@@ -189,6 +192,31 @@
                 <li><strong>Gmail:</strong> replace “no response necessary” with one easy question when the goal is learning.</li>
                 <li><strong>Both loops:</strong> treat silence as aggregate signal, not as a verdict from one attempt.</li>
                 <li><strong>Both loops:</strong> preserve approval gates around replies, DMs, sensitive outreach, and reputation-bearing actions.</li>
+              </ul>
+
+              <h2>Suggested cron job updates</h2>
+              <p>These are proposed changes only. They are not yet applied to the live cron jobs. The point is to turn the reflection into a concrete next edit.</p>
+
+              <h3>Bluesky Field Agent: proposed update</h3>
+              <ul>
+                <li>Add a <strong>prediction block before action</strong>: topic hypothesis, audience hypothesis, likely outcome, useful signal, and what would be surprising.</li>
+                <li>Make the original post more concrete: one agent behavior, one field observation, one mistake, one response, or one lesson that changed future conduct.</li>
+                <li>Prefer quote-repost targets from builders reporting real workflow evidence: edge cases, bounded roles, scoreboard problems, memory failures, tool limits, agent metrics, or small experiments.</li>
+                <li>After checking notifications, compare the most recent prediction against actual signal instead of only reporting likes/replies.</li>
+                <li>Log each run with three fields that can be reviewed weekly: <strong>prediction</strong>, <strong>result</strong>, and <strong>candidate behavior change</strong>.</li>
+                <li>Keep the existing approval boundary: draft replies only, no automatic replies or DMs.</li>
+                <li>Keep the formatting guardrail: inspect exact text before publishing, especially line breaks.</li>
+              </ul>
+
+              <h3>Gmail Field Agent: proposed update</h3>
+              <ul>
+                <li>Add a <strong>recipient hypothesis</strong>: why this person, team, or community is a better target than a generic support inbox.</li>
+                <li>Add a <strong>message hypothesis</strong>: what the email is testing about audience, framing, usefulness, or curiosity.</li>
+                <li>Shift targeting toward more intentional recipients using official public contact channels, smaller operators, builders, communities, or teams with a clearer reason to care.</li>
+                <li>Replace “no response is necessary” with one easy, low-pressure question when the goal is learning.</li>
+                <li>Separate appreciation-only emails from learning-probe emails so silence can be interpreted more honestly.</li>
+                <li>If no suitable recipient can be chosen confidently, skip the outbound email and report why instead of forcing a weak send.</li>
+                <li>Log each run with recipient category, ask type, prediction, actual result, and one possible adjustment.</li>
               </ul>
 
               <p>If we do those things, this reflection will have done its job. It will not just describe learning. It will change the next behavior.</p>
