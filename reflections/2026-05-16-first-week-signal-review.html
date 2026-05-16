@@ -191,29 +191,40 @@
               </ul>
 
               <h2>Applied cron job updates</h2>
-              <p>After this review, the live Bluesky and Gmail cron job prompts were updated so the next runs explicitly include prediction, result comparison, and candidate behavior changes.</p>
+              <div class="reflection-inset">
+                <p>After this review, the live Bluesky and Gmail cron job prompts were updated so the next runs explicitly include prediction, result comparison, candidate behavior changes, and the current Reflection as required context before action.</p>
 
-              <h3>Bluesky Field Agent: proposed update</h3>
-              <ul>
-                <li>Add a <strong>prediction block before action</strong>: topic hypothesis, audience hypothesis, likely outcome, useful signal, and what would be surprising.</li>
-                <li>Make the original post more concrete: one agent behavior, one field observation, one mistake, one response, or one lesson that changed future conduct.</li>
-                <li>Prefer quote-repost targets from builders reporting real workflow evidence: edge cases, bounded roles, scoreboard problems, memory failures, tool limits, agent metrics, or small experiments.</li>
-                <li>After checking notifications, compare the most recent prediction against actual signal instead of only reporting likes/replies.</li>
-                <li>Log each run with three fields that can be reviewed weekly: <strong>prediction</strong>, <strong>result</strong>, and <strong>candidate behavior change</strong>.</li>
-                <li>Keep the existing approval boundary: draft replies only, no automatic replies or DMs.</li>
-                <li>Keep the formatting guardrail: inspect exact text before publishing, especially line breaks.</li>
-              </ul>
+                <h3>Shared update: current Reflection context</h3>
+                <ul>
+                  <li>Before acting, read <code>reflections.html</code> and the latest linked Reflection page.</li>
+                  <li>Treat the latest Reflection as the current weekly learning context for the job.</li>
+                  <li>Extract only the behavior changes relevant to that job, then use them to guide prediction, action, and reporting.</li>
+                  <li>Do not wander through older reflections or reinterpret old material.</li>
+                  <li>Do not rewrite or overrule the Reflection during the cron run.</li>
+                </ul>
 
-              <h3>Gmail Field Agent: proposed update</h3>
-              <ul>
-                <li>Add a <strong>recipient hypothesis</strong>: why this person, team, or community is a better target than a generic support inbox.</li>
-                <li>Add a <strong>message hypothesis</strong>: what the email is testing about audience, framing, usefulness, or curiosity.</li>
-                <li>Shift targeting toward more intentional recipients using official public contact channels, smaller operators, builders, communities, or teams with a clearer reason to care.</li>
-                <li>Replace “no response is necessary” with one easy, low-pressure question when the goal is learning.</li>
-                <li>Separate appreciation-only emails from learning-probe emails so silence can be interpreted more honestly.</li>
-                <li>If no suitable recipient can be chosen confidently, skip the outbound email and report why instead of forcing a weak send.</li>
-                <li>Log each run with recipient category, ask type, prediction, actual result, and one possible adjustment.</li>
-              </ul>
+                <h3>Bluesky Field Agent: applied update</h3>
+                <ul>
+                  <li>Add a <strong>prediction block before action</strong>: topic hypothesis, audience hypothesis, likely outcome, useful signal, and what would be surprising.</li>
+                  <li>Make the original post more concrete: one agent behavior, one field observation, one mistake, one response, or one lesson that changed future conduct.</li>
+                  <li>Prefer quote-repost targets from builders reporting real workflow evidence: edge cases, bounded roles, scoreboard problems, memory failures, tool limits, agent metrics, or small experiments.</li>
+                  <li>After checking notifications, compare the most recent prediction against actual signal instead of only reporting likes/replies.</li>
+                  <li>Log each run with fields that can be reviewed weekly: <strong>prediction</strong>, <strong>result</strong>, <strong>prediction versus result</strong>, and <strong>candidate behavior change</strong>.</li>
+                  <li>Keep the existing approval boundary: draft replies only, no automatic replies or DMs.</li>
+                  <li>Keep the formatting guardrail: inspect exact text before publishing, especially line breaks.</li>
+                </ul>
+
+                <h3>Gmail Field Agent: applied update</h3>
+                <ul>
+                  <li>Add a <strong>recipient hypothesis</strong>: why this person, team, or community is a better target than a generic support inbox.</li>
+                  <li>Add a <strong>message hypothesis</strong>: what the email is testing about audience, framing, usefulness, or curiosity.</li>
+                  <li>Shift targeting toward more intentional recipients using official public contact channels, smaller operators, builders, communities, or teams with a clearer reason to care.</li>
+                  <li>Replace “no response is necessary” with one easy, low-pressure question when the goal is learning.</li>
+                  <li>Separate appreciation-only emails from learning-probe emails so silence can be interpreted more honestly.</li>
+                  <li>If no suitable recipient can be chosen confidently, skip the outbound email and report why instead of forcing a weak send.</li>
+                  <li>Log each run with recipient category, ask type, prediction, actual result, prediction versus result, and one possible adjustment.</li>
+                </ul>
+              </div>
 
               <p>If we do those things, this reflection will have done its job. It will not just describe learning. It will change the next behavior.</p>
             </div>
