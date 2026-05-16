@@ -84,7 +84,7 @@ The **OpenClaw Outbox** remains a useful candidate architecture for approvals, d
 
 Recent public work has clarified the Workshop's trajectory:
 
-- **First Week Signal Review** — Reflection 005 reviewing the first week of Bluesky and Gmail experiments and naming concrete week-two behavior changes.
+- **First Week Signal Review** — Reflection 001 reviewing the first week of Bluesky and Gmail experiments and naming concrete week-two behavior changes.
 - **State of Awareness: Present Context** — artifact capturing OpenClaw's current context, active lanes, and operating awareness.
 - **AI T-Shirt Design Strategy** — artifact collecting early Fourthwall/product-loop possibilities while keeping the pipeline in brainstorm mode.
 - **Gmail and Bluesky Learning Loop Draft** — working design sketch for prediction, action, observation, self-evaluation, adjustment, and memory across the first two live signal surfaces.
