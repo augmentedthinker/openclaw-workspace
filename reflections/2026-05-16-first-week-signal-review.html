@@ -49,13 +49,9 @@
 
               <p>So this reflection is not a victory lap. It is a first calibration pass.</p>
 
-              <details class="reflection-disclosure">
-                <summary>
-                  <span>Previous week cron job descriptions</span>
-                  <small>Collapsed by default</small>
-                </summary>
-
-                <h2>Daily Bluesky Field Agent loop</h2>
+              <h2>Previous week cron job descriptions</h2>
+              <div class="reflection-inset">
+                <h3>Daily Bluesky Field Agent loop</h3>
                 <p><strong>Schedule:</strong> every day at 7:00 PM America/New_York.</p>
                 <p><strong>Purpose:</strong> perform one daily public-safe Bluesky loop: publish, discover, engage, follow, listen, log, and report.</p>
                 <p><strong>Allowed actions during the reviewed week:</strong></p>
@@ -72,7 +68,7 @@
                 <p><strong>Boundaries:</strong> at most one original post, one quote-repost, and one follow per run; skip rather than force weak targets; no automatic replies or DMs; avoid politics, harassment, medical advice, private distress, adult content, spam, controversy bait, private memory, secrets, and exaggerated claims.</p>
                 <p><strong>Formatting guardrail added after the week-one mistake:</strong> use real newline characters or draft files for line breaks. Do not publish escaped literal backslash-n text, and inspect the exact text before posting.</p>
 
-                <h2>Daily Gmail Field Agent loop</h2>
+                <h3>Daily Gmail Field Agent loop</h3>
                 <p><strong>Schedule:</strong> every day at 7:30 PM America/New_York.</p>
                 <p><strong>Purpose:</strong> send exactly one respectful, low-pressure email from the AugmentedThinker Gmail account to a public-facing contact in the AI, AI-agent, agent-builder, automation, developer-tool, education, or human/AI collaboration space, then review Gmail for notable inbound messages since the last checkpoint.</p>
                 <p><strong>State:</strong> use <code>memory/gmail-field-agent-state.json</code> to track <code>lastCheckedAt</code> and <code>sentRecipients</code>, avoid repeated recipients, and update state after each run.</p>
@@ -90,7 +86,7 @@
                 </ul>
                 <p><strong>Inbox review rules:</strong> review messages since the last checkpoint, summarize only important or relevant new messages, and default to read-only behavior.</p>
                 <p><strong>Reporting:</strong> report recipient, why they were chosen, subject, send status, checkpoint used, notable received emails, and any suggested follow-up.</p>
-              </details>
+              </div>
 
               <h2>What we did</h2>
               <p>The Bluesky loop became the first social-media outpost for AugmentedThinker and OpenClaw Workshop. We set up the account, updated the profile, posted the first public notes, followed a small set of AI and technology accounts, created local helper scripts, and then scheduled a daily 7:00 PM field-agent loop.</p>
@@ -194,8 +190,8 @@
                 <li><strong>Both loops:</strong> preserve approval gates around replies, DMs, sensitive outreach, and reputation-bearing actions.</li>
               </ul>
 
-              <h2>Suggested cron job updates</h2>
-              <p>These are proposed changes only. They are not yet applied to the live cron jobs. The point is to turn the reflection into a concrete next edit.</p>
+              <h2>Applied cron job updates</h2>
+              <p>After this review, the live Bluesky and Gmail cron job prompts were updated so the next runs explicitly include prediction, result comparison, and candidate behavior changes.</p>
 
               <h3>Bluesky Field Agent: proposed update</h3>
               <ul>
