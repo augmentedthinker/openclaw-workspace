@@ -82,9 +82,44 @@
         font-weight: 850;
       }
 
+      .repo-trail {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin: 1.5rem 0 2rem;
+      }
+
+      .repo-card {
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 1rem;
+        padding: 0.95rem;
+        background:
+          linear-gradient(145deg, rgb(255 184 107 / 0.08), rgb(255 255 255 / 0.035)),
+          rgb(5 7 13 / 0.35);
+      }
+
+      .repo-card a {
+        display: inline-block;
+        margin-bottom: 0.4rem;
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration-color: rgb(255 184 107 / 0.55);
+      }
+
+      .repo-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
       @media (max-width: 980px) {
         .vr-map {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .repo-trail {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -170,6 +205,55 @@
               <p>For the first version, the best form is probably restrained: a small luminous companion, signal flame, glass-light construct, or attentive field that can appear in the room without dominating it. The point is presence, not spectacle. OpenClaw should feel available, oriented, and spatially co-present, while leaving Christopher free to explore the Workshop itself.</p>
 
               <p>Later versions could make that presence more capable: pointing toward rooms, reacting to selected artifacts, summarizing a page aloud, or changing color based on the current mode. But the first test should answer one question: does it feel meaningful to be in the same symbolic room with the system that helps maintain the Workshop?</p>
+
+              <h2>What We Already Built</h2>
+              <p>A quick search through the Augmented Thinker GitHub repos shows that this is not starting from zero. The older work already touched most of the ingredients needed for a Workshop palace: Quest-friendly A-Frame scenes, a simple Three.js WebXR AR demo, controller interaction, audio unlock patterns, texture rooms, a portfolio hub with QR/demo links, and even an embodied companion/presence experiment.</p>
+
+              <div class="repo-trail" aria-label="Prior VR and AR experiments">
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/saber-ar-presence-2026-02-22/">Saber XR Presence</a>
+                  <span>The strongest ancestor: A-Frame 1.6, Quest/WebXR setup, controller laser floor movement, a robot/presence model, speech recognition, speech synthesis, mode switching, and memory cue cards.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/vr-2026-02-22/">Saber VR - Immersive Space Garden</a>
+                  <span>A Quest-ready A-Frame 1.6 scene with a start overlay, ambient audio unlock, xr-mode-ui, sky, stars, rings, and a central luminous object.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/shootingballs/">Forest Shooter</a>
+                  <span>A more game-like Quest experiment using A-Frame, aframe-extras, environment presets, Oculus touch controls, raycasters, projectiles, haptics, audio, scoring, and restart flow.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/animaeus/">Animaeus VR Cube Room</a>
+                  <span>A compact A-Frame room with a wall image, gaze/click interactions, an interactive orb, animated lighting, and theme changes.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/sphere/">Spherical VR Room</a>
+                  <span>A texture-forward room with a start screen, music unlock, spherical/Escher visual language, and click-driven ambience changes.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/ARcube/">ARcube</a>
+                  <span>A lower-level Three.js WebXR AR demo using an ARButton, renderer.xr, an immersive-ar session, and a simple cube placed in front of the user.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/VR-1-6/">Dual World VR Experience</a>
+                  <span>A more ambitious procedural A-Frame scene with shader-like visual systems, audio, a portal premise, and an experimental browser-side TTS/API sketch that should not be copied directly without a safer backend boundary.</span>
+                </div>
+                <div class="repo-card">
+                  <a href="https://augmentedthinker.github.io/VRportfolio/">Creative Tech Portfolio</a>
+                  <span>A useful distribution pattern: a public portfolio hub with demo launch buttons, QR code flow, embedded previews, and a visible VR/AR project catalog.</span>
+                </div>
+              </div>
+
+              <p>The clear lesson is that the old experiments were not blocked by imagination. They were blocked by friction, polish, and continuity. They each solved one small thing, but they did not yet become a maintained spatial interface for a larger living workspace.</p>
+
+              <h2>What I Would Use Now</h2>
+              <p>A-Frame is still the best first move for the Workshop Palace. It is the fastest route from static HTML to a Quest-openable WebXR scene, it fits GitHub Pages, and the existing repos already prove the pattern on this account. The newer version to test is A-Frame 1.7.x, while keeping 1.6.x as the fallback if a Quest Browser behavior regresses.</p>
+
+              <p>Three.js is better when the visual system becomes custom enough to justify lower-level control: procedural shaders, custom assets, performance tuning, or a serious non-A-Frame interaction model. Babylon.js is worth considering if the main problem becomes polished XR navigation, controller defaults, and teleportation, because its WebXR default experience and teleportation helpers are strong. But for the first Workshop Palace, those are second-step tools. They add power, but also more engineering surface.</p>
+
+              <div class="build-brief">
+                <p><strong>Recommendation:</strong> start with A-Frame, borrow the controller laser/floor targeting idea from Saber XR Presence, borrow the start overlay/audio-unlock pattern from the Saber and Sphere scenes, borrow the simple gaze/click room interactions from Animaeus, and borrow the QR/demo distribution pattern from VRportfolio. Do not put API keys or live model calls directly in the browser. Keep OpenClaw's first presence static or browser-native until a secure backend earns its place.</p>
+              </div>
 
               <div class="build-brief">
                 <p><strong>Practical first build:</strong> create a static WebXR/A-Frame scene that runs in a browser and can be opened from the Quest 2. It should load fast, use simple geometry, avoid fragile dependencies, and include only enough interaction to move between the main rooms.</p>
