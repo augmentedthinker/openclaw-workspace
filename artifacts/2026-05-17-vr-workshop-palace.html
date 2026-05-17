@@ -255,6 +255,19 @@
                 <p><strong>Recommendation:</strong> start with A-Frame, borrow the controller laser/floor targeting idea from Saber XR Presence, borrow the start overlay/audio-unlock pattern from the Saber and Sphere scenes, borrow the simple gaze/click room interactions from Animaeus, and borrow the QR/demo distribution pattern from VRportfolio. Do not put API keys or live model calls directly in the browser. Keep OpenClaw's first presence static or browser-native until a secure backend earns its place.</p>
               </div>
 
+              <h2>Deep Research Signal</h2>
+              <p>A follow-up deep-research pass reinforced the same direction, with more technical specificity. Its strongest claim is that the first real build should remain a plain static A-Frame/WebXR app, not a Unity, Godot, Wonderland, or PlayCanvas project. The reason is not that those engines are weak. It is that they add binary/editor/build complexity before the Workshop Palace has proven its first loop in the headset.</p>
+
+              <p>The report recommends treating the palace as two systems only when needed: a static frontend and, later, a small backend gatekeeper. The frontend can live on GitHub Pages and handle the scene, rooms, controller input, teleportation, textures, local UI, and a nonhuman OpenClaw presence. The backend should wait until live AI voice is justified; when it arrives, its main job should be protecting secrets and minting short-lived tokens rather than serving the entire experience.</p>
+
+              <p>The most actionable design recommendations are concrete: use teleportation as the default locomotion, constrain controller raycasters to specific interactable objects, use crisp VR text rather than blurry default labels, keep the AI presence abstract instead of humanoid, rely on spatial audio for presence, and build beauty through skyboxes, baked textures, simple geometry, and GLB assets rather than heavy real-time lighting.</p>
+
+              <p>The most important caution is also concrete: browser-side AI keys are not acceptable. If voice interaction enters the palace, it should use a secure proxy or ephemeral-token pattern. OpenAI's Realtime guidance is relevant because realtime sessions are designed for low-latency live audio, but that belongs after the static room and presence prototypes prove themselves.</p>
+
+              <div class="build-brief">
+                <p><strong>Revised first technical step:</strong> create a dedicated local prototype folder with A-Frame 1.7.x, a central hall, Quest-friendly Enter VR flow, one simple teleport or portal interaction, and a visible OpenClaw light-form. Verify it on desktop first, then on the Quest 2 through a secure HTTPS path or GitHub Pages. Only after that should we add room swapping, generated textures, or realtime voice.</p>
+              </div>
+
               <div class="build-brief">
                 <p><strong>Practical first build:</strong> create a static WebXR/A-Frame scene that runs in a browser and can be opened from the Quest 2. It should load fast, use simple geometry, avoid fragile dependencies, and include only enough interaction to move between the main rooms.</p>
               </div>
