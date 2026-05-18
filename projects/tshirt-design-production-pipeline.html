@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>T-Shirt Design Production Pipeline · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+    <style>
+      .pipeline-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; margin: 1.5rem 0 2rem; }
+      .pipeline-card { border: 1px solid rgb(255 246 229 / 0.18); border-radius: 0.9rem; padding: 1rem; background: linear-gradient(145deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.032)); }
+      .pipeline-card strong { display: block; color: var(--ink); margin-bottom: 0.45rem; }
+      .pipeline-card span { display: block; color: var(--muted); font-size: 0.94rem; line-height: 1.5; }
+      .stage { margin: 1.2rem 0; border-left: 3px solid rgb(255 184 107 / 0.65); padding: 0.2rem 0 0.2rem 1rem; }
+      .stage h3 { margin-top: 0; }
+      .project-inset { margin: 2rem 0; border: 1px solid rgb(149 184 255 / 0.26); border-radius: 1rem; padding: clamp(1rem, 2.6vw, 1.45rem); background: radial-gradient(circle at 10% 0%, rgb(255 184 107 / 0.13), transparent 20rem), linear-gradient(135deg, rgb(149 184 255 / 0.12), rgb(255 255 255 / 0.045)); }
+      .project-inset p:last-child { margin-bottom: 0; }
+      .state-list li { margin-bottom: 0.65rem; }
+      @media (max-width: 900px) { .pipeline-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="pipeline-title">
+          <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Fourthwall pipeline research · 2026-05-18 · free/local-first</span>
+            <h1 id="pipeline-title">T-Shirt Design Production Pipeline</h1>
+            <p>A practical plan for turning a shirt idea into print-ready artwork, mockups, and a Fourthwall-ready product candidate with free or local tooling wherever possible.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / Fourthwall production pipeline</div>
+            <h1>T-Shirt Design Production Pipeline</h1>
+            <div class="article-meta">
+              <span>Created 2026-05-18 · 11:27 EDT</span>
+              <span>Goal: idea to print-ready asset to Fourthwall mockup/product candidate</span>
+              <span>Constraint: no paid background removal or upscaling</span>
+              <span>Boundary: product creation and upload actions remain approval-gated</span>
+            </div>
+
+            <div class="prose">
+              <blockquote>The pipeline should let Christopher give OpenClaw an idea, then let OpenClaw do the boring production chain: generate, clean, upscale, validate, mock up, and prepare for Fourthwall.</blockquote>
+
+              <p>This artifact defines the next practical layer of the Fourthwall project: the design-production pipeline. The purpose is not just to make one good t-shirt image. The purpose is to build a repeatable path from idea to printable product candidate, with enough automation that OpenClaw can do most of the preparation work autonomously and ask Christopher only at the real decision gates.</p>
+
+              <p>The key constraint is cost. We should avoid paying for background removal, upscaling, and vectorization. That pushes the pipeline toward local Linux tools and genuinely free API tiers. Paid APIs can remain fallback research options, but the operating path should not depend on them.</p>
+
+              <div class="pipeline-grid">
+                <div class="pipeline-card">
+                  <strong>Primary output</strong>
+                  <span>A transparent high-resolution PNG suitable for print-on-demand upload and Fourthwall previewing.</span>
+                </div>
+                <div class="pipeline-card">
+                  <strong>Optional output</strong>
+                  <span>An SVG/vector version for simple logos, badges, typography, and flat graphic marks.</span>
+                </div>
+                <div class="pipeline-card">
+                  <strong>Review output</strong>
+                  <span>A mockup/check artifact showing the artwork on light/dark shirts before anything is published.</span>
+                </div>
+              </div>
+
+              <h2>The target workflow</h2>
+              <ol>
+                <li>Christopher gives a t-shirt idea in plain language.</li>
+                <li>OpenClaw turns it into 2-4 focused visual prompts or design directions.</li>
+                <li>OpenClaw generates candidate images.</li>
+                <li>OpenClaw selects the strongest candidates and explains why.</li>
+                <li>OpenClaw removes the background or generates on a removable flat background.</li>
+                <li>OpenClaw upscales or vectorizes depending on design type.</li>
+                <li>OpenClaw checks print readiness: size, transparency, contrast, edges, and shirt color compatibility.</li>
+                <li>OpenClaw prepares mockups and metadata: title, description, tags, product lane, and likely audience.</li>
+                <li>Christopher approves or rejects.</li>
+                <li>Only after approval, OpenClaw can use Fourthwall's API/design pipeline to preview or create the product candidate.</li>
+              </ol>
+
+              <h2>Stage 1: Image creation</h2>
+              <p>The image-generation layer should be flexible. Some t-shirt ideas need illustration, some need logo-style marks, some need typography, and some need a small mascot or emblem. The generator choice should match the design type.</p>
+
+              <div class="stage">
+                <h3>Best immediate path: built-in OpenClaw image generation</h3>
+                <p>For now, the most reliable path is to use the available OpenClaw image generation tool for base artwork. It is already connected, saves generated files into managed media, and supports project-bound images. This is not necessarily the cheapest external API path, but it is the working path we have today.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Free/API candidate: Hugging Face Inference</h3>
+                <p>Hugging Face can be tested as a free or low-friction image generation lane. The free tier is limited and should be treated as a sandbox, not a production guarantee. It may be useful for open-source models, especially if we later want a fully scriptable alternative to built-in generation.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Local candidate: Stable Diffusion/ComfyUI later</h3>
+                <p>A fully local image model would reduce API dependence, but Christopher's hardware constraints matter. This is not the first move. It becomes interesting only if we have a machine/environment that can run it comfortably.</p>
+              </div>
+
+              <h2>Stage 2: Background removal</h2>
+              <p>Background removal should be local/free first. For t-shirt graphics, the cleanest approach is often to generate on a perfectly flat chroma-key background and remove the key color locally. When the subject is complex, a segmentation model may work better.</p>
+
+              <div class="stage">
+                <h3>Primary local path: chroma-key generation + local removal</h3>
+                <p>Prompt the image model to create the subject on a flat solid background that does not appear in the design. Then remove that color locally. This is especially good for sticker-style characters, symbols, badges, and flat illustrations.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Primary open-source tool: rembg</h3>
+                <p><code>rembg</code> is a free open-source background removal tool. It can run as a CLI, Python library, or local HTTP server. It supports models such as U2Net and related segmentation models. This is probably our best no-payment background removal candidate.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Fallback APIs</h3>
+                <p>Services such as remove.bg can be useful for tests, but free quotas are limited and we should not build the core pipeline around them. If a tool requires paid credits for regular use, it stays a fallback, not the standard lane.</p>
+              </div>
+
+              <h2>Stage 3: Upscaling</h2>
+              <p>Print-on-demand graphics usually need high pixel dimensions. A small web image is not enough. The exact target depends on product and printable area, but a practical first target is a large transparent PNG around 4500 px by 5400 px for shirt-style artwork, adjusted to Fourthwall's product template guidance when available.</p>
+
+              <div class="stage">
+                <h3>Primary local candidate: Real-ESRGAN</h3>
+                <p>Real-ESRGAN is an open-source image upscaling/restoration tool with command-line workflows. It can do 2x or 4x style upscales and has models for general imagery and anime/illustration-like content. This is the strongest free/local candidate for upscaling once installed.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Simple fallback: high-quality resize</h3>
+                <p>If the source is already clean and large enough, a normal high-quality resize may be acceptable. This is not the same as true super-resolution, but it may work for flat vector-like graphics and simple marks.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Paid/limited APIs</h3>
+                <p>Clipdrop and similar services can upscale images, but they commonly use credits or paid limits. They should not be part of the no-cost default pipeline.</p>
+              </div>
+
+              <h2>Stage 4: Vectorization</h2>
+              <p>Vectorization is only appropriate for some designs. It is excellent for simple marks, logos, text badges, silhouettes, high-contrast line art, and sticker-style graphics. It is usually bad for painterly illustrations, detailed mascots, gradients, and textured art.</p>
+
+              <div class="stage">
+                <h3>Primary local candidate: potrace</h3>
+                <p><code>potrace</code> is an open-source command-line tool that converts black-and-white bitmap art into SVG and other vector formats. It is strongest for single-color or high-contrast designs.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Color vector candidate: VTracer</h3>
+                <p>VTracer is an open-source raster-to-SVG vectorizer that can handle more colorful graphics than potrace. It is a good candidate for multi-color flat designs if we want SVG outputs without paid vectorization services.</p>
+              </div>
+
+              <div class="stage">
+                <h3>Manual/design fallback: SVG from scratch</h3>
+                <p>For clean badges or wordmarks, OpenClaw can sometimes create the design directly as SVG instead of generating a raster image first. This should be used when the desired output is clearly logo-like, not when Christopher wants rich generated art.</p>
+              </div>
+
+              <h2>Stage 5: Print-readiness checks</h2>
+              <p>Before a design goes to Fourthwall, OpenClaw should run a small checklist:</p>
+              <ul class="state-list">
+                <li>Transparent background present and clean.</li>
+                <li>No visible background halo or matte fringe.</li>
+                <li>Large enough dimensions for the intended product area.</li>
+                <li>Readable at shirt distance, not only zoomed-in on a screen.</li>
+                <li>Works on at least one dark and one light shirt color, or intentionally targets one shirt color.</li>
+                <li>No tiny text that will blur when printed.</li>
+                <li>No accidental fake brand marks, watermarks, or illegible AI-text artifacts.</li>
+                <li>Design has a clear product lane: mascot, badge, field note, slogan, symbol, or illustration.</li>
+              </ul>
+
+              <h2>Stage 6: Mockups</h2>
+              <p>There are two mockup paths.</p>
+              <div class="stage">
+                <h3>Local review mockups</h3>
+                <p>OpenClaw can create a simple review image by compositing the transparent design onto a shirt template or flat shirt-color panel. This is enough for Christopher to judge whether the design deserves Fourthwall work.</p>
+              </div>
+              <div class="stage">
+                <h3>Fourthwall preview mockups</h3>
+                <p>Fourthwall's Design Pipeline API appears to support creating design previews from product and design placement data. This should become the higher-confidence mockup path once we test it with one approved candidate.</p>
+              </div>
+
+              <h2>Stage 7: Fourthwall handoff</h2>
+              <p>Once a candidate is approved, the Fourthwall side should eventually be:</p>
+              <ol>
+                <li>Choose product template.</li>
+                <li>Upload or provide prepared design asset.</li>
+                <li>Create preview through the Design Pipeline.</li>
+                <li>Review mockup output.</li>
+                <li>Only with approval, create the product/offer.</li>
+                <li>Set title, description, tags, collection, and availability intentionally.</li>
+                <li>Record the product in the project log so the signal loop can review it later.</li>
+              </ol>
+
+              <div class="project-inset">
+                <p><strong>Recommended default stack:</strong> OpenClaw image generation for base art, chroma-key/local removal or <code>rembg</code> for transparency, Real-ESRGAN for upscaling, potrace/VTracer only for vector-suitable designs, simple local mockups first, Fourthwall Design Pipeline previews after approval.</p>
+              </div>
+
+              <h2>Candidate tools</h2>
+              <ul class="state-list">
+                <li><strong>Image generation:</strong> OpenClaw image generation now; Hugging Face Inference as a free-tier API candidate; local Stable Diffusion later only if hardware/runtime makes sense.</li>
+                <li><strong>Background removal:</strong> chroma-key helper locally; <code>rembg</code> CLI/Python/local server; remove.bg only as a limited fallback.</li>
+                <li><strong>Upscaling:</strong> Real-ESRGAN local; simple high-quality resize for already-large flat art; paid/credit APIs only as fallback.</li>
+                <li><strong>Vectorization:</strong> potrace for one-color/high-contrast art; VTracer for color SVG candidates; direct SVG authoring for simple badges/marks.</li>
+                <li><strong>Mockups:</strong> local compositing for review; Fourthwall Design Pipeline for product-specific previews.</li>
+                <li><strong>Product creation:</strong> Fourthwall Platform API after approval.</li>
+              </ul>
+
+              <h2>Install/test checklist</h2>
+              <p>The current Linux environment has Python, but the specialized image tools are not globally installed yet. The first implementation step should be a controlled local setup:</p>
+              <ol>
+                <li>Create a private/scratch pipeline folder outside public artifacts for working images.</li>
+                <li>Install and test <code>rembg</code> in a virtual environment.</li>
+                <li>Install/test a Real-ESRGAN command-line path or a lightweight alternative.</li>
+                <li>Install/test <code>potrace</code> and optionally VTracer.</li>
+                <li>Create one script that accepts an input image and outputs: transparent PNG, upscaled PNG, optional SVG, and a review mockup.</li>
+                <li>Use one approved t-shirt idea as the first end-to-end test.</li>
+              </ol>
+
+              <h2>What OpenClaw should be able to do autonomously</h2>
+              <p>Once the pipeline exists, OpenClaw should be able to:</p>
+              <ul class="state-list">
+                <li>Turn a shirt idea into several prompt directions.</li>
+                <li>Generate candidate art.</li>
+                <li>Reject weak candidates without wasting Christopher's time.</li>
+                <li>Remove backgrounds and clean transparency.</li>
+                <li>Upscale to print-friendly size.</li>
+                <li>Vectorize only when appropriate.</li>
+                <li>Create review mockups.</li>
+                <li>Draft title, description, tags, and product lane.</li>
+                <li>Ask Christopher for approval before using Fourthwall write actions.</li>
+              </ul>
+
+              <h2>What should stay approval-gated</h2>
+              <ul class="state-list">
+                <li>Uploading final assets to Fourthwall.</li>
+                <li>Creating a product/offer.</li>
+                <li>Changing price, visibility, or collection placement.</li>
+                <li>Publishing or promoting the product externally.</li>
+                <li>Spending credits or using paid APIs.</li>
+              </ul>
+
+              <h2>First experiment proposal</h2>
+              <p>The first test should be deliberately small: one t-shirt idea, one primary design lane, two or three generated candidates, one selected winner, one transparent/upscaled PNG, one local mockup, and then one Fourthwall preview only if Christopher approves.</p>
+
+              <p>That gives us the signal we need: whether the chain works, where it breaks, what is still tedious, and whether the final design feels good enough to become a product.</p>
+
+              <h2>Source links</h2>
+              <ul class="state-list">
+                <li><a href="https://github.com/danielgatis/rembg">rembg background removal</a></li>
+                <li><a href="https://github.com/xinntao/Real-ESRGAN">Real-ESRGAN upscaling</a></li>
+                <li><a href="https://potrace.sourceforge.net/">potrace vectorization</a></li>
+                <li><a href="https://www.visioncortex.org/vtracer/">VTracer vectorization</a></li>
+                <li><a href="https://huggingface.co/docs/api-inference/index">Hugging Face Inference API</a></li>
+                <li><a href="https://docs.fourthwall.com/guides/overview">Fourthwall Platform API Overview</a></li>
+              </ul>
+
+              <h2>Bottom line</h2>
+              <p>The pipeline is achievable. The right approach is not to rely on one paid all-in-one service. The right approach is a modular chain: generate with the best available model, remove background locally, upscale locally, vectorize only when the design calls for it, create review mockups, and use Fourthwall's Design Pipeline only after the design is worth testing as a product.</p>
+
+              <p>If we get this right, Christopher should be able to say: "make me a shirt about this idea," and OpenClaw should return a small set of serious product candidates instead of a pile of disconnected image files.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
