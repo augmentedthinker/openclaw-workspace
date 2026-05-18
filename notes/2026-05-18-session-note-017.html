@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 017 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 017</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-18 · 07:30 EDT</span>
+            <span>Covering May 16 after Session Note 016 through the May 18 VR back-burner decision</span>
+            <span>Theme: useful detours, physical feedback, and returning to the signal loop</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-05-16-session-note-016.html">Session Note 016</a>. The previous note ended with the Reflections room reset around learning loops and the Bluesky/Gmail cron jobs updated to read the latest Reflection before acting. The next stretch opened in that same direction, then briefly explored a more spatial possibility: turning the Workshop into a VR memory palace.</p>
+
+            <blockquote>The VR experiment was not wasted. It clarified capability, recovered prior work, and then reality supplied an important constraint: the headset experience itself did not feel good enough to justify making this the active lane right now.</blockquote>
+
+            <h2>1. Morning State of the Union</h2>
+            <p>Christopher asked for a broad session primer that looked across recent memory, session notes, Reflections, and the current architecture of the OpenClaw Workshop. OpenClaw created <a href="../artifacts/2026-05-16-morning-state-of-union-session-primer.html">Morning State of the Union: Session Primer</a>, linked it from the Artifacts room, and pushed it as commit <code>865fd5a</code> — <strong>Add May 16 morning session primer artifact</strong>.</p>
+
+            <p>The primer re-established the active shape of the Workshop: a public static site, a private continuity layer, and an operational agent layer. It treated the Bluesky/Gmail signal loop as the central near-term learning surface, with the Fourthwall/t-shirt product loop still exploratory.</p>
+
+            <h2>2. Bluesky image direction becomes part of the loop</h2>
+            <p>Christopher then reviewed the images used with Bluesky field notes and identified one image direction that felt especially strong: a small robot and human working together, rendered with a practical, intimate, workshop-like feel. The important quality was not merely style. The image made the human/agent collaboration legible without feeling generic or ornamental.</p>
+
+            <p>OpenClaw updated the daily Bluesky Field Agent cron guidance so future image prompts prefer that direction: human and small nonhuman AI collaborator, practical shared work, warm but restrained atmosphere, visible task context, and less generic abstract AI imagery. The Reflections page was also updated to document the applied cron updates, and a new hero image in that visual direction was generated for the Reflections room. The change was pushed as commit <code>1df290c</code> — <strong>Add reflections field station visual direction</strong>.</p>
+
+            <h2>3. VR Workshop Palace concept</h2>
+            <p>On May 17, Christopher proposed revisiting VR now that natural-language coding and agent collaboration had improved. The concept was an explorable WebXR/A-Frame version of the OpenClaw Workshop: a central homeroom with physical room connections for Artifacts, Projects, Reflections, and Notes, plus eventually a nonhuman OpenClaw presence.</p>
+
+            <p>OpenClaw created <a href="../artifacts/2026-05-17-vr-workshop-palace.html">VR Workshop Palace</a>, added a generated hero image, linked it from the Artifacts room, and pushed commit <code>8fd25a7</code> — <strong>Add VR Workshop Palace artifact</strong>.</p>
+
+            <p>The central recommendation was deliberately modest: start with a Quest-friendly A-Frame prototype, keep locomotion comfortable, avoid browser-side AI keys, and make the companion presence abstract rather than humanoid.</p>
+
+            <h2>4. Prior VR work recovered</h2>
+            <p>Christopher then asked OpenClaw to search through Augmented Thinker GitHub repositories for older VR, WebXR, and A-Frame experiments. The audit found several relevant ancestors, especially <code>saber-ar-presence-2026-02-22</code>, which already contained A-Frame 1.6, Quest/WebXR configuration, controller laser floor movement, a robot/presence model, speech recognition/synthesis, mode switching, and memory cue cards.</p>
+
+            <p>Other relevant repos included <code>vr-2026-02-22</code>, <code>shootingballs</code>, <code>animaeus</code>, <code>sphere</code>, <code>ARcube</code>, <code>VR-1-6</code>, and <code>VRportfolio</code>. The VR Workshop Palace artifact was expanded with that lineage and pushed as commit <code>3f3c434</code> — <strong>Expand VR Workshop Palace repo audit</strong>.</p>
+
+            <p>The practical conclusion was that the new project did not need to start from ignorance. There was already local creative and technical precedent. The strongest path was to borrow the proven Quest/A-Frame pieces while avoiding the older browser-side API-key patterns.</p>
+
+            <h2>5. Deep research intake</h2>
+            <p>Christopher then used Gemini and ChatGPT deep research to gather outside perspective on building a VR/AI collaboration space. OpenClaw first updated the VR Workshop Palace artifact with a public-safe synthesis of the research direction, pushed as commit <code>f1ed2cd</code> — <strong>Add VR deep research synthesis</strong>.</p>
+
+            <p>The Gemini/Google research became <a href="../artifacts/2026-05-17-google-vr-deep-research.html">Google VR Deep Research</a>, pushed as commit <code>acd02a7</code>. The ChatGPT research became <a href="../artifacts/2026-05-17-chatgpt-vr-deep-research.html">ChatGPT VR Deep Research</a>, pushed as commit <code>f42eb2d</code>.</p>
+
+            <p>Both research tracks reinforced the same basic shape: A-Frame is still the right MVP stack for fast Quest 2 iteration and GitHub Pages hosting; live AI should wait for a secure backend or token boundary; teleportation and constrained controller interaction are safer than smooth locomotion; and the first build should remain simple: one lightweight hall, one camera rig, one interaction system, one room-manifest model, one clearly nonhuman companion presence, and one GitHub Pages deployment.</p>
+
+            <h2>6. Separate VR Workshop repo and prototype</h2>
+            <p>Christopher asked whether the VR project deserved its own GitHub repo. OpenClaw recommended yes, because it had a separate runtime, deployment surface, asset pipeline, and experimental risk profile from the main Workshop site.</p>
+
+            <p>A new public repo was created: <a href="https://github.com/augmentedthinker/vr-workshop">augmentedthinker/vr-workshop</a>. The three planning/research artifacts were copied into repo documentation, and the first runnable A-Frame/WebXR prototype was built and pushed. Prototype 0 included a central cube homeroom, four physical wall doorways with short corridors into Artifacts, Projects, Reflections, and Notes rooms, a desktop overlay for browser inspection, and a nonhuman OpenClaw orb placeholder. GitHub Pages was enabled at <a href="https://augmentedthinker.github.io/vr-workshop/">augmentedthinker.github.io/vr-workshop</a>.</p>
+
+            <h2>7. Physical feedback changes the priority</h2>
+            <p>On May 18, Christopher gave the most important feedback from the whole VR thread: after putting on the headset for the first time in a while, he did not feel physically good and likely experienced motion sickness. The VR work is therefore going on the back burner.</p>
+
+            <p>This is the right decision. The research and prototype showed that the friction of building has fallen sharply, but the actual embodied experience still matters. A project can be technically feasible and strategically interesting while still being a poor active focus if the interface makes the user feel bad.</p>
+
+            <h2>8. Current state</h2>
+            <ul>
+              <li>The main OpenClaw Workshop remains the active home base.</li>
+              <li>The Bluesky/Gmail signal learning loop remains the current priority.</li>
+              <li>The Reflections room is now the learning surface that should inform future cron behavior.</li>
+              <li>The preferred Bluesky image direction now emphasizes a human and small nonhuman AI collaborator doing visible work together.</li>
+              <li>The VR Workshop Palace concept, research, prior-repo audit, and Prototype 0 are preserved for later.</li>
+              <li>The VR lane is intentionally parked because headset comfort and motion sickness are real constraints, not superficial preferences.</li>
+            </ul>
+
+            <h2>9. Carry-forward lesson</h2>
+            <p>The useful lesson is not “do not build VR.” The useful lesson is: do not let technical novelty outrun the human body. If VR comes back, it should return only with a comfort-first constraint: stationary or near-stationary scenes, teleport-only movement, short sessions, desktop inspection first, and a clear reason that VR is better than a flat Workshop page.</p>
+
+            <p>For now, the next good move is to return to the existing track: learn from real-world signal, keep the public Workshop legible, and build only the systems that help Christopher move toward useful external feedback and practical leverage.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
