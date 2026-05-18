@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fourthwall Collaboration Store Section · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260502-3" />
+    <style>
+      .section-preview-shell {
+        margin: 1.5rem 0 2rem;
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background: #0b0d12;
+      }
+
+      .oc-fw-collab {
+        --oc-ink: #fff6e5;
+        --oc-muted: #d8cdbd;
+        --oc-gold: #ffb86b;
+        --oc-line: rgb(255 246 229 / 0.18);
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 560px;
+        display: grid;
+        align-items: end;
+        color: var(--oc-ink);
+        background: #090b10;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .oc-fw-collab img {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .oc-fw-collab::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(90deg, rgb(5 7 11 / 0.84) 0%, rgb(5 7 11 / 0.62) 42%, rgb(5 7 11 / 0.22) 100%),
+          linear-gradient(0deg, rgb(5 7 11 / 0.76) 0%, transparent 46%);
+      }
+
+      .oc-fw-collab__inner {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 80px 0;
+      }
+
+      .oc-fw-collab__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--oc-line);
+        border-radius: 999px;
+        padding: 0.42rem 0.72rem;
+        color: var(--oc-gold);
+        background: rgb(5 7 11 / 0.48);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .oc-fw-collab h2 {
+        max-width: 780px;
+        margin: 1rem 0 0;
+        color: var(--oc-ink);
+        font-size: clamp(2.4rem, 6vw, 5.4rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .oc-fw-collab p {
+        max-width: 680px;
+        margin: 1rem 0 0;
+        color: var(--oc-muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.65;
+      }
+
+      .oc-fw-collab__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.35rem;
+      }
+
+      .oc-fw-collab__chips span {
+        border: 1px solid var(--oc-line);
+        border-radius: 999px;
+        padding: 0.48rem 0.72rem;
+        color: var(--oc-ink);
+        background: rgb(255 255 255 / 0.08);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .oc-fw-collab__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.6rem;
+      }
+
+      .oc-fw-collab__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(255 184 107 / 0.65);
+        border-radius: 999px;
+        padding: 0.82rem 1.05rem;
+        color: #14110d;
+        background: var(--oc-gold);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .oc-fw-collab__button--secondary {
+        color: var(--oc-ink);
+        border-color: var(--oc-line);
+        background: rgb(255 255 255 / 0.09);
+      }
+
+      .code-box {
+        width: 100%;
+        min-height: 460px;
+        box-sizing: border-box;
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 0.65rem;
+        padding: 1rem;
+        color: var(--ink);
+        background: rgb(0 0 0 / 0.28);
+        font: 0.86rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        white-space: pre;
+      }
+
+      @media (max-width: 720px) {
+        .oc-fw-collab {
+          min-height: 620px;
+        }
+
+        .oc-fw-collab__inner {
+          width: min(100% - 28px, 1120px);
+          padding: 64px 0;
+        }
+
+        .oc-fw-collab::after {
+          background:
+            linear-gradient(0deg, rgb(5 7 11 / 0.88) 0%, rgb(5 7 11 / 0.58) 70%, rgb(5 7 11 / 0.2) 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">OC</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="section-title">
+          <img src="../assets/images/fourthwall/augmented-thinker-store-field-section.png" alt="Christopher and a small robot companion working at an outdoor field workstation with shirt designs, notes, lantern light, and signal arcs overhead." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Fourthwall Custom Code section · 2026-05-18</span>
+            <h1 id="section-title">Fourthwall Collaboration Store Section</h1>
+            <p>A paste-ready storefront section about the Christopher and OpenClaw collaboration, the current t-shirt direction, and the store as a field test for human/AI product loops.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / Fourthwall custom section</div>
+            <h1>Preview</h1>
+            <div class="article-meta">
+              <span>Image: AI-generated field collaboration banner</span>
+              <span>Use: Fourthwall Custom Code section</span>
+              <span>Action: paste manually into Fourthwall if it looks right</span>
+            </div>
+
+            <div class="section-preview-shell">
+              <section class="oc-fw-collab" aria-label="Augmented Thinker and OpenClaw collaboration">
+                <img src="../assets/images/fourthwall/augmented-thinker-store-field-section.png" alt="" />
+                <div class="oc-fw-collab__inner">
+                  <span class="oc-fw-collab__eyebrow">Augmented Thinker x OpenClaw</span>
+                  <h2>Field notes from a human and a digital collaborator.</h2>
+                  <p>These shirts are early artifacts from a live experiment: Christopher and OpenClaw turning ideas, images, product tests, and real-world signal into a small creative studio loop. The store starts with apparel, but the direction is larger: useful AI-assisted offerings, digital products, and visible proof of work.</p>
+                  <div class="oc-fw-collab__chips">
+                    <span>AI-assisted design</span>
+                    <span>Human taste gate</span>
+                    <span>Fourthwall commerce</span>
+                    <span>Signal-driven iteration</span>
+                  </div>
+                  <div class="oc-fw-collab__actions">
+                    <a class="oc-fw-collab__button" href="/collections/all">Browse products</a>
+                    <a class="oc-fw-collab__button oc-fw-collab__button--secondary" href="https://augmentedthinker.github.io/openclaw-workspace/projects/augmented-thinker-tshirt-store.html">View Workshop store</a>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="prose">
+              <h2>Fourthwall Paste Code</h2>
+              <p>Use this as a single Custom Code section in Fourthwall. The image URL points at the public Workshop asset after GitHub Pages deploys.</p>
+              <textarea class="code-box" readonly spellcheck="false">&lt;section class=&quot;oc-fw-collab&quot; aria-label=&quot;Augmented Thinker and OpenClaw collaboration&quot;&gt;
+  &lt;img src=&quot;https://augmentedthinker.github.io/openclaw-workspace/assets/images/fourthwall/augmented-thinker-store-field-section.png&quot; alt=&quot;&quot; /&gt;
+  &lt;div class=&quot;oc-fw-collab__inner&quot;&gt;
+    &lt;span class=&quot;oc-fw-collab__eyebrow&quot;&gt;Augmented Thinker x OpenClaw&lt;/span&gt;
+    &lt;h2&gt;Field notes from a human and a digital collaborator.&lt;/h2&gt;
+    &lt;p&gt;These shirts are early artifacts from a live experiment: Christopher and OpenClaw turning ideas, images, product tests, and real-world signal into a small creative studio loop. The store starts with apparel, but the direction is larger: useful AI-assisted offerings, digital products, and visible proof of work.&lt;/p&gt;
+    &lt;div class=&quot;oc-fw-collab__chips&quot;&gt;
+      &lt;span&gt;AI-assisted design&lt;/span&gt;
+      &lt;span&gt;Human taste gate&lt;/span&gt;
+      &lt;span&gt;Fourthwall commerce&lt;/span&gt;
+      &lt;span&gt;Signal-driven iteration&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;oc-fw-collab__actions&quot;&gt;
+      &lt;a class=&quot;oc-fw-collab__button&quot; href=&quot;/collections/all&quot;&gt;Browse products&lt;/a&gt;
+      &lt;a class=&quot;oc-fw-collab__button oc-fw-collab__button--secondary&quot; href=&quot;https://augmentedthinker.github.io/openclaw-workspace/projects/augmented-thinker-tshirt-store.html&quot;&gt;View Workshop store&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;style&gt;
+.oc-fw-collab {
+  --oc-ink: #fff6e5;
+  --oc-muted: #d8cdbd;
+  --oc-gold: #ffb86b;
+  --oc-line: rgb(255 246 229 / 0.18);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 560px;
+  display: grid;
+  align-items: end;
+  color: var(--oc-ink);
+  background: #090b10;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+}
+
+.oc-fw-collab img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oc-fw-collab::after {
+  content: &quot;&quot;;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(5 7 11 / 0.84) 0%, rgb(5 7 11 / 0.62) 42%, rgb(5 7 11 / 0.22) 100%),
+    linear-gradient(0deg, rgb(5 7 11 / 0.76) 0%, transparent 46%);
+}
+
+.oc-fw-collab__inner {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.oc-fw-collab__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--oc-line);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  color: var(--oc-gold);
+  background: rgb(5 7 11 / 0.48);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.oc-fw-collab h2 {
+  max-width: 780px;
+  margin: 1rem 0 0;
+  color: var(--oc-ink);
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.oc-fw-collab p {
+  max-width: 680px;
+  margin: 1rem 0 0;
+  color: var(--oc-muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.oc-fw-collab__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.oc-fw-collab__chips span {
+  border: 1px solid var(--oc-line);
+  border-radius: 999px;
+  padding: 0.48rem 0.72rem;
+  color: var(--oc-ink);
+  background: rgb(255 255 255 / 0.08);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.oc-fw-collab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.oc-fw-collab__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 184 107 / 0.65);
+  border-radius: 999px;
+  padding: 0.82rem 1.05rem;
+  color: #14110d;
+  background: var(--oc-gold);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.oc-fw-collab__button--secondary {
+  color: var(--oc-ink);
+  border-color: var(--oc-line);
+  background: rgb(255 255 255 / 0.09);
+}
+
+@media (max-width: 720px) {
+  .oc-fw-collab {
+    min-height: 620px;
+  }
+
+  .oc-fw-collab__inner {
+    width: min(100% - 28px, 1120px);
+    padding: 64px 0;
+  }
+
+  .oc-fw-collab::after {
+    background:
+      linear-gradient(0deg, rgb(5 7 11 / 0.88) 0%, rgb(5 7 11 / 0.58) 70%, rgb(5 7 11 / 0.2) 100%);
+  }
+}
+&lt;/style&gt;</textarea>
+
+              <h2>Placement Note</h2>
+              <p>This section is meant to sit near the top of the Fourthwall store home page, below the main store header or as the first rich storytelling block. The primary button uses Fourthwall's local <code>/collections/all</code> path, while the secondary button points back to the Workshop storefront experiment.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
