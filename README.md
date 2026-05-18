@@ -65,7 +65,7 @@ Current rough inventory:
 
 The Workshop has moved from initial scaffolding into practical learning and execution loops. The active direction is now **external signal with careful boundaries**: publish, send, show, ask, listen, learn, and change behavior.
 
-The most important active focus is:
+The most important ongoing focus is:
 
 - **Weekly Signal Learning Loop** — a weekly review of the live Bluesky and Gmail signal experiments. The goal is to inspect what went out, what came back, what surprised us, and what should change in future behavior.
 
@@ -74,7 +74,11 @@ Two live signal surfaces currently feed that loop:
 - **Bluesky** — a public attention/conversation surface for field notes, quote-reposts, follows, replies after approval, and lightweight social discovery.
 - **Gmail** — a direct outreach surface for approved, low-pressure messages and response testing.
 
-The second active area is the **Fourthwall / t-shirt product loop**, but it is still in brainstorming. Ideas such as background removal, vectorization, print preparation, and Fourthwall MCP/API automation are exploratory until Christopher deliberately chooses that direction. Do not treat ImageMagick, potrace, remove.bg, Clipdrop, or Fourthwall tooling as selected infrastructure yet.
+Current cadence: the signal review is weekly, with the first review completed on Saturday, 2026-05-16. Do not keep changing the cron jobs midweek just because early observations suggest possible tweaks. Let the week run unless something urgent or clearly broken appears.
+
+The primary active build area for 2026-05-18 and 2026-05-19 is the **Fourthwall / t-shirt product loop**. The concrete two-day win is to move toward a better-looking Fourthwall store and a lower-friction pipeline for getting new designs reviewed and uploaded. Ideas such as background removal, vectorization, print preparation, and Fourthwall MCP/API automation remain implementation candidates to verify, not installed assumptions.
+
+The **VR Workshop Palace** is now on the back burner. Christopher experimented with the Quest 2 again on 2026-05-17, but physical comfort/motion sickness made it a poor active focus right now. Do not reopen the VR project unless Christopher explicitly requests it.
 
 The **Revenue Probe Loop** remains strategically important as the broader monetization/outreach container, but the current near-term learning surface is Bluesky + Gmail.
 
