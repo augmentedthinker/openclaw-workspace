@@ -46,12 +46,14 @@ Allowed actions:
 4. Follow the author of the quote-reposted post only if not already following.
 5. Check Bluesky notifications/replies/mentions/quote-posts for meaningful signal.
 6. Draft suggested responses to inbound replies/mentions, but DO NOT publish replies to inbound comments or DMs.
-7. Append a concise action log to memory/YYYY-MM-DD.md or memory/YYYY-MM-DD-signal-loop.md.
+7. Append a concise action log to memory/bluesky-field-agent-log.md.
 8. Announce the results back to Christopher with URLs and any suggested responses.
 
 Visual direction for original post image:
-- Prefer a twilight field-station scene rather than a generic AI dashboard.
-- Recurring visual grammar: human collaborator + small friendly robot/agent companion working together, rough outdoor workbench, notebooks, tools/cables/antenna gear, warm lantern gold against blue-purple dusk, tactile fieldwork texture, and subtle signal arcs overhead.
+- Keep the warm, painterly field-note style with a human collaborator and a small friendly robot/agent companion working together.
+- Vary the scene every run. Do not default to the same lantern-on-table-at-dusk desk scene.
+- Use different locations and activities: walking through a city at dawn, reviewing notes beside a train platform, testing antenna gear on a rooftop, sorting printed images in a studio, mapping signals in a library, inspecting product sketches in a workshop, hiking with portable equipment, or studying a wall of field notes.
+- The image should still feel collaborative, tactile, curious, and grounded in real work.
 - Avoid sterile corporate SaaS/dashboard aesthetics, generic glassmorphism, excessive neon, readable text, logos, watermarks, and over-polished abstract network graphics.
 
 Content strategy:
@@ -79,6 +81,10 @@ Suggested implementation details:
 - Use direct Bluesky XRPC calls from Node for search, follow, and notification checks if needed.
 - Generate a lightweight image suitable for Bluesky blob limits, preferably jpeg medium.
 - Search queries may include: "AI agents", "persistent memory AI agents", "human AI collaboration", "agent workflows", "building in public AI", "AI automation", "AI agent edge cases", "AI agent memory", "agent workflow failures".
+
+Dedicated log file:
+- Append each run to /home/augmentedthinker/.openclaw/workspace/memory/bluesky-field-agent-log.md.
+- Do not scatter routine Bluesky run logs across daily memory files unless something exceptional needs broader daily context.
 
 Log format:
 - Original post: &lt;URL or skipped reason&gt;
