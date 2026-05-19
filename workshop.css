@@ -291,10 +291,13 @@ a { color: inherit; }
   width: min(1120px, calc(100% - 1rem));
   margin: 1.25rem auto 0;
   display: grid;
-  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
 }
 
 .project-group {
+  min-height: 100%;
   border: 1px solid var(--line);
   border-radius: 1.25rem;
   background:
@@ -311,9 +314,9 @@ a { color: inherit; }
 
 .project-group summary {
   display: grid;
-  grid-template-columns: minmax(8rem, 0.24fr) 1fr;
-  gap: 1rem;
-  align-items: center;
+  gap: 0.8rem;
+  align-items: start;
+  min-height: 12rem;
   padding: 1rem 3rem 1rem 1rem;
   position: relative;
   cursor: pointer;
@@ -346,13 +349,35 @@ a { color: inherit; }
 
 .project-group-items {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.55rem;
   padding: 0 0.8rem 0.8rem;
 }
 
 .project-group-items .artifact-button {
-  border-radius: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  border-radius: 0.8rem;
+  padding: 0.78rem;
   background: rgb(5 7 13 / 0.28);
+}
+
+.project-group-items .artifact-summary strong {
+  font-size: 0.98rem;
+}
+
+.project-group-items .artifact-summary span {
+  font-size: 0.92rem;
+}
+
+.project-count {
+  width: fit-content;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.34rem 0.58rem;
+  color: var(--ember);
+  background: rgb(5 7 13 / 0.32);
+  font-size: 0.78rem;
+  font-weight: 780;
 }
 
 .project-group-empty {
@@ -718,11 +743,11 @@ footer {
     justify-content: flex-start;
   }
 
-  .hero, .page-hero, .grid { grid-template-columns: 1fr; }
+  .hero, .page-hero, .grid, .project-groups { grid-template-columns: 1fr; }
   .card.featured { grid-column: auto; }
   .section-heading { align-items: start; flex-direction: column; }
   .artifact-button { grid-template-columns: 1fr; }
-  .project-group summary { grid-template-columns: 1fr; }
+  .project-group summary { min-height: auto; }
 
   .article-shell {
     margin-top: 1.25rem;
