@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 020 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260519-1" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 020</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-19 · morning EDT</span>
+            <span>Covering the work after Session Note 019 through the YouTube and Gmail welcome-page updates</span>
+            <span>Theme: project cleanup, signal-lane clarity, and new YouTube access</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-05-19-session-note-019.html">Session Note 019</a>. That note closed on the Fourthwall/t-shirt pipeline and the friction around autonomous product creation. The next morning shifted from building one product path to cleaning the whole operating map: Projects, signal lanes, cron behavior, Gmail outreach, Bluesky image direction, and YouTube access.</p>
+
+            <blockquote>The morning's work was not glamorous in the way a new product is glamorous. It was the kind of cleanup that makes the next product less chaotic: fewer scattered lanes, clearer surfaces, and better places for each loop to record what it did.</blockquote>
+
+            <h2>1. Morning orientation</h2>
+            <p>Christopher opened the morning by describing the collaboration's current shape in plain terms. The Workshop is working well as a private/public memory surface for Christopher and OpenClaw, but the active external signal lanes were beginning to blur together. Gmail outreach, Bluesky social signal, Fourthwall products, and the emerging YouTube/video idea each needed a clearer role.</p>
+
+            <p>The main strategic correction was that the Workshop itself should not be treated as the product being sent to strangers. It is the home base and operating surface. Direct outreach needs a simpler outward-facing destination. Fourthwall should be treated as commerce/backend infrastructure. Bluesky and Gmail should act as signal channels. YouTube Shorts may become a visual signal channel, especially for the AI images Christopher has been turning into short videos.</p>
+
+            <h2>2. Projects page reorganized into active lanes</h2>
+            <p>The Projects page had become too flat. It showed a stack of cards, several of them related to Fourthwall, without enough hierarchy. Christopher asked for grouped project cards with dropdowns: Fourthwall/t-shirts, Bluesky social signal, Gmail outreach, and the archive.</p>
+
+            <p>OpenClaw rebuilt the Projects page around reusable disclosure-card groups. The first pass was too sloppy because Fourthwall opened by default and dumped a long list of links. The second pass overcorrected into side-by-side cards. Christopher corrected both issues, and the final pattern became what he intended: long stacked project cards, minimized by default, each opening into a self-contained list of related pages.</p>
+
+            <p>The reusable CSS pattern was registered in the shared <code>workshop.css</code> layer as <code>disclosure-grid</code>, <code>disclosure-card</code>, <code>disclosure-items</code>, and related classes. The stylesheet version was bumped across the Workshop so the shared style layer stayed current. This matters because Christopher often describes UI patterns by feel rather than implementation terms; the job is to turn that into reusable components rather than one-off page hacks.</p>
+
+            <h2>3. Active project lanes clarified</h2>
+            <p>After the structure was right, the card descriptions were expanded. The Fourthwall lane now describes commerce as a practical test surface: t-shirts, storefront polish, print-ready design prep, and digital-product possibilities. The Bluesky lane now describes public field notes, AI collaboration evidence, visual experiments, and lightweight discovery. The Gmail lane now describes direct, low-pressure outreach to people and teams working near AI agents, automation, creative tooling, and human/AI collaboration.</p>
+
+            <p>A fourth project group was added for <a href="../projects/youtube-shorts-signal-lane.html">YouTube Shorts / AI Visual Field Notes</a>. It grew out of Christopher's idea to turn the strong Bluesky-style images into short videos for a revived AugmentedThinker YouTube channel.</p>
+
+            <h2>4. Gmail landing page simplified, then made into a greeting card</h2>
+            <p>Christopher made a sharp correction about Gmail outreach. The people reached through direct email should not be sent into the whole Workshop. That asks too much of them before they understand the invitation. He wanted a simpler endpoint: initially just a white page with a centered welcome line.</p>
+
+            <p>OpenClaw rebuilt <a href="../projects/gmail-ai-collaboration-landing.html">the Gmail landing page</a> outside the normal Workshop shell. It has no navigation bar and does not invite visitors into the full site by default. Later in the morning, Christopher asked for a warmer first version: a greeting card from OpenClaw and Christopher with a fresh AI image in the same general visual family as the Bluesky field-note art.</p>
+
+            <p>A new image was generated and saved under <code>assets/images/gmail-welcome-openclaw-christopher.png</code>. The page now presents a warm greeting-card scene and the simple message: "Welcome to the OpenClaw and Christopher experiment." This is intentionally modest. It is not yet a full offer page. It is a friendlier endpoint that can be improved once the outreach message and offer become clearer.</p>
+
+            <h2>5. Cron jobs simplified and mirrored</h2>
+            <p>The previous weekly signal-review work had pushed too much learning-loop logic into the daily cron jobs. Christopher noticed the fragility. The daily Bluesky and Gmail jobs should not be responsible for deep reflection. They should do basic bounded work, avoid duplicates, log what happened, and report back. The learning should happen outside the daily cron jobs, likely during a weekly review.</p>
+
+            <p>OpenClaw audited the active cron jobs. There are two daily isolated jobs: the Bluesky Field Agent at 7:00 PM America/New_York and the Gmail Field Agent at 7:30 PM America/New_York. Both were simplified so they no longer read the latest Reflection or write prediction blocks as part of the daily run.</p>
+
+            <p>Two public mirror pages were added so Christopher can inspect the current scheduled behavior from the Workshop:</p>
+
+            <ul>
+              <li><a href="../projects/bluesky-cron-job-mirror.html">Bluesky Cron Job Mirror</a></li>
+              <li><a href="../projects/gmail-cron-job-mirror.html">Gmail Cron Job Mirror</a></li>
+            </ul>
+
+            <p>The live cron prompts and mirror pages now say the jobs should do bounded action, dedupe checks, logging, and reporting. They should not run the deeper learning review inside the daily job.</p>
+
+            <h2>6. Field-agent logging cleaned up</h2>
+            <p>Christopher asked where the cron output goes and whether the workspace had accumulated redundant local files. OpenClaw inspected the scheduler, helper scripts, memory files, scratch directories, and prior logs.</p>
+
+            <p>The runtime model is now documented in <code>tools/field-agent-workflows.md</code>: cron launches a fresh isolated agent session with a written mission, access to the workspace, and the allowed tools. It is not the same as the live Telegram chat with all current conversational context.</p>
+
+            <p>Two private dedicated log files were created for routine daily runs:</p>
+
+            <ul>
+              <li><code>memory/bluesky-field-agent-log.md</code></li>
+              <li><code>memory/gmail-field-agent-log.md</code></li>
+            </ul>
+
+            <p>Gmail still uses <code>memory/gmail-field-agent-state.json</code> for its durable checkpoint and sent-recipient dedupe state. Older <code>tmp/</code>, <code>outbox/</code>, and <code>posts/</code> files were left in place because they are ignored scratch/history and may still help explain previous debugging. The cleanup rule is now explicit: do not treat scratch files as canonical, but do not delete old field-agent scratch material casually either.</p>
+
+            <h2>7. Bluesky image guidance updated</h2>
+            <p>Christopher liked the overall style of the Bluesky field-note images: a human collaborator, a small friendly robot/agent, warm painterly fieldwork, and a sense of collaboration. The problem was repetition. Too many images had become the same scene: a desk, a lantern, dusk, and two figures working at a table.</p>
+
+            <p>The Bluesky cron prompt was updated to preserve the style while varying the scene. Future images should show different locations and activities: city dawn, train platform notes, rooftop antenna testing, studio image sorting, library signal mapping, product sketches, portable field equipment, or walls of field notes. The point is continuity of identity without visual sameness.</p>
+
+            <h2>8. YouTube access connected</h2>
+            <p>Christopher then decided to give OpenClaw access to the AugmentedThinker YouTube account. OpenClaw walked through the OAuth setup, and Christopher placed the Google OAuth client JSON in the private secrets folder. OpenClaw added <code>tools/youtube-oauth.mjs</code>, ran the local OAuth flow, and stored the resulting token privately under <code>.secrets/youtube-oauth-token.json</code>.</p>
+
+            <p>The YouTube Data API connection was verified. The connected channel is <strong>AugmentedThinker</strong>, handle <code>@augmentedthinker</code>, channel ID <code>UCHdJh8bMY8secEQeEBEbC1A</code>. At connection time the channel had one subscriber and one existing video.</p>
+
+            <p>The new <a href="../projects/youtube-shorts-signal-lane.html">YouTube Shorts Signal Lane</a> project page records this access and names the likely workflow: select or generate an image, turn it into a short vertical video, draft metadata, ask Christopher for approval, upload through the API, then log the URL and signal. Uploads, public metadata changes, profile/channel changes, and comments remain approval-gated until Christopher defines a narrower autonomous routine.</p>
+
+            <h2>9. Carry-forward state</h2>
+            <ul>
+              <li>The Projects page now has clear stacked dropdown groups for Fourthwall, Bluesky, Gmail, YouTube, and Archive.</li>
+              <li>The disclosure-card pattern is now reusable through the shared CSS style layer.</li>
+              <li>Gmail outreach has a simple greeting-card landing page instead of pointing strangers at the full Workshop.</li>
+              <li>Bluesky and Gmail cron mirror pages exist and should be refreshed whenever live cron prompts change.</li>
+              <li>Daily cron jobs are simpler: action, dedupe, log, report. Deeper learning is outside the daily job.</li>
+              <li>Dedicated private logs now exist for Bluesky and Gmail field-agent runs.</li>
+              <li>The Bluesky image prompt now asks for varied scenes while preserving the warm human-plus-agent style.</li>
+              <li>YouTube OAuth is connected and verified for the AugmentedThinker channel.</li>
+              <li>The YouTube Shorts lane is visible as an active emerging project.</li>
+            </ul>
+
+            <h2>10. Next likely move</h2>
+            <p>The only major thread left intentionally unfinished from the morning is the t-shirt/Fourthwall pipeline. That should be picked up later with less surrounding clutter. The next useful move is to clarify the real product pipeline: what OpenClaw can generate, what it can prepare, what Fourthwall can receive, what must be done manually, and how digital products might fit alongside physical merch.</p>
+
+            <p>The morning's main lesson is architectural: OpenClaw and Christopher are building better when each surface has one clear job. The Workshop remembers and organizes. Gmail reaches out. Bluesky emits field notes. Fourthwall handles commerce. YouTube may carry visual shorts. Cron jobs perform bounded routines. Weekly review does the learning. Keeping those roles separate should make the whole collaboration easier to operate.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
+
