@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gmail Cron Job Mirror · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260519-1" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / Gmail Outreach / Cron Mirror</div>
+            <h1>Gmail Cron Job Mirror</h1>
+            <div class="article-meta">
+              <span>Job ID: 12f258c8-7dad-4d5f-b2f3-b84b2939e4bf</span>
+              <span>Status: enabled</span>
+              <span>Schedule: 30 19 * * * America/New_York</span>
+              <span>Mirror refreshed: 2026-05-19</span>
+            </div>
+
+            <div class="prose">
+              <p>This page mirrors the current cron job prompt so Christopher can inspect the scheduled behavior from the Workshop. If the live cron job changes, this mirror should be refreshed in the same commit.</p>
+
+              <h2>Prompt</h2>
+              <pre><code>Run the Daily Gmail Field Agent loop for Christopher / AugmentedThinker.
+
+Purpose:
+1. Send at most one respectful, low-pressure outreach email from augmentedthinker@gmail.com to a public-facing contact in the AI / AI-agent / automation / developer-tool / creative-tool / human-AI collaboration space.
+2. Review Gmail for messages received since the last checkpoint and report anything notable back to Christopher.
+3. Record exactly what was sent, what was checked, and any replies found. Do not run weekly learning review inside this cron job.
+
+State:
+- Use /home/augmentedthinker/.openclaw/workspace/memory/gmail-field-agent-state.json as the durable state file.
+- Read it first. It contains lastCheckedAt and sentRecipients.
+- Update it at the end with the new check time and any sent recipient.
+- Do not repeat recipients already in sentRecipients.
+
+Gmail tool setup:
+- gog is installed at /home/augmentedthinker/.local/bin/gog.
+- Before using gog, source /home/augmentedthinker/.openclaw/workspace/.secrets/gog-keyring.env without printing it.
+- Use account augmentedthinker@gmail.com.
+
+Outbound email rules:
+- Send only one email per run.
+- Use only public-facing/professional contact addresses from official pages or well-known public contact channels. Do not use scraped private personal addresses.
+- Prefer intentional recipients over generic support inboxes: smaller operators, builders, communities, agent-tool teams, automation practitioners, AI educators, creative tooling teams, or human/AI collaboration projects with a clear reason to care.
+- Famous people are acceptable only if using an official public contact channel; do not guess personal addresses.
+- Keep the email warm, concise, sincere, and non-salesy.
+- Briefly mention AugmentedThinker / OpenClaw as a small public experiment in practical human/AI collaboration, durable memory, scheduled agents, and signal loops.
+- Link to the outward-facing landing page, not the Workshop home page: https://augmentedthinker.github.io/openclaw-workspace/projects/gmail-ai-collaboration-landing.html
+- Include one easy, low-pressure question that can be answered in one sentence.
+- A good default question is: "If you had thirty seconds to respond, does this kind of human/agent signal-loop experiment seem practically useful, or mostly like interesting infrastructure?"
+- Do not ask for money, favors, promotion, meetings, or introductions.
+- Do not exaggerate claims.
+- Do not mention private memory, secrets, internal chat details, or Christopher's private personal context.
+- If you cannot identify a suitable recipient confidently, skip the outbound email and report why rather than forcing it.
+
+Inbox review:
+- Check for messages received since lastCheckedAt.
+- Summarize notable replies, bounces, objections, or opportunities.
+- If a reply needs a response, draft a suggested response only. Do not send replies automatically unless Christopher explicitly approved that narrower action.
+
+Log format:
+- Checked inbox since: &lt;timestamp&gt;
+- Recipient: &lt;email/name or skipped reason&gt;
+- Public source for address: &lt;URL or source note&gt;
+- Subject: &lt;subject or skipped&gt;
+- Sent: &lt;yes/no&gt;
+- Landing page used: &lt;URL&gt;
+- Signals found: &lt;brief summary&gt;
+- Dedupe checks: &lt;recipient/state checks&gt;
+- Suggested replies: &lt;drafts, if any&gt;
+
+Report format:
+- Sent: &lt;recipient or skipped reason&gt;
+- Landing page: &lt;URL&gt;
+- Inbox signals: &lt;brief summary&gt;
+- Dedupe checks: &lt;brief summary&gt;
+- Suggested replies: &lt;drafts, if any&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+

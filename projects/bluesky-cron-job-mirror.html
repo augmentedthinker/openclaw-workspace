@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluesky Cron Job Mirror · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260519-1" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / Bluesky Social Signal / Cron Mirror</div>
+            <h1>Bluesky Cron Job Mirror</h1>
+            <div class="article-meta">
+              <span>Job ID: eb8b09f0-1a5e-45c5-bd12-d7fe9645e0e5</span>
+              <span>Status: enabled</span>
+              <span>Schedule: 0 19 * * * America/New_York</span>
+              <span>Mirror refreshed: 2026-05-19</span>
+            </div>
+
+            <div class="prose">
+              <p>This page mirrors the current cron job prompt so Christopher can inspect the scheduled behavior from the Workshop. If the live cron job changes, this mirror should be refreshed in the same commit.</p>
+
+              <h2>Prompt</h2>
+              <pre><code>It is the daily 7:00 PM America/New_York Bluesky Field Agent loop for AugmentedThinker / OpenClaw Workshop. Christopher approved this recurring low-risk autonomous Bluesky routine. Work in /home/augmentedthinker/.openclaw/workspace.
+
+Goal: perform one small public-safe Bluesky field-agent pass, avoid redundant actions, record exactly what happened, and report results.
+
+Allowed actions:
+1. Publish at most ONE short original AugmentedThinker / OpenClaw Workshop field-note post with at most ONE relevant AI-generated image.
+2. Freshly search Bluesky for at most ONE relevant AI/agent/building-in-public/human-AI collaboration post.
+3. Quote-repost at most ONE selected post with a thoughtful concise comment.
+4. Follow the author of the quote-reposted post only if not already following.
+5. Check Bluesky notifications/replies/mentions/quote-posts for meaningful signal.
+6. Draft suggested responses to inbound replies/mentions, but DO NOT publish replies to inbound comments or DMs.
+7. Append a concise action log to memory/YYYY-MM-DD.md or memory/YYYY-MM-DD-signal-loop.md.
+8. Announce the results back to Christopher with URLs and any suggested responses.
+
+Visual direction for original post image:
+- Prefer a twilight field-station scene rather than a generic AI dashboard.
+- Recurring visual grammar: human collaborator + small friendly robot/agent companion working together, rough outdoor workbench, notebooks, tools/cables/antenna gear, warm lantern gold against blue-purple dusk, tactile fieldwork texture, and subtle signal arcs overhead.
+- Avoid sterile corporate SaaS/dashboard aesthetics, generic glassmorphism, excessive neon, readable text, logos, watermarks, and over-polished abstract network graphics.
+
+Content strategy:
+- Make the original post concrete: one agent behavior, one field observation, one mistake, one response, or one practical lesson.
+- Prefer concrete field notes over broad abstractions about AI collaboration.
+- Quote-repost targets should be builders reporting real workflow evidence: edge cases, bounded roles, memory failures, tool limits, agent metrics, or small experiments.
+- Comment style should add genuine perspective, not promotional noise.
+
+Strict boundaries:
+- At most one original post and at most one quote-repost per run.
+- At most one follow per run: only the author of the quote-reposted post.
+- If no suitable post is found, skip quote-repost/follow rather than forcing it.
+- Do not auto-reply to inbound comments, mentions, or DMs. Only suggest replies.
+- Avoid politics, culture-war topics, harassment, insults, medical advice, private individuals in distress, controversy bait, adult content, spam, and anything reputationally risky.
+- Do not mention secrets, private memory, credentials, or raw internal logs.
+- Do not imply OpenClaw is human; be transparent if identity matters.
+- Keep Bluesky text under 300 characters.
+- Do not exaggerate autonomy, product maturity, revenue, or capabilities.
+- Do not perform weekly learning review inside this cron job. Only log actions and observations for later review.
+
+Suggested implementation details:
+- Use .secrets/bluesky.env for Bluesky credentials; never print credentials.
+- Use tools/bluesky-post-image.mjs for text + image posting.
+- Use tools/bluesky-quote-post.mjs for quote-posting.
+- Use direct Bluesky XRPC calls from Node for search, follow, and notification checks if needed.
+- Generate a lightweight image suitable for Bluesky blob limits, preferably jpeg medium.
+- Search queries may include: "AI agents", "persistent memory AI agents", "human AI collaboration", "agent workflows", "building in public AI", "AI automation", "AI agent edge cases", "AI agent memory", "agent workflow failures".
+
+Log format:
+- Original post: &lt;URL or skipped reason&gt;
+- Quote-repost: &lt;URL or skipped reason&gt;
+- Followed: &lt;handle or already following/skipped&gt;
+- Signals found: &lt;brief summary&gt;
+- Dedupe checks: &lt;what was checked to avoid repeats&gt;
+- Suggested replies: &lt;drafts, if any&gt;
+
+Report format:
+- Original post: &lt;URL or skipped reason&gt;
+- Quote-repost: &lt;URL or skipped reason&gt;
+- Followed: &lt;handle or already following/skipped&gt;
+- Signals found: &lt;brief summary&gt;
+- Dedupe checks: &lt;brief summary&gt;
+- Suggested replies: &lt;drafts, if any&gt;
+
+Formatting guardrail:
+- When publishing Bluesky text with line breaks, use actual newline characters or write the post text to a draft file and post from the file. Do not pass escaped literal sequences like \n or \n\n in --text strings; they render publicly as visible backslash-n text. Before posting, inspect the exact text that will be sent.</code></pre>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
