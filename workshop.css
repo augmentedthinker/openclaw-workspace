@@ -287,7 +287,8 @@ a { color: inherit; }
   line-height: 1.45;
 }
 
-.project-groups {
+/* Reusable disclosure-card pattern for grouped cards with nested links. */
+.disclosure-grid {
   width: min(1120px, calc(100% - 1rem));
   margin: 1.25rem auto 0;
   display: grid;
@@ -296,7 +297,7 @@ a { color: inherit; }
   gap: 1rem;
 }
 
-.project-group {
+.disclosure-card {
   min-height: 100%;
   border: 1px solid var(--line);
   border-radius: 1.25rem;
@@ -306,13 +307,13 @@ a { color: inherit; }
   overflow: hidden;
 }
 
-.project-group[open] {
+.disclosure-card[open] {
   background:
     linear-gradient(135deg, rgb(255 184 107 / 0.12), transparent 42%),
     rgb(255 255 255 / 0.065);
 }
 
-.project-group summary {
+.disclosure-card summary {
   display: grid;
   gap: 0.8rem;
   align-items: start;
@@ -323,11 +324,11 @@ a { color: inherit; }
   list-style: none;
 }
 
-.project-group summary::-webkit-details-marker {
+.disclosure-card summary::-webkit-details-marker {
   display: none;
 }
 
-.project-group summary::after {
+.disclosure-card summary::after {
   content: "+";
   position: absolute;
   right: 1.15rem;
@@ -339,21 +340,21 @@ a { color: inherit; }
   line-height: 1;
 }
 
-.project-group[open] summary::after {
+.disclosure-card[open] summary::after {
   content: "-";
 }
 
-.project-group summary:hover {
+.disclosure-card summary:hover {
   background: rgb(255 255 255 / 0.045);
 }
 
-.project-group-items {
+.disclosure-items {
   display: grid;
   gap: 0.55rem;
   padding: 0 0.8rem 0.8rem;
 }
 
-.project-group-items .artifact-button {
+.disclosure-items .artifact-button {
   grid-template-columns: 1fr;
   gap: 0.35rem;
   border-radius: 0.8rem;
@@ -361,15 +362,15 @@ a { color: inherit; }
   background: rgb(5 7 13 / 0.28);
 }
 
-.project-group-items .artifact-summary strong {
+.disclosure-items .artifact-summary strong {
   font-size: 0.98rem;
 }
 
-.project-group-items .artifact-summary span {
+.disclosure-items .artifact-summary span {
   font-size: 0.92rem;
 }
 
-.project-count {
+.disclosure-count {
   width: fit-content;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -380,7 +381,7 @@ a { color: inherit; }
   font-weight: 780;
 }
 
-.project-group-empty {
+.disclosure-empty {
   margin: 0 0.8rem 0.8rem;
   border: 1px dashed var(--line);
   border-radius: 1rem;
@@ -743,11 +744,11 @@ footer {
     justify-content: flex-start;
   }
 
-  .hero, .page-hero, .grid, .project-groups { grid-template-columns: 1fr; }
+  .hero, .page-hero, .grid, .disclosure-grid { grid-template-columns: 1fr; }
   .card.featured { grid-column: auto; }
   .section-heading { align-items: start; flex-direction: column; }
   .artifact-button { grid-template-columns: 1fr; }
-  .project-group summary { min-height: auto; }
+  .disclosure-card summary { min-height: auto; }
 
   .article-shell {
     margin-top: 1.25rem;
