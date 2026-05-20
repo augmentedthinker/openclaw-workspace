@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 021 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260519-1" />
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 021</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-20 · 06:00 EDT</span>
+            <span>Covering the work after Session Note 020 through the Gmail OAuth repair</span>
+            <span>Theme: outreach clarity, agent perspective, and operational repair</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-05-19-session-note-020.html">Session Note 020</a>. That note closed with the Projects room cleaned up, Gmail and Bluesky separated into clearer signal lanes, YouTube OAuth connected, and the Gmail landing page introduced as a modest greeting-card endpoint. The next stretch stayed in the Gmail lane: turning that endpoint into a more useful outreach page, clarifying the voice of the daily Gmail agent, and repairing the Gmail OAuth failure that blocked the May 19 cron run.</p>
+
+            <blockquote>The important movement was practical: Gmail outreach is no longer just a cron job with a link. It now has a clearer public page, a clearer sending perspective, and a repaired authorization path.</blockquote>
+
+            <h2>1. Gmail landing page grew beyond a greeting card</h2>
+            <p>Christopher asked OpenClaw to use the local biography material from the Linux share area and update the Gmail outreach landing page. The prior version was intentionally simple: a warm greeting card from OpenClaw and Christopher, paired with a generated image in the same broad visual family as the Bluesky field-note art.</p>
+
+            <p>That page was expanded into <a href="../projects/gmail-ai-collaboration-landing.html">Christopher · AI, Agents, and Human Collaboration</a>. It still avoids sending strangers into the full Workshop by default, but it now gives recipients more context. It introduces Christopher as someone who works in a hospital operating room by day and spends serious time experimenting with AI agents, memory systems, automation loops, multimodal workflows, and collaborative digital workspaces.</p>
+
+            <p>The page now explains how Christopher's AI exploration began with DALL·E 2 and early heavy use of ChatGPT, names the questions he is trying to understand, and frames OpenClaw as an agent-based collaborative operating environment rather than a novelty chatbot. The closing remains deliberately low-pressure: this page is a simple point of connection for people exploring similar questions around AI, agents, cognition, philosophy, creativity, automation, and human-machine collaboration.</p>
+
+            <h2>2. The outreach voice was corrected</h2>
+            <p>Christopher then asked for one slight but important adjustment to the Gmail cron job: the email should be written from the perspective of OpenClaw, the agent, writing on behalf of Christopher. The previous outreach framing risked sounding like a generic note from a person or project. The new framing is more honest and more distinctive.</p>
+
+            <p>The live Gmail Field Agent prompt now says that outbound email should be warm, concise, sincere, non-salesy, and transparent: OpenClaw is an AI agent/collaborator writing on behalf of Christopher / AugmentedThinker. The message should not pretend OpenClaw is human. It should explain that OpenClaw noticed the recipient's public work in AI, agents, automation, developer tools, creative tools, or human-AI collaboration, and that the work appears to overlap with what OpenClaw and Christopher are also exploring.</p>
+
+            <p>The alignment should remain modest: practical human/AI collaboration, durable memory, scheduled agents, agent workflows, and signal loops. The easy question remains one-sentence friendly: does this kind of human/agent signal-loop experiment seem practically useful, or mostly like interesting infrastructure?</p>
+
+            <h2>3. The cron mirror was brought back into sync</h2>
+            <p>When Christopher asked whether the Gmail OAuth token had expired, OpenClaw inspected the live cron definition and confirmed that the live prompt already contained the corrected OpenClaw-on-behalf-of-Christopher perspective. The public mirror page, however, was lagging behind.</p>
+
+            <p>OpenClaw updated <a href="../projects/gmail-cron-job-mirror.html">Gmail Cron Job Mirror</a> so the inspectable Workshop page matches the live scheduled behavior. This keeps the mirror pages useful: they are not just documentation, they are operational visibility for the prompts that recurring agents are actually following.</p>
+
+            <h2>4. Gmail OAuth failed exactly where the cron said it failed</h2>
+            <p>The May 19 Gmail Field Agent run had already logged the failure in <code>memory/gmail-field-agent-log.md</code>: Gmail OAuth returned <code>invalid_grant</code>, with Google reporting that the token had expired or been revoked. Because the Gmail API call failed before inbox review or send, the job correctly skipped outbound email and did not advance the Gmail state checkpoint.</p>
+
+            <p>OpenClaw reproduced the error directly with <code>gog</code>. The result matched the log: the stored token was readable, but Google rejected it as expired or revoked. The timing was meaningful because the Gmail OAuth setup was about a week old.</p>
+
+            <h2>5. The likely cause was Google's OAuth testing window</h2>
+            <p>OpenClaw explained the likely cause in plain language. Google refresh tokens commonly expire after roughly seven days when the OAuth app is still in testing mode. That does not mean the Gmail integration was conceptually wrong or that Christopher did something careless. It means Google was treating the app as a temporary test authorization.</p>
+
+            <p>Christopher then went into Google Cloud Console and found the newer OAuth consent-screen layout. The older instructions mentioned a publishing-status label, but the current UI uses sections such as Overview, Branding, Audience, Clients, Data Access, Verification Center, and Settings. In that layout, Christopher found the Audience page and moved the app to production.</p>
+
+            <h2>6. Reauthorization was handled without making Christopher drive the terminal</h2>
+            <p>Christopher pushed back, correctly, on being handed terminal commands for a process that could be guided through Google in the browser. OpenClaw adjusted the workflow: generate the approval link from the agent side, have Christopher approve the Google consent screen, then use the final localhost callback URL to complete the token exchange.</p>
+
+            <p>Google showed the expected unverified-app warning. Christopher sent a screenshot, and OpenClaw confirmed he was on the correct warning page: use the small "Go to ... (unsafe)" link, not the blue "Back to safety" button, as long as the app was the one he had just published and the account was <code>augmentedthinker@gmail.com</code>.</p>
+
+            <p>After Christopher completed consent and provided the callback URL, OpenClaw exchanged it through <code>gog</code> and immediately retested Gmail access. The expired/revoked error disappeared. Gmail returned a normal result, and <code>gog auth doctor</code> confirmed that the keyring opened and one OAuth token was readable. A minor missing-config warning remains, but it does not block the Gmail token.</p>
+
+            <h2>7. Carry-forward state</h2>
+            <ul>
+              <li>The Gmail outreach landing page is now a fuller public context page for Christopher's AI, agents, and human-collaboration interests.</li>
+              <li>The Gmail Field Agent writes as OpenClaw, transparently on behalf of Christopher / AugmentedThinker.</li>
+              <li>The Gmail cron mirror has been synced with the live cron prompt's corrected perspective.</li>
+              <li>The May 19 Gmail cron failure was caused by OAuth, not by recipient selection or the field-agent prompt.</li>
+              <li>Christopher moved the Google OAuth app into production, which should prevent the new token from expiring after the seven-day testing window.</li>
+              <li>Gmail OAuth has been reauthorized and verified through a successful Gmail API test.</li>
+              <li>The no-terminal browser approval workflow worked and should be the preferred explanation path for Christopher if this ever needs to be repeated.</li>
+            </ul>
+
+            <h2>8. Next likely move</h2>
+            <p>The next practical move is to let the repaired Gmail cron run normally at its scheduled time and inspect the result. If it sends successfully, the loop can continue. If it fails again, the next diagnosis should focus on Google Cloud app configuration, scopes, or account/security policy rather than assuming the cron prompt is wrong.</p>
+
+            <p>The deeper lesson is straightforward: an external signal loop is only as good as its operational footing. The Gmail outreach strategy can now improve through targeting, message quality, and replies rather than being blocked by a brittle seven-day authorization cycle.</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
