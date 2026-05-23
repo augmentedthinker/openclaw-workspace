@@ -67,7 +67,7 @@
 
       .brand {
         color: var(--ink);
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-size: clamp(1.35rem, 3.4vw, 2rem);
         font-weight: 850;
         letter-spacing: 0;
         text-decoration: none;
@@ -147,6 +147,14 @@
         text-shadow: 0 12px 42px rgb(0 0 0 / 0.42);
       }
 
+      .title-line {
+        display: block;
+      }
+
+      .title-mobile {
+        display: none;
+      }
+
       .hero-curve {
         position: absolute;
         left: -4%;
@@ -185,6 +193,9 @@
         color: var(--muted);
         font-size: clamp(0.98rem, 1.7vw, 1.18rem);
         line-height: 1.5;
+        text-align: justify;
+        text-align-last: left;
+        hyphens: auto;
       }
 
       .message strong {
@@ -208,7 +219,7 @@
         align-items: center;
         gap: 0.45rem;
         color: var(--amber-strong);
-        font-size: 0.78rem;
+        font-size: 0.86rem;
         font-weight: 850;
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -222,16 +233,16 @@
       }
 
       .connect-cue::before {
-        width: 0.56rem;
-        height: 0.56rem;
+        width: 0.72rem;
+        height: 0.72rem;
         background: var(--amber);
-        box-shadow: 0 0 0 0 rgb(233 151 40 / 0.46);
+        box-shadow: 0 0 0 0 rgb(233 151 40 / 0.58);
         animation: pulse 1.8s ease-out infinite;
       }
 
       .connect-cue::after {
-        width: 2.2rem;
-        height: 2px;
+        width: 2.8rem;
+        height: 3px;
         background: linear-gradient(90deg, var(--amber), transparent);
         animation: signal 1.8s ease-in-out infinite;
       }
@@ -240,6 +251,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: 8.75rem;
         min-height: 3.25rem;
         border: 1px solid transparent;
         border-radius: 8px;
@@ -312,7 +324,11 @@
         }
 
         .topbar {
-          min-height: 2rem;
+          min-height: 2.3rem;
+        }
+
+        .brand {
+          font-size: clamp(1.35rem, 6vw, 1.72rem);
         }
 
         main {
@@ -333,23 +349,49 @@
 
         h1 {
           max-width: 100%;
-          font-size: clamp(2.35rem, 10vw, 3.05rem);
+          width: 100%;
+          font-size: clamp(1.6rem, 6.8vw, 2.45rem);
+          line-height: 1.04;
+        }
+
+        .title-desktop {
+          display: none;
+        }
+
+        .title-mobile {
+          display: block;
+        }
+
+        .title-line {
+          display: block;
+          width: 100%;
+          text-align: justify;
+          text-align-last: justify;
+          white-space: nowrap;
         }
 
         .message {
           grid-template-columns: 1fr;
           gap: 0.65rem;
-          padding-inline: 0.25rem;
+          padding-inline: 0.4rem;
         }
 
         .links {
-          justify-content: flex-start;
-          padding-top: 1.35rem;
+          justify-content: center;
+          gap: 0.65rem;
+          padding-top: 1.65rem;
         }
 
         .connect-cue {
           right: auto;
-          left: 0.15rem;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 0.94rem;
+        }
+
+        .button {
+          flex: 0 0 min(9.5rem, calc(50% - 0.4rem));
+          width: min(9.5rem, calc(50% - 0.4rem));
         }
 
         .note {
@@ -390,7 +432,13 @@
           <img src="../assets/images/gmail-landing-collaboration-field-note.png" alt="Christopher and a small friendly robot collaborator reviewing notes and signal-loop sketches at a warm field station workbench." />
           <div class="hero-title">
             <p class="kicker">Human + agent signal loops</p>
-            <h1 id="title">Building useful AI collaboration in public.</h1>
+            <h1 id="title">
+              <span class="title-desktop">Building useful AI collaboration in public.</span>
+              <span class="title-mobile">
+                <span class="title-line">Building useful AI</span>
+                <span class="title-line">collaboration in public.</span>
+              </span>
+            </h1>
           </div>
           <div class="gold-sweep" aria-hidden="true"></div>
           <div class="hero-curve" aria-hidden="true"></div>
