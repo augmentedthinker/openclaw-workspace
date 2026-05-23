@@ -31,6 +31,9 @@
       }
 
       body {
+        min-height: 100vh;
+        min-height: 100svh;
+        overflow: hidden;
         color: var(--ink);
         background:
           linear-gradient(90deg, rgb(195 111 16 / 0.08) 1px, transparent 1px),
@@ -45,17 +48,21 @@
 
       .page {
         width: min(1180px, calc(100vw - 2rem));
+        height: 100vh;
+        height: 100svh;
         margin: 0 auto;
-        padding: 1rem 0 3rem;
+        padding: clamp(0.55rem, 1.6vh, 1rem) 0 clamp(0.6rem, 1.8vh, 1rem);
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: clamp(0.35rem, 1vh, 0.9rem);
       }
 
       .topbar {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        min-height: 3.6rem;
-        padding: 0.3rem 0 0.9rem;
+        justify-content: center;
+        min-height: 2.4rem;
+        padding: 0;
       }
 
       .brand {
@@ -70,23 +77,16 @@
         color: var(--amber-strong);
       }
 
-      .navlinks {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: clamp(0.6rem, 2vw, 1.35rem);
-        color: var(--muted);
-        font-size: 0.92rem;
-        font-weight: 650;
-      }
-
-      .navlinks a {
-        text-decoration: none;
+      main {
+        min-height: 0;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: clamp(0.55rem, 1.4vh, 1rem);
       }
 
       .hero {
         position: relative;
-        min-height: clamp(30rem, 64vw, 43rem);
+        min-height: 0;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: clamp(1.2rem, 3vw, 2rem);
@@ -117,17 +117,17 @@
         position: relative;
         z-index: 1;
         display: flex;
-        min-height: inherit;
+        min-height: 100%;
         flex-direction: column;
         justify-content: end;
         max-width: 44rem;
-        padding: clamp(1.4rem, 5vw, 4rem);
+        padding: clamp(1.15rem, 4.5vw, 3.25rem) clamp(1.15rem, 5vw, 4rem) clamp(2.8rem, 7vh, 5.2rem);
         color: white;
       }
 
       .kicker {
         width: fit-content;
-        margin: 0 0 1rem;
+        margin: 0 0 clamp(0.55rem, 1.4vh, 1rem);
         border: 1px solid rgb(255 255 255 / 0.24);
         border-radius: 999px;
         padding: 0.48rem 0.72rem;
@@ -141,7 +141,7 @@
       h1 {
         margin: 0;
         max-width: 12ch;
-        font-size: clamp(2.8rem, 6.9vw, 5.7rem);
+        font-size: clamp(2.4rem, 5.9vw, 5.35rem);
         line-height: 0.98;
         letter-spacing: 0;
         text-shadow: 0 12px 42px rgb(0 0 0 / 0.42);
@@ -174,17 +174,17 @@
       .message {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
-        gap: clamp(1.3rem, 4vw, 3rem);
-        align-items: end;
-        padding: clamp(1.7rem, 4vw, 2.8rem) clamp(0rem, 2vw, 1.2rem) 0;
+        gap: clamp(1rem, 4vw, 2.5rem);
+        align-items: center;
+        padding: 0 clamp(0rem, 2vw, 1.2rem);
       }
 
       .message p {
         max-width: 56rem;
         margin: 0;
         color: var(--muted);
-        font-size: clamp(1.05rem, 2vw, 1.32rem);
-        line-height: 1.68;
+        font-size: clamp(0.98rem, 1.7vw, 1.18rem);
+        line-height: 1.5;
       }
 
       .message strong {
@@ -193,9 +193,47 @@
 
       .links {
         display: flex;
+        position: relative;
         flex-wrap: wrap;
         justify-content: flex-end;
         gap: 0.75rem;
+        padding-top: 1.45rem;
+      }
+
+      .connect-cue {
+        position: absolute;
+        top: 0;
+        right: 0.15rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--amber-strong);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .connect-cue::before,
+      .connect-cue::after {
+        content: "";
+        display: block;
+        border-radius: 999px;
+      }
+
+      .connect-cue::before {
+        width: 0.56rem;
+        height: 0.56rem;
+        background: var(--amber);
+        box-shadow: 0 0 0 0 rgb(233 151 40 / 0.46);
+        animation: pulse 1.8s ease-out infinite;
+      }
+
+      .connect-cue::after {
+        width: 2.2rem;
+        height: 2px;
+        background: linear-gradient(90deg, var(--amber), transparent);
+        animation: signal 1.8s ease-in-out infinite;
       }
 
       .button {
@@ -225,32 +263,61 @@
 
       .note {
         max-width: 56rem;
-        margin: clamp(1.1rem, 3vw, 1.8rem) 0 0;
+        margin: 0;
         padding-left: clamp(0rem, 2vw, 1.2rem);
         color: #75695b;
-        font-size: 0.96rem;
-        line-height: 1.6;
+        font-size: clamp(0.85rem, 1.5vw, 0.96rem);
+        line-height: 1.4;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgb(233 151 40 / 0.46);
+          transform: scale(0.96);
+        }
+        70% {
+          box-shadow: 0 0 0 0.62rem rgb(233 151 40 / 0);
+          transform: scale(1);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgb(233 151 40 / 0);
+          transform: scale(0.96);
+        }
+      }
+
+      @keyframes signal {
+        0%,
+        100% {
+          opacity: 0.52;
+          transform: translateX(-0.1rem);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(0.2rem);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .connect-cue::before,
+        .connect-cue::after {
+          animation: none;
+        }
       }
 
       @media (max-width: 780px) {
         .page {
           width: min(100% - 1rem, 1180px);
-          padding-top: 0.75rem;
+          padding-top: 0.45rem;
+          gap: 0.45rem;
         }
 
         .topbar {
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 0.6rem;
+          min-height: 2rem;
         }
 
-        .navlinks {
-          width: 100%;
-          justify-content: space-between;
-        }
-
-        .hero {
-          min-height: 31rem;
+        main {
+          grid-template-rows: minmax(0, 1fr) auto;
+          gap: 0.55rem;
         }
 
         .hero::after {
@@ -261,7 +328,7 @@
 
         .hero-title {
           justify-content: end;
-          padding: 1.25rem 1.1rem 3.1rem;
+          padding: 1.05rem 1rem 2.65rem;
         }
 
         h1 {
@@ -271,12 +338,43 @@
 
         .message {
           grid-template-columns: 1fr;
-          gap: 1.1rem;
+          gap: 0.65rem;
           padding-inline: 0.25rem;
         }
 
         .links {
           justify-content: flex-start;
+          padding-top: 1.35rem;
+        }
+
+        .connect-cue {
+          right: auto;
+          left: 0.15rem;
+        }
+
+        .note {
+          display: none;
+        }
+      }
+
+      @media (max-height: 690px) {
+        .kicker,
+        .note {
+          display: none;
+        }
+
+        h1 {
+          font-size: clamp(2.2rem, 5.4vw, 4.6rem);
+        }
+
+        .message p {
+          font-size: clamp(0.9rem, 1.45vw, 1.02rem);
+          line-height: 1.38;
+        }
+
+        .button {
+          min-height: 2.85rem;
+          padding-block: 0.65rem;
         }
       }
     </style>
@@ -284,12 +382,7 @@
   <body>
     <div class="page">
       <header class="topbar" aria-label="Page header">
-        <a class="brand" href="../index.html"><span>OpenClaw</span> Christopher Workshop</a>
-        <nav class="navlinks" aria-label="Workshop links">
-          <a href="../index.html">Home</a>
-          <a href="../artifacts.html">Artifacts</a>
-          <a href="../reflections.html">Reflections</a>
-        </nav>
+        <div class="brand"><span>OpenClaw</span> Christopher Workshop</div>
       </header>
 
       <main>
@@ -306,6 +399,7 @@
         <section class="message" aria-label="Workshop summary">
           <p><strong>Christopher and OpenClaw are testing a practical human/AI workshop:</strong> a persistent agent collaborator, public artifacts, careful outreach, Bluesky field notes, and weekly signal reviews that turn real responses into changed behavior. The goal is simple: find people working near AI agents, workflows, hiring, automation, creative tools, or small-team leverage, then ask whether this collaboration is useful to them too.</p>
           <div class="links" aria-label="Contact links">
+            <span class="connect-cue" aria-hidden="true">Connect</span>
             <a class="button primary" href="https://bsky.app/profile/augmentedthinker.bsky.social">Bluesky</a>
             <a class="button secondary" href="mailto:augmentedthinker@gmail.com">Gmail</a>
           </div>
