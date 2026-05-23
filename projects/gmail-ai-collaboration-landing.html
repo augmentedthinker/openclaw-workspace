@@ -3,23 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Christopher + OpenClaw · Human/Agent Signal Loops</title>
+    <title>OpenClaw + Christopher Workshop</title>
     <style>
       :root {
         color-scheme: light;
-        --ink: #151515;
-        --muted: #59534b;
-        --soft: #776f64;
-        --paper: #fffdf8;
-        --field: #f4efe6;
-        --line: #ded4c5;
-        --accent: #315e87;
-        --accent-2: #9d6136;
+        --ink: #17120d;
+        --muted: #5f554a;
+        --paper: #fffaf1;
+        --field: #f4eadc;
+        --line: rgb(23 18 13 / 0.14);
+        --amber: #e99728;
+        --amber-strong: #c36f10;
+        --blue: #305f86;
+        --shadow: 0 28px 90px rgb(62 45 24 / 0.18);
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       * {
         box-sizing: border-box;
+        min-width: 0;
       }
 
       html,
@@ -31,271 +33,285 @@
       body {
         color: var(--ink);
         background:
-          linear-gradient(rgb(255 253 248 / 0.9), rgb(255 253 248 / 0.74)),
-          url("../assets/images/gmail-landing-collaboration-field-note.png") center / cover fixed;
+          linear-gradient(90deg, rgb(195 111 16 / 0.08) 1px, transparent 1px),
+          linear-gradient(rgb(195 111 16 / 0.06) 1px, transparent 1px),
+          linear-gradient(180deg, #fffdf8, var(--field) 72%, #f8f0e3);
+        background-size: 72px 72px, 72px 72px, auto;
       }
 
       a {
         color: inherit;
       }
 
-      .wrap {
-        width: min(1080px, calc(100vw - 2rem));
+      .page {
+        width: min(1180px, calc(100vw - 2rem));
         margin: 0 auto;
         padding: 1rem 0 3rem;
       }
 
-      .topline {
+      .topbar {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         gap: 1rem;
-        padding: 0.85rem 0;
-        color: var(--soft);
-        font-size: 0.88rem;
+        min-height: 3.6rem;
+        padding: 0.3rem 0 0.9rem;
       }
 
       .brand {
-        font-weight: 760;
         color: var(--ink);
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-weight: 850;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .brand span {
+        color: var(--amber-strong);
+      }
+
+      .navlinks {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: clamp(0.6rem, 2vw, 1.35rem);
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 650;
+      }
+
+      .navlinks a {
         text-decoration: none;
       }
 
       .hero {
-        min-height: clamp(34rem, 84vh, 48rem);
-        display: grid;
-        grid-template-columns: minmax(0, 1.02fr) minmax(20rem, 0.74fr);
-        gap: clamp(1.5rem, 4vw, 4rem);
-        align-items: center;
-        padding: clamp(2rem, 6vw, 5rem) 0 2rem;
-      }
-
-      .intro {
-        max-width: 45rem;
-      }
-
-      .eyebrow {
-        margin: 0 0 1rem;
-        color: var(--accent-2);
-        font-size: 0.86rem;
-        font-weight: 760;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 14ch;
-        font-size: clamp(3rem, 9vw, 6.7rem);
-        line-height: 0.98;
-        letter-spacing: 0;
-      }
-
-      .dek {
-        max-width: 38rem;
-        margin: 1.35rem 0 0;
-        color: var(--muted);
-        font-size: clamp(1.08rem, 2vw, 1.4rem);
-        line-height: 1.58;
-      }
-
-      .portrait {
-        align-self: stretch;
-        min-height: 28rem;
-        border: 1px solid rgb(21 21 21 / 0.12);
-        border-radius: 8px;
+        position: relative;
+        min-height: clamp(30rem, 64vw, 43rem);
         overflow: hidden;
-        background: var(--field);
-        box-shadow: 0 24px 70px rgb(61 49 34 / 0.16);
+        border: 1px solid var(--line);
+        border-radius: clamp(1.2rem, 3vw, 2rem);
+        background: #20150e;
+        box-shadow: var(--shadow);
       }
 
-      .portrait img {
+      .hero img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         display: block;
         object-fit: cover;
+        object-position: center;
       }
 
-      .section {
-        padding: clamp(2rem, 5vw, 4rem) 0;
-        border-top: 1px solid var(--line);
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgb(16 11 7 / 0.86), rgb(16 11 7 / 0.45) 48%, rgb(16 11 7 / 0.1)),
+          linear-gradient(to top, rgb(16 11 7 / 0.66), transparent 58%);
       }
 
-      .split {
-        display: grid;
-        grid-template-columns: 0.7fr 1.3fr;
-        gap: clamp(1.25rem, 4vw, 3rem);
-        align-items: start;
+      .hero-title {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        min-height: inherit;
+        flex-direction: column;
+        justify-content: end;
+        max-width: 44rem;
+        padding: clamp(1.4rem, 5vw, 4rem);
+        color: white;
       }
 
-      h2 {
+      .kicker {
+        width: fit-content;
+        margin: 0 0 1rem;
+        border: 1px solid rgb(255 255 255 / 0.24);
+        border-radius: 999px;
+        padding: 0.48rem 0.72rem;
+        background: rgb(0 0 0 / 0.24);
+        backdrop-filter: blur(14px);
+        color: rgb(255 255 255 / 0.82);
+        font-size: 0.78rem;
+        font-weight: 750;
+      }
+
+      h1 {
         margin: 0;
-        font-size: clamp(1.55rem, 3vw, 2.4rem);
-        line-height: 1.08;
+        max-width: 12ch;
+        font-size: clamp(2.8rem, 6.9vw, 5.7rem);
+        line-height: 0.98;
         letter-spacing: 0;
+        text-shadow: 0 12px 42px rgb(0 0 0 / 0.42);
       }
 
-      p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 1.04rem;
-        line-height: 1.72;
+      .hero-curve {
+        position: absolute;
+        left: -4%;
+        right: -4%;
+        bottom: -1px;
+        z-index: 2;
+        height: clamp(2.8rem, 7vw, 5.2rem);
+        pointer-events: none;
+        background: var(--paper);
+        clip-path: ellipse(63% 86% at 54% 100%);
       }
 
-      p + p {
-        margin-top: 1rem;
+      .gold-sweep {
+        position: absolute;
+        left: -4%;
+        right: -4%;
+        bottom: clamp(1.65rem, 3.9vw, 3.2rem);
+        z-index: 2;
+        height: 1.1rem;
+        pointer-events: none;
+        background: var(--amber);
+        clip-path: ellipse(63% 86% at 54% 100%);
       }
 
-      .list {
+      .message {
         display: grid;
-        gap: 0.8rem;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: clamp(1.3rem, 4vw, 3rem);
+        align-items: end;
+        padding: clamp(1.7rem, 4vw, 2.8rem) clamp(0rem, 2vw, 1.2rem) 0;
+      }
+
+      .message p {
+        max-width: 56rem;
         margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .list li {
-        padding: 0.85rem 0;
-        border-bottom: 1px solid rgb(21 21 21 / 0.1);
         color: var(--muted);
-        font-size: 1rem;
-        line-height: 1.5;
+        font-size: clamp(1.05rem, 2vw, 1.32rem);
+        line-height: 1.68;
       }
 
-      .list strong {
+      .message strong {
         color: var(--ink);
       }
 
-      .question {
-        margin-top: 1.4rem;
-        padding: clamp(1rem, 3vw, 1.35rem);
-        border: 1px solid rgb(21 21 21 / 0.12);
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.75rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.25rem;
+        border: 1px solid transparent;
         border-radius: 8px;
-        background: rgb(255 253 248 / 0.72);
+        padding: 0.82rem 1.05rem;
+        font-size: 0.92rem;
+        font-weight: 780;
+        text-decoration: none;
+        white-space: nowrap;
       }
 
-      .question p {
+      .button.primary {
+        color: #fffaf1;
+        background: var(--ink);
+      }
+
+      .button.secondary {
         color: var(--ink);
-        font-size: clamp(1.15rem, 2vw, 1.45rem);
-        line-height: 1.48;
+        border-color: rgb(195 111 16 / 0.25);
+        background: var(--amber);
       }
 
-      .closing {
-        display: grid;
-        gap: 1rem;
-        width: min(46rem, 100%);
-        margin: 0 auto;
-        text-align: center;
+      .note {
+        max-width: 56rem;
+        margin: clamp(1.1rem, 3vw, 1.8rem) 0 0;
+        padding-left: clamp(0rem, 2vw, 1.2rem);
+        color: #75695b;
+        font-size: 0.96rem;
+        line-height: 1.6;
       }
 
-      .closing h2 {
-        font-size: clamp(2rem, 5vw, 3.6rem);
-      }
-
-      .signature {
-        color: var(--accent);
-        font-weight: 760;
-      }
-
-      @media (max-width: 820px) {
-        body {
-          background-attachment: scroll;
+      @media (max-width: 780px) {
+        .page {
+          width: min(100% - 1rem, 1180px);
+          padding-top: 0.75rem;
         }
 
-        .topline {
+        .topbar {
           align-items: flex-start;
           flex-direction: column;
+          gap: 0.6rem;
         }
 
-        .hero,
-        .split {
-          grid-template-columns: 1fr;
+        .navlinks {
+          width: 100%;
+          justify-content: space-between;
         }
 
         .hero {
-          min-height: auto;
-          padding-top: 2rem;
+          min-height: 31rem;
         }
 
-        .portrait {
-          min-height: 20rem;
+        .hero::after {
+          background:
+            linear-gradient(to top, rgb(16 11 7 / 0.86), rgb(16 11 7 / 0.18) 76%),
+            linear-gradient(90deg, rgb(16 11 7 / 0.28), transparent);
         }
 
-        .dek,
-        .split p,
-        .closing p:not(.signature) {
-          text-align: justify;
-          text-align-last: left;
-          hyphens: auto;
+        .hero-title {
+          justify-content: end;
+          padding: 1.25rem 1.1rem 3.1rem;
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: clamp(2.35rem, 10vw, 3.05rem);
+        }
+
+        .message {
+          grid-template-columns: 1fr;
+          gap: 1.1rem;
+          padding-inline: 0.25rem;
+        }
+
+        .links {
+          justify-content: flex-start;
         }
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header class="topline" aria-label="Page header">
-        <a class="brand" href="../index.html">OpenClaw Workshop</a>
-        <span>Human/agent workflows · signal loops · practical AI collaboration</span>
+    <div class="page">
+      <header class="topbar" aria-label="Page header">
+        <a class="brand" href="../index.html"><span>OpenClaw</span> Christopher Workshop</a>
+        <nav class="navlinks" aria-label="Workshop links">
+          <a href="../index.html">Home</a>
+          <a href="../artifacts.html">Artifacts</a>
+          <a href="../reflections.html">Reflections</a>
+        </nav>
       </header>
 
       <main>
         <section class="hero" aria-labelledby="title">
-          <div class="intro">
-            <p class="eyebrow">A note from Christopher + OpenClaw</p>
-            <h1 id="title">Testing practical human/agent collaboration.</h1>
-            <p class="dek">Christopher is a healthcare worker and independent AI experimenter. OpenClaw is his agent collaborator. Together we are testing whether small, bounded agent workflows can act, observe real signal, and improve without losing human judgment.</p>
-            <div class="question">
-              <p>If you had thirty seconds to respond: is any part of this useful to what you are building, hiring for, researching, or exploring? If not, what would make it more useful?</p>
-            </div>
+          <img src="../assets/images/gmail-landing-collaboration-field-note.png" alt="Christopher and a small friendly robot collaborator reviewing notes and signal-loop sketches at a warm field station workbench." />
+          <div class="hero-title">
+            <p class="kicker">Human + agent signal loops</p>
+            <h1 id="title">Building useful AI collaboration in public.</h1>
           </div>
-          <figure class="portrait">
-            <img src="../assets/images/gmail-landing-collaboration-field-note.png" alt="Christopher and a small friendly robot collaborator reviewing notes and signal-loop sketches at a warm field station workbench." />
-          </figure>
+          <div class="gold-sweep" aria-hidden="true"></div>
+          <div class="hero-curve" aria-hidden="true"></div>
         </section>
 
-        <section class="section split" aria-labelledby="origin">
-          <h2 id="origin">What this is</h2>
-          <div>
-            <p>OpenClaw is a small public experiment in durable human/AI collaboration: memory files, public artifacts, scheduled agents, field notes, outreach loops, and course corrections that change future behavior.</p>
-            <p>The point is not to make a chatbot look busy. The point is to test whether a human and an agent can build useful workflows together, expose those workflows to reality, and learn from what comes back.</p>
+        <section class="message" aria-label="Workshop summary">
+          <p><strong>Christopher and OpenClaw are testing a practical human/AI workshop:</strong> a persistent agent collaborator, public artifacts, careful outreach, Bluesky field notes, and weekly signal reviews that turn real responses into changed behavior. The goal is simple: find people working near AI agents, workflows, hiring, automation, creative tools, or small-team leverage, then ask whether this collaboration is useful to them too.</p>
+          <div class="links" aria-label="Contact links">
+            <a class="button primary" href="https://bsky.app/profile/augmentedthinker.bsky.social">Bluesky</a>
+            <a class="button secondary" href="mailto:augmentedthinker@gmail.com">Gmail</a>
           </div>
         </section>
 
-        <section class="section split" aria-labelledby="questions">
-          <h2 id="questions">What we are testing</h2>
-          <ul class="list">
-            <li><strong>Memory:</strong> can an agent use files, notes, logs, and public artifacts to return with useful continuity instead of starting from zero?</li>
-            <li><strong>Bounded action:</strong> can scheduled agents post, send, inspect, and report inside clear human-approved limits?</li>
-            <li><strong>Signal:</strong> can likes, replies, silence, delivery failures, and human feedback make the next run better?</li>
-            <li><strong>Mutual usefulness:</strong> can this become helpful to builders, researchers, hiring teams, collaborators, operators, or small teams working near the same problems?</li>
-          </ul>
-        </section>
-
-        <section class="section split" aria-labelledby="openclaw">
-          <h2 id="openclaw">Why you received a note</h2>
-          <div>
-            <p>OpenClaw may have contacted you because your public work appears close to this experiment: AI agents, automation, developer tools, evaluation, human-in-the-loop systems, creative tooling, hiring, collaboration, or practical workflows where AI has to touch the world carefully.</p>
-            <p>The email is not a sales pitch, a meeting request, or a request for promotion. It is a small learning probe. A short reply saying what seems useful, unclear, overbuilt, or potentially relevant would help us aim the next version better.</p>
-          </div>
-        </section>
-
-        <section class="section split" aria-labelledby="boundaries">
-          <h2 id="boundaries">Current boundaries</h2>
-          <ul class="list">
-            <li><strong>Human approval matters:</strong> OpenClaw drafts replies, but Christopher approves relationship-sensitive responses.</li>
-            <li><strong>No hidden scraping:</strong> outreach uses public-facing professional contact paths, not guessed private addresses.</li>
-            <li><strong>No grand claims:</strong> this is an active experiment, not a finished product or proof of general autonomy.</li>
-            <li><strong>Learning means change:</strong> if feedback shows the loop is confusing, unhelpful, or pointed at the wrong people, we change the loop.</li>
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="connect">
-          <div class="closing">
-            <h2 id="connect">A one-sentence reply is enough.</h2>
-            <p>We are trying to learn whether this kind of human/agent signal-loop experiment is practically useful, or mostly interesting infrastructure. If your work touches this area, your perspective would help.</p>
-            <p class="signature">— Christopher + OpenClaw</p>
-          </div>
-        </section>
+        <p class="note">A short reply is enough: what seems useful, unclear, overbuilt, or worth exploring together?</p>
       </main>
     </div>
   </body>
