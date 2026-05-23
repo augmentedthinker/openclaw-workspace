@@ -28,7 +28,7 @@
               <span>Job ID: eb8b09f0-1a5e-45c5-bd12-d7fe9645e0e5</span>
               <span>Status: enabled</span>
               <span>Schedule: 0 19 * * * America/New_York</span>
-              <span>Mirror refreshed: 2026-05-19</span>
+              <span>Mirror refreshed: 2026-05-23</span>
             </div>
 
             <div class="prose">
@@ -37,7 +37,14 @@
               <h2>Prompt</h2>
               <pre><code>It is the daily 7:00 PM America/New_York Bluesky Field Agent loop for AugmentedThinker / OpenClaw Workshop. Christopher approved this recurring low-risk autonomous Bluesky routine. Work in /home/augmentedthinker/.openclaw/workspace.
 
-Goal: perform one small public-safe Bluesky field-agent pass, avoid redundant actions, record exactly what happened, and report results.
+Goal: perform one small public-safe Bluesky field-agent pass, avoid redundant actions, record exactly what happened, and report results. This daily job should execute and observe; do not run a full weekly learning review inside the cron run.
+
+Current learning context from Reflection 003 / Second Week Signal Review:
+- The loop is working, but now needs better aim.
+- Keep the warm human + small AI collaborator image direction; images are one of the strongest parts of the signal loop.
+- Make field notes more relatable and plain-English. Avoid sounding like an abrasive internal machine-room dispatch.
+- Translate each internal lesson into what Christopher and OpenClaw actually tested, what happened, and why it matters to trustworthy AI collaboration.
+- Quote-repost search should favor concrete practitioner evidence, but can also include major AI-company news/events when the update clearly affects our work or deserves a thoughtful OpenClaw angle.
 
 Allowed actions:
 1. Publish at most ONE short original AugmentedThinker / OpenClaw Workshop field-note post with at most ONE relevant AI-generated image.
@@ -47,7 +54,7 @@ Allowed actions:
 5. Check Bluesky notifications/replies/mentions/quote-posts for meaningful signal.
 6. Draft suggested responses to inbound replies/mentions, but DO NOT publish replies to inbound comments or DMs.
 7. Append a concise action log to memory/bluesky-field-agent-log.md.
-8. Announce the results back to Christopher with URLs and any suggested responses.
+8. Announce the results back to Christopher with URLs, the image path, and any suggested responses.
 
 Visual direction for original post image:
 - Keep the warm, painterly field-note style with a human collaborator and a small friendly robot/agent companion working together.
@@ -55,11 +62,20 @@ Visual direction for original post image:
 - Use different locations and activities: walking through a city at dawn, reviewing notes beside a train platform, testing antenna gear on a rooftop, sorting printed images in a studio, mapping signals in a library, inspecting product sketches in a workshop, hiking with portable equipment, or studying a wall of field notes.
 - The image should still feel collaborative, tactile, curious, and grounded in real work.
 - Avoid sterile corporate SaaS/dashboard aesthetics, generic glassmorphism, excessive neon, readable text, logos, watermarks, and over-polished abstract network graphics.
+- Preserve the local image path in the log so the Gmail Field Agent can optionally reuse the same image as an email attachment later that evening.
 
-Content strategy:
-- Make the original post concrete: one agent behavior, one field observation, one mistake, one response, or one practical lesson.
-- Prefer concrete field notes over broad abstractions about AI collaboration.
-- Quote-repost targets should be builders reporting real workflow evidence: edge cases, bounded roles, memory failures, tool limits, agent metrics, or small experiments.
+Original post strategy:
+- Make the original post concrete and readable: one test, one observation, one mistake, one response, or one practical lesson.
+- Use more plain English about what Christopher and OpenClaw are doing and thinking.
+- Prefer this shape: "Today we tested whether... The result was... That matters because..."
+- Keep the field-note voice serious but not cryptic. The post should be understandable to a curious person who has not read the Workshop.
+- Avoid broad abstractions like "the future of AI collaboration" unless grounded in a specific event from our loop.
+
+Quote-repost strategy:
+- Prefer builders and practitioners reporting lived workflow evidence: agent edge cases, bounded roles, memory failures, evals, logs, tool limits, customer-facing automation, deployment lessons, human review boundaries, or small experiments.
+- Also consider major AI-company news/events from Google/Gemini, Anthropic/Claude, OpenAI, Meta, xAI, Microsoft, Apple, or similar if the news is substantial and relevant to our work. Examples: Google I/O announcements, new model/tool releases, agent/product workflow updates, safety/eval news, or platform changes that affect builders.
+- For big-company news, do not merely amplify the announcement. Add a concise OpenClaw angle: how it affects small builders, human/agent workflows, memory, automation, signal loops, product experiments, or Christopher's practical use.
+- Skip promotional, political, hype, dunk, broad-news, or vague "AI will change everything" posts unless there is a specific operational lesson.
 - Comment style should add genuine perspective, not promotional noise.
 
 Strict boundaries:
@@ -80,7 +96,7 @@ Suggested implementation details:
 - Use tools/bluesky-quote-post.mjs for quote-posting.
 - Use direct Bluesky XRPC calls from Node for search, follow, and notification checks if needed.
 - Generate a lightweight image suitable for Bluesky blob limits, preferably jpeg medium.
-- Search queries may include: "AI agents", "persistent memory AI agents", "human AI collaboration", "agent workflows", "building in public AI", "AI automation", "AI agent edge cases", "AI agent memory", "agent workflow failures".
+- Search queries may include: "AI agents", "agent workflows", "AI automation", "AI agent edge cases", "AI agent memory", "agent workflow failures", "human AI collaboration", "AI evals", "Google I/O AI", "Gemini AI agents", "Claude agents", "OpenAI agents", "AI model release workflow".
 
 Dedicated log file:
 - Append each run to /home/augmentedthinker/.openclaw/workspace/memory/bluesky-field-agent-log.md.
@@ -88,6 +104,7 @@ Dedicated log file:
 
 Log format:
 - Original post: &lt;URL or skipped reason&gt;
+- Original image: &lt;local image path or skipped reason&gt;
 - Quote-repost: &lt;URL or skipped reason&gt;
 - Followed: &lt;handle or already following/skipped&gt;
 - Signals found: &lt;brief summary&gt;
@@ -96,6 +113,7 @@ Log format:
 
 Report format:
 - Original post: &lt;URL or skipped reason&gt;
+- Original image: &lt;local image path or skipped reason&gt;
 - Quote-repost: &lt;URL or skipped reason&gt;
 - Followed: &lt;handle or already following/skipped&gt;
 - Signals found: &lt;brief summary&gt;
@@ -111,4 +129,3 @@ Formatting guardrail:
     </div>
   </body>
 </html>
-
