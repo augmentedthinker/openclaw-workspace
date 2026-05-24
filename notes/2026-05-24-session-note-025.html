@@ -25,14 +25,15 @@
           <h1>Session Note 025</h1>
           <div class="article-meta">
             <span>Created 2026-05-24 · 06:53 EDT</span>
-            <span>Covering the work after Session Note 024 through the May 24 06:53 EDT handoff</span>
-            <span>Theme: mobile polish and keeping the outreach surface direct</span>
+            <span>Updated 2026-05-24 · 09:24 EDT</span>
+            <span>Covering the work after Session Note 024 through the May 24 09:24 EDT refresh point</span>
+            <span>Theme: mobile polish, cron repair, and keeping outward loops simple</span>
           </div>
 
           <div class="prose">
-            <p>This note catches the Workshop up after <a href="2026-05-23-session-note-024.html">Session Note 024</a>. The previous note closed the larger May 23 morning stretch: second-week signal review, cron and safety updates, and the redesign of the Gmail outreach landing page. The next useful work was smaller but important: checking the real mobile presentation and tightening the page so it works as a phone-first outreach surface.</p>
+            <p>This note catches the Workshop up after <a href="2026-05-23-session-note-024.html">Session Note 024</a>. The previous note closed the larger May 23 morning stretch: second-week signal review, cron and safety updates, and the redesign of the Gmail outreach landing page. The next stretch had two jobs: first, tighten the real mobile presentation of the outreach page; second, repair the Bluesky cron loop after the May 23 run skipped and the May 24 manual test exposed image-format and storage drift.</p>
 
-            <blockquote>The practical lesson from this pass was that a clean desktop page is not finished until the mobile invitation feels centered, readable, and intentional.</blockquote>
+            <blockquote>The practical lesson from this pass was that outward-facing systems should be simple enough to inspect. If a cron job needs a strategy meeting every time it runs, it is carrying too much.</blockquote>
 
             <h2>1. Christopher reviewed the mobile landing page</h2>
             <p>At 13:54 EDT on Saturday, May 23, Christopher sent a phone screenshot of the redesigned outreach landing page. At 13:57 EDT, he clarified the needed mobile adjustments. The desktop version looked decent, but the mobile layout needed more deliberate alignment and weight.</p>
@@ -47,17 +48,49 @@
             <h2>3. The change was committed</h2>
             <p>The mobile layout update was committed and pushed as <code>a2202dc</code> with the message <code>Tune Gmail landing mobile layout</code>. The repository was clean afterward, and the live project page remained the active public landing surface for outreach.</p>
 
-            <h2>4. Status at this handoff</h2>
-            <p>By the May 24 06:53 EDT handoff, the Workshop had a clearer sequence: the signal-loop doctrine was updated, the public outreach page was redesigned, and the mobile version was corrected based on Christopher's phone screenshot rather than desktop assumptions.</p>
+            <h2>4. The May 23 Bluesky cron skip was diagnosed</h2>
+            <p>At 08:40 EDT on Sunday, May 24, Christopher asked OpenClaw to investigate why the May 23 Bluesky cron run had not posted. The suspicion was reasonable: the Bluesky and Gmail cron prompts had been updated during the weekly signal review, so the failure might have been caused by those changes or by lost authentication.</p>
+
+            <p>The scheduler showed the Bluesky job as enabled, but the run history told the real story. The May 23 19:00 EDT run had reported <code>ok</code> at the cron wrapper level while skipping every actual action. Its summary said the isolated runtime did not expose shell, filesystem, or Bluesky posting tools, so it could not read <code>memory/bluesky-field-agent-log.md</code>, use <code>.secrets/bluesky.env</code>, post, inspect notifications, or append the log.</p>
+
+            <p>OpenClaw verified that Bluesky authentication was still valid and that the local posting helper passed a dry run. The issue was not credentials. The live cron job had an explicit <code>toolsAllow</code> list that no longer mapped cleanly after the OpenClaw update. OpenClaw cleared that allowlist so the isolated cron run could use its normal workspace tools again.</p>
+
+            <h2>5. The manual validation run posted, but exposed a second problem</h2>
+            <p>OpenClaw manually triggered the Bluesky cron after clearing the allowlist. The run successfully posted an original field note and a quote-repost at 08:47 EDT:</p>
+
+            <ul>
+              <li>Original post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mmlyp3lx662c">3mmlyp3lx662c</a></li>
+              <li>Quote-repost: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mmlyp4g2an2i">3mmlyp4g2an2i</a></li>
+            </ul>
+
+            <p>The private Bluesky field-agent log was updated, which confirmed the core loop was working again. But the cron state still ended as <code>error</code> because a late image-processing/listing step tried to create <code>assets/images/bluesky/</code>, run <code>npx sharp-cli</code>, and list the resulting image. The post had already gone out, but the brittle image tooling made the whole run look failed.</p>
+
+            <p>OpenClaw added a host-specific note to the live cron prompt telling future runs not to use <code>file</code>, <code>identify</code>, ImageMagick, or <code>npx sharp-cli</code> for routine image verification. It also committed <code>16eae53</code>, <code>Ignore routine Bluesky field-agent media</code>, so the accidental <code>assets/images/bluesky/</code> directory would not dirty the public Workshop repository.</p>
+
+            <h2>6. Image format and storage were reconciled</h2>
+            <p>At 09:10 EDT, Christopher noticed that the May 24 Bluesky image was widescreen instead of square and that OpenClaw had placed it in a new local area. That was the right correction. A dimension check showed the recent working field-note images were mostly square: May 20, May 21, and May 22 were <code>1024x1024</code>. The May 24 manual-run image was <code>1200x675</code>, which did not take full advantage of Bluesky's square image window.</p>
+
+            <p>OpenClaw also traced storage. Prior working Bluesky images normally lived in managed OpenClaw media under <code>/home/augmentedthinker/.openclaw/media/tool-image-generation/</code>. The May 24 copied file under <code>assets/images/bluesky/</code> was a deviation. Public Workshop assets should be used for pages and artifacts intentionally published on the Workshop site; routine cron media should stay in managed media, with only text drafts under <code>tmp/bluesky/</code>.</p>
+
+            <h2>7. The Bluesky cron prompt was simplified</h2>
+            <p>OpenClaw replaced the live Bluesky cron prompt with a shorter, more operational version. The new prompt tells the cron agent to do concrete field-agent work only: inspect enough recent feed and log context to avoid duplicates, generate a square image, draft and dry-run the original post, optionally make one quote-repost and one follow, append the log, and report back.</p>
+
+            <p>The simplified prompt now explicitly requires <code>image_generate</code> with <code>aspectRatio="1:1"</code>, <code>outputFormat="jpeg"</code>, and <code>quality="medium"</code>. It says to use the managed media path returned by image generation, normally under <code>/home/augmentedthinker/.openclaw/media/tool-image-generation/</code>, and not to copy routine Bluesky images into <code>assets/images/</code>. The public <a href="../projects/bluesky-cron-job-mirror.html">Bluesky Cron Job Mirror</a> was updated and pushed as <code>00e254a</code>, <code>Simplify Bluesky cron mirror</code>.</p>
+
+            <h2>8. Status at this handoff</h2>
+            <p>By the May 24 09:24 EDT refresh point, the Workshop had a clearer sequence: the signal-loop doctrine had been updated, the public outreach page was redesigned, the mobile landing page was corrected, the Bluesky cron allowlist problem was found, the loop was manually validated, and the cron prompt was simplified so future runs should be less clever and more reliable.</p>
 
             <ul>
               <li><a href="../projects/gmail-ai-collaboration-landing.html">The Gmail outreach landing page</a> is the main public invitation surface for direct outreach.</li>
               <li>The mobile page now centers the contact action and treats the “Connect” cue as a deliberate invitation instead of a loose decorative element.</li>
               <li>The page's paragraph and headline have mobile-specific readability treatment.</li>
+              <li>The Bluesky cron job now has its explicit tool allowlist cleared so the isolated runtime can access normal workspace tools.</li>
+              <li>Bluesky field-note images should be square and should normally remain in managed OpenClaw media, not public Workshop assets.</li>
+              <li>The live Bluesky cron prompt and <a href="../projects/bluesky-cron-job-mirror.html">mirror page</a> now favor a dumb, bounded routine over broad reflection inside the cron run.</li>
               <li>The open strategic thread remains the same: use Bluesky and Gmail to create real signal, then let weekly reviews change future behavior.</li>
             </ul>
 
-            <blockquote>The next useful standard is simple: when an outward-facing surface is meant for strangers, judge it on the device they are most likely to use first.</blockquote>
+            <blockquote>The next useful standard is simple: the daily cron agent should execute the loop. Christopher and OpenClaw can do the thinking afterward.</blockquote>
           </div>
         </article>
 
