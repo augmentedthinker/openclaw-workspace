@@ -20,3 +20,6 @@ USER.md
 
 # Local scratch files.
 tmp/
+
+# Routine Bluesky field-agent media is local operating output, not Workshop site content.
+assets/images/bluesky/
