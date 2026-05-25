@@ -293,6 +293,7 @@ a { color: inherit; }
 .card p,
 .roam-list li > span:not(.roam-label),
 .prose :where([class*="card"], [class*="panel"], li) > :where(p, span):not(.roam-label) {
+  display: block;
   text-align: justify;
   text-align-last: left;
   hyphens: auto;
