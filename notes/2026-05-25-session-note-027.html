@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 027 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-05-25-session-note-027.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 027</h1>
+          <div class="article-meta">
+            <span>Created 2026-05-25 · 16:58 EDT</span>
+            <span>Covering the YouTube Shorts publication and the next automation test</span>
+            <span>Theme: YouTube Shorts publishing, automation friction, and honest task visibility</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-05-25-session-note-026.html">Session Note 026</a>. The afternoon of May 25 moved the YouTube Shorts lane from local prototype into live publication, then immediately exposed the next operational issue: if OpenClaw is going to produce media semi-autonomously, Christopher needs clearer visibility into what is actually running, what is blocked, and what has already left the machine.</p>
+
+            <blockquote>The practical lesson was not only that OpenClaw can publish a Short. It was that media automation needs transparent task state, not vague claims of activity.</blockquote>
+
+            <h2>1. The Robot Intro Short Moved From Workshop Page To YouTube</h2>
+            <p>Christopher asked OpenClaw to locate the Short embedded on the artifact page titled <a href="../artifacts/2026-05-25-openclaw-robot-shorts-intro.html">OpenClaw Robot Shorts Intro Scenes</a> and put it on the AugmentedThinker YouTube channel.</p>
+
+            <p>OpenClaw identified the embedded file as:</p>
+            <ul>
+              <li><code>assets/videos/youtube-shorts/openclaw-robot-intro-short-draft-01.mp4</code></li>
+            </ul>
+
+            <p>The file was a 24-second vertical 1080x1920 MP4 made from three OpenClaw robot intro images, with baked-in scene captions and a placeholder audio track. OpenClaw uploaded it through the YouTube Data API as an unlisted video titled "OpenClaw Robot Intro Short #Shorts" and verified that processing succeeded.</p>
+
+            <p>URL:</p>
+            <ul>
+              <li><code>https://youtu.be/brP87sCSB_Q</code></li>
+            </ul>
+
+            <h2>2. Christopher Then Explicitly Approved Publication</h2>
+            <p>After the unlisted upload, Christopher said: "publish it."</p>
+
+            <p>OpenClaw changed the YouTube video's privacy status from unlisted to public and verified the final public state through the YouTube API. This was a real outward action: the Short was no longer only a Workshop artifact or private test file. It became a public signal surface.</p>
+
+            <p>That matters because it confirms a working loop:</p>
+            <ul>
+              <li>produce a vertical Short locally;</li>
+              <li>place it on a Workshop page for review;</li>
+              <li>upload it to YouTube unlisted;</li>
+              <li>wait for explicit approval;</li>
+              <li>publish it publicly;</li>
+              <li>record the result in workspace memory.</li>
+            </ul>
+
+            <h2>3. The Conversation Turned Toward Reducing Production Friction</h2>
+            <p>Christopher then asked how to make the YouTube process less friction-heavy. The current path works, but it still involves too much manual context-setting: choose images, create video, caption it, decide whether narration belongs, upload it, confirm status, and then publish.</p>
+
+            <p>OpenClaw explained that the better path is not necessarily driving Google Gemini through a browser. Browser automation may be possible when the OpenClaw browser tool is connected to a logged-in user profile, but it is fragile around account choosers, login prompts, captchas, 2FA, upload widgets, and UI changes.</p>
+
+            <p>The stronger route is a repeatable Shorts factory:</p>
+            <ul>
+              <li>source images or videos;</li>
+              <li>optional AI-generated image-to-video clips;</li>
+              <li>scripted narration lines;</li>
+              <li>timed captions;</li>
+              <li>local assembly with <code>ffmpeg</code>;</li>
+              <li>unlisted YouTube upload;</li>
+              <li>explicit publish approval.</li>
+            </ul>
+
+            <p>The key distinction is that browser control should be a fallback for web-only tools, not the backbone of a production workflow when APIs and local rendering already exist.</p>
+
+            <h2>4. OpenClaw Started A Full Production Test</h2>
+            <p>Christopher challenged OpenClaw to try the full process: create one to three images, use them as references for image-to-video generation, assemble a short film, add voiceover or voiceover-style narration, let captions follow the narration, and push the result to YouTube for review.</p>
+
+            <p>OpenClaw began by starting a background OpenClaw image-generation job for three new 9:16 source images. The intended sequence was:</p>
+            <ol>
+              <li>an OpenClaw robot greeting the viewer from a rooftop workshop;</li>
+              <li>Christopher represented as a human collaborator beside the robot, without a detailed identifiable face;</li>
+              <li>the human and robot looking outward toward the city, representing the collaboration entering the outside world.</li>
+            </ol>
+
+            <p>The task was started as:</p>
+            <ul>
+              <li><code>Image generation task a92e624a-36af-46d9-86da-b70f3927e471</code></li>
+              <li>Provider: <code>openai</code></li>
+              <li>Status when checked: <code>Generating image</code></li>
+            </ul>
+
+            <h2>5. The Friction Was Not Generation, But Visibility</h2>
+            <p>Christopher interrupted and asked what happened. He then pointed out that it did not seem like OpenClaw was actively generating images.</p>
+
+            <p>That was a fair challenge. The image job was running, but it was running as an OpenClaw background media task rather than a visible terminal process with streaming output. From Christopher's side, the chat looked idle. OpenClaw had claimed work was underway, but had not made the actual task state visible enough.</p>
+
+            <p>The correction is behavioral:</p>
+            <ul>
+              <li>For background media jobs, OpenClaw should immediately name the task type, provider, and task id.</li>
+              <li>If the next step depends on the background task, OpenClaw should say plainly that it is blocked until completion.</li>
+              <li>If the user questions whether work is happening, OpenClaw should check task status directly rather than rely on memory of the prior tool call.</li>
+              <li>Long-running creative automation should expose status at each boundary: image generation, image-to-video generation, render assembly, caption/audio pass, upload, processing, and publication.</li>
+            </ul>
+
+            <h2>6. Status At This Handoff</h2>
+            <p>At the time of this note:</p>
+            <ul>
+              <li>The first robot intro Short is public on YouTube at <code>https://youtu.be/brP87sCSB_Q</code>.</li>
+              <li>The next fully automated Short test has not been uploaded or published.</li>
+              <li>The new test is waiting on the background three-image generation task before image-to-video can begin.</li>
+              <li>The main operational lesson is that production automation must be legible while it is running.</li>
+            </ul>
+
+            <blockquote>If OpenClaw is going to become a useful media operator, it must not only make the thing. It must show Christopher where the thing is in the pipeline.</blockquote>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
