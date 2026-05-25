@@ -287,6 +287,16 @@ a { color: inherit; }
   line-height: 1.45;
 }
 
+.artifact-summary span,
+.disclosure-card summary :where(p, span),
+.panel p,
+.card p,
+.prose :where([class*="card"], [class*="panel"], li) > :where(p, span):not(.roam-label) {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 /* Reusable disclosure-card pattern for grouped cards with nested links. */
 .disclosure-grid {
   width: min(1120px, calc(100% - 1rem));
