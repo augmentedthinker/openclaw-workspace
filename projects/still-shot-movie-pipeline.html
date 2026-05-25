@@ -99,6 +99,20 @@
         color: var(--ink);
       }
 
+      .tool-status {
+        display: grid;
+        gap: 0.65rem;
+        margin: 1.5rem 0 2rem;
+        padding: 1rem;
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 0.85rem;
+        background: rgb(255 255 255 / 0.06);
+      }
+
+      .tool-status p {
+        margin: 0;
+      }
+
       @media (max-width: 900px) {
         .render-grid {
           grid-template-columns: 1fr;
@@ -178,9 +192,15 @@
                 <li>OpenClaw can create a short still-shot movie locally from existing assets.</li>
                 <li>The first video uses four 2.5-second image shots with push-in, pull-back, and lateral drift motion.</li>
                 <li>The first outputs are a 10-second, 1920x1080, 30 fps H.264 MP4 and a matching 1080x1920 vertical Shorts MP4.</li>
-                <li>A local npm-provided <code>ffmpeg</code> binary worked even though system <code>ffmpeg</code> was not installed.</li>
+                <li>A local npm-provided <code>ffmpeg</code> binary produced the first render, and system <code>ffmpeg</code> is now installed for normal OpenClaw skill use.</li>
+                <li>The <code>video-frames</code> skill successfully extracted a 1080x1920 JPEG frame from the vertical Shorts prototype.</li>
                 <li>The finished clip can be embedded on a public Workshop page.</li>
               </ul>
+
+              <div class="tool-status" aria-label="Current video tooling status">
+                <p><strong>Current tooling status:</strong> as of 2026-05-25, system <code>ffmpeg</code> is installed at <code>/usr/bin/ffmpeg</code>, and OpenClaw reports <code>video-frames</code> as ready and visible to the model.</p>
+                <p><strong>Smoke test:</strong> OpenClaw extracted <code>/tmp/openclaw-video-frame-check.jpg</code> from the vertical Shorts render at <code>1080x1920</code>, confirming the skill can inspect rendered videos.</p>
+              </div>
 
               <h2>Operating pipeline</h2>
               <ol class="pipeline-steps">
@@ -197,7 +217,7 @@
 
               <h2>Technical direction</h2>
               <ul class="direction-list">
-                <li><strong>Near term:</strong> keep using native <code>ffmpeg</code>; create reusable scripts around a simple JSON timeline; generate both horizontal 16:9 prototypes and vertical 9:16 Shorts versions; add title and caption support before chasing advanced effects.</li>
+                <li><strong>Near term:</strong> keep using native <code>ffmpeg</code>; use <code>video-frames</code> for frame checks and thumbnail extraction; create reusable scripts around a simple JSON timeline; generate both horizontal 16:9 prototypes and vertical 9:16 Shorts versions; add title and caption support before chasing advanced effects.</li>
                 <li><strong>Medium term:</strong> consider MoviePy only if Python timeline editing becomes easier than direct <code>ffmpeg</code>; consider Revideo or canvas-based rendering if we need live preview, reusable visual templates, or kinetic typography.</li>
                 <li><strong>Later:</strong> explore WebCodecs plus a muxer such as Mediabunny if we build an interactive local web tool; explore AI image-to-video APIs for selected high-value shots, not as the default engine.</li>
               </ul>

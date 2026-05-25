@@ -36,7 +36,8 @@ The first prototype proved that OpenClaw can create a short still-shot movie loc
 - 1920x1080 H.264 MP4 output;
 - 1080x1920 vertical Shorts MP4 output;
 - slow push-in, pull-back, and lateral drift motion;
-- generated with a local npm-provided `ffmpeg` binary because system `ffmpeg` was not installed;
+- originally generated with a local npm-provided `ffmpeg` binary, then upgraded after system `ffmpeg` was installed;
+- verified through OpenClaw's `video-frames` skill by extracting a 1080x1920 JPEG frame from the vertical Shorts render;
 - published as a Workshop artifact.
 
 Related artifact: [Still-Shot Movie Prototype](../../artifacts/2026-05-25-still-shot-movie-prototype.html)
@@ -58,6 +59,7 @@ Related artifact: [Still-Shot Movie Prototype](../../artifacts/2026-05-25-still-
 Near term:
 
 - Keep using native `ffmpeg` for real renders.
+- Treat `/usr/bin/ffmpeg` plus the OpenClaw `video-frames` skill as the current baseline for frame checks and thumbnail extraction.
 - Create reusable scripts around a simple JSON timeline.
 - Generate both horizontal 16:9 prototypes and vertical 9:16 Shorts versions.
 - Add title/caption support before chasing advanced effects.
@@ -93,3 +95,7 @@ The current proof-of-concept now includes both render targets:
 
 - Horizontal artifact render: `assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4`
 - Vertical Shorts render: `assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4`
+
+## Current Tooling Status
+
+As of 2026-05-25, system `ffmpeg` is installed at `/usr/bin/ffmpeg` and OpenClaw reports `video-frames` as ready and visible to the model. A smoke test extracted `/tmp/openclaw-video-frame-check.jpg` from the vertical Shorts prototype at 1080x1920, confirming that the new skill can inspect our rendered videos.
