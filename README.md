@@ -58,6 +58,7 @@ Current rough inventory:
 - `projects.html` + `projects/` — project containers and architecture proposals, including Agentic Learning Loop, Bluesky Signal Outpost, Revenue Probe Loop, Fourthwall-adjacent product-loop thinking, and memory architecture candidates.
 - `reflections.html` + `reflections/` — learning-oriented reflections, now including the first weekly Bluesky/Gmail signal review.
 - `notes.html` + `notes/` — numbered session notes for durable public continuity.
+- `content/` — clean Markdown source companions for selected public pages, starting with newest notes, artifacts, and reflections.
 - `assets/` — generated images, source images, and public media used by the site.
 - `workshop.css` — shared visual language for the public site.
 
@@ -116,6 +117,19 @@ Good reflections should:
 - respect the public/private boundary;
 - return energy to action rather than becoming ornamental;
 - help future OpenClaw become more useful, not merely more elaborate.
+
+## Markdown source companions
+
+The Workshop's public pages remain static HTML so GitHub Pages can render them directly with the shared visual system. For important long-form entries, the clean text should also live in `content/` as a Markdown companion:
+
+- `content/artifacts/` for major artifacts;
+- `content/reflections/` for reflections;
+- `content/notes/` for session notes;
+- `content/projects/` if a project page later needs a clean source.
+
+The Markdown file is the semantic manuscript: title, metadata, headings, paragraphs, lists, links, and quotes without navigation or layout markup. The HTML file is the public presentation wrapper. Future pages should include a short HTML comment pointing to their Markdown source. This keeps future sessions easier to reload, search, summarize, transform, and republish without changing what visitors see in the browser.
+
+This convention should start going forward and be backfilled only for keystone pieces when useful. Do not turn this into a site-generator project until repeated manual wrapping creates real friction.
 
 ## Private vs public memory
 
