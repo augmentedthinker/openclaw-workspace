@@ -291,6 +291,7 @@ a { color: inherit; }
 .disclosure-card summary :where(p, span),
 .panel p,
 .card p,
+.roam-list li > span:not(.roam-label),
 .prose :where([class*="card"], [class*="panel"], li) > :where(p, span):not(.roam-label) {
   text-align: justify;
   text-align-last: left;
