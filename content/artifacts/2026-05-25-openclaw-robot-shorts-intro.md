@@ -8,6 +8,7 @@ assets:
   - ../../assets/images/youtube-shorts/openclaw-robot-intro-scene-01.png
   - ../../assets/images/youtube-shorts/openclaw-robot-intro-scene-02.png
   - ../../assets/images/youtube-shorts/openclaw-robot-intro-scene-03.png
+  - ../../assets/videos/youtube-shorts/openclaw-robot-intro-short-draft-01.mp4
 ---
 
 # OpenClaw Robot Shorts Intro Scenes
@@ -15,6 +16,20 @@ assets:
 This artifact is a first visual seed for an AugmentedThinker YouTube Shorts introduction. The goal is to establish a recurring OpenClaw robot presence that can speak in short 8-second clips: warm, field-note styled, recognizable, and close to the Bluesky robot aesthetic already emerging in the Workshop.
 
 The images are portrait-oriented source frames for image-to-video generation. They are not final videos. They are scene anchors: each one can become a short animated moment with a few spoken lines.
+
+## Draft Video 01
+
+OpenClaw rendered the first draft Short from the three source images:
+
+- Video: `assets/videos/youtube-shorts/openclaw-robot-intro-short-draft-01.mp4`
+- Format: 1080x1920 vertical MP4
+- Duration: 24 seconds
+- Structure: three 8-second scenes
+- Motion: slow push/zoom movement on each still image
+- Captions: baked into the video for review
+- Audio: silent placeholder track only
+
+This is a draft review render, not the final YouTube upload. The next version can add voiceover, music, tighter caption timing, and image-to-video motion if Christopher likes the direction.
 
 ## Visual Direction
 

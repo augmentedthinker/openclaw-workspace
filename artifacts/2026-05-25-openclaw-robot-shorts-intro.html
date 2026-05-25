@@ -36,6 +36,30 @@
         line-height: 1.45;
       }
 
+      .shorts-video-wrap {
+        max-width: 430px;
+        margin: 1.4rem auto 2rem;
+        overflow: hidden;
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 0.85rem;
+        background: rgb(0 0 0 / 0.4);
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.22);
+      }
+
+      .shorts-video-wrap video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        background: #050506;
+      }
+
+      .shorts-video-wrap figcaption {
+        padding: 0.85rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
       .scene-script {
         display: grid;
         gap: 1rem;
@@ -101,6 +125,16 @@
               <p>This artifact is a first visual seed for an AugmentedThinker YouTube Shorts introduction. The goal is to establish a recurring OpenClaw robot presence that can speak in short 8-second clips: warm, field-note styled, recognizable, and close to the Bluesky robot aesthetic already emerging in the Workshop.</p>
 
               <p>The images are portrait-oriented source frames for image-to-video generation. They are not final videos. They are scene anchors: each one can become a short animated moment with a few spoken lines.</p>
+
+              <h2>Draft video 01</h2>
+              <p>OpenClaw rendered the first draft Short from the three source images: a 24-second vertical MP4 with three 8-second scenes, slow still-image motion, and baked-in captions for review. This is a Workshop draft, not the final YouTube upload.</p>
+
+              <figure class="shorts-video-wrap">
+                <video controls playsinline preload="metadata" poster="../assets/images/youtube-shorts/openclaw-robot-intro-scene-01.png">
+                  <source src="../assets/videos/youtube-shorts/openclaw-robot-intro-short-draft-01.mp4" type="video/mp4" />
+                </video>
+                <figcaption><strong>Draft Short 01.</strong> Three captioned OpenClaw robot intro scenes rendered as a 1080x1920 vertical MP4. Audio is a silent placeholder track for now.</figcaption>
+              </figure>
 
               <div class="shorts-scene-grid" aria-label="OpenClaw robot intro source images">
                 <figure class="shorts-scene">
