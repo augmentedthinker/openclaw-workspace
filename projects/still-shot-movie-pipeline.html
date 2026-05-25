@@ -23,6 +23,48 @@
         background: #050506;
       }
 
+      .render-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.7fr);
+        gap: 1rem;
+        align-items: start;
+        margin: 1.4rem 0 2rem;
+      }
+
+      .render-card {
+        overflow: hidden;
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 0.85rem;
+        background: rgb(0 0 0 / 0.42);
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.22);
+      }
+
+      .render-card video {
+        display: block;
+        width: 100%;
+        background: #050506;
+      }
+
+      .render-card.horizontal video {
+        aspect-ratio: 16 / 9;
+      }
+
+      .render-card.vertical {
+        max-width: 360px;
+        justify-self: center;
+      }
+
+      .render-card.vertical video {
+        aspect-ratio: 9 / 16;
+      }
+
+      .render-card figcaption {
+        padding: 0.75rem 0.85rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
       .pipeline-steps {
         counter-reset: pipeline;
         margin: 1.25rem 0 2rem;
@@ -56,6 +98,12 @@
       .direction-list strong {
         color: var(--ink);
       }
+
+      @media (max-width: 900px) {
+        .render-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -73,7 +121,7 @@
 
       <main>
         <section class="cinematic-hero" aria-labelledby="still-shot-title">
-          <img src="../assets/images/bluesky/bluesky-field-note-2026-05-24.jpg" alt="A Bluesky field note image used as the opening visual for the still-shot movie pipeline." />
+          <img src="../assets/images/2026-05-25-bluesky-field-note-public.jpg" alt="A Bluesky field note image used as the opening visual for the still-shot movie pipeline." />
           <div class="cinematic-overlay">
             <span class="model-signature">Project · YouTube visual field notes · 2026-05-25</span>
             <h1 id="still-shot-title">Still-Shot Movie Pipeline</h1>
@@ -96,10 +144,19 @@
 
               <p>The idea came from Christopher's Gemini experiment: a small set of still images became movie-like through slow pans, zooms, and shot sequencing. OpenClaw then created a first 10-second prototype from existing Workshop and Bluesky-adjacent assets.</p>
 
-              <div class="movie-frame">
-                <video controls playsinline preload="metadata" poster="../assets/images/bluesky/bluesky-field-note-2026-05-24.jpg">
-                  <source src="../assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4" type="video/mp4" />
-                </video>
+              <div class="render-grid" aria-label="Current still-shot movie render targets">
+                <figure class="render-card horizontal">
+                  <video controls playsinline preload="metadata" poster="../assets/images/2026-05-25-bluesky-field-note-public.jpg">
+                    <source src="../assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption><strong>16:9 artifact render.</strong> Horizontal 1080p version for Workshop pages, embeds, and standard video review.</figcaption>
+                </figure>
+                <figure class="render-card vertical">
+                  <video controls playsinline preload="metadata" poster="../assets/images/2026-05-25-bluesky-field-note-public.jpg">
+                    <source src="../assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption><strong>9:16 Shorts render.</strong> Vertical 1080x1920 version for YouTube Shorts testing.</figcaption>
+                </figure>
               </div>
 
               <p><a href="../artifacts/2026-05-25-still-shot-movie-prototype.html">View the first still-shot movie prototype artifact.</a></p>
@@ -120,7 +177,7 @@
               <ul>
                 <li>OpenClaw can create a short still-shot movie locally from existing assets.</li>
                 <li>The first video uses four 2.5-second image shots with push-in, pull-back, and lateral drift motion.</li>
-                <li>The output is a 10-second, 1920x1080, 30 fps H.264 MP4.</li>
+                <li>The first outputs are a 10-second, 1920x1080, 30 fps H.264 MP4 and a matching 1080x1920 vertical Shorts MP4.</li>
                 <li>A local npm-provided <code>ffmpeg</code> binary worked even though system <code>ffmpeg</code> was not installed.</li>
                 <li>The finished clip can be embedded on a public Workshop page.</li>
               </ul>
@@ -159,7 +216,7 @@
               </div>
 
               <h2>Next best build</h2>
-              <p>Create a reusable renderer that accepts a small timeline file and outputs one 16:9 MP4 for artifact pages, one 9:16 MP4 for YouTube Shorts, optional caption/title-card layers, and a draft title and description for Christopher to review.</p>
+              <p>The page now contains the first version of both target outputs: a 16:9 artifact render and a 9:16 Shorts render. The next build should turn the manual render command into a reusable renderer that accepts a small timeline file and outputs both formats, optional caption/title-card layers, and a draft title and description for Christopher to review.</p>
             </div>
           </article>
         </section>

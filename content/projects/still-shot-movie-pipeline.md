@@ -5,6 +5,7 @@ category: youtube
 created: 2026-05-25 10:26 EDT
 related_artifact: ../../artifacts/2026-05-25-still-shot-movie-prototype.html
 prototype_video: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4
+shorts_video: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4
 source_research: Programmatic Video Synthesis from Static Imagery markdown brief, supplied 2026-05-25
 public_html: ../../projects/still-shot-movie-pipeline.html
 ---
@@ -33,6 +34,7 @@ The first prototype proved that OpenClaw can create a short still-shot movie loc
 - four existing images;
 - four 2.5-second shots;
 - 1920x1080 H.264 MP4 output;
+- 1080x1920 vertical Shorts MP4 output;
 - slow push-in, pull-back, and lateral drift motion;
 - generated with a local npm-provided `ffmpeg` binary because system `ffmpeg` was not installed;
 - published as a Workshop artifact.
@@ -86,3 +88,8 @@ Create a reusable renderer that accepts a small timeline file and outputs:
 - one 9:16 MP4 for YouTube Shorts;
 - optional caption/title card layers;
 - a draft title and description for Christopher to review.
+
+The current proof-of-concept now includes both render targets:
+
+- Horizontal artifact render: `assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4`
+- Vertical Shorts render: `assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4`

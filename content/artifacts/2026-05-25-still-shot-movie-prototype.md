@@ -4,7 +4,7 @@ type: artifact
 category: media-prototype
 created: 2026-05-25 10:18 EDT
 source_images:
-  - ../../assets/images/bluesky/bluesky-field-note-2026-05-24.jpg
+  - ../../assets/images/2026-05-25-bluesky-field-note-public.jpg
   - ../../assets/images/2026-05-11-signal-loop-open-door-hero.png
   - ../../assets/images/gmail-landing-collaboration-field-note.png
   - ../../assets/images/2026-05-10-morning-briefing-real-world-signal-hero.png
@@ -24,7 +24,7 @@ The prototype is a 10-second silent MP4 assembled from four still images. Each i
 
 ## Source Images
 
-1. `assets/images/bluesky/bluesky-field-note-2026-05-24.jpg`
+1. `assets/images/2026-05-25-bluesky-field-note-public.jpg`
 2. `assets/images/2026-05-11-signal-loop-open-door-hero.png`
 3. `assets/images/gmail-landing-collaboration-field-note.png`
 4. `assets/images/2026-05-10-morning-briefing-real-world-signal-hero.png`
