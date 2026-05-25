@@ -171,6 +171,42 @@
                 <li><code>healthcheck</code> and <code>node-connect</code> are not daily tools, but they matter when OpenClaw's host or node infrastructure becomes the blocker.</li>
               </ul>
 
+              <h2>Enabled skill smoke-test results</h2>
+              <p>Tested on 2026-05-25 at about 08:33 EDT. These were safe smoke tests, not full destructive workflow tests.</p>
+
+              <div class="skill-panel">
+                <h3>Fully usable</h3>
+                <ul class="skill-list">
+                  <li><strong>github:</strong> <code>gh auth status</code> succeeded for <code>augmentedthinker</code>; <code>gh repo view augmentedthinker/openclaw-workspace</code> returned repo metadata.</li>
+                  <li><strong>gh-issues:</strong> <code>gh issue list --repo augmentedthinker/openclaw-workspace --state open --limit 1 --json number,title,url</code> ran successfully and returned an empty list. The issue-query path works.</li>
+                  <li><strong>healthcheck:</strong> <code>openclaw doctor</code>, <code>openclaw gateway status</code>, and <code>openclaw security audit</code> ran successfully. Findings included state-dir permissions, plaintext secret-bearing config fields, loopback gateway posture, and other warnings, but the skill itself is usable.</li>
+                  <li><strong>meme-maker:</strong> Local render test succeeded: <code>meme.mjs render drake ... --out /tmp/openclaw-skill-smoke-meme.svg</code> produced a non-empty SVG.</li>
+                  <li><strong>node-inspect-debugger:</strong> <code>node --inspect=127.0.0.1:0 -e ...</code> started an inspector and completed successfully.</li>
+                  <li><strong>skill-creator:</strong> Frontmatter smoke validation on selected <code>SKILL.md</code> files succeeded. The skill instructions are available and usable.</li>
+                  <li><strong>spike:</strong> No external dependency is required beyond normal shell/file workflow. The skill is usable as a process pattern for throwaway prototypes.</li>
+                  <li><strong>taskflow:</strong> <code>openclaw tasks flow list</code> succeeded and reported 7 historical TaskFlows; <code>openclaw tasks audit</code> reported 0 findings.</li>
+                  <li><strong>taskflow-inbox-triage:</strong> Pattern instructions are available and can be used with TaskFlow. No separate runtime dependency beyond TaskFlow was found.</li>
+                  <li><strong>weather:</strong> <code>curl</code> exists and <code>wttr.in</code> returned Baltimore weather: <code>baltimore: +62°F, feels +62°F, rain 0.0in, wind ↙2mph</code>.</li>
+                </ul>
+              </div>
+
+              <div class="skill-panel">
+                <h3>Conditionally usable</h3>
+                <ul class="skill-list">
+                  <li><strong>browser-automation:</strong> <code>openclaw browser doctor</code> reported the browser control endpoint reachable, plugin enabled, and profile configured, but the browser process was not running. <code>openclaw browser status</code> showed <code>enabled: true</code>, <code>running: false</code>, <code>transport: cdp</code>, <code>detectedBrowser: chromium</code>. Usable after starting the browser with <code>openclaw browser start</code> when needed.</li>
+                  <li><strong>canvas:</strong> Canvas plugin is enabled, but no connected nodes were available (<code>openclaw nodes status</code> showed 0 known/paired/connected), and the gateway is loopback-only. Usable for local/gateway canvas work, but presenting to phone/tablet nodes requires a connected node and route.</li>
+                  <li><strong>node-connect:</strong> Diagnostic commands work. <code>openclaw qr --json</code> correctly reported the current blocker: gateway is bound to loopback only. <code>openclaw devices list</code> showed paired devices, but <code>openclaw nodes status</code> showed no connected nodes. Usable for diagnosis; actual node connection requires route/pairing work.</li>
+                  <li><strong>python-debugpy:</strong> Python and <code>pdb</code> work. A <code>python3 -m pdb</code> smoke test executed successfully. <code>debugpy</code> import failed with <code>ModuleNotFoundError</code>, so remote/headless debugpy attach is not ready until <code>debugpy</code> is installed in the active Python environment.</li>
+                </ul>
+              </div>
+
+              <div class="skill-panel">
+                <h3>Instruction-only / no runtime needed</h3>
+                <ul class="skill-list">
+                  <li><strong>diagram-maker:</strong> Reference files exist: <code>svg-template.md</code> and <code>excalidraw-patterns.md</code>. The skill is usable as a deterministic artifact-writing workflow; no separate binary dependency was required for the basic path.</li>
+                </ul>
+              </div>
+
               <h2>Disabled skills: priority ranking</h2>
 
               <div class="skill-panel">

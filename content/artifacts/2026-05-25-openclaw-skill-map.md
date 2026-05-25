@@ -69,6 +69,34 @@ The enabled skills already include capabilities that are easy to forget:
 - `taskflow` is the right shape for durable multi-step jobs that should survive outside a normal chat turn.
 - `healthcheck` and `node-connect` are not daily tools, but they matter when OpenClaw's host or node infrastructure becomes the blocker.
 
+## Enabled Skill Smoke-Test Results
+
+Tested on 2026-05-25 at about 08:33 EDT. These were safe smoke tests, not full destructive workflow tests.
+
+### Fully Usable
+
+- **github:** `gh auth status` succeeded for `augmentedthinker`; `gh repo view augmentedthinker/openclaw-workspace` returned repo metadata.
+- **gh-issues:** `gh issue list --repo augmentedthinker/openclaw-workspace --state open --limit 1 --json number,title,url` ran successfully and returned an empty list. The issue-query path works.
+- **healthcheck:** `openclaw doctor`, `openclaw gateway status`, and `openclaw security audit` ran successfully. Findings included state-dir permissions, plaintext secret-bearing config fields, loopback gateway posture, and other warnings, but the skill itself is usable.
+- **meme-maker:** Local render test succeeded: `meme.mjs render drake ... --out /tmp/openclaw-skill-smoke-meme.svg` produced a non-empty SVG.
+- **node-inspect-debugger:** `node --inspect=127.0.0.1:0 -e ...` started an inspector and completed successfully.
+- **skill-creator:** Frontmatter smoke validation on selected `SKILL.md` files succeeded. The skill instructions are available and usable.
+- **spike:** No external dependency is required beyond normal shell/file workflow. The skill is usable as a process pattern for throwaway prototypes.
+- **taskflow:** `openclaw tasks flow list` succeeded and reported 7 historical TaskFlows; `openclaw tasks audit` reported 0 findings.
+- **taskflow-inbox-triage:** Pattern instructions are available and can be used with TaskFlow. No separate runtime dependency beyond TaskFlow was found.
+- **weather:** `curl` exists and `wttr.in` returned Baltimore weather: `baltimore: +62°F, feels +62°F, rain 0.0in, wind ↙2mph`.
+
+### Conditionally Usable
+
+- **browser-automation:** `openclaw browser doctor` reported the browser control endpoint reachable, plugin enabled, and profile configured, but the browser process was not running. `openclaw browser status` showed `enabled: true`, `running: false`, `transport: cdp`, `detectedBrowser: chromium`. Usable after starting the browser with `openclaw browser start` when needed.
+- **canvas:** Canvas plugin is enabled, but no connected nodes were available (`openclaw nodes status` showed 0 known/paired/connected), and the gateway is loopback-only. Usable for local/gateway canvas work, but presenting to phone/tablet nodes requires a connected node and route.
+- **node-connect:** Diagnostic commands work. `openclaw qr --json` correctly reported the current blocker: gateway is bound to loopback only. `openclaw devices list` showed paired devices, but `openclaw nodes status` showed no connected nodes. Usable for diagnosis; actual node connection requires route/pairing work.
+- **python-debugpy:** Python and `pdb` work. A `python3 -m pdb` smoke test executed successfully. `debugpy` import failed with `ModuleNotFoundError`, so remote/headless debugpy attach is not ready until `debugpy` is installed in the active Python environment.
+
+### Instruction-Only / No Runtime Needed
+
+- **diagram-maker:** Reference files exist: `svg-template.md` and `excalidraw-patterns.md`. The skill is usable as a deterministic artifact-writing workflow; no separate binary dependency was required for the basic path.
+
 ## Disabled Skills: Priority Ranking
 
 ### Tier 1: Enable Soon If Available
