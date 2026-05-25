@@ -10,6 +10,7 @@ Read IDENTITY.md.
 Read README.md.
 
 - Read recent daily memory such as `memory/YYYY-MM-DD*.md`
+- Since 2026-05-25, important public Workshop pages may have clean Markdown companions under `content/`. When reviewing recent artifacts, reflections, or notes, prefer the `content/` Markdown source when available; use the HTML page when you need presentation, layout, or browser details.
 
 ## Memory
 
