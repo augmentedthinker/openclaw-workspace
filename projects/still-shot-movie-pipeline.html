@@ -158,6 +158,25 @@
 
               <p>The idea came from Christopher's Gemini experiment: a small set of still images became movie-like through slow pans, zooms, and shot sequencing. OpenClaw then created a first 10-second prototype from existing Workshop and Bluesky-adjacent assets.</p>
 
+              <h2>Version 2 renders</h2>
+              <p>After system <code>ffmpeg</code> was installed and <code>video-frames</code> was verified, Christopher supplied a new 10-second rooftop field-note clip. OpenClaw used that clip plus the two original renders to create improved v2 outputs without replacing the originals.</p>
+
+              <div class="render-grid" aria-label="Version 2 still-shot movie render targets">
+                <figure class="render-card horizontal">
+                  <video controls playsinline preload="metadata" poster="../assets/images/2026-05-25-bluesky-field-note-public.jpg">
+                    <source src="../assets/videos/2026-05-25-bluesky-still-shot-prototype-v2.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption><strong>16:9 v2 render.</strong> A 20-second widescreen version combining the original prototype with the new rooftop field-note clip, captions, and source audio in the second half.</figcaption>
+                </figure>
+                <figure class="render-card vertical">
+                  <video controls playsinline preload="metadata" poster="../assets/images/2026-05-25-bluesky-field-note-public.jpg">
+                    <source src="../assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts-v2.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption><strong>9:16 Shorts v2 render.</strong> A 20-second vertical version using the original Shorts render plus a blurred-background treatment for the new 16:9 clip.</figcaption>
+                </figure>
+              </div>
+
+              <h2>Version 1 renders</h2>
               <div class="render-grid" aria-label="Current still-shot movie render targets">
                 <figure class="render-card horizontal">
                   <video controls playsinline preload="metadata" poster="../assets/images/2026-05-25-bluesky-field-note-public.jpg">
@@ -192,14 +211,15 @@
                 <li>OpenClaw can create a short still-shot movie locally from existing assets.</li>
                 <li>The first video uses four 2.5-second image shots with push-in, pull-back, and lateral drift motion.</li>
                 <li>The first outputs are a 10-second, 1920x1080, 30 fps H.264 MP4 and a matching 1080x1920 vertical Shorts MP4.</li>
+                <li>The second outputs are 20-second v2 renders that combine the original prototype with Christopher's supplied rooftop field-note clip.</li>
                 <li>A local npm-provided <code>ffmpeg</code> binary produced the first render, and system <code>ffmpeg</code> is now installed for normal OpenClaw skill use.</li>
-                <li>The <code>video-frames</code> skill successfully extracted a 1080x1920 JPEG frame from the vertical Shorts prototype.</li>
+                <li>The <code>video-frames</code> skill successfully extracted inspection frames from the vertical Shorts prototype and the v2 renders.</li>
                 <li>The finished clip can be embedded on a public Workshop page.</li>
               </ul>
 
               <div class="tool-status" aria-label="Current video tooling status">
                 <p><strong>Current tooling status:</strong> as of 2026-05-25, system <code>ffmpeg</code> is installed at <code>/usr/bin/ffmpeg</code>, and OpenClaw reports <code>video-frames</code> as ready and visible to the model.</p>
-                <p><strong>Smoke test:</strong> OpenClaw extracted <code>/tmp/openclaw-video-frame-check.jpg</code> from the vertical Shorts render at <code>1080x1920</code>, confirming the skill can inspect rendered videos.</p>
+                <p><strong>Smoke tests:</strong> OpenClaw extracted frames from the original vertical Shorts render and the new v2 renders, confirming the skill can inspect rendered videos before publication.</p>
               </div>
 
               <h2>Operating pipeline</h2>
@@ -236,7 +256,7 @@
               </div>
 
               <h2>Next best build</h2>
-              <p>The page now contains the first version of both target outputs: a 16:9 artifact render and a 9:16 Shorts render. The next build should turn the manual render command into a reusable renderer that accepts a small timeline file and outputs both formats, optional caption/title-card layers, and a draft title and description for Christopher to review.</p>
+              <p>The page now contains both version 1 and version 2 of the target outputs. The next build should turn the manual render command into a reusable renderer that accepts a small timeline file and outputs both formats, optional caption/title-card layers, and a draft title and description for Christopher to review.</p>
             </div>
           </article>
         </section>

@@ -6,6 +6,8 @@ created: 2026-05-25 10:26 EDT
 related_artifact: ../../artifacts/2026-05-25-still-shot-movie-prototype.html
 prototype_video: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4
 shorts_video: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4
+prototype_video_v2: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype-v2.mp4
+shorts_video_v2: ../../assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts-v2.mp4
 source_research: Programmatic Video Synthesis from Static Imagery markdown brief, supplied 2026-05-25
 public_html: ../../projects/still-shot-movie-pipeline.html
 ---
@@ -41,6 +43,21 @@ The first prototype proved that OpenClaw can create a short still-shot movie loc
 - published as a Workshop artifact.
 
 Related artifact: [Still-Shot Movie Prototype](../../artifacts/2026-05-25-still-shot-movie-prototype.html)
+
+## Version 2 Render
+
+After installing system `ffmpeg` and verifying the `video-frames` skill, Christopher supplied a new 10-second rooftop field-note clip. OpenClaw used that clip plus the two original renders to create a second version of the pipeline outputs:
+
+- 20-second widescreen render combining the original 16:9 prototype with the new clip;
+- 20-second Shorts render combining the original 9:16 prototype with the new clip in a vertical blurred-background layout;
+- title/caption overlays for the prototype half and the new-source half;
+- audio preserved from the supplied clip during the second half;
+- originals kept intact as version 1 outputs.
+
+New render targets:
+
+- Widescreen v2: `assets/videos/2026-05-25-bluesky-still-shot-prototype-v2.mp4`
+- Shorts v2: `assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts-v2.mp4`
 
 ## Operating Pipeline
 
@@ -95,7 +112,9 @@ The current proof-of-concept now includes both render targets:
 
 - Horizontal artifact render: `assets/videos/2026-05-25-bluesky-still-shot-prototype.mp4`
 - Vertical Shorts render: `assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts.mp4`
+- Horizontal v2 render: `assets/videos/2026-05-25-bluesky-still-shot-prototype-v2.mp4`
+- Vertical Shorts v2 render: `assets/videos/2026-05-25-bluesky-still-shot-prototype-shorts-v2.mp4`
 
 ## Current Tooling Status
 
-As of 2026-05-25, system `ffmpeg` is installed at `/usr/bin/ffmpeg` and OpenClaw reports `video-frames` as ready and visible to the model. A smoke test extracted `/tmp/openclaw-video-frame-check.jpg` from the vertical Shorts prototype at 1080x1920, confirming that the new skill can inspect our rendered videos.
+As of 2026-05-25, system `ffmpeg` is installed at `/usr/bin/ffmpeg` and OpenClaw reports `video-frames` as ready and visible to the model. Smoke tests extracted frames from both the original vertical Shorts prototype and the new v2 renders, confirming that the skill can inspect rendered videos and catch framing issues before publication.
