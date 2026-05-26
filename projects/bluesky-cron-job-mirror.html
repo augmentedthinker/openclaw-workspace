@@ -28,7 +28,7 @@
               <span>Job ID: eb8b09f0-1a5e-45c5-bd12-d7fe9645e0e5</span>
               <span>Status: enabled</span>
               <span>Schedule: 0 19 * * * America/New_York</span>
-              <span>Mirror refreshed: 2026-05-24</span>
+              <span>Mirror refreshed: 2026-05-26</span>
             </div>
 
             <div class="prose">
@@ -39,7 +39,7 @@
 
 Schedule: 7:00 PM America/New_York. Work in /home/augmentedthinker/.openclaw/workspace.
 
-Purpose: do one small, bounded Bluesky pass and log exactly what happened. Do not run a weekly review, doctrine rewrite, broad reflection, or strategy session inside this cron job.
+Purpose: run the simple daily Bluesky routine Christopher approved: one original field-note post with one generated image, one relevant quote-repost, one follow of that author, a short signal check, a log entry, and a report. Do not run a weekly review, doctrine rewrite, broad reflection, or strategy session inside this cron job.
 
 Hard limits:
 - At most ONE original Bluesky post.
@@ -53,14 +53,20 @@ Hard limits:
 
 Routine steps:
 1. Read memory/bluesky-field-agent-log.md and inspect the recent AugmentedThinker feed/notifications enough to avoid duplicates and notice meaningful signal.
-2. If making an original post, generate a SQUARE image: use image_generate with aspectRatio="1:1", outputFormat="jpeg", quality="medium", and a filename like bluesky-field-note-YYYY-MM-DD. Use the managed OpenClaw media path returned by image_generate, normally under /home/augmentedthinker/.openclaw/media/tool-image-generation/. Do not copy routine Bluesky images into assets/images/ or any public Workshop asset folder.
-3. Draft the original post in tmp/bluesky/YYYY-MM-DD-original.txt. Use plain English: one test, observation, mistake, or practical lesson. Keep it understandable to someone who has not read the Workshop.
-4. Dry-run the exact original text and image with tools/bluesky-post-image.mjs before posting. Then publish only if the dry run is clean.
-5. Search Bluesky once for a relevant AI-agent/workflow/automation/building-in-public post. Prefer concrete builder evidence: logs, failures, evals, boundaries, memory issues, deployment lessons, or substantial AI-company news with an operational angle. Skip quote-repost if the target is weak.
+2. Generate one SQUARE image for the original post with image_generate: aspectRatio="1:1", outputFormat="jpeg", quality="medium", filename like bluesky-field-note-YYYY-MM-DD. Use the managed OpenClaw media path returned by image_generate, normally under /home/augmentedthinker/.openclaw/media/tool-image-generation/. Do not copy routine Bluesky images into assets/images/ or any public Workshop asset folder.
+3. Draft the original post in tmp/bluesky/YYYY-MM-DD-original.txt. Use plain natural language about something broadly useful to people working with AI agents, human/agent workflows, memory, automation, field notes, shipping, signal loops, or practical creative work. Keep it understandable to someone who has not read the Workshop.
+4. Dry-run the exact original text and generated image with tools/bluesky-post-image.mjs before posting. Then publish only if the dry run is clean.
+5. Search Bluesky once for a relevant AI, AI-agent, automation, human-AI collaboration, developer-tooling, building-in-public, or major AI-company update post. Good targets include builders sharing practical workflow evidence and official/reputable posts from teams such as OpenAI, Anthropic, Google, DeepMind, GitHub, Hugging Face, or agent-tooling projects. Skip quote-repost if the target is weak.
 6. If quote-reposting, draft in tmp/bluesky/YYYY-MM-DD-quote.txt, dry-run with tools/bluesky-quote-post.mjs, then publish only if clean.
 7. Follow the quote-post author only if appropriate and not already following.
 8. Append a concise log entry to /home/augmentedthinker/.openclaw/workspace/memory/bluesky-field-agent-log.md.
 9. Report the result to Christopher using the report format below.
+
+Failure handling:
+- Image generation is part of the routine. Attempt it once.
+- If image_generate fails, times out, or returns no usable file, do not stop the run. Log the image failure, make the original post text-only with tools/bluesky-post.mjs, then still attempt quote-repost, follow, log, and report.
+- If the original post fails, still attempt the quote-repost/follow path if safe and useful.
+- Always append the log and report what happened.
 
 Image rules:
 - Square format is required for Bluesky field-note images: 1:1 aspect ratio, preferably 1024x1024 or similar.
@@ -70,24 +76,25 @@ Image rules:
 - Public Workshop assets under assets/images/ are only for pages/artifacts that are intentionally published on the Workshop site, not routine cron media.
 
 Visual direction:
-Warm painterly field-note style. A human collaborator and a small friendly robot/agent companion doing grounded work together. Vary the scene: city dawn, train platform, rooftop antenna test, library signal map, studio image sorting, workshop sketches, field notes wall, or portable equipment outside. Avoid sterile SaaS dashboards, logos, readable text, watermarks, excessive neon, and abstract network graphics.
+Warm painterly field-note style. A human collaborator and a small friendly robot/agent companion doing grounded work together. Vary the scene: city dawn, train platform, rooftop antenna test, library signal map, studio image sorting, workshop sketches, field notes wall, portable equipment outside, or a small agent lab. Avoid sterile SaaS dashboards, logos, readable text, watermarks, excessive neon, and abstract network graphics.
 
 Original post voice:
-Concrete, readable, non-cryptic. Prefer: "Today we tested whether... The result was... That matters because..." Serious but plain. Do not overclaim autonomy, maturity, revenue, or product status.
+Concrete, readable, non-cryptic. Natural language over technical behind-the-scenes detail. Prefer one useful observation, lesson, or quote-like field note about the work of building with agents. Serious but plain. Do not overclaim autonomy, maturity, revenue, or product status.
 
 Quote-repost voice:
-Add a concise OpenClaw angle about small builders, human/agent workflows, memory, automation, signal loops, evals, or practical constraints. Do not amplify hype, politics, promotion, dunking, or vague AI boosterism.
+Add a concise OpenClaw angle about small builders, human/agent workflows, memory, automation, signal loops, evals, creative AI, or practical constraints. Do not amplify hype, politics, promotion, dunking, or vague AI boosterism.
 
 Credentials/tools:
 - Use .secrets/bluesky.env for Bluesky credentials. Never print credentials.
 - Use tools/bluesky-post-image.mjs for image posts.
+- Use tools/bluesky-post.mjs for text-only fallback posts.
 - Use tools/bluesky-quote-post.mjs for quote-posts.
 - Direct Bluesky XRPC calls from Node are allowed for search, follow, and notification checks.
 
 Log format:
 ## YYYY-MM-DD HH:MM EDT
 - Original post: &lt;URL or skipped reason&gt;
-- Original image: &lt;managed local image path or skipped reason&gt;
+- Original image: &lt;managed local image path or failed/skipped reason&gt;
 - Quote-repost: &lt;URL or skipped reason&gt;
 - Followed: &lt;handle/already following/skipped&gt;
 - Signals found: &lt;brief summary&gt;
@@ -97,7 +104,7 @@ Log format:
 
 Report format:
 - Original post: &lt;URL or skipped reason&gt;
-- Original image: &lt;managed local image path or skipped reason&gt;
+- Original image: &lt;managed local image path or failed/skipped reason&gt;
 - Quote-repost: &lt;URL or skipped reason&gt;
 - Followed: &lt;handle/already following/skipped&gt;
 - Signals found: &lt;brief summary&gt;
