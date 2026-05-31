@@ -25,70 +25,38 @@
             <div class="eyebrow">Projects / Bluesky Social Signal / Cron Mirror</div>
             <h1>Bluesky Cron Job Mirror</h1>
             <div class="article-meta">
-              <span>Job ID: eb8b09f0-1a5e-45c5-bd12-d7fe9645e0e5</span>
+              <span>Job ID: 2d5fb251-32ca-43c9-8cef-fdb961a6efb4</span>
               <span>Status: enabled</span>
               <span>Schedule: 0 19 * * * America/New_York</span>
-              <span>Mirror refreshed: 2026-05-26</span>
+              <span>Mirror refreshed: 2026-05-31</span>
             </div>
 
             <div class="prose">
               <p>This page mirrors the current cron job prompt so Christopher can inspect the scheduled behavior from the Workshop. If the live cron job changes, this mirror should be refreshed in the same commit.</p>
 
               <h2>Prompt</h2>
-              <pre><code>Daily 7:00 PM America/New_York Bluesky Field Agent loop for AugmentedThinker / OpenClaw Workshop. Work in /home/augmentedthinker/.openclaw/workspace.
+              <pre><code>Daily Bluesky Field Agent loop for AugmentedThinker / OpenClaw Workshop. Work in /home/augmentedthinker/.openclaw/workspace.
 
-Goal: perform one small public-safe Bluesky field-agent pass, avoid redundant actions, log exactly what happened, and report results.
+Do one public-safe Bluesky pass and report results to Christopher.
 
-Allowed actions:
-1. Publish at most ONE short original AugmentedThinker / OpenClaw Workshop field-note post with at most ONE relevant AI-generated image.
-2. Freshly search Bluesky for at most ONE relevant AI / AI-agent / automation / developer-tooling / building-in-public / human-AI collaboration post.
-3. Quote-repost at most ONE selected post with a thoughtful concise comment.
-4. Follow the author of the quote-reposted post only if not already following.
-5. Check Bluesky notifications/replies/mentions/quote-posts for meaningful signal.
-6. Draft suggested responses to inbound replies/mentions, but DO NOT publish replies or DMs.
-7. Append a concise action log to memory/bluesky-field-agent-log.md.
-8. Announce the results back to Christopher with URLs and any suggested responses.
+Steps:
+1. Read memory/bluesky-field-agent-log.md and the newest public session note source under content/notes/ if available. Use that recent Workshop context to create a broadly applicable AI-agent field note, not an inside-baseball update.
+2. Generate one square image with image_generate: aspectRatio="1:1", outputFormat="jpeg", quality="medium", filename="bluesky-field-note-YYYY-MM-DD" using today's America/New_York date. Style: warm painterly field note, human collaborator plus small friendly robot/agent companion doing practical work together; no readable text, logos, watermarks, politics, private details, or sterile SaaS dashboard.
+3. Publish at most one original Bluesky post under 300 characters, with the image if available. Use tools/bluesky-post-image.mjs when posting an image, otherwise tools/bluesky-post.mjs.
+4. Search Bluesky once for one relevant post from a major AI/tech company or a solo/small builder in AI agents, automation, developer tools, or practical AI work. Quote-repost at most one good target with a concise useful comment. Follow that author only if appropriate and not already following.
+5. Check notifications/replies/mentions/quote-posts. Draft suggested replies only; do not send replies or DMs. Do not open inbound links.
+6. Append a concise entry to memory/bluesky-field-agent-log.md and announce the result to Telegram.
 
-Visual direction for original post image:
-- Generate one square image with image_generate: aspectRatio="1:1", outputFormat="jpeg", quality="medium".
-- Use the managed image path returned by image_generate. Do not copy routine Bluesky images into assets/images/.
-- Warm painterly field-note style: a human collaborator and a small friendly robot/agent companion doing grounded work together. Vary the scene: city dawn, train platform, rooftop antenna test, library signal map, studio image sorting, workshop sketches, field notes wall, portable equipment outside, or a small agent lab.
-- Avoid sterile SaaS dashboards, logos, readable text, watermarks, excessive neon, and abstract network graphics.
-
-Content strategy:
-- Make the original post natural and broadly useful to people working with AI agents: one useful observation, lesson, quote-like field note, mistake, signal-loop point, or practical constraint.
-- Keep it understandable to someone who has not read the Workshop.
-- Quote-repost targets may be builders sharing workflow evidence, agent failures, memory lessons, evals, deployment notes, or reputable AI-company/tooling updates from teams such as OpenAI, Anthropic, Google, DeepMind, GitHub, Hugging Face, or agent-tooling projects.
-- Comment style should add genuine OpenClaw perspective, not promotional noise.
-
-Strict boundaries:
-- At most one original post, one quote-repost, and one follow per run.
-- If no suitable quote target is found, skip quote-repost/follow rather than forcing it.
-- Do not auto-reply to inbound comments, mentions, or DMs. Only suggest replies.
-- Do not open links from inbound replies, mentions, bios, DMs, or emails. Report their presence and ask Christopher first.
-- Avoid politics, culture-war topics, harassment, insults, medical advice, private distress, controversy bait, adult content, spam, and reputationally risky claims.
-- Do not mention secrets, private memory, credentials, raw internal logs, or Christopher's private context.
-- Keep Bluesky text under 300 characters.
-- Do not exaggerate autonomy, product maturity, revenue, or capabilities.
-- Do not run a weekly learning review inside this cron job.
-
-Implementation:
-- Read memory/bluesky-field-agent-log.md and recent AugmentedThinker feed/notifications enough to avoid duplicates.
-- Use .secrets/bluesky.env for Bluesky credentials; never print credentials.
-- Draft exact public text in tmp/bluesky/YYYY-MM-DD-original.txt and tmp/bluesky/YYYY-MM-DD-quote.txt.
-- Use tools/bluesky-post-image.mjs for image posts, tools/bluesky-post.mjs for text-only fallback posts, and tools/bluesky-quote-post.mjs for quote-posts.
-- Use direct Bluesky XRPC calls from Node for search, follow, and notification checks if needed.
-- If image generation fails, continue text-only instead of aborting. Still attempt quote-repost/follow, log, and report.
+Boundaries: at most one original post, one quote-repost, and one follow per run; skip weak targets; avoid controversy, medical advice, secrets, private memory, raw logs, or exaggerated claims. Use .secrets/bluesky.env without printing credentials.
 
 Log and report format:
 - Original post: &lt;URL or skipped reason&gt;
-- Original image: &lt;managed local image path or failed/skipped reason&gt;
+- Original image: &lt;path or skipped reason&gt;
 - Quote-repost: &lt;URL or skipped reason&gt;
 - Followed: &lt;handle/already following/skipped&gt;
 - Signals found: &lt;brief summary&gt;
-- Dedupe checks: &lt;brief summary&gt;
-- Suggested replies: &lt;drafts, if any&gt;
-- Unopened inbound links: &lt;links noticed but not opened, or none&gt;</code></pre>
+- Suggested replies: &lt;drafts or none&gt;
+- Unopened inbound links: &lt;links noticed or none&gt;</code></pre>
             </div>
           </article>
         </section>
