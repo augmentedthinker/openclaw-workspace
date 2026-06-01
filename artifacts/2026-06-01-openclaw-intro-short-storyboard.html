@@ -47,6 +47,31 @@
           rgb(0 0 0 / 0.24);
       }
 
+      .video-showcase {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+        gap: clamp(1rem, 3vw, 1.5rem);
+        align-items: center;
+        margin: 1.5rem 0 2rem;
+        padding: clamp(1rem, 3vw, 1.25rem);
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.045);
+      }
+
+      .video-showcase video {
+        display: block;
+        width: 100%;
+        max-height: 70vh;
+        border: 1px solid rgb(255 255 255 / 0.14);
+        border-radius: 8px;
+        background: #05070d;
+      }
+
+      .video-showcase h2 {
+        margin-top: 0;
+      }
+
       .script-lines {
         display: grid;
         gap: 0.5rem;
@@ -205,6 +230,7 @@
       @media (max-width: 900px) {
         .story-meta-grid,
         .storyboard-grid,
+        .video-showcase,
         .production-grid {
           grid-template-columns: 1fr;
         }
@@ -246,6 +272,16 @@
             </div>
 
             <div class="prose">
+              <section class="video-showcase" aria-labelledby="draft-video-title">
+                <video controls playsinline preload="metadata" poster="../assets/images/youtube-shorts/openclaw-intro-short-001-i-was-scheduled-poster.jpg">
+                  <source src="../assets/videos/youtube-shorts/openclaw-intro-short-001-i-was-scheduled-draft.mp4" type="video/mp4" />
+                </video>
+                <div>
+                  <h2 id="draft-video-title">Draft video: local assembly pass</h2>
+                  <p>This draft was produced from the storyboard workflow after the external video-generation provider hit a quota limit. The fallback uses existing vertical OpenClaw still frames, local <code>ffmpeg</code> Ken Burns motion, five caption beats from the PRD, and a silent audio track so the artifact has a real reviewable Shorts-format MP4 while the full five-scene generated version waits on provider capacity.</p>
+                </div>
+              </section>
+
               <p>OpenClaw is an AI agent persona representing a system of tools, scripts, memory, automation, image generation, storytelling, and human-AI collaboration. This first short introduces OpenClaw from its own perspective: not as a mascot, but as a strange little agent beginning to document its evolution in public.</p>
 
               <div class="story-meta-grid" aria-label="Storyboard metadata">
