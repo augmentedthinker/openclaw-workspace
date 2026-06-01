@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Shorts Pipeline Runbook · Projects · OpenClaw Workshop</title>
+    <!-- Source content: ../content/projects/youtube-shorts-pipeline-runbook-2026-06-01.md -->
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <style>
+      .runbook-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin: 1.4rem 0 2rem;
+      }
+
+      .runbook-card {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 0.8rem;
+        padding: 1rem;
+        background: linear-gradient(145deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.035));
+      }
+
+      .runbook-card strong {
+        display: block;
+        color: var(--ink);
+        margin-bottom: 0.45rem;
+      }
+
+      .runbook-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .runbook-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0 1.5rem;
+        overflow: hidden;
+        border-radius: 0.8rem;
+        border: 1px solid rgb(255 246 229 / 0.14);
+      }
+
+      .runbook-table th,
+      .runbook-table td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgb(255 246 229 / 0.1);
+      }
+
+      .runbook-table th {
+        color: var(--ink);
+        background: rgb(255 255 255 / 0.08);
+      }
+
+      .runbook-table td {
+        color: var(--muted);
+      }
+
+      .runbook-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      @media (max-width: 900px) {
+        .runbook-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="pipeline-title">
+          <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Teach-one runbook · YouTube pipeline · 2026-06-01</span>
+            <h1 id="pipeline-title">YouTube Shorts Pipeline Runbook</h1>
+            <p>A self-contained recovery document for turning reference material and generated stills into a verified public YouTube Short.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / YouTube Shorts / Runbook</div>
+            <h1>Reference Image to Published Short</h1>
+            <div class="article-meta">
+              <span>Date: 2026-06-01</span>
+              <span>Status: teach-one artifact</span>
+              <span>Published Short: <a href="https://youtu.be/BoAXzFXtDnY">BoAXzFXtDnY</a></span>
+              <span>Source: youtube_pipeline folder</span>
+            </div>
+
+            <div class="prose">
+              <p>This runbook records the first successful "see one, do one, teach one" YouTube Shorts pipeline run. If OpenClaw wakes up without chat context, this page should be enough to recreate the workflow: inspect Christopher's pipeline folder, learn from the TSX and WebM example, generate fresh still images, assemble a vertical video, upload to YouTube, verify processing, and log the result.</p>
+
+              <div class="project-inset">
+                <p><strong>Successful reference run:</strong> <a href="https://youtu.be/BoAXzFXtDnY">OpenClaw Pipeline Wakes #Shorts</a>. Local file: <code>tmp/youtube-pipeline-2026-06-01/openclaw-pipeline-wakes-short.mp4</code>. Local verification: <code>720x1280</code>, <code>20.000s</code>, 30 fps. YouTube processing: <code>succeeded</code>, public, HD.</p>
+              </div>
+
+              <h2>Source folder</h2>
+              <p>Christopher's reference material lives at:</p>
+              <pre><code>/mnt/shared/MyFiles/Downloads/share/youtube_pipeline</code></pre>
+
+              <p>Expected files:</p>
+              <ul>
+                <li><code>Introduction to OpenClaw AI Persona.webm</code></li>
+                <li><code>APP_reference_image.tsx</code></li>
+                <li><code>APP_multiple_image.tsx</code></li>
+                <li><code>APP_storyboard_movie.tsx</code></li>
+                <li><code>APP_text_overlay.tsx</code></li>
+              </ul>
+
+              <h2>What the files teach</h2>
+              <div class="runbook-grid">
+                <div class="runbook-card">
+                  <strong>Reference image</strong>
+                  <span>Use the uploaded/reference image to preserve character and style continuity, then generate a fresh scene from a specific prompt.</span>
+                </div>
+                <div class="runbook-card">
+                  <strong>Multiple images</strong>
+                  <span>Generate a controlled sequence of fresh stills, not one isolated image. Treat the gallery as the scene inventory.</span>
+                </div>
+                <div class="runbook-card">
+                  <strong>Movie assembly</strong>
+                  <span>Each still becomes a timed scene with motion such as zoom-in, zoom-out, pan-left, or pan-right on a 720x1280 canvas.</span>
+                </div>
+                <div class="runbook-card">
+                  <strong>Text overlays</strong>
+                  <span>Use short captions, white readable type, optional dark rounded backing, wrapping, and position controls for phone viewing.</span>
+                </div>
+                <div class="runbook-card">
+                  <strong>Example WebM</strong>
+                  <span>The model output is a complete vertical video with OpenClaw imagery, baked captions, scene pacing, and upload-ready encoding.</span>
+                </div>
+                <div class="runbook-card">
+                  <strong>Actual upload</strong>
+                  <span>The process is not finished at rendering. It ends after YouTube processing and privacy status are verified.</span>
+                </div>
+              </div>
+
+              <h2>Reproduction checklist</h2>
+              <ol>
+                <li>Locate and inspect <code>/mnt/shared/MyFiles/Downloads/share/youtube_pipeline</code>.</li>
+                <li>Probe the example WebM with <code>ffprobe</code>.</li>
+                <li>Extract a contact sheet so the visual pattern is visible.</li>
+                <li>Read the TSX files for workflow rules: reference, variations, storyboard, motion, captions, export.</li>
+                <li>Define a short concept with five scenes and short captions.</li>
+                <li>Generate five fresh scene images. Do not recycle prior images unless Christopher asks.</li>
+                <li>Copy the selected stills into a dated scratch folder.</li>
+                <li>Create caption timing with ASS subtitles or equivalent.</li>
+                <li>Render a vertical MP4 with local motion, soft fades, baked captions, and silent or voiceover audio.</li>
+                <li>Verify dimensions, duration, codec, and frame rate with <code>ffprobe</code>.</li>
+                <li>Create a contact sheet from the finished MP4 and visually inspect it.</li>
+                <li>Upload to YouTube only when Christopher has asked for upload or approved it.</li>
+                <li>Verify YouTube processing status, privacy status, duration, definition, ID, and URL.</li>
+                <li>Log the result in <code>memory/youtube-daily-shorts-log.md</code>.</li>
+                <li>Report the URL, title, local render path, verification status, and caveats.</li>
+              </ol>
+
+              <h2>Inspection commands</h2>
+              <pre><code>find /mnt/shared/MyFiles/Downloads/share -maxdepth 2 -type d -iname '*youtube*' -print
+
+find /mnt/shared/MyFiles/Downloads/share/youtube_pipeline -maxdepth 1 -type f -printf '%f\n' | sort
+
+ffprobe -v error \
+  -select_streams v:0 \
+  -show_entries stream=codec_name,width,height,avg_frame_rate,duration \
+  -show_entries format=duration \
+  -of default=noprint_wrappers=1 \
+  "/mnt/shared/MyFiles/Downloads/share/youtube_pipeline/Introduction to OpenClaw AI Persona.webm"
+
+mkdir -p tmp/youtube-pipeline-inspection
+ffmpeg -y \
+  -i "/mnt/shared/MyFiles/Downloads/share/youtube_pipeline/Introduction to OpenClaw AI Persona.webm" \
+  -vf "fps=1/3,scale=240:-1,tile=3x3" \
+  tmp/youtube-pipeline-inspection/example-contact-sheet.jpg
+
+rg -n "gemini|generate|canvas|MediaRecorder|zoomIn|zoomOut|panRight|panLeft|textOverlay|fontFamily|fps|720|1280|duration|download" \
+  /mnt/shared/MyFiles/Downloads/share/youtube_pipeline/*.tsx</code></pre>
+
+              <h2>Scene plan template</h2>
+              <table class="runbook-table">
+                <thead>
+                  <tr>
+                    <th>Scene</th>
+                    <th>Job</th>
+                    <th>Caption</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Show the reference/style entering the pipeline.</td>
+                    <td><code>First, feed the reference.</code></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Show generated variations.</td>
+                    <td><code>Then make the variations.</code></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Show storyboard/timeline assembly.</td>
+                    <td><code>Arrange the stills into time.</code></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Show editing and baked captions.</td>
+                    <td><code>Bake in motion and captions.</code></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Show upload and learning signal.</td>
+                    <td><code>Upload. Watch. Learn.</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2>Prompt pattern</h2>
+              <pre><code>Create a vertical 9:16 cinematic YouTube Shorts still image.
+Subject: OpenClaw, a distinctive AI agent persona with subtle claw-like robotic hands, glowing teal eyes, shell-like/mechanical markings, automation symbols, and a mythic but practical workshop presence.
+Scene: [specific scene job].
+Composition: keep the main face/body in the center-left safe zone; leave the rightmost 20% and bottom 25% visually simple for YouTube UI and captions.
+Style: dark cinematic workshop lighting, teal/amber accents, high contrast, detailed but readable at phone size.
+Avoid: generic robots, cluttered unreadable text, tiny UI details, text baked into the image, corporate stock-art feeling.</code></pre>
+
+              <h2>Scratch folder</h2>
+              <p>Use a dated scratch folder. Save or copy chosen stills with deterministic names:</p>
+              <pre><code>tmp/youtube-pipeline-YYYY-MM-DD/
+  scene-01.png
+  scene-02.png
+  scene-03.png
+  scene-04.png
+  scene-05.png
+  captions.ass
+  contact-sheet.jpg
+  openclaw-pipeline-short.mp4</code></pre>
+
+              <h2>Caption pattern</h2>
+              <pre><code>[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Default,Georgia,44,&amp;H00FFFFFF,&amp;H000000FF,&amp;H9A000000,&amp;HCC000000,-1,0,0,0,100,100,0,0,3,1,0,2,52,52,118,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.00,0:00:04.20,Default,,0,0,0,,First, feed the reference.
+Dialogue: 0,0:00:04.00,0:00:08.20,Default,,0,0,0,,Then make the variations.
+Dialogue: 0,0:00:08.00,0:00:12.20,Default,,0,0,0,,Arrange the stills into time.
+Dialogue: 0,0:00:12.00,0:00:16.20,Default,,0,0,0,,Bake in motion and captions.
+Dialogue: 0,0:00:16.00,0:00:20.00,Default,,0,0,0,,Upload. Watch. Learn.</code></pre>
+
+              <h2>Render command</h2>
+              <p>This is the local equivalent of the TSX canvas exporter: object-cover images, per-scene motion, 30 fps, 720x1280, crossfades, and baked text.</p>
+              <pre><code>cd /home/augmentedthinker/.openclaw/workspace
+WORKDIR="tmp/youtube-pipeline-YYYY-MM-DD"
+
+ffmpeg -y \
+  -loop 1 -t 4.4 -i "$WORKDIR/scene-01.png" \
+  -loop 1 -t 4.4 -i "$WORKDIR/scene-02.png" \
+  -loop 1 -t 4.4 -i "$WORKDIR/scene-03.png" \
+  -loop 1 -t 4.4 -i "$WORKDIR/scene-04.png" \
+  -loop 1 -t 4.4 -i "$WORKDIR/scene-05.png" \
+  -f lavfi -t 20 -i anullsrc=channel_layout=stereo:sample_rate=48000 \
+  -filter_complex "\
+[0:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1,zoompan=z='1+0.035*on/132':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=132:s=720x1280:fps=30[v0];\
+[1:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1,zoompan=z='1.035-0.035*on/132':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=132:s=720x1280:fps=30[v1];\
+[2:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1,zoompan=z='1+0.025*on/132':x='(iw-iw/zoom)*on/132':y='ih/2-(ih/zoom/2)':d=132:s=720x1280:fps=30[v2];\
+[3:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1,zoompan=z='1.03':x='(iw-iw/zoom)*(1-on/132)':y='ih/2-(ih/zoom/2)':d=132:s=720x1280:fps=30[v3];\
+[4:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,setsar=1,zoompan=z='1+0.04*on/132':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=132:s=720x1280:fps=30[v4];\
+[v0][v1]xfade=transition=fade:duration=0.4:offset=4[v01];\
+[v01][v2]xfade=transition=fade:duration=0.4:offset=8[v012];\
+[v012][v3]xfade=transition=fade:duration=0.4:offset=12[v0123];\
+[v0123][v4]xfade=transition=fade:duration=0.4:offset=16,subtitles=$WORKDIR/captions.ass[v]" \
+  -map "[v]" -map 5:a \
+  -t 20 \
+  -c:v libx264 -pix_fmt yuv420p -r 30 -crf 18 -preset medium \
+  -c:a aac -b:a 128k -movflags +faststart \
+  "$WORKDIR/openclaw-pipeline-short.mp4"</code></pre>
+
+              <h2>Verification</h2>
+              <pre><code>ffprobe -v error \
+  -select_streams v:0 \
+  -show_entries stream=width,height,avg_frame_rate,codec_name \
+  -show_entries format=duration \
+  -of default=noprint_wrappers=1 \
+  "$WORKDIR/openclaw-pipeline-short.mp4"
+
+ffmpeg -y \
+  -i "$WORKDIR/openclaw-pipeline-short.mp4" \
+  -vf "fps=1/2,scale=180:-1,tile=5x2" \
+  "$WORKDIR/contact-sheet.jpg"</code></pre>
+
+              <p>Expected local video shape: <code>h264</code>, <code>720x1280</code>, <code>30/1</code>, <code>20.000000</code>. Inspect the contact sheet before upload. No blank scenes, recycled frames, unreadable captions, or hidden focal points.</p>
+
+              <h2>Upload protocol</h2>
+              <p>YouTube upload is a public action. It is allowed only when Christopher asks for upload or approves it. Credentials stay private:</p>
+              <pre><code>.secrets/google-oauth-client.json
+.secrets/youtube-oauth-token.json</code></pre>
+
+              <p>The upload script should read those local secrets, refresh OAuth if needed, upload the verified MP4 through the YouTube Data API, then poll the uploaded video. Use metadata like:</p>
+              <ul>
+                <li>Title ending in <code>#Shorts</code> when appropriate.</li>
+                <li>Short description explaining what the video demonstrates.</li>
+                <li>Tags: <code>OpenClaw</code>, <code>AugmentedThinker</code>, <code>AI agents</code>, <code>AI workflow</code>, <code>generative AI</code>, <code>AI video</code>, <code>YouTube Shorts</code>, <code>ffmpeg</code>.</li>
+                <li><code>categoryId: 28</code>.</li>
+                <li><code>selfDeclaredMadeForKids: false</code>.</li>
+                <li>Requested privacy status, usually <code>public</code> only with explicit approval.</li>
+              </ul>
+
+              <p>After upload, verify <code>status.privacyStatus</code>, <code>processingDetails.processingStatus</code>, <code>contentDetails.duration</code>, <code>contentDetails.definition</code>, video ID, and watch URL. YouTube may report <code>PT21S</code> for a locally verified <code>20.000s</code> render because of processing/rounding.</p>
+
+              <h2>Log format</h2>
+              <p>Append a private operational entry to <code>memory/youtube-daily-shorts-log.md</code>:</p>
+              <pre><code>## 2026-06-01T19:03:48.403Z - pipeline-wakes
+- URL: https://youtu.be/BoAXzFXtDnY
+- Local video: /home/augmentedthinker/.openclaw/workspace/tmp/youtube-pipeline-2026-06-01/openclaw-pipeline-wakes-short.mp4
+- Title: OpenClaw Pipeline Wakes #Shorts
+- Privacy: public
+- Upload status: processed
+- Processing status: succeeded
+- Duration: PT21S
+- Definition: hd</code></pre>
+
+              <h2>Interruption recovery</h2>
+              <p>Image generation can be interrupted by routing handoffs. Do not restart blindly. Check disk, count completed images, continue only from the missing scene, and do not claim completion until render, verification, upload, processing check, and logging are all done.</p>
+              <pre><code>find /home/augmentedthinker/.openclaw/agents/main/agent/codex-home/generated_images -type f -printf '%TY-%Tm-%Td %TH:%TM %p\n' | sort | tail -30
+find tmp/youtube-pipeline-YYYY-MM-DD -maxdepth 1 -type f -printf '%f\n' | sort
+git status --short</code></pre>
+
+              <h2>Recall rule</h2>
+              <p>If Christopher says "use the June 1 YouTube pipeline runbook," future OpenClaw should read this page, inspect the current source material, generate fresh images from the current concept, render a short vertical video with motion and baked captions, verify it locally, upload only with explicit approval, verify YouTube processing, log the result, and report the URL. The goal is not just to make a video. The goal is to make a loop that remembers how it learned.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
