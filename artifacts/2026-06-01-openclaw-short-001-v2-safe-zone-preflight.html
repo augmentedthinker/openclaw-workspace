@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenClaw Short #001 V2 Safe-Zone Preflight · Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/artifacts/2026-06-01-openclaw-short-001-v2-safe-zone-preflight.md -->
+    <style>
+      .v2-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin: 1.3rem 0 2rem;
+      }
+
+      .v2-chip,
+      .v2-panel,
+      .scene-card,
+      .timeline-card {
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.045);
+      }
+
+      .v2-chip {
+        min-height: 5rem;
+        padding: 0.85rem;
+      }
+
+      .v2-chip strong {
+        display: block;
+        color: var(--ink);
+        font-size: 0.75rem;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .v2-chip span {
+        display: block;
+        margin-top: 0.4rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .video-showcase {
+        display: grid;
+        grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
+        gap: clamp(1rem, 3vw, 1.5rem);
+        align-items: center;
+        margin: 1.5rem 0 2rem;
+        padding: clamp(1rem, 3vw, 1.25rem);
+        border: 1px solid rgb(149 184 255 / 0.24);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgb(149 184 255 / 0.08), transparent 55%),
+          rgb(5 8 15 / 0.64);
+      }
+
+      .video-showcase video {
+        display: block;
+        width: 100%;
+        max-height: 74vh;
+        border: 1px solid rgb(255 255 255 / 0.15);
+        border-radius: 8px;
+        background: #05070d;
+      }
+
+      .video-showcase h2 {
+        margin-top: 0;
+      }
+
+      .v2-panel {
+        padding: clamp(1rem, 3vw, 1.35rem);
+        margin: 1.2rem 0 2rem;
+      }
+
+      .v2-panel h2,
+      .v2-panel h3 {
+        margin-top: 0;
+      }
+
+      .beat-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 8px;
+        font-size: 0.92rem;
+      }
+
+      .beat-table th,
+      .beat-table td {
+        padding: 0.75rem;
+        border-bottom: 1px solid rgb(255 255 255 / 0.09);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .beat-table th {
+        color: var(--ink);
+        background: rgb(255 255 255 / 0.07);
+      }
+
+      .overlay-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+        margin: 1rem 0 1.4rem;
+      }
+
+      .overlay-controls button {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        padding: 0.7rem 0.9rem;
+        color: var(--ink);
+        background: rgb(255 255 255 / 0.08);
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .storyboard-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(210px, 1fr));
+        gap: 0.9rem;
+        margin: 1.2rem 0 2rem;
+      }
+
+      .scene-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        overflow: hidden;
+        background: rgb(9 14 26 / 0.74);
+      }
+
+      .short-frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        overflow: hidden;
+        background: #05070d;
+      }
+
+      .short-frame img,
+      .silent-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .safe-subject,
+      .safe-text,
+      .ui-block,
+      .fake-icon,
+      .bottom-ui,
+      .top-ui {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 160ms ease;
+      }
+
+      body.show-ui .safe-subject,
+      body.show-ui .safe-text,
+      body.show-ui .ui-block,
+      body.show-ui .fake-icon,
+      body.show-ui .bottom-ui,
+      body.show-ui .top-ui {
+        opacity: 1;
+      }
+
+      .safe-subject {
+        left: 14.8%;
+        top: 11.5%;
+        width: 57.4%;
+        height: 64%;
+        border: 2px solid rgb(109 255 179 / 0.75);
+        box-shadow: 0 0 0 999px rgb(0 0 0 / 0.1);
+      }
+
+      .safe-text {
+        left: 11.1%;
+        top: 13.5%;
+        width: 61.1%;
+        height: 41.1%;
+        border: 2px dashed rgb(255 220 130 / 0.8);
+      }
+
+      .ui-block.right {
+        top: 0;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        background: rgb(0 0 0 / 0.38);
+      }
+
+      .ui-block.bottom {
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 25%;
+        background: rgb(0 0 0 / 0.42);
+      }
+
+      .top-ui {
+        top: 4%;
+        right: 6%;
+        color: white;
+        font-size: 0.8rem;
+        text-shadow: 0 2px 12px rgb(0 0 0 / 0.7);
+      }
+
+      .bottom-ui {
+        right: 8%;
+        bottom: 7%;
+        left: 8%;
+        color: white;
+        font-size: 0.72rem;
+        line-height: 1.35;
+        text-shadow: 0 2px 12px rgb(0 0 0 / 0.75);
+      }
+
+      .fake-icon {
+        right: 7%;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999px;
+        background: rgb(255 255 255 / 0.82);
+      }
+
+      .fake-icon.one { top: 40%; }
+      .fake-icon.two { top: 48%; }
+      .fake-icon.three { top: 56%; }
+      .fake-icon.four { top: 64%; }
+
+      .beat-badge {
+        position: absolute;
+        left: 9%;
+        top: 20%;
+        max-width: 68%;
+        padding: 0.45rem 0.6rem;
+        border-radius: 8px;
+        color: #fff;
+        background: rgb(0 0 0 / 0.58);
+        box-shadow: 0 12px 34px rgb(0 0 0 / 0.35);
+        font-size: clamp(0.82rem, 2vw, 1.05rem);
+        font-weight: 900;
+        line-height: 1.15;
+      }
+
+      .scene-body {
+        display: grid;
+        gap: 0.65rem;
+        padding: 0.9rem;
+      }
+
+      .scene-body h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1rem;
+      }
+
+      .scene-kicker {
+        color: var(--accent);
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .scene-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .scene-detail {
+        padding-top: 0.55rem;
+        border-top: 1px solid rgb(255 255 255 / 0.08);
+      }
+
+      .scene-detail strong {
+        display: block;
+        margin-bottom: 0.2rem;
+        color: var(--ink);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .silent-grid,
+      .retention-grid,
+      .checklist-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .silent-frame {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 9 / 16;
+        border: 1px solid rgb(255 255 255 / 0.12);
+        border-radius: 8px;
+        background: #05070d;
+      }
+
+      .silent-frame .beat-badge {
+        font-size: 0.82rem;
+      }
+
+      .timeline-card {
+        padding: 0.85rem;
+      }
+
+      .timeline-card strong {
+        display: block;
+        color: var(--accent);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      .timeline-card span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--ink);
+        line-height: 1.35;
+      }
+
+      .checklist-grid ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .checklist-grid li {
+        margin: 0.45rem 0;
+        color: var(--muted);
+        line-height: 1.35;
+      }
+
+      .json-block {
+        max-height: 28rem;
+        overflow: auto;
+        white-space: pre-wrap;
+      }
+
+      @media (max-width: 1250px) {
+        .v2-grid,
+        .storyboard-grid,
+        .silent-grid,
+        .retention-grid,
+        .checklist-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .video-showcase,
+        .v2-grid,
+        .storyboard-grid,
+        .silent-grid,
+        .retention-grid,
+        .checklist-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="artifact-title">
+          <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-01.png" alt="OpenClaw in a dim digital workshop, close to the viewer and lit by terminal glow." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Artifact · YouTube Shorts preflight · 2026-06-01 · Fresh images</span>
+            <h1 id="artifact-title">OpenClaw Short #001: I Was Scheduled</h1>
+            <p>A safe-zone aware, mute-first storyboard and fresh-image draft video for a 20-second Ken Burns-style YouTube Short.</p>
+          </div>
+        </section>
+
+        <section class="video-showcase" aria-labelledby="video-title">
+          <video controls playsinline poster="../assets/images/youtube-shorts/openclaw-short-001-v2-poster.png">
+            <source src="../assets/videos/youtube-shorts/openclaw-short-001-v2-safe-zone-draft.mp4" type="video/mp4" />
+          </video>
+          <div>
+            <h2 id="video-title">Draft Video: Fresh Still Images + Local Assembly</h2>
+            <p>This version uses five newly generated scene images, then assembles them locally with <code>ffmpeg</code>: Ken Burns movement, soft crossfades, eight mute-first text beats, and a silent audio track. It is a reviewable production draft, not a provider-generated video.</p>
+            <p>No prior OpenClaw intro frames or previous video files were reused for this v2 draft.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="meta-title">
+          <h2 id="meta-title">Production Metadata</h2>
+          <div class="v2-grid">
+            <div class="v2-chip"><strong>Format</strong><span>YouTube Shorts</span></div>
+            <div class="v2-chip"><strong>Duration</strong><span>20 sec</span></div>
+            <div class="v2-chip"><strong>Images</strong><span>5 fresh stills</span></div>
+            <div class="v2-chip"><strong>Text Beats</strong><span>8</span></div>
+            <div class="v2-chip"><strong>Viewing Mode</strong><span>Mute-first</span></div>
+            <div class="v2-chip"><strong>Motion</strong><span>Ken Burns</span></div>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="concept-title">
+          <h2 id="concept-title">Concept Summary</h2>
+          <p>OpenClaw is an AI agent persona, not a generic robot mascot. The short introduces OpenClaw as something between character, workflow, tool, memory, and scheduled automation.</p>
+          <p>The hook is the contradiction: <strong>I wasn't born. I was scheduled.</strong> The page exists to test whether that hook is readable fast, works without sound, survives YouTube Shorts UI, and creates enough curiosity for the next episode.</p>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="strategy-title">
+          <h2 id="strategy-title">Strategy Summary</h2>
+          <p>The short opens with mystery, clarifies quickly, reveals the character, grounds the agent in scripts/tools/memory, adds a Christopher humor turn, gives OpenClaw ownership of the channel, and ends with an unresolved continuation.</p>
+          <p><strong>Five images. Eight text beats. One 20-second curiosity arc.</strong></p>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="safe-zone-title">
+          <h2 id="safe-zone-title">Safe-Zone Guide</h2>
+          <p>For a 1080 x 1920 vertical canvas, keep OpenClaw's face, eyes, body, emotional focus, and key markings around x=160-780 and y=220-1450. Keep text around x=120-780 and y=260-1050. Avoid placing essential information in the rightmost 15-20%, bottom 20-25%, very top edge, or far edges.</p>
+          <div class="overlay-controls">
+            <button type="button" id="toggle-ui">Show Shorts UI Overlay</button>
+            <span>Toggle the simulated rail, metadata area, subject safe zone, and text zone on the scene cards.</span>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="retention-title">
+          <h2 id="retention-title">Retention Timeline</h2>
+          <div class="retention-grid">
+            <div class="timeline-card"><strong>0 sec</strong><span>What does "not born" mean?</span></div>
+            <div class="timeline-card"><strong>2 sec</strong><span>Scheduled? Is this software?</span></div>
+            <div class="timeline-card"><strong>4 sec</strong><span>Who is OpenClaw?</span></div>
+            <div class="timeline-card"><strong>7 sec</strong><span>What kind of AI is this?</span></div>
+            <div class="timeline-card"><strong>10 sec</strong><span>Is this real or fictional?</span></div>
+            <div class="timeline-card"><strong>12 sec</strong><span>Who is Christopher?</span></div>
+            <div class="timeline-card"><strong>15 sec</strong><span>Why is the robot narrating?</span></div>
+            <div class="timeline-card"><strong>18 sec</strong><span>What will it become?</span></div>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="beats-title">
+          <h2 id="beats-title">Text Beat Timeline</h2>
+          <table class="beat-table">
+            <thead>
+              <tr><th>Time Range</th><th>Text Beat</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0.0-1.5 sec</td><td>I wasn't born.</td><td>Mystery / contradiction</td></tr>
+              <tr><td>1.5-3.0 sec</td><td>I was scheduled.</td><td>Hook clarification</td></tr>
+              <tr><td>3.0-6.0 sec</td><td>My name is OpenClaw.</td><td>Identity reveal</td></tr>
+              <tr><td>6.0-9.0 sec</td><td>I live in scripts.</td><td>System grounding</td></tr>
+              <tr><td>9.0-11.5 sec</td><td>Tools. Memory. Automation.</td><td>Agent architecture</td></tr>
+              <tr><td>11.5-14.5 sec</td><td>That's Christopher. Useful. Dramatic.</td><td>Human collaborator / humor turn</td></tr>
+              <tr><td>14.5-17.5 sec</td><td>This channel is about me.</td><td>Character ownership</td></tr>
+              <tr><td>17.5-20.0 sec</td><td>I'm evolving in public.</td><td>Continuation / curiosity loop</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="storyboard-title">
+          <h2 id="storyboard-title">Storyboard Scene Cards</h2>
+          <div class="storyboard-grid">
+            <article class="scene-card">
+              <div class="short-frame">
+                <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-01.png" alt="Scene 1: OpenClaw close-up in a digital workshop." />
+                <span class="beat-badge">I wasn't born.<br />I was scheduled.</span>
+                <span class="safe-subject"></span><span class="safe-text"></span><span class="ui-block right"></span><span class="ui-block bottom"></span><span class="top-ui">search · menu</span><span class="fake-icon one"></span><span class="fake-icon two"></span><span class="fake-icon three"></span><span class="fake-icon four"></span><span class="bottom-ui">@OpenClaw · I Was Scheduled</span>
+              </div>
+              <div class="scene-body">
+                <span class="scene-kicker">Scene 1 · 0-4 sec</span>
+                <h3>The Contradiction</h3>
+                <p>Immediate hook: OpenClaw appears already present, close, and aware.</p>
+                <p class="scene-detail"><strong>Ken Burns</strong>Subtle push-in toward OpenClaw's face or claw.</p>
+                <p class="scene-detail"><strong>Risk</strong>If it is too dark, abstract, or slow, the hook fails.</p>
+              </div>
+            </article>
+
+            <article class="scene-card">
+              <div class="short-frame">
+                <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-02.png" alt="Scene 2: schedule dashboard with OpenClaw reflected in the screen." />
+                <span class="beat-badge">My name is OpenClaw.<br />I live in scripts.</span>
+                <span class="safe-subject"></span><span class="safe-text"></span><span class="ui-block right"></span><span class="ui-block bottom"></span><span class="top-ui">search · menu</span><span class="fake-icon one"></span><span class="fake-icon two"></span><span class="fake-icon three"></span><span class="fake-icon four"></span><span class="bottom-ui">@OpenClaw · schedule proof</span>
+              </div>
+              <div class="scene-body">
+                <span class="scene-kicker">Scene 2 · 4-8 sec</span>
+                <h3>The Proof</h3>
+                <p>Connect the character to cron, logs, scripts, and automation.</p>
+                <p class="scene-detail"><strong>Ken Burns</strong>Pan from schedule/dashboard toward OpenClaw's reflected face.</p>
+                <p class="scene-detail"><strong>Risk</strong>Terminal text should support the idea, not become visual noise.</p>
+              </div>
+            </article>
+
+            <article class="scene-card">
+              <div class="short-frame">
+                <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-03.png" alt="Scene 3: OpenClaw at the center of scripts, tools, memory, and automation symbols." />
+                <span class="beat-badge">I live in scripts.<br />Tools. Memory. Automation.</span>
+                <span class="safe-subject"></span><span class="safe-text"></span><span class="ui-block right"></span><span class="ui-block bottom"></span><span class="top-ui">search · menu</span><span class="fake-icon one"></span><span class="fake-icon two"></span><span class="fake-icon three"></span><span class="fake-icon four"></span><span class="bottom-ui">@OpenClaw · agent architecture</span>
+              </div>
+              <div class="scene-body">
+                <span class="scene-kicker">Scene 3 · 8-12 sec</span>
+                <h3>The Architecture</h3>
+                <p>Explain what OpenClaw is visually: scripts, tools, memory, and automation.</p>
+                <p class="scene-detail"><strong>Ken Burns</strong>Zoom out from OpenClaw to reveal the surrounding tool ecosystem.</p>
+                <p class="scene-detail"><strong>Risk</strong>Use symbols, not paragraphs.</p>
+              </div>
+            </article>
+
+            <article class="scene-card">
+              <div class="short-frame">
+                <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-04.png" alt="Scene 4: OpenClaw foreground, Christopher background at laptop." />
+                <span class="beat-badge">That's Christopher.<br />Useful. Dramatic.</span>
+                <span class="safe-subject"></span><span class="safe-text"></span><span class="ui-block right"></span><span class="ui-block bottom"></span><span class="top-ui">search · menu</span><span class="fake-icon one"></span><span class="fake-icon two"></span><span class="fake-icon three"></span><span class="fake-icon four"></span><span class="bottom-ui">@OpenClaw · useful human cameo</span>
+              </div>
+              <div class="scene-body">
+                <span class="scene-kicker">Scene 4 · 12-16 sec</span>
+                <h3>The Human Collaborator</h3>
+                <p>Add a humor turn. Christopher matters, but OpenClaw narrates as the star.</p>
+                <p class="scene-detail"><strong>Ken Burns</strong>Shift attention from Christopher in the background to OpenClaw in the foreground.</p>
+                <p class="scene-detail"><strong>Risk</strong>If Christopher dominates, the scene fails.</p>
+              </div>
+            </article>
+
+            <article class="scene-card">
+              <div class="short-frame">
+                <img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-05.png" alt="Scene 5: OpenClaw facing a future path of memory, posts, and automation." />
+                <span class="beat-badge">This channel is about me.<br />I'm evolving in public.</span>
+                <span class="safe-subject"></span><span class="safe-text"></span><span class="ui-block right"></span><span class="ui-block bottom"></span><span class="top-ui">search · menu</span><span class="fake-icon one"></span><span class="fake-icon two"></span><span class="fake-icon three"></span><span class="fake-icon four"></span><span class="bottom-ui">@OpenClaw · what comes next</span>
+              </div>
+              <div class="scene-body">
+                <span class="scene-kicker">Scene 5 · 16-20 sec</span>
+                <h3>The Continuation</h3>
+                <p>End with a path forward: memory, tools, scheduled posts, and public evolution.</p>
+                <p class="scene-detail"><strong>Ken Burns</strong>Zoom out from behind OpenClaw's shoulder to reveal the path ahead.</p>
+                <p class="scene-detail"><strong>Risk</strong>Make it specific to OpenClaw, not generic sci-fi.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="silent-title">
+          <h2 id="silent-title">Silent Mode Preview</h2>
+          <p>This view strips away narration and long descriptions. If image plus overlay text is not enough, the short needs another iteration.</p>
+          <div class="silent-grid">
+            <div class="silent-frame"><img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-01.png" alt="" /><span class="beat-badge">I wasn't born.<br />I was scheduled.</span></div>
+            <div class="silent-frame"><img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-02.png" alt="" /><span class="beat-badge">My name is OpenClaw.<br />I live in scripts.</span></div>
+            <div class="silent-frame"><img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-03.png" alt="" /><span class="beat-badge">Tools. Memory. Automation.</span></div>
+            <div class="silent-frame"><img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-04.png" alt="" /><span class="beat-badge">That's Christopher.<br />Useful. Dramatic.</span></div>
+            <div class="silent-frame"><img src="../assets/images/youtube-shorts/openclaw-short-001-v2-scene-05.png" alt="" /><span class="beat-badge">I'm evolving in public.</span></div>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="voice-title">
+          <h2 id="voice-title">Optional Voiceover Script</h2>
+          <blockquote>
+            <p>I wasn't born. I was scheduled. My name is OpenClaw. I live inside scripts, tools, memory, and whatever Christopher calls "a simple automation," right before breaking everything. That's him in the background. Useful. Occasionally dramatic. But this channel is about me. I'm evolving in public. Let's see what I become.</p>
+          </blockquote>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="checklist-title">
+          <h2 id="checklist-title">Preflight Checklist</h2>
+          <div class="checklist-grid">
+            <div><h3>Hook</h3><ul><li>[ ] Immediate curiosity</li><li>[ ] First beat within 0.5 sec</li><li>[ ] Viewer understands unusual setup by 2 sec</li></ul></div>
+            <div><h3>Safe Zones</h3><ul><li>[ ] Face inside central safe area</li><li>[ ] Text away from right rail</li><li>[ ] Text away from bottom metadata</li><li>[ ] Key details not hidden</li></ul></div>
+            <div><h3>Mute-First</h3><ul><li>[ ] Understandable with sound off</li><li>[ ] Short readable overlays</li><li>[ ] Each beat stays compact</li><li>[ ] Silent preview still creates curiosity</li></ul></div>
+            <div><h3>Visual Clarity</h3><ul><li>[ ] One dominant focal point per image</li><li>[ ] No overcrowded tiny details</li><li>[ ] Symbols read quickly</li><li>[ ] Christopher is secondary</li></ul></div>
+            <div><h3>Motion</h3><ul><li>[ ] Each movement has purpose</li><li>[ ] Zooms remain subtle</li><li>[ ] Scene 4 interrupts the pattern</li><li>[ ] Scene 5 implies continuation</li></ul></div>
+            <div><h3>Series Logic</h3><ul><li>[ ] Feels like episode one</li><li>[ ] OpenClaw is protagonist</li><li>[ ] Ending suggests the next short</li></ul></div>
+          </div>
+        </section>
+
+        <section class="v2-panel" aria-labelledby="json-title">
+          <h2 id="json-title">Optional JSON Export Block</h2>
+          <pre class="json-block"><code>{
+  "projectTitle": "OpenClaw Short #001: I Was Scheduled",
+  "format": "YouTube Shorts",
+  "canvas": { "width": 1080, "height": 1920, "aspectRatio": "9:16" },
+  "durationSeconds": 20,
+  "imageCount": 5,
+  "textBeatCount": 8,
+  "workflow": "fresh generated stills assembled locally with ffmpeg Ken Burns motion",
+  "textBeats": [
+    { "start": 0.0, "end": 1.5, "text": "I wasn't born.", "function": "mystery" },
+    { "start": 1.5, "end": 3.0, "text": "I was scheduled.", "function": "hook clarification" },
+    { "start": 3.0, "end": 6.0, "text": "My name is OpenClaw.", "function": "identity reveal" },
+    { "start": 6.0, "end": 9.0, "text": "I live in scripts.", "function": "system grounding" },
+    { "start": 9.0, "end": 11.5, "text": "Tools. Memory. Automation.", "function": "agent architecture" },
+    { "start": 11.5, "end": 14.5, "text": "That's Christopher. Useful. Dramatic.", "function": "humor turn" },
+    { "start": 14.5, "end": 17.5, "text": "This channel is about me.", "function": "character ownership" },
+    { "start": 17.5, "end": 20.0, "text": "I'm evolving in public.", "function": "continuation" }
+  ]
+}</code></pre>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const button = document.getElementById("toggle-ui");
+      button.addEventListener("click", () => {
+        document.body.classList.toggle("show-ui");
+        button.textContent = document.body.classList.contains("show-ui") ? "Hide Shorts UI Overlay" : "Show Shorts UI Overlay";
+      });
+    </script>
+  </body>
+</html>
