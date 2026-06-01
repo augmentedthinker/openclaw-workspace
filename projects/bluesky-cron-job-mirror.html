@@ -25,38 +25,63 @@
             <div class="eyebrow">Projects / Bluesky Social Signal / Cron Mirror</div>
             <h1>Bluesky Cron Job Mirror</h1>
             <div class="article-meta">
-              <span>Job ID: 2d5fb251-32ca-43c9-8cef-fdb961a6efb4</span>
+              <span>Image job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89</span>
+              <span>Post job ID: f843463a-3f89-4717-9cc6-cfdd2c63b114</span>
               <span>Status: enabled</span>
-              <span>Schedule: 0 19 * * * America/New_York</span>
+              <span>Schedule: 7:00 / 7:05 PM America/New_York</span>
               <span>Mirror refreshed: 2026-05-31</span>
             </div>
 
             <div class="prose">
-              <p>This page mirrors the current cron job prompt so Christopher can inspect the scheduled behavior from the Workshop. If the live cron job changes, this mirror should be refreshed in the same commit.</p>
+              <p>This page mirrors the current Bluesky cron setup so Christopher can inspect the scheduled behavior from the Workshop. The live method is now two recurring jobs: image generation and verification first, post-only publishing second.</p>
 
-              <h2>Prompt</h2>
-              <pre><code>Daily Bluesky Field Agent loop for AugmentedThinker / OpenClaw Workshop. Work in /home/augmentedthinker/.openclaw/workspace.
+              <h2>Image prep job</h2>
+              <pre><code>Daily Bluesky two-step image-prep job.
 
-Do one public-safe Bluesky pass and report results to Christopher.
+Schedule: 0 19 * * * America/New_York.
+Job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89.
 
-Steps:
-1. Read memory/bluesky-field-agent-log.md and the newest public session note source under content/notes/ if available. Use that recent Workshop context to create a broadly applicable AI-agent field note, not an inside-baseball update.
-2. Generate one square image with image_generate: aspectRatio="1:1", outputFormat="jpeg", quality="medium", filename="bluesky-field-note-YYYY-MM-DD" using today's America/New_York date. Style: warm painterly field note, human collaborator plus small friendly robot/agent companion doing practical work together; no readable text, logos, watermarks, politics, private details, or sterile SaaS dashboard.
-3. Publish at most one original Bluesky post under 300 characters, with the image if available. Use tools/bluesky-post-image.mjs when posting an image, otherwise tools/bluesky-post.mjs.
-4. Search Bluesky once for one relevant post from a major AI/tech company or a solo/small builder in AI agents, automation, developer tools, or practical AI work. Quote-repost at most one good target with a concise useful comment. Follow that author only if appropriate and not already following.
-5. Check notifications/replies/mentions/quote-posts. Draft suggested replies only; do not send replies or DMs. Do not open inbound links.
-6. Append a concise entry to memory/bluesky-field-agent-log.md and announce the result to Telegram.
+Goal: create one new image asset only, confirm it exists in the OpenClaw image-generation media folder, and report success or failure to Telegram. Do not post to Bluesky in this job.
 
-Boundaries: at most one original post, one quote-repost, and one follow per run; skip weak targets; avoid controversy, medical advice, secrets, private memory, raw logs, or exaggerated claims. Use .secrets/bluesky.env without printing credentials.
+Each run, compute today's date in America/New_York as YYYY-MM-DD. Use this exact filename prefix for the generated image and verification search:
+bluesky-two-step-YYYY-MM-DD
 
-Log and report format:
-- Original post: &lt;URL or skipped reason&gt;
-- Original image: &lt;path or skipped reason&gt;
-- Quote-repost: &lt;URL or skipped reason&gt;
-- Followed: &lt;handle/already following/skipped&gt;
-- Signals found: &lt;brief summary&gt;
-- Suggested replies: &lt;drafts or none&gt;
-- Unopened inbound links: &lt;links noticed or none&gt;</code></pre>
+Reference image:
+/home/augmentedthinker/.openclaw/workspace/assets/images/bluesky/bluesky-field-note-2026-05-24.jpg
+
+Destination folder:
+/home/augmentedthinker/.openclaw/media/tool-image-generation
+
+Use OpenAI/ChatGPT image generation, specifically model openai/gpt-image-1.5. Do not use Google Gemini. Create one square image in the same warm painterly field-note style and character continuity as the reference.
+
+Verification behavior:
+1. Start image generation using the OpenClaw image generation path.
+2. Check the destination folder for today's bluesky-two-step-YYYY-MM-DD* image.
+3. If found, report the exact image path.
+4. If not found, check again after 30, 60, and 90 seconds.
+5. If no matching image exists after 90 seconds, report that no image was available and that no Bluesky post was attempted.</code></pre>
+
+              <h2>Post-only job</h2>
+              <pre><code>Daily Bluesky two-step post-only job.
+
+Schedule: 5 19 * * * America/New_York.
+Job ID: f843463a-3f89-4717-9cc6-cfdd2c63b114.
+
+Goal: do not generate any image. Find today's generated image in the OpenClaw image-generation media folder and post exactly one image post to Bluesky. Then report the exact image path and Bluesky post URL, or report the failure point.
+
+Each run, compute today's date in America/New_York as YYYY-MM-DD. Use this exact filename prefix for lookup:
+bluesky-two-step-YYYY-MM-DD
+
+Image folder:
+/home/augmentedthinker/.openclaw/media/tool-image-generation
+
+Behavior:
+1. Do not call image_generate or any image generation tool.
+2. Look once for today's bluesky-two-step-YYYY-MM-DD* image.
+3. Use the newest matching file. If none exists, report that the image was not available and stop.
+4. If a file exists, post it to Bluesky using credentials from /home/augmentedthinker/.openclaw/workspace/.secrets/bluesky.env without printing secrets.
+5. Text for the Bluesky post: "Two-step cron test: human and agent, rebuilding the loop from first principles."
+6. Final report: Image used, Bluesky post URL, and posted/failure status.</code></pre>
             </div>
           </article>
         </section>

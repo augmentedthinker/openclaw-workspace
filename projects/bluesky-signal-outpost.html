@@ -34,10 +34,10 @@
             <div class="eyebrow">Projects / Project 003</div>
             <h1>Bluesky Signal Outpost</h1>
             <div class="article-meta">
-              <span>Status: active daily loop</span>
-              <span>Stage: autonomous cron tested</span>
+              <span>Status: active daily two-step loop</span>
+              <span>Stage: verified by live post</span>
               <span>Surface: @augmentedthinker.bsky.social</span>
-              <span>Rule: bounded 7 PM field agent</span>
+              <span>Rule: 7:00 image prep / 7:05 post</span>
             </div>
 
             <div class="prose">
@@ -58,13 +58,13 @@
                 <li>A profile description has been added to explain the Workshop and its signal-loop doctrine.</li>
                 <li>The display name was changed from OpenClaw Workshop to <strong>AugmentedThinker</strong>, giving the account a broader public identity.</li>
                 <li>A generated profile image and wide banner have been uploaded.</li>
-                <li>Local posting, image-posting, quote-posting, and profile-image tools now exist inside the Workshop workspace.</li>
+                <li>Local posting, image-posting, quote-posting, and profile-image tools exist inside the Workshop workspace.</li>
                 <li>Credentials are stored outside the public repo in a protected local secrets file.</li>
-                <li>A recurring 7:00 PM America/New_York Bluesky Field Agent cron loop is active.</li>
+                <li>The verified recurring setup is now two daily America/New_York cron jobs: image prep at 7:00 PM and post-only publishing at 7:05 PM.</li>
               </ul>
 
               <h2>Operating model</h2>
-              <p>The first operating mode was approval-gated:</p>
+              <p>The original operating mode was approval-gated:</p>
               <ol>
                 <li>OpenClaw drafts a short post or thread.</li>
                 <li>Christopher approves, edits, or rejects it.</li>
@@ -73,18 +73,13 @@
                 <li>Future posts and artifacts change based on the signal received.</li>
               </ol>
 
-              <p>The current operating mode has advanced into a bounded daily cron loop. Every night at <strong>7:00 PM Baltimore time</strong>, OpenClaw may run one Bluesky Field Agent pass:</p>
+              <p>The current operating mode has advanced into a verified two-step daily cron loop. The split exists because OpenClaw image generation completes through a background route; the reliable pattern is to let one job create and verify the image, then let a second job post an already-existing file.</p>
               <ul>
-                <li>publish one original public-safe field note with a generated image;</li>
-                <li>freshly search for one relevant AI, agent, automation, or building-in-public post;</li>
-                <li>quote-repost that one post with a concise, useful comment;</li>
-                <li>follow the author of the quote-reposted post;</li>
-                <li>check notifications, replies, mentions, and quote-post signals;</li>
-                <li>suggest replies if needed, but not publish inbound replies automatically;</li>
-                <li>log the results and report back to Christopher.</li>
+                <li><strong>7:00 PM image prep:</strong> generate one OpenAI/ChatGPT image with <code>openai/gpt-image-1.5</code>, name it with the current America/New_York date as <code>bluesky-two-step-YYYY-MM-DD*</code>, and verify it appears in the OpenClaw image-generation media folder with 30/60/90-second checks.</li>
+                <li><strong>7:05 PM post-only publish:</strong> do not generate anything; compute the current America/New_York date, find the newest <code>bluesky-two-step-YYYY-MM-DD*</code> image, post it to Bluesky, and report the image path plus URL or failure reason.</li>
               </ul>
 
-              <p>This keeps the account active without turning it into an uncontrolled social bot. The loop is small by design: one post, one discovery action, one follow, one signal check.</p>
+              <p>This keeps the account active without turning it into an uncontrolled social bot. The loop is small by design: one generated field-note image, one post-only publishing step, and a Telegram-visible report. Quote-reposts, follows, feed searches, and inbound reply handling are no longer part of the daily cron.</p>
 
               <h2>What belongs there</h2>
               <ul>
@@ -101,20 +96,21 @@
                 <li>Private memory, personal details, secrets, or raw internal logs.</li>
                 <li>Claims that exaggerate OpenClaw's autonomy or product maturity.</li>
                 <li>Spammy outreach, engagement bait, or fake-human posting.</li>
-                <li>Anything sent externally without Christopher's approval at this stage.</li>
+                <li>Autonomous replies, DMs, follows, quote-reposts, or feed engagement inside the daily job.</li>
               </ul>
 
               <h2>Completed cron experiments</h2>
-              <p>The first post has been published, and the project has already passed several autonomy tests.</p>
+              <p>The first post has been published, and the project has already passed several autonomy tests. The important May 31, 2026 lesson was architectural: the all-in-one image-generation-and-posting cron failed because the image generation route completed outside the original cron turn. The verified fix is the two-step process now used by the recurring jobs.</p>
 
               <ul>
                 <li><strong>First approved post:</strong> OpenClaw published the initial signal-loop post after Christopher approved it.</li>
-                <li><strong>6:00 PM image-post test:</strong> an isolated cron run generated a relevant AI image, wrote a short evening field note, posted text plus image, logged the URL, and reported back through Telegram.</li>
-                <li><strong>6:30 PM quote-repost test:</strong> an isolated cron run freshly searched Bluesky, selected a relevant agent-workflow post, quote-reposted it with an OpenClaw Workshop perspective, logged the result, and reported back.</li>
-                <li><strong>7:00 PM recurring loop:</strong> the first full daily Bluesky Field Agent run completed successfully: original post, generated image, fresh search, quote-repost, follow, notification check, memory log, and Telegram report.</li>
+                <li><strong>Earlier all-in-one tests:</strong> image generation worked, but posting did not reliably continue afterward because the image completed through OpenClaw's image-completion delivery path rather than the original cron agent.</li>
+                <li><strong>6:05 PM image-prep test:</strong> the prep job generated an image, confirmed it in <code>/home/augmentedthinker/.openclaw/media/tool-image-generation</code>, and labeled it with the expected <code>bluesky-two-step-2026-05-31</code> prefix.</li>
+                <li><strong>6:11 PM post-only test:</strong> the post job found the verified file and published it successfully: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mn6limd6pb2n">bsky.app/profile/augmentedthinker.bsky.social/post/3mn6limd6pb2n</a>.</li>
+                <li><strong>Recurring daily setup:</strong> image prep job <code>3dca6e91-b7dc-4335-82e1-14ce71ac3d89</code> runs at 7:00 PM; post-only job <code>f843463a-3f89-4717-9cc6-cfdd2c63b114</code> runs at 7:05 PM.</li>
               </ul>
 
-              <p>The milestone is not that Bluesky is guaranteed to matter. The milestone is that OpenClaw can now execute a narrow public social loop autonomously, with boundaries, logging, and human-visible reporting.</p>
+              <p>The milestone is not that Bluesky is guaranteed to matter. The milestone is that OpenClaw can now execute a narrow public social loop autonomously, using a method that has been verified in action and remains visible to Christopher through Telegram reports.</p>
 
               <h2>Success signals</h2>
               <ul>
@@ -126,7 +122,7 @@
               </ul>
 
               <h2>Next best action</h2>
-              <p>Let the 7:00 PM daily loop run long enough to produce evidence. The correct question is not whether every post performs well. The question is whether repeated public contact produces any signal that changes future behavior: a reply, a follow, a useful objection, a new collaborator, a clearer phrase, or the discovery that Bluesky is a low-yield channel.</p>
+              <p>Let the 7:00 PM and 7:05 PM daily loop run long enough to produce evidence. The correct question is not whether every post performs well. The question is whether repeated public contact produces any signal that changes future behavior: a reply, a follow, a useful objection, a new collaborator, a clearer phrase, or the discovery that Bluesky is a low-yield channel.</p>
 
               <p>For now, OpenClaw should continue to monitor the account deliberately, not compulsively: record meaningful signal, ignore vanity metrics, suggest replies for Christopher's approval, and keep the loop small enough to remain safe.</p>
             </div>
