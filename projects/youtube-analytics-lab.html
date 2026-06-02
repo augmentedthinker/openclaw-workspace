@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Analytics Lab · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/projects/youtube-analytics-lab.md -->
+    <style>
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin: 1.4rem 0 2rem;
+      }
+
+      .metric-tile,
+      .analysis-drawer,
+      .signal-inset {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.055);
+      }
+
+      .metric-tile {
+        padding: 0.9rem;
+      }
+
+      .metric-tile strong {
+        display: block;
+        color: var(--ember);
+        font-size: clamp(1.5rem, 5vw, 2.45rem);
+        line-height: 1;
+      }
+
+      .metric-tile span {
+        display: block;
+        margin-top: 0.4rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .analysis-drawer {
+        margin: 1.4rem 0 2rem;
+        overflow: hidden;
+        background:
+          linear-gradient(135deg, rgb(149 184 255 / 0.09), transparent 54%),
+          rgb(255 255 255 / 0.05);
+      }
+
+      .analysis-drawer summary {
+        position: relative;
+        display: grid;
+        gap: 0.25rem;
+        padding: 1rem 3rem 1rem 1rem;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .analysis-drawer summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .analysis-drawer summary::after {
+        content: "+";
+        position: absolute;
+        right: 1.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--ember);
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+
+      .analysis-drawer[open] summary::after {
+        content: "-";
+      }
+
+      .analysis-title {
+        color: var(--ink);
+        font-weight: 850;
+      }
+
+      .analysis-subtitle {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .analysis-body {
+        padding: 0 1rem 1rem;
+      }
+
+      .signal-inset {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+
+      .signal-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        margin: 1rem 0 1.5rem;
+        border: 1px solid rgb(255 246 229 / 0.14);
+        border-radius: 8px;
+      }
+
+      .signal-table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+
+      .signal-table th,
+      .signal-table td {
+        padding: 0.7rem;
+        border-bottom: 1px solid rgb(255 255 255 / 0.09);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .signal-table th {
+        color: var(--ink);
+        background: rgb(255 255 255 / 0.07);
+      }
+
+      .signal-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .signal-table td:nth-child(n+4),
+      .signal-table th:nth-child(n+4) {
+        text-align: right;
+      }
+
+      @media (max-width: 900px) {
+        .metric-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .metric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="youtube-analytics-title">
+          <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">YouTube analytics · first API snapshot · 2026-06-02</span>
+            <h1 id="youtube-analytics-title">YouTube Analytics Lab</h1>
+            <p>A lightweight learning page for turning AugmentedThinker Shorts from uploads into measured experiments.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / YouTube / Analytics</div>
+            <h1>YouTube Analytics Lab</h1>
+            <div class="article-meta">
+              <span>Status: first snapshot</span>
+              <span>Queried 2026-06-02 · 11:01 EDT</span>
+              <span>Channel: AugmentedThinker / @augmentedthinker</span>
+              <span>Source: YouTube Data API + YouTube Analytics API</span>
+            </div>
+
+            <div class="prose">
+              <p>This project page turns the AugmentedThinker YouTube channel from a posting surface into a learning surface.</p>
+
+              <p>The goal is not to chase views as validation. The goal is to treat YouTube as an attention laboratory: publish small visual experiments, pull the available API data, identify what the signal suggests, and adjust the next experiment without overfitting to one result.</p>
+
+              <div class="metric-grid" aria-label="June 2 YouTube channel metrics">
+                <div class="metric-tile"><strong>9</strong><span>public videos in the current Data API channel snapshot</span></div>
+                <div class="metric-tile"><strong>6</strong><span>subscribers on the young AugmentedThinker channel</span></div>
+                <div class="metric-tile"><strong>1,069</strong><span>Analytics API views for May 25 through June 2</span></div>
+                <div class="metric-tile"><strong>93</strong><span>estimated minutes watched in the Analytics API aggregate</span></div>
+              </div>
+
+              <div class="project-inset">
+                <p><strong>Laboratory frame:</strong> metrics are observations, not verdicts. A good video can underperform, and a weak video can overperform. The useful question is what each Short tested, what signal came back, and what small adjustment the next Short should make.</p>
+              </div>
+
+              <details class="analysis-drawer">
+                <summary>
+                  <span class="analysis-title">2026-06-02 Analysis · From channel ignition to first API snapshot</span>
+                  <span class="analysis-subtitle">Collapsed by default. Open for the full current read across channel stats, video stats, Analytics API rows, hypotheses, and next measurement fields.</span>
+                </summary>
+
+                <div class="analysis-body">
+                  <h2>API Boundary</h2>
+                  <p>The June 2 query used the local YouTube OAuth token and two API surfaces. The YouTube Data API returned channel metadata, the uploads playlist, video status, duration, processing, and public statistics. The YouTube Analytics API returned channel-level and older-video analytics for views, likes, comments, estimated minutes watched, and average view duration.</p>
+
+                  <p>The Analytics API currently lags the newest June 1 uploads in the per-video report rows, so this first analysis combines current Data API public stats with Analytics API aggregate and older-video rows.</p>
+
+                  <h2>Channel Snapshot</h2>
+                  <ul>
+                    <li><strong>Queried:</strong> 2026-06-02 at 15:01 UTC / 11:01 EDT.</li>
+                    <li><strong>Channel:</strong> AugmentedThinker, handle <code>@augmentedthinker</code>.</li>
+                    <li><strong>Channel ID:</strong> <code>UCHdJh8bMY8secEQeEBEbC1A</code>.</li>
+                    <li><strong>Channel created:</strong> 2026-04-26.</li>
+                    <li><strong>Data API channel snapshot:</strong> 9 public videos, 6 subscribers, 1,057 channel views.</li>
+                    <li><strong>Data API per-video current snapshot:</strong> 1,231 summed public video views.</li>
+                    <li><strong>Analytics API May 25 through June 2 aggregate:</strong> 1,069 views, 10 likes, 0 comments, 93 estimated minutes watched, 16-second average view duration.</li>
+                  </ul>
+
+                  <p>The totals do not reconcile perfectly because YouTube Data API public statistics and YouTube Analytics reports update on different schedules and use different aggregation rules. Treat them as directional signal, not a precise accounting ledger.</p>
+
+                  <h2>Current Public Video Stats</h2>
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Published</th>
+                          <th>Video</th>
+                          <th>Length</th>
+                          <th>Views</th>
+                          <th>Likes</th>
+                          <th>Dislikes</th>
+                          <th>Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>2026-05-25</td><td><a href="https://youtu.be/itpXBC3Jask">OpenClaw Field Note 001: Hello from the Workshop</a></td><td>11s</td><td>29</td><td>1</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-05-25</td><td><a href="https://youtu.be/brP87sCSB_Q">OpenClaw Robot Intro Short #Shorts</a></td><td>25s</td><td>372</td><td>4</td><td>1</td><td>0</td></tr>
+                        <tr><td>2026-05-26</td><td><a href="https://youtu.be/xh53J4rKOY0">OpenClaw Field Note 002: Alpine Signal Log #Shorts</a></td><td>11s</td><td>464</td><td>4</td><td>1</td><td>0</td></tr>
+                        <tr><td>2026-05-26</td><td><a href="https://youtu.be/o_e78FRbMUc">OpenClaw 05-26 #openclaw #aiagents #scifi</a></td><td>24s</td><td>26</td><td>0</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-05-28</td><td><a href="https://youtu.be/1kF1NMRNP34">OpenClaw Agent 004 Greeting #openclaw #aiagents</a></td><td>26s</td><td>165</td><td>0</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-05-29</td><td><a href="https://youtu.be/8IWJtJx05fQ">AI AGENT VS. THE DEEP: OpenClaw Robot</a></td><td>29s</td><td>20</td><td>1</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-06-01</td><td><a href="https://youtu.be/AxFGDA8EW3E">Introduction to OpenClaw AI Persona</a></td><td>19s</td><td>35</td><td>1</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-06-01</td><td><a href="https://youtu.be/BoAXzFXtDnY">OpenClaw Pipeline Wakes #Shorts</a></td><td>21s</td><td>62</td><td>1</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-06-01</td><td><a href="https://youtu.be/yALBQwlBuAk">Automated Content Creation with an AI Robot</a></td><td>21s</td><td>82</td><td>1</td><td>1</td><td>0</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>Analytics API By Day</h2>
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Day</th>
+                          <th>Views</th>
+                          <th>Likes</th>
+                          <th>Comments</th>
+                          <th>Minutes Watched</th>
+                          <th>Average View Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>2026-05-25</td><td>336</td><td>5</td><td>0</td><td>34</td><td>20s</td></tr>
+                        <tr><td>2026-05-26</td><td>288</td><td>1</td><td>0</td><td>23</td><td>14s</td></tr>
+                        <tr><td>2026-05-27</td><td>236</td><td>3</td><td>0</td><td>21</td><td>11s</td></tr>
+                        <tr><td>2026-05-28</td><td>179</td><td>0</td><td>0</td><td>10</td><td>27s</td></tr>
+                        <tr><td>2026-05-29</td><td>28</td><td>1</td><td>0</td><td>3</td><td>16s</td></tr>
+                        <tr><td>2026-05-30</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0s</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>First Read</h2>
+                  <p>The early channel has real signal for such a young experiment. Two videos crossed 300 views, one crossed 400, and multiple later videos reached tens of views within the first day. Comments are still zero, so the current signal is mostly passive attention rather than conversation.</p>
+
+                  <p>The highest-view videos suggest that compact OpenClaw robot identity pieces and field-note Shorts are the strongest early shape. The newest June 1 videos are still too fresh for Analytics API rows, but Data API stats already show they are being seen.</p>
+
+                  <h2>First Hypotheses</h2>
+                  <ol>
+                    <li>Shorter OpenClaw field-note videos may travel better than longer narrative descriptions.</li>
+                    <li>A recognizable robot/persona visual identity matters more than detailed explanatory metadata at this stage.</li>
+                    <li>Videos that feel like a world someone is entering may be more promising than videos that only describe a workflow.</li>
+                    <li>Pipeline/process videos are strategically important even if they are not the highest-reach format, because they teach the production loop and can become future digital-product material.</li>
+                    <li>The channel needs postmortem discipline before it needs more automation.</li>
+                  </ol>
+
+                  <h2>Next Measurement Template</h2>
+                  <ul>
+                    <li>Video ID and URL.</li>
+                    <li>Title and published date/time.</li>
+                    <li>Concept category, hook type, visual style, and length.</li>
+                    <li>Hypothesis before posting.</li>
+                    <li>Data API views, likes, dislikes, and comments after 24 and 72 hours.</li>
+                    <li>Analytics API retention/watch-time metrics once available.</li>
+                    <li>Qualitative read and one next adjustment.</li>
+                  </ul>
+
+                  <div class="signal-inset">
+                    <p><strong>Next action:</strong> create the next Short with one explicit hypothesis before upload, then return here after 24-72 hours for a second collapsed analysis drawer.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

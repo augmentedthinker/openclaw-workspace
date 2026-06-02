@@ -61,6 +61,18 @@ The TSX files teach the production model:
 
 The operational lesson is: generate fresh still images first, then assemble the actual uploadable movie locally.
 
+## Retained Lessons From The Older Still-Shot Pipeline
+
+The older still-shot movie pipeline is now folded into this runbook instead of remaining a separate Projects entry point. Keep these lessons:
+
+- **Native `ffmpeg` is still the default renderer.** The useful near-term path is local native rendering, not a full browser-native editor.
+- **Scripted composition beats hand-built repetition.** Represent Shorts as a small timeline: scene image, duration, motion type, caption, optional audio, and output format.
+- **Motion can stay simple.** Push-in, pull-back, pan, hold, and reveal movements are enough for early Shorts if the image and caption are strong.
+- **Generate both review and platform shapes only when needed.** Earlier work proved horizontal 16:9 and vertical 9:16 outputs are possible, but the current YouTube Shorts lane should default to vertical unless Christopher asks for a widescreen review artifact.
+- **Inspect renders before publication.** Use `video-frames`, contact sheets, or extracted frames to confirm the video is nonblank, readable, correctly ordered, and not hiding key text under likely Shorts UI.
+- **Avoid heavy video infrastructure until friction proves it is needed.** Browser preview, WebCodecs, Revideo, MoviePy, and AI image-to-video APIs remain candidates, but the first practical product is reliable storyboarding, motion, captions, voiceover/audio when useful, and repeatable publishing.
+- **Uploads stay approval-gated.** Public YouTube uploads, metadata changes, comments, and channel operations require Christopher's approval unless a narrower future routine is explicitly defined.
+
 ## The Reproduction Checklist
 
 1. Locate and inspect the source folder.
