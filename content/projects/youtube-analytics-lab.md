@@ -29,6 +29,27 @@ The June 2 query used the local YouTube OAuth token and two API surfaces:
 
 The Analytics API currently lags the newest June 1 uploads in the per-video report rows, so this first analysis combines current Data API public stats with Analytics API aggregate and older-video rows.
 
+## Studio Trends Direction Queue
+
+Captured manually from YouTube Studio Analytics > Trends on 2026-06-02 around 11:35 EDT. These are the "What people are looking for" suggestions visible in Studio, not Analytics API search-traffic rows.
+
+Use these as a creative direction queue for future Shorts, hooks, titles, and experiment concepts:
+
+- `openclaw lead generation`
+- `robotics engineering podcast`
+- `how i created openclaw`
+- `openclaw stock analysis`
+- `openclaw self improvement`
+- `openclaw podcast`
+- `trading bot (openclaw tutorial)`
+- `openclaw job application`
+- `on artificial intelligence`
+- `ai automation podcast`
+- `openclaw personal assistant`
+- `openclaw marketing`
+
+Read: these are much more strategically relevant than the current API-visible search-traffic terms because they point toward what YouTube Studio thinks adjacent viewers may be interested in. Treat them as prompts for the next experiment backlog, not as proof that any one topic will perform.
+
 ## Search And Trends Access Check
 
 Christopher asked whether OpenClaw can access the YouTube Studio Analytics "Trends" style search suggestions that show what people are looking for.

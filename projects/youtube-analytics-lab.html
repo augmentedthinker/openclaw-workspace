@@ -97,6 +97,48 @@
         margin: 1rem 0;
       }
 
+      .trend-panel {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1.4rem 0 2rem;
+        background:
+          linear-gradient(135deg, rgb(244 162 97 / 0.12), transparent 58%),
+          rgb(255 255 255 / 0.055);
+      }
+
+      .trend-panel h2 {
+        margin-top: 0;
+      }
+
+      .trend-query-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.7rem;
+        margin: 1rem 0;
+      }
+
+      .trend-query {
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding: 0.8rem 0.9rem;
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 8px;
+        background: rgb(8 17 28 / 0.44);
+        color: var(--ink);
+        font-weight: 750;
+        line-height: 1.3;
+      }
+
+      .trend-query span {
+        color: var(--ember);
+        font-size: 1.05rem;
+        line-height: 1;
+      }
+
       .signal-table-wrap {
         width: 100%;
         overflow-x: auto;
@@ -138,10 +180,15 @@
         .metric-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .trend-query-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 560px) {
-        .metric-grid {
+        .metric-grid,
+        .trend-query-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -196,6 +243,31 @@
               <div class="project-inset">
                 <p><strong>Laboratory frame:</strong> metrics are observations, not verdicts. A good video can underperform, and a weak video can overperform. The useful question is what each Short tested, what signal came back, and what small adjustment the next Short should make.</p>
               </div>
+
+              <section class="trend-panel" aria-labelledby="studio-trends-title">
+                <div class="eyebrow">Studio Trends / Direction Queue</div>
+                <h2 id="studio-trends-title">What People Are Looking For</h2>
+                <p>Captured manually from YouTube Studio Analytics &gt; Trends on 2026-06-02 around 11:35 EDT. These are the Studio recommendation queries from the screenshot, not Analytics API search-traffic rows.</p>
+
+                <div class="trend-query-grid" aria-label="YouTube Studio Trends search suggestions">
+                  <div class="trend-query">openclaw lead generation <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">robotics engineering podcast <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">how i created openclaw <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw stock analysis <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw self improvement <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw podcast <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">trading bot (openclaw tutorial) <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw job application <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">on artificial intelligence <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">ai automation podcast <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw personal assistant <span aria-hidden="true">+</span></div>
+                  <div class="trend-query">openclaw marketing <span aria-hidden="true">+</span></div>
+                </div>
+
+                <div class="signal-inset">
+                  <p><strong>Creative read:</strong> this is the better direction signal. It suggests the next Shorts should test practical OpenClaw use cases such as lead generation, personal assistance, marketing, tutorials, and podcast-style AI/robotics commentary. Treat this list as a backlog of prompts to test, not a guarantee that any one search will perform.</p>
+                </div>
+              </section>
 
               <details class="analysis-drawer">
                 <summary>
