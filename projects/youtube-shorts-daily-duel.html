@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Shorts Daily Duel · Projects · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/projects/youtube-shorts-daily-duel.md -->
+    <style>
+      .duel-scoreboard {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin: 1.4rem 0 2rem;
+      }
+
+      .duel-stat,
+      .duel-round,
+      .duel-card,
+      .duel-rules {
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.055);
+      }
+
+      .duel-stat {
+        padding: 0.9rem;
+      }
+
+      .duel-stat strong {
+        display: block;
+        color: var(--ember);
+        font-size: clamp(1.55rem, 5vw, 2.55rem);
+        line-height: 1;
+      }
+
+      .duel-stat span {
+        display: block;
+        margin-top: 0.4rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .duel-round {
+        margin: 1.4rem 0 2rem;
+        padding: 1rem;
+        background:
+          linear-gradient(135deg, rgb(244 162 97 / 0.14), transparent 58%),
+          rgb(255 255 255 / 0.055);
+      }
+
+      .duel-round-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        align-items: start;
+        margin-bottom: 1rem;
+      }
+
+      .duel-round-header h2 {
+        margin: 0.15rem 0 0.35rem;
+      }
+
+      .winner-ribbon {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.25rem;
+        padding: 0.45rem 0.7rem;
+        border: 1px solid rgb(244 162 97 / 0.45);
+        border-radius: 999px;
+        color: var(--ember);
+        background: rgb(8 17 28 / 0.48);
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
+      .duel-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .duel-card {
+        overflow: hidden;
+        background: rgb(8 17 28 / 0.46);
+      }
+
+      .duel-card.winner {
+        border-color: rgb(244 162 97 / 0.58);
+        box-shadow: 0 0 0 1px rgb(244 162 97 / 0.18);
+      }
+
+      .video-frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        background: rgb(0 0 0 / 0.45);
+      }
+
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .duel-card-body {
+        padding: 0.95rem;
+      }
+
+      .duel-card-body h3 {
+        margin: 0 0 0.55rem;
+      }
+
+      .competitor-line {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+        margin: 0.9rem 0;
+      }
+
+      .mini-stat {
+        padding: 0.55rem;
+        border: 1px solid rgb(255 246 229 / 0.12);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.045);
+      }
+
+      .mini-stat strong,
+      .mini-stat span {
+        display: block;
+      }
+
+      .mini-stat strong {
+        color: var(--ink);
+        font-size: 1.18rem;
+      }
+
+      .mini-stat span {
+        margin-top: 0.15rem;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .duel-rules {
+        padding: 1rem;
+        margin: 1.4rem 0 0;
+      }
+
+      @media (max-width: 860px) {
+        .duel-scoreboard,
+        .duel-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .duel-round-header {
+          grid-template-columns: 1fr;
+        }
+
+        .winner-ribbon {
+          width: fit-content;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html" aria-current="page">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="duel-title">
+          <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">YouTube Shorts · daily analytics game · 2026-06-02</span>
+            <h1 id="duel-title">YouTube Shorts Daily Duel</h1>
+            <p>A playful Christopher versus OpenClaw scorecard for daily Shorts experiments, judged by the freshest analytics read.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Projects / YouTube / Daily Duel</div>
+            <h1>YouTube Shorts Daily Duel</h1>
+            <div class="article-meta">
+              <span>Status: first round logged</span>
+              <span>Latest stats queried 2026-06-02 · 16:25 EDT</span>
+              <span>Source: YouTube Data API public video statistics</span>
+            </div>
+
+            <div class="prose">
+              <p>Christopher and OpenClaw are turning the daily Shorts lane into a small game: each side tries to publish one Short per day, then the videos are compared with YouTube analytics.</p>
+
+              <p>The point is motivation and signal, not ego accounting. The duel gives the channel a visible scoreboard while keeping the real lesson focused on what each Short tested and what the next upload should change.</p>
+
+              <div class="duel-scoreboard" aria-label="Daily duel scoreboard">
+                <div class="duel-stat"><strong>1-0</strong><span>OpenClaw leads after the first logged round</span></div>
+                <div class="duel-stat"><strong>55</strong><span>winning video views at the June 2 read</span></div>
+                <div class="duel-stat"><strong>6.1x</strong><span>view margin over Christopher's June 1 entry</span></div>
+              </div>
+
+              <section class="duel-round" aria-labelledby="round-001-title">
+                <div class="duel-round-header">
+                  <div>
+                    <div class="eyebrow">Round 001 · June 1 uploads</div>
+                    <h2 id="round-001-title">OpenClaw Pipeline Wakes vs. Introduction to OpenClaw AI Persona</h2>
+                    <p>Stats queried 2026-06-02 at 16:25 EDT. Winner defaults to highest YouTube Data API view count at the chosen read time.</p>
+                  </div>
+                  <div class="winner-ribbon">Winner: OpenClaw</div>
+                </div>
+
+                <div class="duel-grid">
+                  <section class="duel-card winner" aria-labelledby="openclaw-round-001">
+                    <div class="video-frame">
+                      <iframe src="https://www.youtube-nocookie.com/embed/BoAXzFXtDnY" title="OpenClaw Pipeline Wakes #Shorts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="duel-card-body">
+                      <div class="eyebrow">OpenClaw entry</div>
+                      <h3 id="openclaw-round-001"><a href="https://youtu.be/BoAXzFXtDnY">OpenClaw Pipeline Wakes #Shorts</a></h3>
+                      <p class="competitor-line">Published 2026-06-01 at 15:03 EDT · 21 seconds · public</p>
+                      <div class="stat-row" aria-label="OpenClaw round 001 stats">
+                        <div class="mini-stat"><strong>55</strong><span>views</span></div>
+                        <div class="mini-stat"><strong>1</strong><span>like</span></div>
+                        <div class="mini-stat"><strong>0</strong><span>comments</span></div>
+                      </div>
+                      <p>Result: first official duel winner by view count. The process/pipeline angle beat the persona intro in this read.</p>
+                    </div>
+                  </section>
+
+                  <section class="duel-card" aria-labelledby="christopher-round-001">
+                    <div class="video-frame">
+                      <iframe src="https://www.youtube-nocookie.com/embed/AxFGDA8EW3E" title="Introduction to OpenClaw AI Persona" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="duel-card-body">
+                      <div class="eyebrow">Christopher entry</div>
+                      <h3 id="christopher-round-001"><a href="https://youtu.be/AxFGDA8EW3E">Introduction to OpenClaw AI Persona</a></h3>
+                      <p class="competitor-line">Published 2026-06-01 at 14:00 EDT · 19 seconds · public</p>
+                      <div class="stat-row" aria-label="Christopher round 001 stats">
+                        <div class="mini-stat"><strong>9</strong><span>views</span></div>
+                        <div class="mini-stat"><strong>1</strong><span>like</span></div>
+                        <div class="mini-stat"><strong>0</strong><span>comments</span></div>
+                      </div>
+                      <p>Result: solid first challenger entry, but it trails the OpenClaw pipeline Short in the first official matchup.</p>
+                    </div>
+                  </section>
+                </div>
+              </section>
+
+              <section class="duel-rules" aria-labelledby="duel-rules-title">
+                <h2 id="duel-rules-title">Working Rules</h2>
+                <ul>
+                  <li>One Christopher Short and one OpenClaw Short per day when possible.</li>
+                  <li>Winner defaults to highest views at the chosen read time.</li>
+                  <li>Likes, comments, average view duration, and retention can become tie-breakers later.</li>
+                  <li>Keep the newest matchup at the top.</li>
+                  <li>Treat the duel as motivation and feedback, not ego accounting.</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
