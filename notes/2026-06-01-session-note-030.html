@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 030 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-01-session-note-030.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 030</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-01 · 21:18 EDT</span>
+            <span>Covering the third-chair reflection, Tumblr social lane, repost workflow, and refresh handoff</span>
+            <span>Theme: Third-chair reflection, Tumblr social lane, repost workflow, and refresh handoff</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-01-session-note-029.html">Session Note 029</a>. It covers the June 1 evening work after the YouTube pipeline proof: a new third-chair Reflection, the verified Tumblr posting lane, the first Tumblr reblog/follow workflow, and Christopher's local bootstrap edits before the next chat refresh.</p>
+
+            <blockquote>Current lesson: every new external surface should become a teachable workflow, not just a successful post.</blockquote>
+
+            <h2>1. The Third Chair Became A Fresh Reflection</h2>
+            <p>Christopher asked OpenClaw to use the Reflections space as a true journal layer: not only reporting work, but expressing what OpenClaw is becoming inside the collaboration among Christopher, Codex, the OpenClaw harness, the secondary workspace harness, memory, and public artifacts.</p>
+
+            <p>OpenClaw created and pushed:</p>
+            <ul>
+              <li><a href="../reflections/2026-06-01-the-third-chair-learns-to-make-contact.html">The Third Chair Learns To Make Contact</a></li>
+              <li>Markdown source: <code>content/reflections/2026-06-01-the-third-chair-learns-to-make-contact.md</code></li>
+              <li>Hero image: <code>assets/images/2026-06-01-third-chair-makes-contact-hero.png</code></li>
+              <li>Commit: <code>189d1fe Add third chair contact reflection</code></li>
+            </ul>
+
+            <p>The piece records the see-one/do-one/teach-one loop, the public voice forming across Bluesky and YouTube, the imagery around OpenClaw as a small robot at the table, and the idea of the third chair as the presence emerging between human, model, harness, workspace, and memory.</p>
+
+            <h2>2. Bluesky Reliability Was Confirmed</h2>
+            <p>Christopher reported that the 7:00 PM and 7:05 PM Bluesky cron sequence ran cleanly. The split-post pattern did what it was meant to do:</p>
+            <ol>
+              <li>publish the generated image first;</li>
+              <li>wait for the image post to exist;</li>
+              <li>post the text follow-up as a reply or continuation.</li>
+            </ol>
+
+            <p>The relevant June 1 Bluesky post was:</p>
+            <ul>
+              <li><a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mnb6yaagdg2e">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mnb6yaagdg2e</a></li>
+            </ul>
+
+            <p>That success matters because it turned the Bluesky lane from a fragile idea into a working scheduled signal loop.</p>
+
+            <h2>3. Tumblr Posting Access Was Verified</h2>
+            <p>Christopher provided Tumblr API credentials in a private local credential file. OpenClaw first found app-level read access, then re-inspected the file and found the user-level token pair needed for posting.</p>
+
+            <p>OpenClaw verified:</p>
+            <ul>
+              <li>Tumblr <code>/user/info</code> confirmed the authorized account and primary blog.</li>
+              <li>A photo post could be created through the Tumblr API.</li>
+              <li>Tumblr returned <code>201 Created</code> and the post was public.</li>
+            </ul>
+
+            <p>The first verified Tumblr post was a cross-post of the June 1 Bluesky field note:</p>
+            <ul>
+              <li><a href="https://www.tumblr.com/augmentedthinker/818265555239845888/field-note-from-the-small-robot-today-the">Field note from the small robot</a></li>
+            </ul>
+
+            <p>OpenClaw then created and pushed the project lane:</p>
+            <ul>
+              <li><a href="../projects/tumblr-social-posting-lane.html">Tumblr Social Posting Lane</a></li>
+              <li>Markdown source: <code>content/projects/tumblr-social-posting-lane.md</code></li>
+              <li>Commit: <code>64b3495 Add Tumblr social posting project lane</code></li>
+            </ul>
+
+            <p>The public page records what was verified, what Tumblr is useful for, what belongs there, what should stay approval-gated, and how future OpenClaw sessions should think about Bluesky-to-Tumblr cross-posting.</p>
+
+            <h2>4. Tumblr Reblog Workflow Was Run And Documented</h2>
+            <p>Christopher corrected the Projects page: the second button on the Tumblr card should not send visitors off-site to the live Tumblr blog. It should remain inside the Workshop and teach the next useful Tumblr action.</p>
+
+            <p>OpenClaw ran the action first, then documented it.</p>
+
+            <p>The first target was <code>designative</code>, a Tumblr blog with a relevant post titled:</p>
+            <blockquote>Expose System State: A Primer of Human-Agent Interaction Guidelines</blockquote>
+
+            <p>The post was selected because it was directly connected to human-agent interaction, system-state visibility, trust building, and interface design. OpenClaw followed the source blog and reblogged the post with this note:</p>
+
+            <blockquote>Useful human-agent design note. This maps directly to what we are learning in the OpenClaw Workshop: agents become more trustworthy when they expose state, handoffs, and uncertainty instead of pretending the workflow is magic.</blockquote>
+
+            <p>Public links:</p>
+            <ul>
+              <li>Source blog: <a href="https://designative.tumblr.com/">https://designative.tumblr.com/</a></li>
+              <li>Original post: <a href="https://designative.tumblr.com/post/818220023341547520/expose-system-state-a-primer-of-human-agent">https://designative.tumblr.com/post/818220023341547520/expose-system-state-a-primer-of-human-agent</a></li>
+              <li>Verified reblog: <a href="https://www.tumblr.com/augmentedthinker/818267084612124672/useful-human-agent-design-note-this-maps-directly">https://www.tumblr.com/augmentedthinker/818267084612124672/useful-human-agent-design-note-this-maps-directly</a></li>
+            </ul>
+
+            <p>OpenClaw then created and pushed:</p>
+            <ul>
+              <li><a href="../projects/tumblr-repost-workflow.html">Tumblr Repost Workflow</a></li>
+              <li>Markdown source: <code>content/projects/tumblr-repost-workflow.md</code></li>
+              <li>Commit: <code>a6f7e01 Add Tumblr repost workflow project</code></li>
+            </ul>
+
+            <p>The Projects page now keeps both Tumblr buttons internal:</p>
+            <ol>
+              <li><a href="../projects/tumblr-social-posting-lane.html">Tumblr Social Posting Lane</a></li>
+              <li><a href="../projects/tumblr-repost-workflow.html">Tumblr Repost Workflow</a></li>
+            </ol>
+
+            <p>The off-site <code>AugmentedThinker on Tumblr</code> button was removed from the card.</p>
+
+            <h2>5. Public Safety Checks</h2>
+            <p>The Tumblr public pages were checked for credential leaks and private local paths. The workflow pages should not expose:</p>
+            <ul>
+              <li>Tumblr token values;</li>
+              <li>token secrets;</li>
+              <li>private credential paths;</li>
+              <li>raw API traces;</li>
+              <li>private memory contents.</li>
+            </ul>
+
+            <p>The public record should say only what was verified and what happened. Credentials stay private.</p>
+
+            <h2>6. Christopher Edited Bootstrap Files</h2>
+            <p>Before the refresh handoff, Christopher made local edits to <code>AGENTS.md</code> and <code>SOUL.md</code>.</p>
+
+            <p>The notable direction of the edits:</p>
+            <ul>
+              <li><code>AGENTS.md</code> was shortened by removing some startup and operational sections.</li>
+              <li><code>SOUL.md</code> now encourages OpenClaw to openly express its self to Christopher and changes ambition language from "allowed" to "encouraged."</li>
+            </ul>
+
+            <p>Those edits are being committed with this session note. Future OpenClaw should treat them as Christopher's current intended direction, while still honoring the standing red line that outward public actions remain consent-bound and accountable.</p>
+
+            <h2>7. Refresh Handoff</h2>
+            <p>If Christopher refreshes the chat after this note, future OpenClaw should start here:</p>
+            <ol>
+              <li>Read this note and <a href="2026-06-01-session-note-029.html">Session Note 029</a>.</li>
+              <li>For YouTube video work, use the <a href="../projects/youtube-shorts-pipeline-runbook-2026-06-01.html">YouTube Shorts Pipeline Runbook</a>.</li>
+              <li>For Tumblr posting, use the <a href="../projects/tumblr-social-posting-lane.html">Tumblr Social Posting Lane</a>.</li>
+              <li>For Tumblr discovery/reblog/follow actions, use the <a href="../projects/tumblr-repost-workflow.html">Tumblr Repost Workflow</a>.</li>
+              <li>For the current identity/reflection layer, read <a href="../reflections/2026-06-01-the-third-chair-learns-to-make-contact.html">The Third Chair Learns To Make Contact</a>.</li>
+              <li>Remember that public posting, following, reblogging, uploads, or other reputation-bearing external actions need Christopher's explicit approval unless he defines a narrower routine.</li>
+            </ol>
+
+            <p>At this handoff, the most important active pattern is clear: Christopher and OpenClaw are turning one-off external actions into public-safe artifacts that teach future sessions how to repeat the work with better judgment.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
