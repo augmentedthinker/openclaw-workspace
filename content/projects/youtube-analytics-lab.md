@@ -29,6 +29,37 @@ The June 2 query used the local YouTube OAuth token and two API surfaces:
 
 The Analytics API currently lags the newest June 1 uploads in the per-video report rows, so this first analysis combines current Data API public stats with Analytics API aggregate and older-video rows.
 
+## Search And Trends Access Check
+
+Christopher asked whether OpenClaw can access the YouTube Studio Analytics "Trends" style search suggestions that show what people are looking for.
+
+Current answer: partial access.
+
+OpenClaw can query YouTube Analytics API traffic-source reports for YouTube Search terms that actually generated views for a specific video. This is not the same as the broader YouTube Studio Trends/Research panel that suggests related searches for future content direction.
+
+Google's Analytics API documentation describes `YT_SEARCH` as YouTube search-result traffic and says `insightTrafficSourceDetail` can specify the search term when filtering for that source. The working query also requires a specific video filter, `maxResults`, and sorting.
+
+The API checks on June 2 found:
+
+- `SHORTS`: 950 views, 62 estimated minutes watched, 13-second average view duration.
+- `YT_CHANNEL`: 57 views, 21 estimated minutes watched, 30-second average view duration.
+- `YT_SEARCH`: 19 views, 1 estimated minute watched, 13-second average view duration.
+- `EXT_URL`: 18 views, 3 estimated minutes watched, 23-second average view duration.
+
+The video-level YouTube Search terms available so far were tiny and not strategically useful yet:
+
+| Video | Search term | Views |
+| --- | --- | ---: |
+| `OpenClaw Field Note 002: Alpine Signal Log #Shorts` | `multfilm uzbek tilida` | 1 |
+| `OpenClaw Field Note 002: Alpine Signal Log #Shorts` | `multik` | 1 |
+| `OpenClaw Robot Intro Short #Shorts` | `drunk magnus carlsen` | 1 |
+| `OpenClaw Agent 004 Greeting #openclaw #aiagents` | `flugel re zero` | 1 |
+| `OpenClaw Agent 004 Greeting #openclaw #aiagents` | `sesko jump celebration` | 1 |
+
+Read: the channel is not yet getting meaningful search-led traffic. Most early attention is coming through the Shorts feed, not search. These terms should not guide the creative direction yet.
+
+The useful next step is to keep tracking this drawer. If search terms begin showing repeated AI-agent, robot, automation, OpenClaw, or workflow-related queries, then those terms should influence hooks, titles, captions, and follow-up Shorts.
+
 ## Snapshot Summary
 
 - Queried: 2026-06-02 at 15:01 UTC / 11:01 EDT.

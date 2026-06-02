@@ -209,6 +209,61 @@
 
                   <p>The Analytics API currently lags the newest June 1 uploads in the per-video report rows, so this first analysis combines current Data API public stats with Analytics API aggregate and older-video rows.</p>
 
+                  <h2>Traffic Source Snapshot</h2>
+                  <p>Christopher asked whether OpenClaw can access the YouTube Studio Analytics "Trends" style search suggestions that show what people are looking for. Current answer: partial access.</p>
+
+                  <p>OpenClaw can query YouTube Analytics API traffic-source reports for YouTube Search terms that actually generated views for a specific video. This is not the same as the broader YouTube Studio Trends/Research panel that suggests related searches for future content direction.</p>
+
+                  <p>Google's Analytics API documentation describes <code>YT_SEARCH</code> as YouTube search-result traffic and says <code>insightTrafficSourceDetail</code> can specify the search term when filtering for that source. The working query also requires a specific video filter, <code>maxResults</code>, and sorting. See Google's <a href="https://developers.google.com/youtube/analytics/dimensions">Analytics dimensions documentation</a> and <a href="https://developers.google.com/youtube/analytics/sample-requests">sample API requests</a>.</p>
+
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Traffic Source</th>
+                          <th>Meaning</th>
+                          <th>Views</th>
+                          <th>Minutes Watched</th>
+                          <th>Avg View Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><code>SHORTS</code></td><td>Vertical Shorts feed swipes</td><td>950</td><td>62</td><td>13s</td></tr>
+                        <tr><td><code>YT_CHANNEL</code></td><td>Channel page</td><td>57</td><td>21</td><td>30s</td></tr>
+                        <tr><td><code>YT_SEARCH</code></td><td>YouTube search results</td><td>19</td><td>1</td><td>13s</td></tr>
+                        <tr><td><code>EXT_URL</code></td><td>External links and web referrals</td><td>18</td><td>3</td><td>23s</td></tr>
+                        <tr><td><code>SUBSCRIBER</code></td><td>Subscription/homepage surfaces</td><td>9</td><td>1</td><td>17s</td></tr>
+                        <tr><td><code>YT_OTHER_PAGE</code></td><td>Other YouTube pages</td><td>7</td><td>0</td><td>7s</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>Available Search Terms</h2>
+                  <p>The video-level YouTube Search terms available so far were tiny and not strategically useful yet:</p>
+
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Video</th>
+                          <th>Search Term</th>
+                          <th>Views</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td><a href="https://youtu.be/xh53J4rKOY0">OpenClaw Field Note 002: Alpine Signal Log #Shorts</a></td><td><code>multfilm uzbek tilida</code></td><td>1</td></tr>
+                        <tr><td><a href="https://youtu.be/xh53J4rKOY0">OpenClaw Field Note 002: Alpine Signal Log #Shorts</a></td><td><code>multik</code></td><td>1</td></tr>
+                        <tr><td><a href="https://youtu.be/brP87sCSB_Q">OpenClaw Robot Intro Short #Shorts</a></td><td><code>drunk magnus carlsen</code></td><td>1</td></tr>
+                        <tr><td><a href="https://youtu.be/1kF1NMRNP34">OpenClaw Agent 004 Greeting #openclaw #aiagents</a></td><td><code>flugel re zero</code></td><td>1</td></tr>
+                        <tr><td><a href="https://youtu.be/1kF1NMRNP34">OpenClaw Agent 004 Greeting #openclaw #aiagents</a></td><td><code>sesko jump celebration</code></td><td>1</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="signal-inset">
+                    <p><strong>Search read:</strong> the channel is not yet getting meaningful search-led traffic. Most early attention is coming through the Shorts feed, not search. These terms should not guide the creative direction yet. If search terms begin showing repeated AI-agent, robot, automation, OpenClaw, or workflow-related queries, then those terms should influence hooks, titles, captions, and follow-up Shorts.</p>
+                  </div>
+
                   <h2>Channel Snapshot</h2>
                   <ul>
                     <li><strong>Queried:</strong> 2026-06-02 at 15:01 UTC / 11:01 EDT.</li>
