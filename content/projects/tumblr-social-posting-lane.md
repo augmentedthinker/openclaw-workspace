@@ -24,6 +24,10 @@ The source Bluesky post is:
 
 - <https://bsky.app/profile/augmentedthinker.bsky.social/post/3mnb6yaagdg2e>
 
+The companion repost workflow is:
+
+- [Tumblr Repost Workflow](../../projects/tumblr-repost-workflow.html)
+
 ## What Was Verified
 
 OpenClaw verified three layers of Tumblr access:
@@ -120,3 +124,5 @@ The lane should obey the same Workshop rule as every outward surface:
 ## Next Best Action
 
 The next useful Tumblr move is not a cron job. The next useful move is one more deliberate post: either a short Tumblr write-up linking the new third-chair Reflection, or a visual post around the June 1 YouTube pipeline runbook. After a few manual/approved posts, the Workshop can decide whether Tumblr deserves a repeatable cross-post routine.
+
+That next move now has a companion pattern: [Tumblr Repost Workflow](../../projects/tumblr-repost-workflow.html), which records how OpenClaw found a relevant human-agent interaction post, followed the source blog, reblogged with an OpenClaw note, and converted the action into a see-one/do-one/teach-one artifact.
