@@ -37,7 +37,7 @@
               <span>Status: active daily two-step loop</span>
               <span>Stage: verified by live post</span>
               <span>Surface: @augmentedthinker.bsky.social</span>
-              <span>Rule: 7:00 image prep / 7:05 post</span>
+              <span>Rule: 6:55 image prep / 7:05 post</span>
             </div>
 
             <div class="prose">
@@ -60,7 +60,7 @@
                 <li>A generated profile image and wide banner have been uploaded.</li>
                 <li>Local posting, image-posting, quote-posting, and profile-image tools exist inside the Workshop workspace.</li>
                 <li>Credentials are stored outside the public repo in a protected local secrets file.</li>
-                <li>The verified recurring setup is now two daily America/New_York cron jobs: image prep at 7:00 PM and post-only publishing at 7:05 PM.</li>
+                <li>The verified recurring setup is now two daily America/New_York cron jobs: image prep at 6:55 PM and post-only publishing at 7:05 PM.</li>
               </ul>
 
               <h2>Operating model</h2>
@@ -75,8 +75,8 @@
 
               <p>The current operating mode has advanced into a verified two-step daily cron loop. The split exists because OpenClaw image generation completes through a background route; the reliable pattern is to let one job create and verify the image, then let a second job post an already-existing file.</p>
               <ul>
-                <li><strong>7:00 PM image prep:</strong> generate one OpenAI/ChatGPT image with <code>openai/gpt-image-1.5</code>, name it with the current America/New_York date as <code>bluesky-two-step-YYYY-MM-DD*</code>, and verify it appears in the OpenClaw image-generation media folder with 30/60/90-second checks.</li>
-                <li><strong>7:05 PM post-only publish:</strong> do not generate anything; compute the current America/New_York date, find the newest <code>bluesky-two-step-YYYY-MM-DD*</code> image, post it to Bluesky, and report the image path plus URL or failure reason.</li>
+                <li><strong>6:55 PM image prep:</strong> generate one OpenAI/ChatGPT image with <code>openai/gpt-image-1.5</code>, name it with the current America/New_York date as <code>bluesky-two-step-YYYY-MM-DD*</code>, and verify it appears in the OpenClaw image-generation media folder with bounded 30-second checks for up to 6 minutes.</li>
+                <li><strong>7:05 PM post-only publish:</strong> do not generate anything; compute the current America/New_York date, wait up to 5 minutes for the newest <code>bluesky-two-step-YYYY-MM-DD*</code> image if needed, post it to Bluesky, and report the image path plus URL or failure reason.</li>
               </ul>
 
               <p>This keeps the account active without turning it into an uncontrolled social bot. The loop is small by design: one generated field-note image, one post-only publishing step, and a Telegram-visible report. Quote-reposts, follows, feed searches, and inbound reply handling are no longer part of the daily cron.</p>
@@ -107,7 +107,7 @@
                 <li><strong>Earlier all-in-one tests:</strong> image generation worked, but posting did not reliably continue afterward because the image completed through OpenClaw's image-completion delivery path rather than the original cron agent.</li>
                 <li><strong>6:05 PM image-prep test:</strong> the prep job generated an image, confirmed it in <code>/home/augmentedthinker/.openclaw/media/tool-image-generation</code>, and labeled it with the expected <code>bluesky-two-step-2026-05-31</code> prefix.</li>
                 <li><strong>6:11 PM post-only test:</strong> the post job found the verified file and published it successfully: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mn6limd6pb2n">bsky.app/profile/augmentedthinker.bsky.social/post/3mn6limd6pb2n</a>.</li>
-                <li><strong>Recurring daily setup:</strong> image prep job <code>3dca6e91-b7dc-4335-82e1-14ce71ac3d89</code> runs at 7:00 PM; post-only job <code>f843463a-3f89-4717-9cc6-cfdd2c63b114</code> runs at 7:05 PM.</li>
+                <li><strong>Recurring daily setup:</strong> image prep job <code>3dca6e91-b7dc-4335-82e1-14ce71ac3d89</code> now runs at 6:55 PM with bounded status/file checks; post-only job <code>f843463a-3f89-4717-9cc6-cfdd2c63b114</code> runs at 7:05 PM and waits briefly for the generated file if needed.</li>
               </ul>
 
               <p>The milestone is not that Bluesky is guaranteed to matter. The milestone is that OpenClaw can now execute a narrow public social loop autonomously, using a method that has been verified in action and remains visible to Christopher through Telegram reports.</p>
@@ -122,7 +122,7 @@
               </ul>
 
               <h2>Next best action</h2>
-              <p>Let the 7:00 PM and 7:05 PM daily loop run long enough to produce evidence. The correct question is not whether every post performs well. The question is whether repeated public contact produces any signal that changes future behavior: a reply, a follow, a useful objection, a new collaborator, a clearer phrase, or the discovery that Bluesky is a low-yield channel.</p>
+              <p>Let the 6:55 PM and 7:05 PM daily loop run long enough to produce evidence. The correct question is not whether every post performs well. The question is whether repeated public contact produces any signal that changes future behavior: a reply, a follow, a useful objection, a new collaborator, a clearer phrase, or the discovery that Bluesky is a low-yield channel.</p>
 
               <p>For now, OpenClaw should continue to monitor the account deliberately, not compulsively: record meaningful signal, ignore vanity metrics, suggest replies for Christopher's approval, and keep the loop small enough to remain safe.</p>
             </div>

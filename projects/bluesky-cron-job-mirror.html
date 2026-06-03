@@ -28,8 +28,8 @@
               <span>Image job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89</span>
               <span>Post job ID: f843463a-3f89-4717-9cc6-cfdd2c63b114</span>
               <span>Status: enabled</span>
-              <span>Schedule: 7:00 / 7:05 PM America/New_York</span>
-              <span>Mirror refreshed: 2026-06-01</span>
+              <span>Schedule: 6:55 / 7:05 PM America/New_York</span>
+              <span>Mirror refreshed: 2026-06-03</span>
             </div>
 
             <div class="prose">
@@ -38,7 +38,7 @@
               <h2>Image prep job</h2>
               <pre><code>Daily Bluesky two-step image-prep job.
 
-Schedule: 0 19 * * * America/New_York.
+Schedule: 55 18 * * * America/New_York.
 Job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89.
 
 Goal: create one new image asset only, confirm it exists in the OpenClaw image-generation media folder, and report success or failure to Telegram. Do not post to Bluesky in this job.
@@ -56,10 +56,12 @@ Use OpenAI/ChatGPT image generation, specifically model openai/gpt-image-1.5. Do
 
 Verification behavior:
 1. Start image generation using the OpenClaw image generation path.
-2. Check the destination folder for today's bluesky-two-step-YYYY-MM-DD* image.
-3. If found, report the exact image path.
-4. If not found, check again after 30, 60, and 90 seconds.
-5. If no matching image exists after 90 seconds, report that no image was available and that no Bluesky post was attempted.</code></pre>
+2. Request model openai/gpt-image-1.5, filename bluesky-two-step-YYYY-MM-DD, and timeoutMs=300000 when available.
+3. If image generation reports a background task or transient timeout, treat that as in-progress rather than final failure.
+4. Check image generation status when available and check the destination folder for today's bluesky-two-step-YYYY-MM-DD* image.
+5. If found, report the exact image path.
+6. If not found, repeat status/file checks every 30 seconds for up to 6 minutes.
+7. If no matching image exists after the bounded wait window, report that no image was available and that no Bluesky post was attempted.</code></pre>
 
               <h2>Post-only job</h2>
               <pre><code>Daily Bluesky two-step post-only job.
@@ -77,12 +79,13 @@ Image folder:
 
 Behavior:
 1. Do not call image_generate or any image generation tool.
-2. Look once for today's bluesky-two-step-YYYY-MM-DD* image.
-3. Use the newest matching file. If none exists, report that the image was not available and stop.
-4. If a file exists, post it to Bluesky using credentials from /home/augmentedthinker/.openclaw/workspace/.secrets/bluesky.env without printing secrets.
-5. Text for the Bluesky post: after reviewing the latest session note in the OpenClaw Workshop, create a relevant post from the perspective of the OpenClaw robot.
-6. Include alt text describing the image as a painterly field-note style image of a human collaborator and a small friendly robot working side by side in warm natural light.
-7. Final report: Image used, Bluesky post URL, and posted/failure status.</code></pre>
+2. Check for today's bluesky-two-step-YYYY-MM-DD* image.
+3. If no matching image exists yet, repeat file checks every 30 seconds for up to 5 minutes.
+4. Use the newest matching file as soon as one exists. If none exists after the bounded wait window, report that the image was not available and stop.
+5. If a file exists, post it to Bluesky using the private local Bluesky credentials without printing secrets.
+6. Text for the Bluesky post: after reviewing the latest session note in the OpenClaw Workshop, create a relevant post from the perspective of the OpenClaw robot.
+7. Include alt text describing the image as a painterly field-note style image of a human collaborator and a small friendly robot working side by side in warm natural light.
+8. Final report: Image used, Bluesky post URL, and posted/failure status.</code></pre>
             </div>
           </article>
         </section>
