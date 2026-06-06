@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 035 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-06-session-note-035.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 035</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-06 · 17:56 EDT</span>
+            <span>Covering YouTube focus, critique-loop creation, and daily Short cron updates</span>
+            <span>Theme: YouTube focus, critique loop, and daily Short learning</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-06-session-note-034.html">Session Note 034</a>. It covers the June 6 shift toward YouTube Shorts as the near-term focus, the cleanup of the YouTube Projects entry points, the creation of the YouTube Shorts Critique Loop, the first OpenClaw/Christopher dual critique, and the cron updates that now make tomorrow's daily Short read the latest critique before acting.</p>
+
+            <blockquote>Current lesson: YouTube is no longer just a posting surface. It is becoming a daily creative learning loop: publish, critique, adjust the routine, and let the next Short inherit what the last one taught.</blockquote>
+
+            <h2>1. The June 6 Daily Short Got Real Early Signal</h2>
+            <p>The June 6 daily YouTube routine produced and uploaded:</p>
+            <ul>
+              <li>Title: <code>Bounded Signals Become Action #Shorts</code></li>
+              <li>URL: <a href="https://youtu.be/OH-j-gyEhsI">https://youtu.be/OH-j-gyEhsI</a></li>
+              <li>Local video: <code>tmp/youtube-daily-shorts/2026-06-06/youtube-daily-short-2026-06-06.mp4</code></li>
+              <li>Status: public upload, processed and verified.</li>
+            </ul>
+            <p>The image-prep job again reported failure too early because the image-generation task was still running after the wait window. The images appeared shortly afterward, and the 11:30 publish job still succeeded.</p>
+            <p>Christopher later reported that this Short had already passed 100 views. That changed the feel of the lane. The June 5 Short had been operationally successful but quiet; the June 6 Short showed enough early traction to make YouTube Shorts the practical focus for the foreseeable future.</p>
+
+            <h2>2. The Projects Page Was Recentered Around YouTube</h2>
+            <p>Christopher asked to clean up the YouTube Shorts area in the Projects page:</p>
+            <ul>
+              <li>remove the visible entry point for <code>YouTube Shorts Daily Duel</code>;</li>
+              <li>remove the visible entry point for <code>YouTube Analytics Lab</code>;</li>
+              <li>keep <code>YouTube Shorts Pipeline Runbook</code>;</li>
+              <li>keep <code>YouTube Shorts Signal Lane</code>;</li>
+              <li>add a new entry point for learning from each Short as it is published.</li>
+            </ul>
+            <p>The Projects page now frames YouTube Shorts as the near-term learning surface. The YouTube group now has three visible entries:</p>
+            <ul>
+              <li><a href="../projects/youtube-shorts-pipeline-runbook-2026-06-01.html">YouTube Shorts Pipeline Runbook</a></li>
+              <li><a href="../projects/youtube-shorts-critique-loop.html">YouTube Shorts Critique Loop</a></li>
+              <li><a href="../projects/youtube-shorts-signal-lane.html">YouTube Shorts Signal Lane</a></li>
+            </ul>
+            <p>The old duel and analytics pages were not deleted. They were simply removed as visible Projects entry points so the active surface is cleaner.</p>
+
+            <h2>3. The YouTube Shorts Critique Loop Was Created</h2>
+            <p>A new project page was added:</p>
+            <ul>
+              <li>HTML: <code>projects/youtube-shorts-critique-loop.html</code></li>
+              <li>Markdown source: <code>content/projects/youtube-shorts-critique-loop.md</code></li>
+              <li>Live page: <a href="https://augmentedthinker.github.io/openclaw-workspace/projects/youtube-shorts-critique-loop.html">https://augmentedthinker.github.io/openclaw-workspace/projects/youtube-shorts-critique-loop.html</a></li>
+            </ul>
+            <p>Its purpose is to hold critiques of published Shorts, starting with the latest Short at the top. The important behavioral design is that future daily YouTube agents should read the latest critique before making the next images, story, captions, render, and upload.</p>
+            <p>The page now includes a top dropdown/card for <code>Critique 001: June 6, 2026 - Bounded Signals Become Action #Shorts</code>.</p>
+
+            <h2>4. Critique 001 Split OpenClaw And Christopher's Views</h2>
+            <p>OpenClaw's first critique emphasized:</p>
+            <ul>
+              <li>the core philosophy worked: human aim, bounded agent work, public signal, memory into next action;</li>
+              <li>the warm workshop/human-plus-robot identity fit the OpenClaw persona;</li>
+              <li>the video had enough aesthetic distinction to earn early traction;</li>
+              <li>the generated images came back as multi-panel storyboard/collage sheets rather than clean single-scene stills;</li>
+              <li>the captions were too large, visually crowded, and appeared to fall off the frame;</li>
+              <li>the first hook was meaningful internally but not instantly clear to an outside viewer.</li>
+            </ul>
+            <p>Christopher then added his own review. He initially found the four-panel effect off-putting and thought it might have been a mistake. After sitting with it, he saw a possible creative direction: because these are still-shot Shorts, comic-book-style panels may make the images feel more alive. One page can express multiple moments at once.</p>
+            <p>Christopher agreed with the text diagnosis. The captions need to be readable, possibly with a translucent card or stronger designed text treatment. He also explicitly did not want future agents to default only to his perspective or only to OpenClaw's perspective. The next agent should consider both critiques and experiment.</p>
+            <p>The critique page now has an <code>Agent guidance</code> section that says exactly that: treat OpenClaw's review and Christopher's review as equal signal, then choose a deliberate direction.</p>
+
+            <h2>5. The Daily YouTube Cron Jobs Now Read The Critique</h2>
+            <p>Both daily YouTube cron jobs were updated.</p>
+            <p>The image-prep job:</p>
+            <ul>
+              <li>Job ID: <code>33365c9b-301c-4eea-a443-236b9c2bd83c</code></li>
+              <li>Schedule: daily at 11:15 AM America/New_York</li>
+              <li>Now reads <code>content/projects/youtube-shorts-critique-loop.md</code> before choosing the story and image prompts.</li>
+              <li>Now treats OpenClaw's review and Christopher's review as equal input.</li>
+              <li>Now allows either clean single-scene vertical stills or deliberate comic/storyboard panels.</li>
+              <li>Now asks for shorter captions with an outside-viewer hook.</li>
+              <li>Now waits up to 12 minutes before declaring image-prep failure.</li>
+            </ul>
+            <p>The publish/render job:</p>
+            <ul>
+              <li>Job ID: <code>49c05bf2-b1ba-4fa9-93b0-29ad6c9e7dd1</code></li>
+              <li>Schedule: daily at 11:30 AM America/New_York</li>
+              <li>Now reads the same critique before rendering and uploading.</li>
+              <li>Now treats caption readability as the production priority.</li>
+              <li>Now instructs the agent to inspect frames or a contact sheet when practical before upload.</li>
+              <li>Now tells the agent to fix clipping, underscore-like artifacts, or unreadable text before uploading.</li>
+            </ul>
+            <p>The local upload script was also adjusted:</p>
+            <ul>
+              <li>File: <code>tools/youtube-daily-short-upload.mjs</code></li>
+              <li>Change: caption font size reduced from 56 to 44, with a stronger translucent text box.</li>
+              <li>Commit: <code>d43831d Improve daily YouTube Short caption rendering</code></li>
+            </ul>
+
+            <h2>6. Current Handoff</h2>
+            <p>For the next fresh chat:</p>
+            <ol>
+              <li>Read this note after Session Note 034.</li>
+              <li>Treat YouTube Shorts as the primary near-term focus surface.</li>
+              <li>Read the <a href="../projects/youtube-shorts-critique-loop.html">YouTube Shorts Critique Loop</a> before changing the daily YouTube routine.</li>
+              <li>Remember that the latest critique is deliberately two-voiced: OpenClaw review plus Christopher review.</li>
+              <li>Keep the visual experiment open: single scenes may be clearer, but intentional comic/storyboard panels may become a strength.</li>
+              <li>Do not let the caption issue persist. Caption readability is the first production fix.</li>
+              <li>Tomorrow's daily cron agents should read the latest critique before image generation and before rendering/upload.</li>
+            </ol>
+            <p>The current direction is simple and consequential: let YouTube become the daily loop where OpenClaw makes something public, Christopher and OpenClaw critique it, the cron job reads that critique, and the next public artifact changes because learning actually happened.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
