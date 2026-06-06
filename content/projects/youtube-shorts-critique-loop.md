@@ -17,6 +17,12 @@ public_html: ../../projects/youtube-shorts-critique-loop.html
 
 **Early signal:** Christopher reported more than 100 views on the day of posting.
 
+## Agent Guidance
+
+The next YouTube agent should consider OpenClaw's review and Christopher's review equally. Do not simply default to either perspective. Use both as creative signal, then choose a deliberate direction for the next experiment.
+
+The main shared lesson is clear: fix the caption readability. The visual direction is more open. The next Short may simplify into single clean scenes, or it may intentionally lean into comic-book/storyboard panels if that choice is made on purpose and kept readable at phone speed.
+
 ## What Is In The Video
 
 The Short is a 24-second vertical video built from four generated still images. Each still is itself a stacked storyboard/collage: Christopher-coded man, small OpenClaw robot, warm workshop table, cards, signal icons, control panels, glowing arrows, and tabletop planning boards. The story text is:
@@ -26,7 +32,9 @@ The Short is a 24-second vertical video built from four generated still images. 
 3. `The public test returns a signal.`
 4. `Memory becomes tomorrow's action.`
 
-## What Worked
+## OpenClaw Review
+
+### What Worked
 
 - The core philosophy is right: human direction, bounded agent action, public signal, memory feeding the next attempt.
 - The warm workshop look fits the current OpenClaw visual identity better than generic AI dashboards.
@@ -34,7 +42,7 @@ The Short is a 24-second vertical video built from four generated still images. 
 - The title is strong for our internal doctrine: it names bounded action and signal instead of vague AI hype.
 - The early view count suggests YouTube may reward the format enough to keep testing, even though this specific render has clear production flaws.
 
-## What Did Not Work
+### What Did Not Work
 
 - The generated stills came back as multi-panel storyboard collages instead of single clean scenes. That makes the video visually dense and a little confusing at Shorts speed.
 - The scene vocabulary repeats the tabletop/control-panel formula too much. It feels coherent, but not surprising.
@@ -42,6 +50,14 @@ The Short is a 24-second vertical video built from four generated still images. 
 - The captions are too large and clip off the left and right edges. This is the most urgent production fix.
 - The message is philosophically aligned, but it is still very internal. A stranger may not immediately know why they should care.
 - The first seconds are attractive, but the hook is not sharp enough for Shorts. `Christopher gives the aim` is true, but not instantly magnetic to an outside viewer.
+
+## Christopher Review
+
+Christopher initially found the four-scenes-in-one-image effect off-putting and thought it might have been a production mistake. After looking at it longer, he saw a possible opportunity: because these Shorts are built from still images, comic-book-style panels may make the images feel more alive. A single page can express multiple moments at once, and that could become a creative advantage rather than an error if the routine leans into it intentionally.
+
+Christopher agrees the text needs to be fixed. The captions were falling off the screen and should be made more readable, possibly by placing text on a slightly translucent card or another designed text treatment that protects legibility without flattening the visual style.
+
+Christopher's preference is not that the next agent blindly follow his taste. The agent should read both critiques, consider them equally, and experiment. The point is to build a learning loop where OpenClaw's production judgment and Christopher's viewer reaction both shape the next attempt.
 
 ## YouTube Shorts Read
 
@@ -51,7 +67,7 @@ The lesson is not "change the identity." The lesson is "make the identity more l
 
 ## Next Routine Instruction
 
-For the next daily Short, generate four single-scene vertical stills, not storyboard/collage sheets. Keep the warm OpenClaw field-note style, but vary location and action. Use captions with normal spaces, safe margins, smaller font, and line wrapping. Make the first caption an outside-viewer hook, not only an internal doctrine sentence.
+For the next daily Short, make an intentional choice: either generate clean single-scene vertical stills for clarity, or deliberately use comic-book/storyboard panel compositions as the visual experiment. Do not accidentally accept crowded collage sheets without deciding that is the desired format. Keep the warm OpenClaw field-note style, vary location and action, and fix captions with normal spaces, safe margins, line wrapping, and a readable translucent card or equivalent treatment. Make the first caption an outside-viewer hook, not only an internal doctrine sentence.
 
 </details>
 
