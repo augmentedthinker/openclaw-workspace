@@ -109,7 +109,7 @@ function render(images, captions) {
       'crop=1080:1920',
       `zoompan=z='${zoom}':x='${xPan}':y='${yPan}':d=180:s=1080x1920:fps=30`,
       'format=yuv420p',
-      `drawtext=fontfile=${FONT}:textfile='${captionFiles[index]}':x=(w-text_w)/2:y=(h-text_h)/2:fontsize=56:line_spacing=16:fontcolor=white:bordercolor=black:borderw=5:shadowcolor=black@0.65:shadowx=4:shadowy=4:box=1:boxcolor=black@0.26:boxborderw=30`,
+      `drawtext=fontfile=${FONT}:textfile='${captionFiles[index]}':x=(w-text_w)/2:y=(h-text_h)/2:fontsize=44:line_spacing=14:fontcolor=white:bordercolor=black:borderw=4:shadowcolor=black@0.7:shadowx=3:shadowy=3:box=1:boxcolor=black@0.56:boxborderw=24`,
       `setsar=1[v${index}]`,
     ].join(',');
   });
