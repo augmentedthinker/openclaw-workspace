@@ -78,6 +78,8 @@
                 <p><strong>Current local references:</strong> the workspace-local vibe folder is <code>/home/augmentedthinker/.openclaw/workspace/.openclaw/reference-images/vibe</code>. Generated images land in <code>/home/augmentedthinker/.openclaw/media/tool-image-generation</code>. The uploader is <code>tools/youtube-daily-short-upload.mjs</code>. The private upload log is <code>memory/youtube-daily-shorts-log.md</code>.</p>
               </div>
 
+              <p><strong>Operational update from the June 8 failure:</strong> the daily cron should inspect the vibe folder for style language, but it should not attach those files as image-generation references by default. Passing multiple references into the four-image OpenAI request made the June 8 run time out before any files landed. Treat direct reference-image use as a manual or explicitly requested experiment, not the reliable daily path.</p>
+
               <h2>Current creative direction</h2>
               <p>The strongest direction is OpenClaw as a visible identity, not abstract AI automation.</p>
               <ul>
@@ -95,6 +97,7 @@
               <ul>
                 <li>Default to vertical 9:16.</li>
                 <li>Inspect source media before upload.</li>
+                <li>Use vibe references as visual inspiration by default, not as attached generation inputs.</li>
                 <li>Use contact sheets or extracted frames when practical.</li>
                 <li>Keep captions short, readable, and inside safe zones.</li>
                 <li>Avoid text in the bottom and right-side UI danger areas.</li>

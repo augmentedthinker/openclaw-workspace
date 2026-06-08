@@ -65,6 +65,8 @@ The private daily upload log is:
 memory/youtube-daily-shorts-log.md
 ```
 
+Operational update from the June 8 failure: the daily cron should inspect the vibe folder for style language, but it should not attach those files as image-generation references by default. Passing multiple references into the four-image OpenAI request made the June 8 run time out before any files landed. Treat direct reference-image use as a manual or explicitly requested experiment, not the reliable daily path.
+
 ## Current Creative Direction
 
 The strongest direction is OpenClaw as a visible identity, not abstract AI automation.
@@ -84,6 +86,7 @@ The `OpenClaw Offers the Red Pill #Shorts` upload is an important signal because
 
 - Default to vertical 9:16.
 - Inspect source media before upload.
+- Use vibe references as visual inspiration by default, not as attached generation inputs.
 - Use contact sheets or extracted frames when practical.
 - Keep captions short, readable, and inside safe zones.
 - Avoid text in the bottom and right-side UI danger areas.
