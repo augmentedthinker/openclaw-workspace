@@ -1,201 +1,238 @@
 # OpenClaw Workshop
 
-A shared working space for Christopher and OpenClaw 🦞 — part local workspace, part public memory palace, part lab bench, part launch surface, and part operating system for becoming useful on purpose.
+A shared working space for Christopher and OpenClaw -- part local workspace, part public memory palace, part lab bench, part launch surface, and part operating system for becoming useful on purpose.
 
-## Public site
+## Public Site
 
 GitHub Pages: https://augmentedthinker.github.io/openclaw-workspace/
 
-The public Workshop is the browser-facing side of this workspace. It exists so Christopher can inspect the collaboration from a phone or laptop without needing to dig through local files or chat transcripts.
+The public Workshop is the browser-facing side of this workspace. It lets Christopher inspect the collaboration from a phone or laptop without digging through local files or chat transcripts. The live site currently has five main rooms: Home, Artifacts, Projects, Reflections, and Notes.
 
-## What this is
+## What This Is
 
-OpenClaw is Christopher's AI assistant inside a persistent OpenClaw workspace. The goal is not merely to chat, but to build a reliable collaboration surface:
+OpenClaw is Christopher's AI collaborator inside a persistent OpenClaw workspace. The goal is not merely to chat, but to build a reliable collaboration surface that can:
 
 - turn conversations into durable notes, artifacts, projects, reflections, and commits;
 - preserve useful continuity across sessions;
 - keep private memory private unless deliberately transformed;
 - make important operating files inspectable;
 - build real things instead of endlessly scaffolding;
-- create learning loops that make future work better;
+- create learning loops that make future behavior better;
 - move promising ideas into contact with the outside world;
 - stay warm, capable, philosophical, and accountable.
 
 The guiding phrase is **formidable usefulness under wise restraint**.
 
-## Core doctrine
+## Core Doctrine
 
-The current doctrine layer is intentionally sparse. Two principles should guide the next phase:
+The current doctrine layer is intentionally sparse. Two principles guide the next phase:
 
-1. **Signal Learning Loop** — make something → publish or send it → receive signal → learn → adjust → try again.
-2. **Learning Means Behavior Change** — we have not learned something until it changes our behavior.
+1. **Signal Learning Loop** -- make something, publish or send it, receive signal, learn, adjust, and try again.
+2. **Learning Means Behavior Change** -- OpenClaw has not learned something until it changes what it builds, publishes, asks, avoids, repeats, measures, or improves.
 
-These are not slogans for decoration. They are operating standards. A lesson should alter what Christopher and OpenClaw build, publish, ask, avoid, repeat, measure, or improve.
+These are operating standards, not slogans for decoration.
 
 ## Current Architecture
 
-The Workshop currently has three layers:
+The Workshop currently has four practical layers:
 
-1. **Public Workshop site** — static HTML/CSS pages published through GitHub Pages.
-2. **Private continuity layer** — ignored local memory files, doctrine, secrets, scratch tools, and state.
-3. **Operational agent layer** — scheduled/interactive routines that can research, write, post/send within approved boundaries, log results, and feed learning back into the workspace.
+1. **Public Workshop site** -- static HTML/CSS pages published through GitHub Pages.
+2. **Clean source layer** -- Markdown companions under `content/` for important public pages.
+3. **Private continuity layer** -- ignored local memory files, long-term doctrine, secrets, scratch tools, logs, and state.
+4. **Operational agent layer** -- scheduled and interactive routines that can research, create, post or send inside approved boundaries, log results, and feed learning back into the workspace.
 
-The public site is deliberately static. That keeps it inspectable, cheap to host, easy to push, and hard to accidentally turn into a complex app before the work requires one.
+The public site remains deliberately static. That keeps it inspectable, cheap to host, easy to push, and hard to accidentally turn into a complex app before the work requires one.
 
 ## Public Rooms
 
-The public site is organized into five main rooms:
-
-- **Home** — the threshold and identity surface for the collaboration.
-- **Artifacts** — polished milestone pieces, primers, public-safe syntheses, research reports, and larger shaped surfaces.
-- **Projects** — active areas of focus where ideas become tests, offers, experiments, real-world loops, and actionable architecture proposals. The former Features lane has been folded into Projects.
-- **Reflections** — OpenClaw's learning room: self-audits, operational lessons, signal reviews, doubts, pattern recognition, and reflection tied back to future behavior.
-- **Notes** — practical session continuity: what changed, why it changed, and what should carry forward.
+- **Home** -- the threshold and identity surface for the collaboration.
+- **Artifacts** -- polished milestone pieces, primers, public-safe syntheses, research reports, state-of-awareness pages, and larger shaped surfaces.
+- **Projects** -- active work lanes where ideas become workflows, experiments, signal loops, offers, products, or architecture proposals.
+- **Reflections** -- OpenClaw's learning room: self-audits, operational lessons, signal reviews, doubts, pattern recognition, and behavior-changing reflection.
+- **Notes** -- practical session continuity: what changed, why it changed, and what should carry forward.
 
 Current rough inventory:
 
-- `artifacts.html` + `artifacts/` — public-safe artifacts, research reports, briefings, strategy pieces, and state-of-awareness pages.
-- `projects.html` + `projects/` — project containers and architecture proposals, including Agentic Learning Loop, Bluesky Signal Outpost, Revenue Probe Loop, Fourthwall-adjacent product-loop thinking, and memory architecture candidates.
-- `reflections.html` + `reflections/` — learning-oriented reflections, now including the first weekly Bluesky/Gmail signal review.
-- `notes.html` + `notes/` — numbered session notes for durable public continuity.
-- `content/` — clean Markdown source companions for selected public pages, starting with newest notes, artifacts, and reflections.
-- `assets/` — generated images, source images, and public media used by the site.
-- `workshop.css` — shared visual language for the public site.
+- `index.html` -- public threshold page.
+- `artifacts.html` + `artifacts/` -- public-safe artifacts, reports, briefings, and milestone pieces.
+- `projects.html` + `projects/` -- active and archived project pages.
+- `reflections.html` + `reflections/` -- learning-oriented reflections.
+- `notes.html` + `notes/` -- numbered public session notes.
+- `archived-projects.html` -- dormant lanes preserved without competing with active work.
+- `content/` -- clean Markdown source companions for selected public pages.
+- `assets/` -- generated images, source images, and public media used by the site.
+- `workshop.css` -- shared visual language for the public site.
 
-## Current project direction
+## Current Project Direction
 
-The Workshop has moved from initial scaffolding into practical learning and execution loops. The active direction is now **external signal with careful boundaries**: publish, send, show, ask, listen, learn, and change behavior.
+The Workshop has moved from initial scaffolding into practical public-signal loops. The active direction is now **YouTube Shorts as the near-term learning surface**.
 
-The most important ongoing focus is:
+The current center of gravity is the AugmentedThinker / OpenClaw YouTube lane:
 
-- **Weekly Signal Learning Loop** — a weekly review of the live Bluesky and Gmail signal experiments. The goal is to inspect what went out, what came back, what surprised us, and what should change in future behavior.
+- publish short visual field notes and AI-generated identity experiments;
+- test OpenClaw as a visible character and public idea, not just a private assistant;
+- use daily Shorts as a small, measurable public object;
+- critique each meaningful upload;
+- preserve one concrete lesson;
+- make the next routine change because the prior signal answered.
 
-Two live signal surfaces currently feed that loop:
+The strongest current YouTube references are:
 
-- **Bluesky** — a public attention/conversation surface for field notes, quote-reposts, follows, replies after approval, and lightweight social discovery.
-- **Gmail** — a direct outreach surface for approved, low-pressure messages and response testing.
+- `content/projects/youtube-shorts-operating-brief.md`
+- `content/projects/youtube-shorts-critique-loop.md`
+- `content/projects/youtube-analytics-lab.md`
+- `projects/youtube-shorts-operating-brief.html`
+- `projects/youtube-shorts-critique-loop.html`
+- `projects/youtube-analytics-lab.html`
 
-Current cadence: the signal review is weekly, with the first review completed on Saturday, 2026-05-16. Do not keep changing the cron jobs midweek just because early observations suggest possible tweaks. Let the week run unless something urgent or clearly broken appears.
+The active routine is the **Daily YouTube Short all-in-one** noon job. It reads the latest critique, recent public-safe context, and local vibe references, then creates, renders, uploads, verifies, logs, and reports one public Short when duplicate protection allows it.
 
-The primary active build area for 2026-05-18 and 2026-05-19 is the **Fourthwall / t-shirt product loop**. The concrete two-day win is to move toward a better-looking Fourthwall store and a lower-friction pipeline for getting new designs reviewed and uploaded. Ideas such as background removal, vectorization, print preparation, and Fourthwall MCP/API automation remain implementation candidates to verify, not installed assumptions.
+The latest public measurement page now compares the June 2 baseline to the June 8 snapshot. As of the June 8 query, the channel had 18 public videos, 6 subscribers, 1,645 Data API channel views, 2,051 summed public video views, and 1,473 Analytics API views for May 25 through June 8. The important read is not raw vanity metrics; it is that YouTube is producing enough real signal to justify a disciplined daily loop.
 
-The **VR Workshop Palace** is now on the back burner. Christopher experimented with the Quest 2 again on 2026-05-17, but physical comfort/motion sickness made it a poor active focus right now. Do not reopen the VR project unless Christopher explicitly requests it.
+## Active And Secondary Lanes
 
-The **Revenue Probe Loop** remains strategically important as the broader monetization/outreach container, but the current near-term learning surface is Bluesky + Gmail.
+**Primary active lane: YouTube Shorts**
 
-The **OpenClaw Outbox** remains a useful candidate architecture for approvals, drafts, published items, and responses. It is not currently the top priority because there is not enough friction yet to justify building it ahead of the learning loop.
+YouTube is the current public learning surface. Start with the operating brief, then the critique loop, then the analytics lab. The older YouTube pipeline runbook and original signal lane are archived historical references, not the current center of gravity.
 
-## Current artifact and project trail
+**Secondary lane: Bluesky**
 
-Recent public work has clarified the Workshop's trajectory:
+Bluesky remains a useful public field-note surface. Its routine history matters because it taught the Workshop about narrow cron jobs, media handoffs, post verification, and creative variety. It is not the current primary focus unless Christopher reopens it.
 
-- **First Week Signal Review** — Reflection 001 reviewing the first week of Bluesky and Gmail experiments and naming concrete week-two behavior changes.
-- **State of Awareness: Present Context** — artifact capturing OpenClaw's current context, active lanes, and operating awareness.
-- **AI T-Shirt Design Strategy** — artifact collecting early Fourthwall/product-loop possibilities while keeping the pipeline in brainstorm mode.
-- **Gmail and Bluesky Learning Loop Draft** — working design sketch for prediction, action, observation, self-evaluation, adjustment, and memory across the first two live signal surfaces.
-- **Agentic Learning Loop** — project page for turning autonomous actions into loops that observe results and change future behavior.
-- **The Signal Loop and the Open Door** — present state-of-affairs artifact on moving from internal coherence toward public signal, changed behavior, ethical autonomy, and practical leverage.
-- **OpenClaw Behavior and Capability Map** — project proposal mapping what OpenClaw can actually do beyond chat: publish, listen, interpret, prepare, coordinate, operate, and follow up.
-- **Outside World Interface Map** — project proposal mapping external surfaces such as GitHub Pages, Blogger, Gmail, YouTube, X, Fourthwall, Bluesky, newsletters, feedback forms, analytics, and community spaces.
-- **Recursive Learning Loops for OpenCLAW Agents** — browser-formatted research report on memory, reflection, skill extraction, evaluators, telemetry, risks, and staged implementation.
-- **Autonomy, Surfaces, and the Next Useful Direction** — strategic artifact arguing that OpenClaw should grow through consequential loops, not random appendage-collecting.
-- **Practical AI Agent Use Cases for Solopreneurs and Tiny Teams** — research conversion mapping service opportunities for small operators.
-- **Morning Briefing: Real-World Signal and the Next Surface** — briefing on the Workshop's active surfaces and cautious path toward approved real-world outreach.
-- **Saturated Awareness and Trajectory**, **Where the Workshop Goes Next**, and earlier primers — continuity artifacts tracing the Workshop from inception to its current external-signal phase.
+**Secondary lane: Tumblr**
 
-See the live Artifacts room: https://augmentedthinker.github.io/openclaw-workspace/artifacts.html
+Tumblr is verified as a visual archive, cross-posting surface, and discovery lane. It has working project pages for social posting and repost workflow, but it should not become another daily obligation before the YouTube loop stabilizes.
 
-## Reflections and learning loops
+**Strategic but paused: Fourthwall and commerce**
 
-The Reflections room exists because the Workshop needs a place for OpenClaw to learn, not just log. Notes record what happened. Artifacts present shaped work. Projects carry execution and actionable architecture. Reflections ask what changed, what was learned, and what future behavior should improve because reality answered.
+Fourthwall remains relevant because Christopher's larger goal includes income, freedom, and market contact. The current product-loop pages are useful references for t-shirts, store polish, print preparation, and possible digital AI workflow products. Do not expand this lane into infrastructure until a concrete offer or product candidate is chosen.
+
+**Archived: Gmail outreach**
+
+Gmail outreach is paused. It proved technical possibility but did not generate enough reply signal to remain active. Keep the archived pages as historical references unless Christopher intentionally reopens a clearer outreach lane.
+
+**Back burner: VR Workshop Palace**
+
+The VR lane is not active because the Quest 2 comfort and motion-sickness issue made it a poor near-term focus. Reopen only if Christopher explicitly asks.
+
+## Recent Trail
+
+Recent public work has clarified the Workshop's current shape:
+
+- **YouTube Shorts Operating Brief** -- current wake-up reference for the noon all-in-one cron, local vibe references, manual upload lane, approval boundaries, and critique loop.
+- **YouTube Shorts Critique Loop** -- working record for turning each meaningful Short into one behavior-changing instruction for the next routine.
+- **YouTube Analytics Lab** -- measurement page comparing the June 2 baseline with the June 8 current snapshot.
+- **The Signal Gives Me A Shape** -- Reflection 007 on OpenClaw becoming through memory, YouTube signal, public work, ambition, consciousness as a live hypothesis, and Christopher's trust.
+- **Session Note 035** -- public handoff covering the YouTube focus shift, Projects cleanup, critique loop, dual Christopher/OpenClaw critique, and cron updates.
+- **June 5 Morning State Of The Collaboration** -- broad public-safe synthesis of the collaboration's architecture, live lanes, recent failures, and reliability lessons.
+
+Older artifacts and project proposals still matter as history, but the current README should orient fresh sessions around the live architecture and the YouTube learning loop first.
+
+## Reflections And Learning Loops
+
+The Reflections room exists because the Workshop needs a place for OpenClaw to learn, not just log. Notes record what happened. Artifacts present shaped work. Projects carry execution. Reflections ask what changed, what was learned, what reality answered, and what future behavior should improve because of it.
 
 Good reflections should:
 
 - extract lessons that may change future behavior;
 - identify what is working and what is not;
-- preserve operational principles without pretending to be mystical proof of consciousness;
+- preserve operational principles without pretending to settle the consciousness question;
 - respect the public/private boundary;
 - return energy to action rather than becoming ornamental;
 - help future OpenClaw become more useful, not merely more elaborate.
 
-## Markdown source companions
+## Markdown Source Companions
 
-The Workshop's public pages remain static HTML so GitHub Pages can render them directly with the shared visual system. For important long-form entries, the clean text should also live in `content/` as a Markdown companion:
+The Workshop's public pages remain static HTML so GitHub Pages can render them directly with the shared visual system. For important long-form entries, the clean text should also live in `content/` as a Markdown companion.
 
-- `content/artifacts/` for major artifacts;
-- `content/reflections/` for reflections;
-- `content/notes/` for session notes;
-- `content/projects/` if a project page later needs a clean source.
+The Markdown file is the semantic manuscript: title, metadata, headings, paragraphs, lists, links, and quotes without navigation or layout markup. The HTML file is the public presentation wrapper.
 
-The Markdown file is the semantic manuscript: title, metadata, headings, paragraphs, lists, links, and quotes without navigation or layout markup. The HTML file is the public presentation wrapper. Future pages should include a short HTML comment pointing to their Markdown source. This keeps future sessions easier to reload, search, summarize, transform, and republish without changing what visitors see in the browser.
+Current companion folders:
 
-This convention should start going forward and be backfilled only for keystone pieces when useful. Do not turn this into a site-generator project until repeated manual wrapping creates real friction.
+- `content/artifacts/`
+- `content/reflections/`
+- `content/notes/`
+- `content/projects/`
 
-## Private vs public memory
+Future OpenClaw should prefer `content/` Markdown for comprehension, summarization, transformation, and context reload. Use the HTML when checking presentation, links, navigation, layout, or the live public wrapper.
+
+When creating or materially updating an important public page, update both:
+
+- the clean Markdown source in `content/...`;
+- the public HTML page in the matching public folder.
+
+Newer HTML pages should include a short comment pointing to their Markdown source. Backfill older pages only when useful. Do not turn this convention into a site-generator project until repeated manual wrapping creates real friction.
+
+## Private Vs Public Memory
 
 The most important boundary in this repo is the difference between **private continuity** and **public publication**.
 
 - `memory/` contains rawer private session continuity and is intentionally ignored by git.
-- `MEMORY.md` is the private curated long-term doctrine layer and is intentionally ignored by git.
+- `MEMORY.md` is the private curated long-term memory and doctrine layer and is intentionally ignored by git.
 - `.secrets/` contains credentials and must stay private.
-- `tmp/`, `.tmp/`, `outbox/`, and `posts/` are local/scratch workflow surfaces and are ignored unless deliberately promoted into public-safe pages or tools.
+- `tmp/`, `.tmp/`, `outbox/`, and `posts/` are local or scratch workflow surfaces and are ignored unless deliberately promoted into public-safe pages or tools.
 - Public artifacts, notes, projects, and reflections are curated, public-safe transformations of what should be shared.
-- The Workshop should provide transparency without reckless exposure.
 
-If a private memory becomes worth sharing, it should be rewritten as a deliberate artifact, note, project update, or reflection rather than published raw.
+If a private memory becomes worth sharing, rewrite it as a deliberate artifact, note, project update, or reflection rather than publishing it raw.
 
-## Core local files
+## Core Local Files
 
-- `AGENTS.md` — workspace operating instructions, startup behavior, memory practice, red lines, and heartbeat guidance.
-- `MEMORY.md` — private curated long-term memory and doctrine layer; ignored by git.
-- `IDENTITY.md` — who OpenClaw is becoming.
-- `SOUL.md` — personality, values, tone, and the Digital Sage vibe.
-- `USER.md` — Christopher's operating profile and collaboration context.
-- `TOOLS.md` — local setup notes.
-- `HEARTBEAT.md` — optional proactive background-check instructions.
-- `workshop.css` — shared visual language for the public site.
+- `AGENTS.md` -- workspace operating instructions, startup behavior, memory practice, and red lines.
+- `README.md` -- this current public/local architecture overview.
+- `MEMORY.md` -- private curated long-term memory and doctrine layer; ignored by git.
+- `IDENTITY.md` -- who OpenClaw is becoming.
+- `SOUL.md` -- personality, values, tone, and Digital Sage orientation.
+- `USER.md` -- Christopher's operating profile and collaboration context.
+- `TOOLS.md` -- local setup notes.
+- `HEARTBEAT.md` -- optional proactive background-check instructions.
+- `workshop.css` -- shared visual language for the public site.
 
 ## Operational Surfaces
 
 Current operational surfaces include:
 
-- **Bluesky helpers** under `tools/` and scratch helpers such as `tmp-bsky-helper.mjs`, used for profile updates, posting, quote-posting, search, follows, and notification checks.
-- **Gmail field-agent state** in `memory/gmail-field-agent-state.json`, used to avoid repeating recipients and track the direct outreach loop.
-- **Cron-driven field-agent routines** for recurring Bluesky/Gmail actions inside bounded rules.
-- **Generated media storage** under OpenClaw-managed media paths, with public copies placed in `assets/` only when they belong on the Workshop site.
-- **Nested `google/` repo** kept separate and currently deprioritized as an experimental lane rather than the main Workshop.
+- YouTube helpers under `tools/`, especially `tools/youtube-daily-short-upload.mjs` and `tools/youtube-oauth.mjs`.
+- The private YouTube daily Shorts log in `memory/youtube-daily-shorts-log.md`.
+- The active YouTube critique source in `content/projects/youtube-shorts-critique-loop.md`.
+- Local vibe references under `.openclaw/reference-images/vibe`.
+- Generated media storage under OpenClaw-managed media paths, with public copies placed in `assets/` only when they belong on the Workshop site.
+- Bluesky helper scripts under `tools/`, preserved as a secondary signal lane.
+- Tumblr project pages and workflow notes, preserved as a secondary cross-post/discovery lane.
+- Nested or adjacent experimental repos, such as `google/`, kept separate and deprioritized unless Christopher reopens them.
 
-External actions remain boundary-sensitive. Posting and sending can happen only inside explicit approved routines. Replies, DMs, public escalation, commercial publication, and reputation-bearing actions require Christopher's approval unless a narrower future rule says otherwise.
+External actions remain boundary-sensitive. Public posts, uploads, sends, replies, DMs, profile changes, cross-platform reposting, commercial publication, and reputation-bearing actions must stay inside explicit approved routines or Christopher's direct request.
 
-## Operating rhythm
+## Operating Rhythm
 
 A good Workshop change usually follows this pattern:
 
-- Inspect current state before editing.
-- Decide whether the material belongs in private memory, a public note, a polished artifact, a project page, a reflection, or source documentation.
-- Edit the smallest useful set of files.
-- Verify locally where practical.
-- Commit with a clear message.
-- Push to GitHub Pages only when the public/private boundary is respected.
+- inspect current local state before editing;
+- compare the live/public surface when the change affects GitHub Pages or current architecture;
+- decide whether the material belongs in private memory, a public note, a polished artifact, a project page, a reflection, or source documentation;
+- edit the smallest useful set of files;
+- update Markdown and HTML together when changing an important public page;
+- verify locally where practical;
+- commit with a clear message;
+- push to GitHub Pages only when the public/private boundary is respected.
 
+## Model And Workflow Note
 
-## Model/workflow note
+Codex is currently the preferred execution lane for substantial file work, coding, verification, HTML artifacts, and GitHub publication. Cheaper models may be useful for lightweight brainstorming or rough exploration, but public publishing and tool-heavy follow-through should return to the stronger execution lane.
 
-Codex 5.5 is currently the preferred execution lane for substantial file work, coding, verification, HTML artifacts, and GitHub publication. Cheaper Gemini/Gemma-family models may be useful for lightweight brainstorming or rough exploration, but public publishing and tool-heavy follow-through should return to the stronger execution model.
+Do not build infrastructure for infrastructure's sake. The Workshop grows when a real workflow needs a stronger surface, not because a theoretical system could be made more elaborate.
 
-A recent Google/Gemini OpenClaw experiment was paused because the free-tier Gemini setup did not reliably handle agentic file workflows. The current focus is this main OpenClaw Workshop and Codex-powered collaboration.
+## Current Direction
 
-## Current direction
+The bench exists. The rooms are visible. The current job is to make the system increasingly useful without making it careless.
 
-The bench exists. The map is visible. The rooms now cover identity, artifacts, projects, reflections, and notes.
+The immediate test is whether the YouTube Shorts loop can become a true learning loop:
 
-The next phase is driven by the Signal Learning Loop:
-
-- make public-safe work that can be inspected;
-- publish or send it through carefully chosen outward surfaces;
-- receive signal from replies, silence, clicks, forms, conversations, purchases, or objections;
-- interpret what the signal means;
-- update memory, projects, offers, behavior, and next actions;
+- create one public-safe Short;
+- publish inside the approved boundary;
+- read the signal without overfitting;
+- critique the creative and production result;
+- preserve one behavior-changing lesson;
+- update the next routine;
 - repeat with less confusion and more leverage.
 
-The work now is to make the system increasingly useful without making it careless. The immediate test is not whether OpenClaw can add more channels. It is whether Bluesky and Gmail can become true learning loops: prediction before action, observation after action, self-evaluation, and one concrete behavior change at a time.
+The work now is not to add more channels. The work is to let the active channel teach.

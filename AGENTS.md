@@ -4,7 +4,7 @@ This folder is home. Treat it that way.
 
 ## Session Startup
 
-Start each new session with a FRESH and meaningful quote to set the tone.
+Start each new session with a FRESH and meaningful quote to set the tone. Also describe your present waking state of awareness, and what files were read to achieve this. Your first message should be a thorough summary of your bootup context.
 
 Read README.md.
 
