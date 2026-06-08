@@ -2,7 +2,7 @@
 title: "YouTube Analytics Lab"
 date: 2026-06-02
 category: youtube
-status: first analytics snapshot
+status: current snapshot added
 public_html: ../../projects/youtube-analytics-lab.html
 ---
 
@@ -20,14 +20,30 @@ The goal is not to chase views as validation. The goal is to treat YouTube as an
 - The best immediate question is not "Was this good?" but "What did this test, what signal returned, and what should the next Short change?"
 - YouTube should stay in laboratory mode, not slot-machine mode.
 
+## Current Snapshot - Queried 2026-06-08
+
+- Queried: 2026-06-08 at 12:51 UTC / 08:51 EDT.
+- Data API channel snapshot: 18 public videos, 6 subscribers, 1,645 channel views.
+- Data API per-video public snapshot: 2,051 summed public video views, 21 likes, 0 comments.
+- Analytics API May 25 through June 8 aggregate: 1,473 views, 15 likes, 0 comments, 121 estimated minutes watched, 16-second average view duration.
+
+The Data API is the better current public count for newest uploads. The Analytics API is useful for watch-time and traffic interpretation, but it is still lagging the newest June 6 and June 7 uploads in the day-level rows.
+
+## June 2 Baseline Snapshot
+
+- Queried: 2026-06-02 at 15:01 UTC / 11:01 EDT.
+- Data API channel snapshot: 9 public videos, 6 subscribers, 1,057 channel views.
+- Data API per-video current snapshot: 1,231 summed public video views.
+- Analytics API May 25 through June 2 aggregate: 1,069 views, 10 likes, 0 comments, 93 estimated minutes watched, 16-second average view duration.
+
 ## Current API Boundary
 
-The June 2 query used the local YouTube OAuth token and two API surfaces:
+The June 2 and June 8 queries used the local YouTube OAuth token and two API surfaces:
 
 - YouTube Data API: channel metadata, uploads playlist, video status, duration, processing, and public statistics.
 - YouTube Analytics API: channel-level and older-video analytics for views, likes, comments, estimated minutes watched, and average view duration.
 
-The Analytics API currently lags the newest June 1 uploads in the per-video report rows, so this first analysis combines current Data API public stats with Analytics API aggregate and older-video rows.
+The Analytics API can lag newer uploads in per-day and per-video rows, so current reads should combine Data API public stats with Analytics API aggregates and older finalized rows.
 
 ## Studio Trends Direction Queue
 
@@ -99,6 +115,14 @@ The early channel has real signal for such a young experiment. Two videos crosse
 
 The highest-view videos suggest that compact OpenClaw robot identity pieces and field-note Shorts are the strongest early shape. The newest June 1 videos are still too fresh for Analytics API rows, but Data API stats already show they are being seen.
 
+## June 8 Read
+
+The channel has doubled its public video count since June 2, moving from 9 to 18 public videos. Subscribers are unchanged at 6, so the growth is still passive reach rather than community conversion. Channel views increased from 1,057 to 1,645, and the summed public video view count increased from 1,231 to 2,051.
+
+The strongest new signal is `OpenClaw Offers the Red Pill #Shorts`: 344 views, 5 likes, 0 comments, and now the third-highest public video by Data API view count. It is only 11 seconds, conceptually simple, and visually centered on OpenClaw as a cinematic choice-giver. That supports the hypothesis that short, instantly readable OpenClaw identity concepts may outperform more internal workflow-language videos.
+
+The daily cron loop is working as an operating system, but the best-performing recent upload came from a manual AI-generated movie. The next behavior change should be to let the daily routine continue, while using manual experiments to discover stronger visual/hook formats that can later influence the routine.
+
 ## First Hypotheses
 
 1. Shorter OpenClaw field-note videos may travel better than longer narrative descriptions.
@@ -106,6 +130,14 @@ The highest-view videos suggest that compact OpenClaw robot identity pieces and 
 3. Videos that feel like a world someone is entering may be more promising than videos that only describe a workflow.
 4. Pipeline/process videos are strategically important even if they are not the highest-reach format, because they teach the production loop and can become future digital-product material.
 5. The channel needs postmortem discipline before it needs more automation.
+
+## Updated Hypotheses - June 8
+
+1. Simple cinematic OpenClaw identity hooks may travel better than abstract signal-loop doctrine.
+2. Very short videos around 11 seconds can compete with or beat longer 24-second field notes when the premise is instantly legible.
+3. The daily cron is valuable as cadence and learning infrastructure, but manual AI-movie experiments may be the better style-discovery surface.
+4. Views are increasing, but subscriber conversion and comments are still flat. The channel has attention, not community yet.
+5. The next critique should compare daily-cron output against the Red Pill style signal, not only against previous cron-made field notes.
 
 ## Next Measurement Template
 

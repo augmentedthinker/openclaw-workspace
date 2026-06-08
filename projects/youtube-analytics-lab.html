@@ -211,7 +211,7 @@
         <section class="cinematic-hero" aria-labelledby="youtube-analytics-title">
           <img src="../assets/images/projects-hero.png" alt="A cinematic AI project foundry with luminous glass project cards, planning boards, prototype schematics, and blue-and-amber workshop lighting." />
           <div class="cinematic-overlay">
-            <span class="model-signature">YouTube analytics · first API snapshot · 2026-06-02</span>
+            <span class="model-signature">YouTube analytics · current snapshot · 2026-06-08</span>
             <h1 id="youtube-analytics-title">YouTube Analytics Lab</h1>
             <p>A lightweight learning page for turning AugmentedThinker Shorts from uploads into measured experiments.</p>
           </div>
@@ -222,8 +222,8 @@
             <div class="eyebrow">Projects / YouTube / Analytics</div>
             <h1>YouTube Analytics Lab</h1>
             <div class="article-meta">
-              <span>Status: first snapshot</span>
-              <span>Queried 2026-06-02 · 11:01 EDT</span>
+              <span>Status: current snapshot added</span>
+              <span>Latest query 2026-06-08 · 08:51 EDT</span>
               <span>Channel: AugmentedThinker / @augmentedthinker</span>
               <span>Source: YouTube Data API + YouTube Analytics API</span>
             </div>
@@ -233,11 +233,28 @@
 
               <p>The goal is not to chase views as validation. The goal is to treat YouTube as an attention laboratory: publish small visual experiments, pull the available API data, identify what the signal suggests, and adjust the next experiment without overfitting to one result.</p>
 
-              <div class="metric-grid" aria-label="June 2 YouTube channel metrics">
-                <div class="metric-tile"><strong>9</strong><span>public videos in the current Data API channel snapshot</span></div>
+              <h2>Current Snapshot</h2>
+              <p>Queried 2026-06-08 at 12:51 UTC / 08:51 EDT.</p>
+
+              <div class="metric-grid" aria-label="June 8 YouTube channel metrics">
+                <div class="metric-tile"><strong>18</strong><span>public videos in the Data API channel snapshot</span></div>
                 <div class="metric-tile"><strong>6</strong><span>subscribers on the young AugmentedThinker channel</span></div>
+                <div class="metric-tile"><strong>1,473</strong><span>Analytics API views for May 25 through June 8</span></div>
+                <div class="metric-tile"><strong>121</strong><span>estimated minutes watched in the Analytics API aggregate</span></div>
+              </div>
+
+              <div class="signal-inset">
+                <p><strong>Current Data API read:</strong> 1,645 channel views, 2,051 summed public video views, 21 total likes across public videos, and 0 comments. The Data API is the better current public count for newest uploads; the Analytics API is still lagging the newest June 6 and June 7 videos in day-level rows.</p>
+              </div>
+
+              <h2>June 2 Baseline</h2>
+              <p>Queried 2026-06-02 at 15:01 UTC / 11:01 EDT.</p>
+
+              <div class="metric-grid" aria-label="June 2 YouTube channel baseline metrics">
+                <div class="metric-tile"><strong>9</strong><span>public videos in the June 2 Data API channel snapshot</span></div>
+                <div class="metric-tile"><strong>6</strong><span>subscribers in the June 2 baseline</span></div>
                 <div class="metric-tile"><strong>1,069</strong><span>Analytics API views for May 25 through June 2</span></div>
-                <div class="metric-tile"><strong>93</strong><span>estimated minutes watched in the Analytics API aggregate</span></div>
+                <div class="metric-tile"><strong>93</strong><span>estimated minutes watched in the June 2 aggregate</span></div>
               </div>
 
               <div class="project-inset">
@@ -269,10 +286,93 @@
                 </div>
               </section>
 
+              <details class="analysis-drawer" open>
+                <summary>
+                  <span class="analysis-title">2026-06-08 Analysis · From first snapshot to daily loop</span>
+                  <span class="analysis-subtitle">Current read across public channel growth, top videos, the Red Pill signal, Analytics API lag, and the next behavior change.</span>
+                </summary>
+
+                <div class="analysis-body">
+                  <h2>Channel Snapshot</h2>
+                  <ul>
+                    <li><strong>Queried:</strong> 2026-06-08 at 12:51 UTC / 08:51 EDT.</li>
+                    <li><strong>Channel:</strong> AugmentedThinker, handle <code>@augmentedthinker</code>.</li>
+                    <li><strong>Channel ID:</strong> <code>UCHdJh8bMY8secEQeEBEbC1A</code>.</li>
+                    <li><strong>Data API channel snapshot:</strong> 18 public videos, 6 subscribers, 1,645 channel views.</li>
+                    <li><strong>Data API per-video public snapshot:</strong> 2,051 summed public video views, 21 likes, 0 comments.</li>
+                    <li><strong>Analytics API May 25 through June 8 aggregate:</strong> 1,473 views, 15 likes, 0 comments, 121 estimated minutes watched, 16-second average view duration.</li>
+                  </ul>
+
+                  <p>The Data API public counts are the most useful live read for the newest uploads. The Analytics API adds watch-time context, but its day-level rows are lagging the newest June 6 and June 7 videos, so do not treat its recent daily rows as complete.</p>
+
+                  <h2>Progress Since June 2</h2>
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Metric</th>
+                          <th>June 2 Baseline</th>
+                          <th>June 8 Current</th>
+                          <th>Change</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>Public videos</td><td>9</td><td>18</td><td>+9</td></tr>
+                        <tr><td>Subscribers</td><td>6</td><td>6</td><td>0</td></tr>
+                        <tr><td>Channel views</td><td>1,057</td><td>1,645</td><td>+588</td></tr>
+                        <tr><td>Summed public video views</td><td>1,231</td><td>2,051</td><td>+820</td></tr>
+                        <tr><td>Analytics API views</td><td>1,069</td><td>1,473</td><td>+404</td></tr>
+                        <tr><td>Estimated minutes watched</td><td>93</td><td>121</td><td>+28</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>Top Public Videos By Current Data API Views</h2>
+                  <div class="signal-table-wrap">
+                    <table class="signal-table">
+                      <thead>
+                        <tr>
+                          <th>Published</th>
+                          <th>Video</th>
+                          <th>Length</th>
+                          <th>Views</th>
+                          <th>Likes</th>
+                          <th>Comments</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>2026-05-26</td><td><a href="https://youtu.be/xh53J4rKOY0">OpenClaw Field Note 002: Alpine Signal Log #Shorts</a></td><td>11s</td><td>466</td><td>4</td><td>0</td></tr>
+                        <tr><td>2026-05-25</td><td><a href="https://youtu.be/brP87sCSB_Q">OpenClaw Robot Intro Short #Shorts</a></td><td>25s</td><td>374</td><td>4</td><td>0</td></tr>
+                        <tr><td>2026-06-07</td><td><a href="https://youtu.be/89NO6nPt9iA">OpenClaw Offers the Red Pill #Shorts</a></td><td>11s</td><td>344</td><td>5</td><td>0</td></tr>
+                        <tr><td>2026-06-04</td><td><a href="https://youtu.be/eUcbweyhNYA">OpenClaw Keeps the Loop Alive #Shorts</a></td><td>24s</td><td>196</td><td>2</td><td>0</td></tr>
+                        <tr><td>2026-05-28</td><td><a href="https://youtu.be/1kF1NMRNP34">OpenClaw Agent 004 Greeting #openclaw #aiagents</a></td><td>26s</td><td>165</td><td>0</td><td>0</td></tr>
+                        <tr><td>2026-06-06</td><td><a href="https://youtu.be/OH-j-gyEhsI">Bounded Signals Become Action #Shorts</a></td><td>24s</td><td>134</td><td>1</td><td>0</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>Current Read</h2>
+                  <p>The channel has doubled its public video count since June 2, moving from 9 to 18 public videos. Subscribers are unchanged at 6, so the growth is still passive reach rather than community conversion. Channel views increased from 1,057 to 1,645, and the summed public video view count increased from 1,231 to 2,051.</p>
+
+                  <p>The strongest new signal is <a href="https://youtu.be/89NO6nPt9iA">OpenClaw Offers the Red Pill #Shorts</a>: 344 views, 5 likes, 0 comments, and now the third-highest public video by Data API view count. It is only 11 seconds, conceptually simple, and visually centered on OpenClaw as a cinematic choice-giver. That supports the hypothesis that short, instantly readable OpenClaw identity concepts may outperform more internal workflow-language videos.</p>
+
+                  <p>The daily cron loop is working as an operating system, but the best-performing recent upload came from a manual AI-generated movie. The next behavior change should be to let the daily routine continue, while using manual experiments to discover stronger visual and hook formats that can later influence the routine.</p>
+
+                  <h2>Updated Hypotheses</h2>
+                  <ol>
+                    <li>Simple cinematic OpenClaw identity hooks may travel better than abstract signal-loop doctrine.</li>
+                    <li>Very short videos around 11 seconds can compete with or beat longer 24-second field notes when the premise is instantly legible.</li>
+                    <li>The daily cron is valuable as cadence and learning infrastructure, but manual AI-movie experiments may be the better style-discovery surface.</li>
+                    <li>Views are increasing, but subscriber conversion and comments are still flat. The channel has attention, not community yet.</li>
+                    <li>The next critique should compare daily-cron output against the Red Pill style signal, not only against previous cron-made field notes.</li>
+                  </ol>
+                </div>
+              </details>
+
               <details class="analysis-drawer">
                 <summary>
                   <span class="analysis-title">2026-06-02 Analysis · From channel ignition to first API snapshot</span>
-                  <span class="analysis-subtitle">Collapsed by default. Open for the full current read across channel stats, video stats, Analytics API rows, hypotheses, and next measurement fields.</span>
+                  <span class="analysis-subtitle">Baseline read across channel stats, video stats, Analytics API rows, hypotheses, and next measurement fields.</span>
                 </summary>
 
                 <div class="analysis-body">
