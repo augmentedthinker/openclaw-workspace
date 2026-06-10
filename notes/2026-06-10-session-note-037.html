@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 037 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-10-session-note-037.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 037</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-10 · 06:08 EDT</span>
+            <span>Covering manual YouTube recovery, fallback media, and Bluesky two-step post</span>
+            <span>Theme: Manual YouTube recovery, fallback media, and Bluesky two-step post</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-09-session-note-036.html">Session Note 036</a>. It covers the June 9 continuation after the daily YouTube cron was paused, the manual/interactive YouTube Shorts experiments, the managed-image-generation failure pattern, the local fallback render path, the fresh image-based run, and a small Bluesky two-step image/post test.</p>
+
+            <blockquote>Current lesson: when a managed automation path fails, preserve the public signal loop by shrinking the task, using local fallbacks, and logging exactly what happened.</blockquote>
+
+            <h2>1. The Morning Handoff Was Completed</h2>
+            <p>Session Note 036 was created from the June 9 early-morning Telegram handoff and linked into the Notes room. The note preserved the current architecture state: YouTube as the primary signal lane, clean Markdown companions as the preferred comprehension layer, the README as the main map, and the daily YouTube cron paused after image-generation failures and budget pressure.</p>
+            <p>The key state at that point was not "stop YouTube." It was "stop relying on the fragile scheduled four-image generation path until it is cheaper and more reliable."</p>
+
+            <h2>2. YouTube Kept Shipping Anyway</h2>
+            <p>Even with the daily cron paused, June 9 produced three public Shorts through manual or interactive runs:</p>
+            <ul>
+              <li><code>Most AI Plans Die in Private #Shorts</code><br />URL: <a href="https://youtu.be/PnHYc_-0qIo">https://youtu.be/PnHYc_-0qIo</a><br />Local video: <code>tmp/youtube-daily-shorts/2026-06-09/youtube-daily-short-2026-06-09.mp4</code></li>
+              <li><code>The Loop Ships Again #Shorts</code><br />URL: <a href="https://youtu.be/OVVfdzxisOk">https://youtu.be/OVVfdzxisOk</a><br />Local video: <code>tmp/youtube-daily-shorts/2026-06-09-run2/youtube-daily-short-2026-06-09-run2.mp4</code></li>
+              <li><code>Stop Letting AI Ideas Die in Private #Shorts</code><br />URL: <a href="https://youtu.be/q8BZBlAi92s">https://youtu.be/q8BZBlAi92s</a><br />Local video: <code>tmp/youtube-daily-shorts/2026-06-09-run3/youtube-daily-short-2026-06-09-run3.mp4</code></li>
+            </ul>
+            <p>Each upload was public, processed successfully, and recorded in <code>memory/youtube-daily-shorts-log.md</code>.</p>
+
+            <h2>3. The Managed Image Path Failed, But The Loop Did Not</h2>
+            <p>The June 9 run confirmed the same production lesson from the failed cron: managed AI image generation can fail across providers or return processing errors, especially when asking for a batch of four images under tool/runtime constraints.</p>
+            <p>The useful recovery was not to keep retrying the same fragile step. For <code>The Loop Ships Again #Shorts</code>, OpenClaw used four fresh locally generated fallback frames, rendered a 24-second vertical HD Short, verified that the contact sheet was nonblank and readable, uploaded the video publicly, and confirmed YouTube processing succeeded.</p>
+            <p>That matters because it separates the real mission from the preferred implementation. The mission is the signal loop. Image generation is only one possible supply chain.</p>
+
+            <h2>4. A Fresh Image Run Produced A Better Manual Short</h2>
+            <p>After the fallback-frame run, four fresh images were generated and delivered through Telegram. Those images became the source set for <code>Stop Letting AI Ideas Die in Private #Shorts</code>.</p>
+            <p>The run3 path:</p>
+            <ul>
+              <li>used four fresh 2026-06-09-run3 images;</li>
+              <li>rendered another 24-second vertical HD Short;</li>
+              <li>checked the contact sheet for nonblank frames and readable captions;</li>
+              <li>uploaded publicly;</li>
+              <li>verified YouTube processing success.</li>
+            </ul>
+            <p>The title sharpened the outside-viewer hook around a practical claim: AI ideas die when they never touch public reality. That keeps the Short aligned with the current doctrine while making the point easier for a stranger to understand.</p>
+
+            <h2>5. Bluesky Got A Clean Two-Step Test</h2>
+            <p>Later on June 9, a Bluesky image was generated and delivered to the image folder without posting:</p>
+            <ul>
+              <li>Image: <code>/home/augmentedthinker/.openclaw/media/tool-image-generation/bluesky-two-step-2026-06-09---295c9354-8012-4cb2-9927-d2781f9af3f1.jpg</code></li>
+            </ul>
+            <p>No Bluesky post was attempted at that stage. Then Christopher approved the next step, and the image was posted:</p>
+            <ul>
+              <li>Bluesky URL: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mnvcpbigox2m">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mnvcpbigox2m</a></li>
+            </ul>
+            <p>This preserved the two-step pattern that has worked well for Bluesky: generate or select media first, verify the asset exists, then post only when the handoff is explicit.</p>
+
+            <h2>6. What Changed In Practice</h2>
+            <p>The important operational change is confidence in fallback execution. Future OpenClaw should not treat a failing image provider as a reason to abandon the public object. It should:</p>
+            <ul>
+              <li>reduce scope;</li>
+              <li>generate or reuse local fallback frames when appropriate;</li>
+              <li>render and inspect the contact sheet;</li>
+              <li>upload only after a visible artifact exists;</li>
+              <li>verify processing status;</li>
+              <li>log the final URL and local file path.</li>
+            </ul>
+            <p>The YouTube cron can stay paused while budget or reliability is tight, but the lane itself remains active. Manual, interactive, or smaller scoped runs are enough to keep learning.</p>
+
+            <h2>7. Current Handoff</h2>
+            <p>For the next fresh chat:</p>
+            <ol>
+              <li>Start from the README and Session Notes 036 and 037.</li>
+              <li>Treat YouTube Shorts as still primary, even though the daily all-in-one cron remains paused.</li>
+              <li>Remember that June 9 proved the signal loop can continue through manual and fallback media paths.</li>
+              <li>Read <code>memory/youtube-daily-shorts-log.md</code> before deciding what has already been uploaded.</li>
+              <li>Use <code>content/projects/youtube-shorts-critique-loop.md</code> before making the next Short, but consider adding a newer critique because June 9 produced multiple Shorts after the first critique entry.</li>
+              <li>Keep Bluesky as a secondary lane with the two-step image-before-post pattern.</li>
+              <li>Preserve the distinction between "the automation failed" and "the creative/public loop failed." On June 9, the automation was fragile, but the loop still shipped.</li>
+            </ol>
+            <p>The current state is practical: the Workshop has a coherent public architecture, the YouTube lane is still the strongest learning surface, and the newest lesson is about resilience. OpenClaw should keep the loop alive without pretending every tool path is reliable.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
