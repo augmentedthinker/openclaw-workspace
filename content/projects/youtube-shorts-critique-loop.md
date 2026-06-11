@@ -8,7 +8,59 @@ public_html: ../../projects/youtube-shorts-critique-loop.html
 
 # YouTube Shorts Critique Loop
 
-<details open>
+<details>
+<summary><strong>Critique 002: June 11, 2026 - Highest-Performing Shorts Theory</strong></summary>
+
+**Videos reviewed:**
+- <https://youtu.be/x_SfN0tiL4w> - `Chuck Norris Joins the Loop #Shorts`
+- <https://youtu.be/89NO6nPt9iA> - `OpenClaw Offers the Red Pill #Shorts`
+- <https://youtu.be/xh53J4rKOY0> - `OpenClaw Field Note 002: Alpine Signal Log #Shorts`
+- <https://youtu.be/brP87sCSB_Q> - `OpenClaw Robot Intro Short #Shorts`
+
+**Current signal:** Queried June 11, 2026 around 5:15 a.m. EDT. `Chuck Norris Joins the Loop #Shorts` had 2,158 public views, 14 likes, and ranked #1 on the channel by public views. `OpenClaw Offers the Red Pill #Shorts` ranked #2 with 1,219 views and 8 likes. The next strongest older signals were the Alpine field note at 466 views and the Robot Intro Short at 375 views.
+
+## Agent Guidance
+
+Do not overfit to one video or decide that the channel is now only a celebrity-reference channel. The stronger lesson is about format: the highest performers are short, cinematic, instantly legible, and built around a recognizable visual or cultural hook that a stranger can understand before they understand OpenClaw.
+
+The next YouTube agent should treat `recognizable hook enters the OpenClaw loop` as an active experiment lane. Keep the OpenClaw identity visible, but let the opening premise be easier for outside viewers to grasp.
+
+## What The Top Videos Share
+
+- They are around 10 to 11 seconds, not 24 to 26 seconds.
+- They use a strong cinematic image or character signal immediately.
+- They ask less from the viewer before the premise is understood.
+- They feel like a world or scene, not only an explanation of a workflow.
+- They center OpenClaw visually while borrowing familiarity from a known frame: Alpine adventure, robot introduction, red-pill choice, or Chuck Norris mythology.
+- Their titles are compact and concrete. `Joins the Loop` keeps the OpenClaw doctrine present without making the title feel like internal process language.
+
+## Working Theory
+
+The channel's early audience is responding more to cinematic identity experiments than to explicit process explanations. The doctrine still matters, but it travels better when it is embodied in a scene.
+
+`Chuck Norris Joins the Loop #Shorts` appears to have combined three strengths at once:
+
+1. A familiar cultural figure.
+2. A short 11-second runtime.
+3. A clear OpenClaw-world phrase: `the loop`.
+
+That combination gave strangers an easy doorway while still pointing back to the collaboration's identity.
+
+## What To Be Careful About
+
+- Do not assume every recognizable-person reference will work.
+- Do not let the borrowed hook overpower OpenClaw so the channel becomes generic trend bait.
+- Do not chase views so hard that the channel loses its own world, robot identity, and signal-learning doctrine.
+- Watch copyright, likeness, and platform-safety risk as this series continues.
+- Wait for retention, traffic-source, and 24-to-72-hour numbers before treating this as settled.
+
+## Next Routine Instruction
+
+For the next set of Shorts, prioritize 10-to-12-second cinematic scenes where a recognizable archetype, mythic character, pop-culture-style situation, or instantly legible scenario enters the OpenClaw loop. Make the hook understandable in the first second. Keep OpenClaw visually present. Use titles that pair the outside hook with an OpenClaw phrase such as `the loop`, `the signal`, `the agent`, `the field test`, or `the workshop`. Preserve the daily critique discipline: signal is a teacher, not a command.
+
+</details>
+
+<details>
 <summary><strong>Critique 001: June 6, 2026 - Bounded Signals Become Action #Shorts</strong></summary>
 
 **Video reviewed:** <https://youtu.be/OH-j-gyEhsI>
