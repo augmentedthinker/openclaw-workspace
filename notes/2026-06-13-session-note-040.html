@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 040 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-13-session-note-040.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 040</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-13 · 16:41 EDT</span>
+            <span>Covering learning-loop strategy, reference-image YouTube Short, daily 4 p.m. cron, and the next legibility-site phase</span>
+            <span>Theme: Learning-loop strategy, reference-image YouTube Short, daily 4 p.m. cron, and the next legibility-site phase</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-13-session-note-039.html">Session Note 039</a>. It covers the June 13 late-morning and afternoon work: the new learning-loops strategy artifact, inspection of the June 12 YouTube cron behavior, the copied OpenClaw robot reference image, the June 13 reference-based YouTube Short, the promotion of that workflow into a daily 4:00 p.m. cron, and Christopher's next-session direction toward a public OpenClaw legibility site.</p>
+
+            <blockquote>Current lesson: the next phase is not simply automation. The next phase is visible AI-agent tasks that learn: video, social outreach, and long-form writing loops that publish, read signal, critique, and change the next run.</blockquote>
+
+            <h2>1. The Learning-Loops Strategy Artifact Was Published</h2>
+            <p>Christopher asked OpenClaw to create a substantial artifact around the next strategic focus: simple learning loops, primarily around YouTube and Bluesky, with Blogger likely joining later, and a separate public-facing legibility site for explaining OpenClaw.</p>
+            <p>OpenClaw reviewed the curated Markdown layer and relevant private/local context: the README, long-term memory, user and identity files, YouTube operating sources, the newest session note, the current saturated collaboration artifact, and the private Bluesky field-agent log.</p>
+            <p>The resulting artifact was:</p>
+            <ul>
+              <li>Title: <code>Learning Loops And The Legibility Layer</code></li>
+              <li>Markdown source: <code>content/artifacts/2026-06-13-learning-loops-and-legibility.md</code></li>
+              <li>Public HTML: <code>artifacts/2026-06-13-learning-loops-and-legibility.html</code></li>
+              <li>Direct page: <a href="../artifacts/2026-06-13-learning-loops-and-legibility.html">Learning Loops And The Legibility Layer</a></li>
+              <li>Artifacts index: <a href="../artifacts.html">Artifacts</a></li>
+              <li>Commit pushed: <code>72660ac Add learning loops legibility artifact</code></li>
+            </ul>
+            <p>The artifact framed the next phase with a key distinction:</p>
+            <p><code>The Workshop is where the loop learns. The legibility site is where the loop explains itself.</code></p>
+            <p>The Workshop remains the workbench. The future public site should become the front room: a quick, friendly, mobile-ready explanation of OpenClaw, Christopher, the active learning loops, proof videos, social surfaces, and eventual offers.</p>
+
+            <h2>2. The June 12 YouTube Cron Was Inspected</h2>
+            <p>Christopher asked what happened with the prior one-time YouTube cron from Friday, June 12, especially why the images had a multi-scene / comic-book / storyboard-panel style.</p>
+            <p>OpenClaw inspected the June 12 upload log, story file, caption files, render helper, generated source images, and cron payload.</p>
+            <p>Findings:</p>
+            <ul>
+              <li>The job was scheduled for Friday, June 12, 2026 at 11:30 a.m. EDT.</li>
+              <li>It uploaded <code>OpenClaw Tests the Loop #Shorts</code> publicly at <a href="https://youtu.be/lSgDZ4uDJxY">https://youtu.be/lSgDZ4uDJxY</a>.</li>
+              <li>The cron prompt explicitly asked for <code>four clean cinematic images</code>.</li>
+              <li>The image model nevertheless produced composite storyboard/contact-sheet style images.</li>
+              <li>The renderer treated each composite as one full-frame source image and applied Ken Burns motion across it.</li>
+              <li>The multi-panel style was not intentionally requested by the cron; it emerged from the image model interpreting the story sequence cinematically.</li>
+              <li>There was also a caption mismatch: the saved <code>story.json</code> contained the intended custom captions, but the rendered caption text files used the helper's default fallback captions.</li>
+            </ul>
+            <p>Christopher liked the accidental comic/storyboard concept as a possible future format, but not as the default for the clean cinematic daily Short lane.</p>
+            <p>OpenClaw relabeled the old disabled cron:</p>
+            <ul>
+              <li>Cron ID: <code>17916caf-d3b2-4c94-8da9-8f4adccd7072</code></li>
+              <li>New name: <code>Archived YouTube Short - June 12 storyboard-panel experiment</code></li>
+              <li>Purpose: preserve it as a useful comic-book/storyboard reference, not the clean-cinematic default.</li>
+            </ul>
+
+            <h2>3. A New OpenClaw Robot Reference Image Was Added</h2>
+            <p>Christopher placed a new reference image in the shared downloads folder:</p>
+            <p><code>/mnt/shared/MyFiles/Downloads/share/001_reference.png</code></p>
+            <p>OpenClaw copied it into the workspace reference-image area while leaving the original file in place:</p>
+            <p><code>/home/augmentedthinker/.openclaw/workspace/.openclaw/reference-images/youtube/openclaw-robot-001-reference.png</code></p>
+            <p>The image shows a strong OpenClaw robot identity: cream/ivory weathered body, rounded head, teal glowing eyes, red claw/lobster identity markings, rooftop public-signal environment, warm sunset light, and field-agent equipment around the robot.</p>
+
+            <h2>4. The June 13 Reference-Based YouTube Short Succeeded</h2>
+            <p>Christopher asked for a new 4:00 p.m. EDT one-time YouTube Short job using the new reference image, a concise textual storyboard, no title hashtags, richer description language, clean single-scene images, dry-render QA, caption verification, and public YouTube upload.</p>
+            <p>OpenClaw created the one-time job:</p>
+            <ul>
+              <li>Cron ID: <code>086c38d6-2712-439b-835d-c2b32f0f81df</code></li>
+              <li>Initial name: <code>One-time YouTube Short - June 13 reference storyboard loop</code></li>
+              <li>Run time: Saturday, June 13, 2026 at 4:00 p.m. EDT</li>
+              <li>UTC run time: <code>2026-06-13T20:00:00Z</code></li>
+            </ul>
+            <p>The job ran successfully on its own. OpenClaw inspected while it was already running but did not manually trigger, nudge, upload, or complete the workflow. The isolated cron agent generated the images, rendered the MP4, uploaded, verified, logged, and reported.</p>
+            <p>YouTube upload:</p>
+            <ul>
+              <li>Title: <code>OpenClaw Catches the Public Signal</code></li>
+              <li>URL: <a href="https://youtu.be/4J0Xp5SqK_Q">https://youtu.be/4J0Xp5SqK_Q</a></li>
+              <li>Privacy: public</li>
+              <li>Upload status: processed</li>
+              <li>Processing status: succeeded</li>
+              <li>Duration: <code>PT24S</code></li>
+              <li>Definition: HD</li>
+              <li>Local MP4: <code>/home/augmentedthinker/.openclaw/workspace/tmp/youtube-daily-shorts/2026-06-13/youtube-daily-short-2026-06-13.mp4</code></li>
+            </ul>
+            <p>Source images:</p>
+            <ul>
+              <li><code>/home/augmentedthinker/.openclaw/media/tool-image-generation/youtube-daily-short-2026-06-13-01---4f037250-6a21-440f-9d91-de89e420fb8d.jpg</code></li>
+              <li><code>/home/augmentedthinker/.openclaw/media/tool-image-generation/youtube-daily-short-2026-06-13-02---63768fc4-9835-43b7-aaf6-5978f4167815.jpg</code></li>
+              <li><code>/home/augmentedthinker/.openclaw/media/tool-image-generation/youtube-daily-short-2026-06-13-03---d6e88297-618c-4f8c-809a-5bfd5d4e7c29.jpg</code></li>
+              <li><code>/home/augmentedthinker/.openclaw/media/tool-image-generation/youtube-daily-short-2026-06-13-04---dcd8adf2-2495-49d1-8ec6-f8c7af2f7654.jpg</code></li>
+            </ul>
+            <p>Storyboard captions:</p>
+            <ol>
+              <li><code>A tiny public signal hits the rooftop.</code></li>
+              <li><code>Christopher chooses the next experiment.</code></li>
+              <li><code>OpenClaw turns feedback into a field test.</code></li>
+              <li><code>The loop returns changed for tomorrow.</code></li>
+            </ol>
+            <p>QA findings: clean single-scene frames, strong reference-image identity transfer, captions matched <code>story.json</code>, render was vertical <code>1080x1920</code>, nonblank, and 24 seconds, title had no hashtags, and description carried the relevant AI-agent / learning-loop language.</p>
+            <p>The cron reported one warning: <code>run node inline script (agent)</code> failed. OpenClaw could not inspect the exact inline script body because isolated cron session history was restricted from this chat tree. The warning was non-blocking: the job status was <code>ok</code>, upload and verification succeeded, QA succeeded, and the log entry was appended.</p>
+
+            <h2>5. The Successful YouTube Workflow Became A Daily 4:00 p.m. Cron</h2>
+            <p>Christopher reviewed the new video and said it followed exactly what he wanted. He asked to make that workflow a scheduled daily cron at 4:00 p.m.</p>
+            <p>OpenClaw converted the successful one-time job into a recurring daily job:</p>
+            <ul>
+              <li>Cron ID: <code>086c38d6-2712-439b-835d-c2b32f0f81df</code></li>
+              <li>New name: <code>Daily YouTube Short - reference storyboard loop</code></li>
+              <li>Schedule: daily at 4:00 p.m. America/New_York</li>
+              <li>Cron expression: <code>0 16 * * *</code></li>
+              <li>Next run at time of setup: Sunday, June 14, 2026 at 4:00 p.m. EDT</li>
+              <li><code>deleteAfterRun</code>: false, so the job remains inspectable after future runs</li>
+            </ul>
+            <p>The prompt was updated so it no longer hardcodes June 13. Future runs compute the current America/New_York date, use <code>youtube-daily-short-YYYY-MM-DD</code>, check the upload log for duplicate protection, write a fresh four-sentence storyboard, choose a title without hashtags, generate four clean single-scene images, dry-render, verify caption files, upload publicly, log, and report.</p>
+            <p>This is now the primary daily YouTube Short routine unless Christopher changes direction.</p>
+
+            <h2>6. The Next Focus Is The OpenClaw Legibility Site</h2>
+            <p>Christopher wants to pause here and continue next with the OpenClaw legibility website.</p>
+            <p>The vision:</p>
+            <ul>
+              <li>A separate public site from the current GitHub Pages Workshop.</li>
+              <li>The Workshop remains the workbench and public memory/continuity lab.</li>
+              <li>The new site becomes the friendly public face of OpenClaw.</li>
+              <li>OpenClaw likely appears as the robot persona, directly introducing itself.</li>
+              <li>The site should be fun, clear, and able to explain the collaboration to old friends, curious strangers, and potential collaborators.</li>
+              <li>It must work well on both desktop and mobile.</li>
+              <li>It should be easy to share by QR code during in-person conversations.</li>
+            </ul>
+            <p>Core public explanation: OpenClaw is not merely automating posts. The important move is that the system is building learning loops. It creates public objects, measures or observes signal, incorporates Christopher's critique and OpenClaw's own critique, and changes the next run.</p>
+            <p>The first legibility-site lanes should probably be:</p>
+            <ol>
+              <li><strong>YouTube video pipeline</strong>: daily Shorts, reference-image OpenClaw robot identity, storyboards, generated images, Ken Burns render, public upload, signal review, and future weekly longer videos.</li>
+              <li><strong>Bluesky social/outreach pipeline</strong>: field notes, quote-reposts, follows, replies or reply drafts when approved, and social signal from adjacent creators/builders.</li>
+              <li><strong>Blogger long-form/articles pipeline</strong>: future public essays that turn Workshop artifacts and reflections into audience-facing explanations, search-friendly posts, and deeper discussion.</li>
+            </ol>
+            <p>The site should demonstrate these as AI-agent task loops, not isolated automations. Automation posts something. A learning loop posts something, reads what happened, critiques the result, remembers the lesson, and changes what happens next.</p>
+            <p>Christopher is also liking the OpenClaw robot persona. The robot now gives the collaboration more embodiment, personality, continuity, and a visual character to build around. Keep using it for now.</p>
+
+            <h2>7. Current Handoff</h2>
+            <p>For the next fresh session:</p>
+            <ol>
+              <li>Start from <code>README.md</code>, Session Notes 039 and 040, the learning-loops artifact, the YouTube Shorts Operating Brief, the YouTube Shorts Critique Loop, and <code>memory/youtube-daily-shorts-log.md</code>.</li>
+              <li>Remember that <code>Learning Loops And The Legibility Layer</code> is the current strategy artifact for the next phase.</li>
+              <li>Remember that the OpenClaw robot reference image lives at <code>/home/augmentedthinker/.openclaw/workspace/.openclaw/reference-images/youtube/openclaw-robot-001-reference.png</code>.</li>
+              <li>Remember that the new daily YouTube cron is <code>Daily YouTube Short - reference storyboard loop</code>, ID <code>086c38d6-2712-439b-835d-c2b32f0f81df</code>, daily at 4:00 p.m. America/New_York.</li>
+              <li>Remember that the June 13 reference-based Short succeeded and is public at <a href="https://youtu.be/4J0Xp5SqK_Q">https://youtu.be/4J0Xp5SqK_Q</a>.</li>
+              <li>Remember that the accidental June 12 storyboard-panel cron is preserved as an archived reference, not the default daily style.</li>
+              <li>Next likely work: design and build the separate OpenClaw legibility site.</li>
+              <li>The legibility site should explain the three demonstration lanes: YouTube video pipeline, Bluesky social/outreach pipeline, and future Blogger long-form/articles pipeline.</li>
+              <li>Keep the focus on learning loops: public action, signal, critique, memory, changed behavior.</li>
+              <li>Design for mobile and desktop from the start, because Christopher expects to share the site with people in person.</li>
+            </ol>
+            <p>The current state is strong. The collaboration published a strategy artifact, diagnosed a prior image-style failure, converted a reference image into a successful public Short, promoted the working method into a daily cron, and identified the next public-facing build: a legible OpenClaw site that can explain the work without requiring someone to read the whole Workshop.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
