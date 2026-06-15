@@ -26,7 +26,7 @@ The resulting page follows that structure:
 
 - **Title:** OpenClaw Signal Loops.
 - **Left stack:** Motion Loop, Image Loop, Conversation Loop.
-- **Background:** Christopher's `lobster.png` image from the shared downloads folder, fixed to the viewport so the page scrolls over it.
+- **Background:** Christopher's `lobster.png` image from the shared downloads folder, fixed to the viewport and fit to viewport height so the top and bottom remain visible.
 - **Top-right marker:** a black tattoo-style OpenClaw wordmark with a line-art lobster ornament.
 - **Right figure:** Christopher's transparent OpenClaw robot cutout from the shared downloads folder, positioned as the page's persona anchor.
 - **Intent:** prove that quick touchscreen sketches can become usable Workshop pages without overexplaining the layout in text.
