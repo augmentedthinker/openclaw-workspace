@@ -17,6 +17,7 @@ The sketch showed:
 - a title band across the top;
 - three stacked image blocks on the left;
 - short text fields beside each image;
+- a small top-right marker above the robot image;
 - a large OpenClaw robot figure cropped into the right side;
 - the robot layer placed far enough right that the left-side content stays readable.
 
@@ -24,6 +25,7 @@ The resulting page follows that structure:
 
 - **Title:** OpenClaw Signal Loops.
 - **Left stack:** Motion Loop, Image Loop, Conversation Loop.
+- **Top-right marker:** OpenClaw / Visual Signal Lab.
 - **Right figure:** Christopher's transparent OpenClaw robot cutout from the shared downloads folder, positioned as the page's persona anchor.
 - **Intent:** prove that quick touchscreen sketches can become usable Workshop pages without overexplaining the layout in text.
 

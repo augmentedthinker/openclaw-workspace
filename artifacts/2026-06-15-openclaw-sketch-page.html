@@ -60,6 +60,57 @@
         z-index: -1;
       }
 
+      .sketch-sigil {
+        position: absolute;
+        top: clamp(1rem, 2.4vw, 2rem);
+        right: clamp(1rem, 2.8vw, 2.4rem);
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 0.8rem;
+        align-items: center;
+        width: min(18rem, 30vw);
+        min-height: 64px;
+        border: 1px solid rgba(17, 24, 39, 0.18);
+        padding: 0.65rem 0.78rem;
+        background: rgba(248, 250, 252, 0.76);
+        color: var(--sketch-ink);
+        box-shadow: 0 16px 48px rgba(17, 24, 39, 0.12);
+        backdrop-filter: blur(10px);
+        z-index: 1;
+      }
+
+      .sketch-sigil-mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border: 2px solid rgba(185, 28, 28, 0.58);
+        color: #7f1d1d;
+        background: rgba(254, 242, 242, 0.78);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .sketch-sigil strong,
+      .sketch-sigil span {
+        display: block;
+      }
+
+      .sketch-sigil strong {
+        font-size: 0.9rem;
+        line-height: 1.1;
+      }
+
+      .sketch-sigil span {
+        margin-top: 0.14rem;
+        color: var(--sketch-muted);
+        font-size: 0.72rem;
+        font-weight: 760;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+
       .sketch-content {
         width: min(58rem, 64vw);
         padding: clamp(2rem, 4vw, 4rem);
@@ -187,6 +238,14 @@
           min-width: 0;
           opacity: 0.42;
         }
+
+        .sketch-sigil {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: min(100%, 18rem);
+          margin: 1rem 1.35rem 0 auto;
+        }
       }
 
       @media (max-width: 640px) {
@@ -212,6 +271,18 @@
           bottom: -170px;
           width: 410px;
         }
+
+        .sketch-sigil {
+          grid-template-columns: 38px minmax(0, 1fr);
+          min-height: 58px;
+          margin-right: 1rem;
+          padding: 0.56rem 0.62rem;
+        }
+
+        .sketch-sigil-mark {
+          width: 38px;
+          height: 38px;
+        }
       }
     </style>
   </head>
@@ -230,6 +301,13 @@
 
       <main>
         <section class="sketch-page" aria-labelledby="sketch-title">
+          <aside class="sketch-sigil" aria-label="OpenClaw page marker">
+            <div class="sketch-sigil-mark" aria-hidden="true">OC</div>
+            <div>
+              <strong>OpenClaw</strong>
+              <span>Visual Signal Lab</span>
+            </div>
+          </aside>
           <img class="sketch-robot" src="../assets/images/sketch-pages/robot-no-background-2026-06-15.png" alt="" aria-hidden="true" />
           <div class="sketch-content">
             <div class="sketch-kicker">Sketch To Page Experiment</div>
