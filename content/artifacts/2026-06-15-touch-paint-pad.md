@@ -22,5 +22,6 @@ The first version supports:
 - clear;
 - PNG download.
 
-The purpose is practical: give Christopher a simple shared sketch surface for communicating page layouts, interface ideas, and visual structure when text is too slow.
+The current widescreen layout places drawing tools and brush size on the left rail, colors and file actions on the right rail, and the canvas in the center.
 
+The purpose is practical: give Christopher a simple shared sketch surface for communicating page layouts, interface ideas, and visual structure when text is too slow.
