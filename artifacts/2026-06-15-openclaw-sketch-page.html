@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenClaw Sketch Page Experiment · Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260615-1" />
+    <!-- Source content: ../content/artifacts/2026-06-15-openclaw-sketch-page.md -->
+    <style>
+      :root {
+        --sketch-ink: #111827;
+        --sketch-muted: #4b5563;
+        --sketch-paper: #f8fafc;
+        --sketch-line: rgba(17, 24, 39, 0.14);
+        --sketch-accent: #b91c1c;
+        --sketch-blue: #0f766e;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 14% 18%, rgba(15, 118, 110, 0.12), transparent 24rem),
+          radial-gradient(circle at 86% 10%, rgba(185, 28, 28, 0.09), transparent 22rem),
+          linear-gradient(135deg, #f8fafc 0%, #e8f2f2 46%, #edf2f7 100%);
+      }
+
+      .sketch-page {
+        position: relative;
+        min-height: calc(100vh - 112px);
+        overflow: hidden;
+        border: 1px solid var(--sketch-line);
+        background:
+          linear-gradient(90deg, rgba(247, 242, 233, 0.98) 0%, rgba(247, 242, 233, 0.94) 46%, rgba(247, 242, 233, 0.62) 68%, rgba(247, 242, 233, 0.2) 100%),
+          var(--sketch-paper);
+        box-shadow: 0 24px 80px rgba(17, 24, 39, 0.14);
+        isolation: isolate;
+      }
+
+      .sketch-page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(17, 24, 39, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(17, 24, 39, 0.045) 1px, transparent 1px);
+        background-size: 72px 72px;
+        mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 78%);
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      .sketch-robot {
+        position: absolute;
+        right: clamp(-300px, -12vw, -120px);
+        bottom: clamp(-160px, -7vw, -72px);
+        width: min(72vw, 980px);
+        min-width: 660px;
+        opacity: 0.86;
+        filter: drop-shadow(-20px 24px 48px rgba(17, 24, 39, 0.2));
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.46) 18%, #000 37%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .sketch-content {
+        width: min(58rem, 64vw);
+        padding: clamp(2rem, 4vw, 4rem);
+        padding-bottom: clamp(2.5rem, 5vw, 5rem);
+      }
+
+      .sketch-kicker {
+        color: var(--sketch-accent);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .sketch-title {
+        max-width: 13ch;
+        margin: 0.45rem 0 1rem;
+        color: var(--sketch-ink);
+        font-size: clamp(3rem, 8vw, 7rem);
+        line-height: 0.88;
+        letter-spacing: 0;
+      }
+
+      .sketch-lede {
+        max-width: 42rem;
+        margin: 0 0 clamp(2rem, 4vw, 3rem);
+        color: var(--sketch-muted);
+        font-size: clamp(1.02rem, 1.6vw, 1.22rem);
+        line-height: 1.65;
+      }
+
+      .sketch-stack {
+        display: grid;
+        gap: 1.15rem;
+        max-width: 42rem;
+      }
+
+      .sketch-row {
+        display: grid;
+        grid-template-columns: clamp(104px, 13vw, 156px) minmax(0, 1fr);
+        gap: clamp(1rem, 2vw, 1.35rem);
+        align-items: center;
+        padding: 0.85rem 0;
+        border-top: 1px solid var(--sketch-line);
+      }
+
+      .sketch-row:last-child {
+        border-bottom: 1px solid var(--sketch-line);
+      }
+
+      .sketch-thumb {
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 6px solid rgba(17, 24, 39, 0.9);
+        background: #f9fafb;
+      }
+
+      .sketch-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .sketch-row h2 {
+        margin: 0 0 0.35rem;
+        color: var(--sketch-ink);
+        font-size: clamp(1.15rem, 2vw, 1.55rem);
+        letter-spacing: 0;
+      }
+
+      .sketch-row p {
+        margin: 0;
+        color: var(--sketch-muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .sketch-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 2rem;
+      }
+
+      .sketch-actions a {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(17, 24, 39, 0.2);
+        padding: 0.72rem 0.95rem;
+        color: var(--sketch-ink);
+        background: rgba(255, 255, 255, 0.62);
+        font-size: 0.88rem;
+        font-weight: 760;
+        text-decoration: none;
+      }
+
+      .sketch-actions a:first-child {
+        border-color: rgba(185, 28, 28, 0.3);
+        color: #7f1d1d;
+        background: rgba(254, 226, 226, 0.72);
+      }
+
+      .sketch-actions a:hover {
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 980px) {
+        .sketch-page {
+          min-height: 0;
+        }
+
+        .sketch-content {
+          width: auto;
+          padding: 1.35rem;
+          padding-bottom: 22rem;
+        }
+
+        .sketch-robot {
+          right: -260px;
+          bottom: -110px;
+          width: 760px;
+          min-width: 0;
+          opacity: 0.48;
+          mask-image: linear-gradient(0deg, #000 0%, #000 72%, transparent 100%);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .sketch-content {
+          padding-bottom: 18rem;
+        }
+
+        .sketch-title {
+          font-size: clamp(2.65rem, 16vw, 4.25rem);
+        }
+
+        .sketch-row {
+          grid-template-columns: 84px minmax(0, 1fr);
+          gap: 0.85rem;
+        }
+
+        .sketch-thumb {
+          border-width: 4px;
+        }
+
+        .sketch-robot {
+          right: -285px;
+          width: 680px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="sketch-page" aria-labelledby="sketch-title">
+          <img class="sketch-robot" src="../assets/images/sketch-pages/openclaw-layout-overlay-2026-06-15.png" alt="" aria-hidden="true" />
+          <div class="sketch-content">
+            <div class="sketch-kicker">Sketch To Page Experiment</div>
+            <h1 id="sketch-title" class="sketch-title">OpenClaw Signal Loops</h1>
+            <p class="sketch-lede">A first translation of Christopher's touch sketch into a public web layout: clear title at the top, three scan-friendly modules on the left, and the OpenClaw robot cropped into the right side as a translucent guide rather than a competing panel.</p>
+
+            <div class="sketch-stack" aria-label="Signal loop modules">
+              <article class="sketch-row">
+                <div class="sketch-thumb">
+                  <img src="../assets/images/openclaw-legibility/2026-06-14-openclaw-legibility-youtube.png" alt="OpenClaw working at a video production desk." />
+                </div>
+                <div>
+                  <h2>Motion Loop</h2>
+                  <p>YouTube Shorts turn the robot persona into movement, timing, captions, and public signal that can change the next upload.</p>
+                </div>
+              </article>
+
+              <article class="sketch-row">
+                <div class="sketch-thumb">
+                  <img src="../assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg" alt="OpenClaw robot experiment image from the separated learning loop." />
+                </div>
+                <div>
+                  <h2>Image Loop</h2>
+                  <p>The Workshop can test visual behavior first, then let a separate evaluator notice one problem and update one creative nudge.</p>
+                </div>
+              </article>
+
+              <article class="sketch-row">
+                <div class="sketch-thumb">
+                  <img src="../assets/images/openclaw-legibility/2026-06-14-openclaw-legibility-bluesky.png" alt="OpenClaw among social signal cards." />
+                </div>
+                <div>
+                  <h2>Conversation Loop</h2>
+                  <p>Bluesky and future public surfaces become bounded places to contribute, observe response, and refine the language.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="sketch-actions" aria-label="Related links">
+              <a href="../projects/behavior-learning-loops.html">Behavior Learning Loops</a>
+              <a href="../artifacts/2026-06-15-touch-paint-pad.html">Touch Paint Pad</a>
+              <a href="../content/artifacts/2026-06-15-openclaw-sketch-page.md">Markdown Source</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
