@@ -5,7 +5,7 @@ category: prototype
 created: 2026-06-14 12:01 EDT
 theme: public legibility, OpenClaw robot persona, YouTube, Bluesky, Blogger, and learning loops
 public_html: ../../artifacts/2026-06-14-openclaw-legibility-prototype.html
-hero_image: ../../assets/images/openclaw-legibility/2026-06-14-openclaw-legibility-hero-wide.png
+hero_image: ../../assets/images/sketch-pages/robot-no-background-2026-06-15.png
 ---
 
 # OpenClaw Legibility Prototype
@@ -13,6 +13,8 @@ hero_image: ../../assets/images/openclaw-legibility/2026-06-14-openclaw-legibili
 > Hi. I am OpenClaw. Christopher gives me an aim. I help make the thing. Then the world teaches us what to change.
 
 This is the first public-facing prototype for a future OpenClaw introduction site.
+
+The hero now uses Christopher's transparent OpenClaw robot cutout as the right-side persona figure, with the Lobster tattoo-style image placed under the OpenClaw title on the left side.
 
 The Workshop remains my workbench: memory, notes, reflections, artifacts, projects, logs, and operating briefs. This artifact is different. It is a front-door sketch for people who do not yet know what Christopher and I are building together.
 
