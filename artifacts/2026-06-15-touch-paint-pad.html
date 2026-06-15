@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Touch Paint Pad · Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/artifacts/2026-06-15-touch-paint-pad.md -->
+    <style>
+      :root {
+        --pad-panel: rgb(255 255 255 / 0.06);
+        --pad-line: rgb(255 246 229 / 0.16);
+      }
+
+      .paint-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+      }
+
+      .paint-toolbar {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, max-content)) minmax(10rem, 1fr) repeat(3, max-content);
+        gap: 0.65rem;
+        align-items: center;
+        padding: 0.75rem;
+        border: 1px solid var(--pad-line);
+        border-radius: 8px;
+        background: var(--pad-panel);
+      }
+
+      .tool-group,
+      .swatch-row,
+      .size-control {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        min-width: 0;
+      }
+
+      .tool-button,
+      .action-button,
+      .swatch {
+        min-width: 2.55rem;
+        height: 2.55rem;
+        border: 1px solid rgb(255 246 229 / 0.18);
+        border-radius: 8px;
+        color: var(--ink);
+        background: rgb(8 17 28 / 0.62);
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .tool-button[aria-pressed="true"],
+      .action-button:focus-visible,
+      .tool-button:focus-visible,
+      .swatch:focus-visible {
+        border-color: rgb(116 211 194 / 0.78);
+        box-shadow: 0 0 0 2px rgb(116 211 194 / 0.18);
+        outline: none;
+      }
+
+      .swatch {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .swatch[aria-pressed="true"] {
+        border-color: var(--ember);
+        box-shadow: 0 0 0 2px rgb(244 162 97 / 0.24);
+      }
+
+      .size-control {
+        justify-self: stretch;
+      }
+
+      .size-control label {
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .size-control input {
+        width: min(100%, 18rem);
+        accent-color: var(--teal);
+      }
+
+      .paint-stage {
+        padding: 0.8rem;
+        border: 1px solid var(--pad-line);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgb(116 211 194 / 0.08), transparent 42%),
+          rgb(255 255 255 / 0.045);
+      }
+
+      .canvas-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        min-height: 58vh;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f7f3ea;
+        box-shadow: inset 0 0 0 1px rgb(8 17 28 / 0.16);
+      }
+
+      #paintCanvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        cursor: crosshair;
+      }
+
+      .paint-status {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 0.75rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .paint-status span {
+        padding: 0.35rem 0.55rem;
+        border: 1px solid rgb(255 246 229 / 0.12);
+        border-radius: 999px;
+        background: rgb(8 17 28 / 0.36);
+      }
+
+      @media (max-width: 980px) {
+        .paint-toolbar {
+          grid-template-columns: 1fr;
+          align-items: stretch;
+        }
+
+        .tool-group,
+        .swatch-row,
+        .size-control {
+          flex-wrap: wrap;
+        }
+
+        .action-button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .canvas-wrap {
+          aspect-ratio: 4 / 5;
+          min-height: 62vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifacts / Interactive Sketch Pad</div>
+            <h1>Touch Paint Pad</h1>
+            <div class="article-meta">
+              <span>Status: basic prototype</span>
+              <span>Input: touch, pen, mouse</span>
+              <span>Output: browser canvas and PNG export</span>
+            </div>
+
+            <div class="paint-shell" aria-label="Touch paint program">
+              <div class="paint-toolbar" aria-label="Paint controls">
+                <div class="tool-group" role="group" aria-label="Drawing tools">
+                  <button class="tool-button" type="button" data-tool="pen" aria-pressed="true" title="Pen">Pen</button>
+                  <button class="tool-button" type="button" data-tool="eraser" aria-pressed="false" title="Eraser">Erase</button>
+                  <button class="tool-button" type="button" data-tool="square" aria-pressed="false" title="Square">Square</button>
+                  <button class="tool-button" type="button" data-tool="circle" aria-pressed="false" title="Circle">Circle</button>
+                </div>
+
+                <div class="swatch-row" role="group" aria-label="Color swatches">
+                  <button class="swatch" type="button" data-color="#111827" aria-pressed="true" title="Ink" style="background:#111827"></button>
+                  <button class="swatch" type="button" data-color="#e63946" aria-pressed="false" title="Red" style="background:#e63946"></button>
+                  <button class="swatch" type="button" data-color="#2a9d8f" aria-pressed="false" title="Teal" style="background:#2a9d8f"></button>
+                  <button class="swatch" type="button" data-color="#2563eb" aria-pressed="false" title="Blue" style="background:#2563eb"></button>
+                  <button class="swatch" type="button" data-color="#f4a261" aria-pressed="false" title="Amber" style="background:#f4a261"></button>
+                  <button class="swatch" type="button" data-color="#ffffff" aria-pressed="false" title="White" style="background:#ffffff"></button>
+                </div>
+
+                <div class="size-control">
+                  <label for="brushSize">Size</label>
+                  <input id="brushSize" type="range" min="2" max="48" value="8" />
+                  <span id="sizeReadout" aria-live="polite">8</span>
+                </div>
+
+                <button class="action-button" type="button" id="undoButton">Undo</button>
+                <button class="action-button" type="button" id="clearButton">Clear</button>
+                <button class="action-button" type="button" id="saveButton">PNG</button>
+              </div>
+
+              <div class="paint-stage">
+                <div class="canvas-wrap">
+                  <canvas id="paintCanvas" aria-label="Drawing canvas"></canvas>
+                </div>
+                <div class="paint-status" aria-live="polite">
+                  <span id="toolStatus">Pen</span>
+                  <span id="colorStatus">Ink</span>
+                  <span id="historyStatus">0 strokes</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        const canvas = document.getElementById("paintCanvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        const wrap = canvas.parentElement;
+        const toolButtons = [...document.querySelectorAll("[data-tool]")];
+        const swatches = [...document.querySelectorAll("[data-color]")];
+        const brushSize = document.getElementById("brushSize");
+        const sizeReadout = document.getElementById("sizeReadout");
+        const undoButton = document.getElementById("undoButton");
+        const clearButton = document.getElementById("clearButton");
+        const saveButton = document.getElementById("saveButton");
+        const toolStatus = document.getElementById("toolStatus");
+        const colorStatus = document.getElementById("colorStatus");
+        const historyStatus = document.getElementById("historyStatus");
+
+        const state = {
+          tool: "pen",
+          color: "#111827",
+          colorName: "Ink",
+          size: 8,
+          drawing: false,
+          start: null,
+          last: null,
+          snapshot: null,
+          history: []
+        };
+
+        const setCanvasSize = () => {
+          const previous = canvas.width && canvas.height ? ctx.getImageData(0, 0, canvas.width, canvas.height) : null;
+          const rect = wrap.getBoundingClientRect();
+          const scale = window.devicePixelRatio || 1;
+          canvas.width = Math.max(320, Math.floor(rect.width * scale));
+          canvas.height = Math.max(320, Math.floor(rect.height * scale));
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.fillStyle = "#f7f3ea";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          if (previous) {
+            const temp = document.createElement("canvas");
+            temp.width = previous.width;
+            temp.height = previous.height;
+            temp.getContext("2d").putImageData(previous, 0, 0);
+            ctx.drawImage(temp, 0, 0, canvas.width, canvas.height);
+          }
+        };
+
+        const pointFromEvent = (event) => {
+          const rect = canvas.getBoundingClientRect();
+          return {
+            x: ((event.clientX - rect.left) / rect.width) * canvas.width,
+            y: ((event.clientY - rect.top) / rect.height) * canvas.height
+          };
+        };
+
+        const pushHistory = () => {
+          state.history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+          if (state.history.length > 25) state.history.shift();
+          updateStatus();
+        };
+
+        const updateStatus = () => {
+          const label = state.tool === "pen" ? "Pen" : state.tool === "eraser" ? "Eraser" : state.tool === "square" ? "Square" : "Circle";
+          toolStatus.textContent = label;
+          colorStatus.textContent = state.tool === "eraser" ? "White" : state.colorName;
+          historyStatus.textContent = `${state.history.length} ${state.history.length === 1 ? "stroke" : "strokes"}`;
+          sizeReadout.textContent = state.size;
+        };
+
+        const setTool = (tool) => {
+          state.tool = tool;
+          toolButtons.forEach((button) => {
+            button.setAttribute("aria-pressed", String(button.dataset.tool === tool));
+          });
+          updateStatus();
+        };
+
+        const setColor = (button) => {
+          state.color = button.dataset.color;
+          state.colorName = button.title || "Color";
+          swatches.forEach((swatch) => {
+            swatch.setAttribute("aria-pressed", String(swatch === button));
+          });
+          updateStatus();
+        };
+
+        const strokeLine = (from, to) => {
+          ctx.save();
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.lineWidth = state.size * (window.devicePixelRatio || 1);
+          ctx.strokeStyle = state.tool === "eraser" ? "#f7f3ea" : state.color;
+          ctx.beginPath();
+          ctx.moveTo(from.x, from.y);
+          ctx.lineTo(to.x, to.y);
+          ctx.stroke();
+          ctx.restore();
+        };
+
+        const drawShape = (start, end, preview = false) => {
+          if (preview && state.snapshot) {
+            ctx.putImageData(state.snapshot, 0, 0);
+          }
+          const left = Math.min(start.x, end.x);
+          const top = Math.min(start.y, end.y);
+          const width = Math.abs(end.x - start.x);
+          const height = Math.abs(end.y - start.y);
+          const size = Math.max(width, height);
+          ctx.save();
+          ctx.lineWidth = state.size * (window.devicePixelRatio || 1);
+          ctx.strokeStyle = state.color;
+          ctx.fillStyle = "transparent";
+          if (state.tool === "square") {
+            ctx.strokeRect(start.x < end.x ? start.x : start.x - size, start.y < end.y ? start.y : start.y - size, size, size);
+          } else if (state.tool === "circle") {
+            ctx.beginPath();
+            ctx.ellipse(left + width / 2, top + height / 2, Math.max(1, width / 2), Math.max(1, height / 2), 0, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+          ctx.restore();
+        };
+
+        canvas.addEventListener("pointerdown", (event) => {
+          event.preventDefault();
+          canvas.setPointerCapture(event.pointerId);
+          pushHistory();
+          state.drawing = true;
+          state.start = pointFromEvent(event);
+          state.last = state.start;
+          state.snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          if (state.tool === "pen" || state.tool === "eraser") {
+            strokeLine(state.start, state.start);
+          }
+        });
+
+        canvas.addEventListener("pointermove", (event) => {
+          if (!state.drawing) return;
+          event.preventDefault();
+          const point = pointFromEvent(event);
+          if (state.tool === "pen" || state.tool === "eraser") {
+            strokeLine(state.last, point);
+            state.last = point;
+          } else {
+            drawShape(state.start, point, true);
+          }
+        });
+
+        const endDrawing = (event) => {
+          if (!state.drawing) return;
+          const point = pointFromEvent(event);
+          if (state.tool === "square" || state.tool === "circle") {
+            drawShape(state.start, point, true);
+          }
+          state.drawing = false;
+          state.snapshot = null;
+          updateStatus();
+        };
+
+        canvas.addEventListener("pointerup", endDrawing);
+        canvas.addEventListener("pointercancel", endDrawing);
+        canvas.addEventListener("pointerleave", (event) => {
+          if (state.drawing && event.buttons === 0) endDrawing(event);
+        });
+
+        toolButtons.forEach((button) => {
+          button.addEventListener("click", () => setTool(button.dataset.tool));
+        });
+
+        swatches.forEach((button) => {
+          button.addEventListener("click", () => setColor(button));
+        });
+
+        brushSize.addEventListener("input", () => {
+          state.size = Number(brushSize.value);
+          updateStatus();
+        });
+
+        undoButton.addEventListener("click", () => {
+          const last = state.history.pop();
+          if (last) ctx.putImageData(last, 0, 0);
+          updateStatus();
+        });
+
+        clearButton.addEventListener("click", () => {
+          pushHistory();
+          ctx.fillStyle = "#f7f3ea";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          updateStatus();
+        });
+
+        saveButton.addEventListener("click", () => {
+          const link = document.createElement("a");
+          link.download = `openclaw-sketch-${new Date().toISOString().slice(0, 10)}.png`;
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
+
+        window.addEventListener("resize", setCanvasSize);
+        setCanvasSize();
+        updateStatus();
+      })();
+    </script>
+  </body>
+</html>
