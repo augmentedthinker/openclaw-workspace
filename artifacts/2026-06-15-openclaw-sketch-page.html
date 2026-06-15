@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>OpenClaw Sketch Page Experiment · Artifacts · OpenClaw Workshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../workshop.css?v=20260615-1" />
     <!-- Source content: ../content/artifacts/2026-06-15-openclaw-sketch-page.md -->
     <style>
@@ -62,53 +65,80 @@
 
       .sketch-sigil {
         position: absolute;
-        top: clamp(1rem, 2.4vw, 2rem);
-        right: clamp(1rem, 2.8vw, 2.4rem);
-        display: grid;
-        grid-template-columns: 44px minmax(0, 1fr);
-        gap: 0.8rem;
-        align-items: center;
-        width: min(18rem, 30vw);
-        min-height: 64px;
-        border: 1px solid rgba(17, 24, 39, 0.18);
-        padding: 0.65rem 0.78rem;
-        background: rgba(248, 250, 252, 0.76);
-        color: var(--sketch-ink);
-        box-shadow: 0 16px 48px rgba(17, 24, 39, 0.12);
-        backdrop-filter: blur(10px);
+        top: clamp(1.1rem, 2.8vw, 2.8rem);
+        right: clamp(1rem, 3vw, 3rem);
+        width: min(34rem, 38vw);
+        color: rgba(17, 24, 39, 0.94);
+        text-align: center;
+        transform: rotate(-2deg);
         z-index: 1;
       }
 
-      .sketch-sigil-mark {
-        display: grid;
-        width: 44px;
-        height: 44px;
-        place-items: center;
-        border: 2px solid rgba(185, 28, 28, 0.58);
-        color: #7f1d1d;
-        background: rgba(254, 242, 242, 0.78);
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0;
-      }
-
-      .sketch-sigil strong,
-      .sketch-sigil span {
+      .sketch-sigil::before,
+      .sketch-sigil::after {
+        content: "";
         display: block;
+        width: min(22rem, 70%);
+        height: 2px;
+        margin: 0 auto;
+        color: var(--sketch-ink);
+        background:
+          linear-gradient(90deg, transparent 0%, currentColor 18%, currentColor 82%, transparent 100%),
+          repeating-linear-gradient(90deg, transparent 0 12px, currentColor 12px 13px, transparent 13px 24px);
+        opacity: 0.82;
       }
 
-      .sketch-sigil strong {
-        font-size: 0.9rem;
-        line-height: 1.1;
+      .sketch-sigil::before {
+        margin-bottom: 0.32rem;
       }
 
-      .sketch-sigil span {
+      .sketch-sigil::after {
+        margin-top: 0.36rem;
+      }
+
+      .sketch-sigil-title {
+        display: block;
+        font-family: "UnifrakturMaguntia", Georgia, "Times New Roman", serif;
+        font-size: clamp(3.2rem, 6.2vw, 6.4rem);
+        font-weight: 400;
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-shadow:
+          1px 1px 0 rgba(248, 250, 252, 0.72),
+          -1px 0 0 rgba(17, 24, 39, 0.58),
+          0 2px 14px rgba(17, 24, 39, 0.16);
+      }
+
+      .sketch-sigil-title span {
+        display: inline-block;
+      }
+
+      .sketch-sigil-title span::first-letter {
+        font-size: 1.25em;
+        line-height: 0.72;
+      }
+
+      .sketch-sigil-lobster {
+        display: block;
+        width: min(13rem, 46%);
+        margin: 0.24rem auto 0;
+        color: rgba(17, 24, 39, 0.9);
+        filter: drop-shadow(0 8px 12px rgba(17, 24, 39, 0.16));
+      }
+
+      .sketch-sigil-lobster path,
+      .sketch-sigil-lobster circle,
+      .sketch-sigil-lobster line,
+      .sketch-sigil-lobster polyline {
+        vector-effect: non-scaling-stroke;
+      }
+
+      .sketch-sigil-caption {
+        display: block;
         margin-top: 0.14rem;
-        color: var(--sketch-muted);
-        font-size: 0.72rem;
-        font-weight: 760;
-        line-height: 1.25;
-        text-transform: uppercase;
+        font-size: clamp(0.62rem, 0.9vw, 0.78rem);
+        font-weight: 900;
+        letter-spacing: 0.14em;
       }
 
       .sketch-content {
@@ -243,8 +273,17 @@
           position: relative;
           top: auto;
           right: auto;
-          width: min(100%, 18rem);
+          width: min(100%, 21rem);
           margin: 1rem 1.35rem 0 auto;
+          transform: rotate(-1.5deg);
+        }
+
+        .sketch-sigil-title {
+          font-size: clamp(2.4rem, 11vw, 4rem);
+        }
+
+        .sketch-sigil-lobster {
+          width: min(9rem, 44%);
         }
       }
 
@@ -273,15 +312,12 @@
         }
 
         .sketch-sigil {
-          grid-template-columns: 38px minmax(0, 1fr);
-          min-height: 58px;
+          width: min(15rem, calc(100% - 2rem));
           margin-right: 1rem;
-          padding: 0.56rem 0.62rem;
         }
 
-        .sketch-sigil-mark {
-          width: 38px;
-          height: 38px;
+        .sketch-sigil-title {
+          font-size: clamp(2.1rem, 13vw, 3.4rem);
         }
       }
     </style>
@@ -302,11 +338,29 @@
       <main>
         <section class="sketch-page" aria-labelledby="sketch-title">
           <aside class="sketch-sigil" aria-label="OpenClaw page marker">
-            <div class="sketch-sigil-mark" aria-hidden="true">OC</div>
-            <div>
-              <strong>OpenClaw</strong>
-              <span>Visual Signal Lab</span>
-            </div>
+            <strong class="sketch-sigil-title"><span>OpenClaw</span></strong>
+            <svg class="sketch-sigil-lobster" viewBox="0 0 240 96" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M82 48c11-16 65-16 76 0" />
+                <path d="M72 54c22 17 74 17 96 0" />
+                <path d="M96 63c4 13 9 21 24 21s20-8 24-21" />
+                <path d="M95 36c-12-13-33-19-49-8" />
+                <path d="M145 36c12-13 33-19 49-8" />
+                <path d="M48 29c-20-11-36 5-24 20 12-4 22-11 24-20Z" />
+                <path d="M192 29c20-11 36 5 24 20-12-4-22-11-24-20Z" />
+                <path d="M87 53l-38 24" />
+                <path d="M153 53l38 24" />
+                <path d="M77 63l-24 21" />
+                <path d="M163 63l24 21" />
+                <path d="M109 31v-14" />
+                <path d="M131 31v-14" />
+                <path d="M109 17l-17-10" />
+                <path d="M131 17l17-10" />
+                <circle cx="106" cy="44" r="3" fill="currentColor" stroke="none" />
+                <circle cx="134" cy="44" r="3" fill="currentColor" stroke="none" />
+              </g>
+            </svg>
+            <span class="sketch-sigil-caption">inked signal mark</span>
           </aside>
           <img class="sketch-robot" src="../assets/images/sketch-pages/robot-no-background-2026-06-15.png" alt="" aria-hidden="true" />
           <div class="sketch-content">
