@@ -21,8 +21,10 @@
 
       body {
         background:
+          linear-gradient(90deg, rgba(248, 250, 252, 0.9) 0%, rgba(248, 250, 252, 0.78) 48%, rgba(248, 250, 252, 0.34) 100%),
           radial-gradient(circle at 14% 18%, rgba(15, 118, 110, 0.12), transparent 24rem),
           radial-gradient(circle at 86% 10%, rgba(185, 28, 28, 0.09), transparent 22rem),
+          url("../assets/images/sketch-pages/lobster-background-2026-06-15.png") center center / cover fixed no-repeat,
           linear-gradient(135deg, #f8fafc 0%, #e8f2f2 46%, #edf2f7 100%);
       }
 
@@ -32,9 +34,10 @@
         overflow: hidden;
         border: 1px solid var(--sketch-line);
         background:
-          linear-gradient(90deg, rgba(247, 242, 233, 0.98) 0%, rgba(247, 242, 233, 0.94) 46%, rgba(247, 242, 233, 0.62) 68%, rgba(247, 242, 233, 0.2) 100%),
-          var(--sketch-paper);
+          linear-gradient(90deg, rgba(247, 242, 233, 0.94) 0%, rgba(247, 242, 233, 0.84) 46%, rgba(247, 242, 233, 0.48) 68%, rgba(247, 242, 233, 0.14) 100%),
+          rgba(248, 250, 252, 0.32);
         box-shadow: 0 24px 80px rgba(17, 24, 39, 0.14);
+        backdrop-filter: blur(1px);
         isolation: isolate;
       }
 

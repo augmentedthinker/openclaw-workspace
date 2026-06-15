@@ -17,6 +17,7 @@ The sketch showed:
 - a title band across the top;
 - three stacked image blocks on the left;
 - short text fields beside each image;
+- a fixed Lobster image used as the full-page background;
 - a large top-right tattoo-style marker above the robot image;
 - a large OpenClaw robot figure cropped into the right side;
 - the robot layer placed far enough right that the left-side content stays readable.
@@ -25,6 +26,7 @@ The resulting page follows that structure:
 
 - **Title:** OpenClaw Signal Loops.
 - **Left stack:** Motion Loop, Image Loop, Conversation Loop.
+- **Background:** Christopher's `lobster.png` image from the shared downloads folder, fixed to the viewport so the page scrolls over it.
 - **Top-right marker:** a black tattoo-style OpenClaw wordmark with a line-art lobster ornament.
 - **Right figure:** Christopher's transparent OpenClaw robot cutout from the shared downloads folder, positioned as the page's persona anchor.
 - **Intent:** prove that quick touchscreen sketches can become usable Workshop pages without overexplaining the layout in text.
@@ -33,6 +35,7 @@ The first version used a generated stand-in robot. This revision replaces it wit
 
 Source asset paths:
 
+- `assets/images/sketch-pages/lobster-background-2026-06-15.png`
 - `assets/images/sketch-pages/robot-no-background-2026-06-15.png`
 
 This is not meant to be the final OpenClaw front door. It is a layout translation exercise: sketch first, inspect, generate the missing visual, build the page, then let Christopher judge whether the translation matches what he meant.
