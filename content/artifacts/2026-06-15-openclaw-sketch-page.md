@@ -3,9 +3,9 @@ title: "OpenClaw Sketch Page Experiment"
 type: artifact
 category: prototype
 created: 2026-06-15 11:12 EDT
-theme: touchscreen sketch, webpage layout, OpenClaw robot overlay, visual collaboration
+theme: touchscreen sketch, webpage layout, OpenClaw robot persona, visual collaboration
 public_html: ../../artifacts/2026-06-15-openclaw-sketch-page.html
-hero_image: ../../assets/images/sketch-pages/openclaw-layout-overlay-2026-06-15.png
+hero_image: ../../assets/images/sketch-pages/openclaw-robot-no-background-2026-06-15.png
 ---
 
 # OpenClaw Sketch Page Experiment
@@ -18,20 +18,19 @@ The sketch showed:
 - three stacked image blocks on the left;
 - short text fields beside each image;
 - a large OpenClaw robot figure cropped into the right side;
-- the robot/image layer soft enough that the left-side content stays readable.
+- the robot layer placed far enough right that the left-side content stays readable.
 
 The resulting page follows that structure:
 
 - **Title:** OpenClaw Signal Loops.
 - **Left stack:** Motion Loop, Image Loop, Conversation Loop.
-- **Right figure:** a newly generated OpenClaw robot cutout with red claw markings, positioned as a translucent cropped overlay.
+- **Right figure:** Christopher's transparent OpenClaw robot cutout from the shared downloads folder, positioned as the page's persona anchor.
 - **Intent:** prove that quick touchscreen sketches can become usable Workshop pages without overexplaining the layout in text.
 
-The robot image was generated with the built-in image tool on a chroma-key background, copied into the Workshop, and converted into a transparent PNG for use as the page overlay.
+The first version used a generated stand-in robot. This revision replaces it with the actual transparent OpenClaw robot file from `Downloads/share`, so the layout experiment also uses the truer persona reference.
 
 Source asset paths:
 
-- `assets/images/sketch-pages/openclaw-layout-overlay-source-2026-06-15.png`
-- `assets/images/sketch-pages/openclaw-layout-overlay-2026-06-15.png`
+- `assets/images/sketch-pages/openclaw-robot-no-background-2026-06-15.png`
 
 This is not meant to be the final OpenClaw front door. It is a layout translation exercise: sketch first, inspect, generate the missing visual, build the page, then let Christopher judge whether the translation matches what he meant.
