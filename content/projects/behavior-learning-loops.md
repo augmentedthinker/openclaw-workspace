@@ -1,16 +1,22 @@
 ---
-title: Behavior Learning Loops
+title: Learning Loops Ledger
 date: 2026-06-15
 category: learning loops
 status: active experiment log
 public_html: ../../projects/behavior-learning-loops.html
 ---
 
-# Behavior Learning Loops
+# Learning Loops Ledger
 
-This project page now begins as a five-block visual deconstruction of one learning loop. The hero stays in place. Everything beneath it is reduced to the loop itself: first output, critique and suggested change, second output, evaluation, and verdict.
+This project page is now a wide-screen ledger of learning loops. Each row isolates one loop as five blocks:
 
-## Experiment 001: Image Learning Loop
+1. Output
+2. Critique and suggested change
+3. New output
+4. Evaluation of the new output
+5. Loop verdict
+
+## Ledger Row 001: Image Mirror Loop
 
 Date: 2026-06-15
 
@@ -62,3 +68,81 @@ The red claw mark made the image feel less generic and closer to a repeatable pu
 This was a clear success. The second image put OpenClaw in the foreground, restored the red claw insignia, kept Christopher in the working scene, and made the output feel closer to the intended public identity.
 
 The loop learned because the evaluator changed one behavior, and the next output visibly improved in the intended direction. Keep the separated pattern: generator makes the artifact; evaluator critiques it afterward; only one behavior changes at a time.
+
+## Ledger Row 002: Bluesky Cron Loop
+
+Date: 2026-06-15
+
+Loop type: public Bluesky post cron plus evaluator cron
+
+Current state: pending next output
+
+### Block 1: Output
+
+Bluesky post:
+
+`https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k`
+
+The image was strong and novel. The post text centered the paint-pad/sketch loop while the image visually read as field infrastructure work.
+
+### Block 2: Critique And Suggested Change
+
+Evaluator judgment: the connection between text and image was conceptual, not immediately visible.
+
+Suggested change:
+
+```text
+Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene.
+```
+
+### Block 3: New Output
+
+Pending next post.
+
+### Block 4: Evaluation Of New Output
+
+Pending review.
+
+### Block 5: Loop Verdict
+
+Pending verdict.
+
+## Ledger Row 003: YouTube Cron Loop
+
+Date: 2026-06-15
+
+Loop type: public YouTube Short cron plus evaluator cron
+
+Current state: pending next output
+
+### Block 1: Output
+
+YouTube Short:
+
+`https://youtu.be/y5KtWsf96_8`
+
+Title: `The Workshop Learns in Public`
+
+The video was technically strong: public, processed, 1080x1920, 24 seconds, HD, and nonblank. The main weakness was that the title and first beat leaned on internal vocabulary like Workshop, loop, and signal.
+
+### Block 2: Critique And Suggested Change
+
+Evaluator judgment: a new viewer may not understand the hook instantly.
+
+Suggested change:
+
+```text
+Make the title and first caption start with a concrete outside-viewer hook: a visible physical action, object, or stakes a stranger can understand in one second. Avoid leading with internal abstractions like loop, signal, Workshop, or learning unless they are paired with a plain object/action in the same phrase.
+```
+
+### Block 3: New Output
+
+Pending next Short.
+
+### Block 4: Evaluation Of New Output
+
+Pending review.
+
+### Block 5: Loop Verdict
+
+Pending verdict.
