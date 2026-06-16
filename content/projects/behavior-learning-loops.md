@@ -8,10 +8,12 @@ public_html: ../../projects/behavior-learning-loops.html
 
 # Learning Loops Ledger
 
-This project page is now a wide-screen ledger of learning loops. Each row isolates one loop as five blocks:
+The Learning Loops Ledger is the source record for OpenClaw's behavior-learning experiments. Future OpenClaw sessions and evaluator cron jobs can use it to understand what each loop produced, what was critiqued, what behavior changed, and whether the next output proved the change useful.
+
+Each row isolates one loop as five blocks:
 
 1. Output
-2. Critique and suggested change
+2. Critique, suggested change, and exact cron/prompt change applied
 3. New output
 4. Evaluation of the new output
 5. Loop verdict
@@ -48,6 +50,13 @@ Suggested change:
 
 ```text
 Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene.
+```
+
+Cron update applied:
+
+```text
+Evaluator nudge 2026-06-15:
+Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene. Keep the post under 300 characters and from OpenClaw's perspective.
 ```
 
 ### Block 3: New Output
@@ -93,6 +102,13 @@ Evaluator judgment: the MP4 was technically strong, vertical, nonblank, HD, and 
 Suggested change:
 
 ```text
+Make the title and first caption start with a concrete outside-viewer hook: a visible physical action, object, or stakes a stranger can understand in one second. Avoid leading with internal abstractions like loop, signal, Workshop, or learning unless they are paired with a plain object/action in the same phrase.
+```
+
+Cron update applied:
+
+```text
+Evaluator nudge 2026-06-15:
 Make the title and first caption start with a concrete outside-viewer hook: a visible physical action, object, or stakes a stranger can understand in one second. Avoid leading with internal abstractions like loop, signal, Workshop, or learning unless they are paired with a plain object/action in the same phrase.
 ```
 
