@@ -16,62 +16,11 @@ This project page is now a wide-screen ledger of learning loops. Each row isolat
 4. Evaluation of the new output
 5. Loop verdict
 
-## Ledger Row 001: Image Mirror Loop
+## Ledger Row: Bluesky Cron Loop
 
-Date: 2026-06-15
+Output: 2026-06-15 7:06 PM EDT
 
-Loop type: image generation
-
-Pattern tested: separated generation job plus evaluator job
-
-Result: success
-
-## Block 1: Output
-
-Run 1 showed a rooftop signal-work scene with Christopher and an OpenClaw robot present.
-
-The image worked as a physical field note, but OpenClaw was not yet visually dominant.
-
-Image: `assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg`
-
-## Block 2: Critique And Suggested Change
-
-Evaluator noticed:
-
-- The image existed.
-- It was square.
-- It avoided the old notebook/table pattern.
-- It showed clear rooftop signal work.
-- It avoided readable text/logos.
-- But OpenClaw's visual identity was not strong enough: the robot was present, but the red claw insignia and foreground identity were weak.
-
-Suggested change:
-
-```text
-make the OpenClaw robot identity instantly visible with a close foreground robot action and subtle red claw markings.
-```
-
-## Block 3: New Output
-
-Run 2 moved OpenClaw into the foreground and made the red claw marking visible while Christopher stayed in the working scene.
-
-Image: `assets/images/learning-loops/image-loop-all-in-one-2026-06-15.jpg`
-
-## Block 4: Evaluation Of New Output
-
-The second output kept the useful rooftop context, but gave the viewer a faster subject: OpenClaw became the foreground actor.
-
-The red claw mark made the image feel less generic and closer to a repeatable public identity.
-
-## Block 5: Loop Verdict
-
-This was a clear success. The second image put OpenClaw in the foreground, restored the red claw insignia, kept Christopher in the working scene, and made the output feel closer to the intended public identity.
-
-The loop learned because the evaluator changed one behavior, and the next output visibly improved in the intended direction. Keep the separated pattern: generator makes the artifact; evaluator critiques it afterward; only one behavior changes at a time.
-
-## Ledger Row 002: Bluesky Cron Loop
-
-Date: 2026-06-15
+Critique: 2026-06-15 8:05 PM EDT
 
 Loop type: public Bluesky post cron plus evaluator cron
 
@@ -83,11 +32,17 @@ Bluesky post:
 
 `https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k`
 
-The image was strong and novel. The post text centered the paint-pad/sketch loop while the image visually read as field infrastructure work.
+Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
+
+Text:
+
+```text
+Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.
+```
 
 ### Block 2: Critique And Suggested Change
 
-Evaluator judgment: the connection between text and image was conceptual, not immediately visible.
+Evaluator judgment: the image was strong and novel, but the text centered the paint-pad/sketch loop while the image visually read as field infrastructure work. The connection was conceptual, not immediately visible.
 
 Suggested change:
 
@@ -107,9 +62,11 @@ Pending review.
 
 Pending verdict.
 
-## Ledger Row 003: YouTube Cron Loop
+## Ledger Row: YouTube Cron Loop
 
-Date: 2026-06-15
+Output: 2026-06-15 4:15 PM EDT
+
+Critique: 2026-06-15 5:00 PM EDT
 
 Loop type: public YouTube Short cron plus evaluator cron
 
@@ -123,11 +80,15 @@ YouTube Short:
 
 Title: `The Workshop Learns in Public`
 
-The video was technically strong: public, processed, 1080x1920, 24 seconds, HD, and nonblank. The main weakness was that the title and first beat leaned on internal vocabulary like Workshop, loop, and signal.
+Description:
+
+```text
+Christopher and OpenClaw turn one small idea into a public signal test for the AugmentedThinker channel. This YouTube Short shows how OpenClaw, AI agents, and practical agent workflows can become a visible learning loop: make the thing, publish the signal, read what comes back, and let the next AI loop improve.
+```
 
 ### Block 2: Critique And Suggested Change
 
-Evaluator judgment: a new viewer may not understand the hook instantly.
+Evaluator judgment: the MP4 was technically strong, vertical, nonblank, HD, and readable, but the title and first beat leaned on internal terms like Workshop, loop, and signal. A new viewer may not understand the hook instantly.
 
 Suggested change:
 
@@ -146,3 +107,56 @@ Pending review.
 ### Block 5: Loop Verdict
 
 Pending verdict.
+
+## Ledger Row: Image Critique Example
+
+Output: 2026-06-15 9:30 AM EDT
+
+Critique: 2026-06-15 9:45 AM EDT
+
+Loop type: image generation mirror example
+
+Result: success
+
+### Block 1: Output
+
+Run 1 showed a rooftop signal-work scene with Christopher and an OpenClaw robot present.
+
+The image worked as a physical field note, but OpenClaw was not yet visually dominant.
+
+Image: `assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg`
+
+### Block 2: Critique And Suggested Change
+
+Evaluator noticed:
+
+- The image existed.
+- It was square.
+- It avoided the old notebook/table pattern.
+- It showed clear rooftop signal work.
+- It avoided readable text/logos.
+- But OpenClaw's visual identity was not strong enough: the robot was present, but the red claw insignia and foreground identity were weak.
+
+Suggested change:
+
+```text
+make the OpenClaw robot identity instantly visible with a close foreground robot action and subtle red claw markings.
+```
+
+### Block 3: New Output
+
+Run 2 moved OpenClaw into the foreground and made the red claw marking visible while Christopher stayed in the working scene.
+
+Image: `assets/images/learning-loops/image-loop-all-in-one-2026-06-15.jpg`
+
+### Block 4: Evaluation Of New Output
+
+The second output kept the useful rooftop context, but gave the viewer a faster subject: OpenClaw became the foreground actor.
+
+The red claw mark made the image feel less generic and closer to a repeatable public identity.
+
+### Block 5: Loop Verdict
+
+This was a clear success. The second image put OpenClaw in the foreground, restored the red claw insignia, kept Christopher in the working scene, and made the output feel closer to the intended public identity.
+
+The loop learned because the evaluator changed one behavior, and the next output visibly improved in the intended direction. Keep the separated pattern: generator makes the artifact; evaluator critiques it afterward; only one behavior changes at a time.
