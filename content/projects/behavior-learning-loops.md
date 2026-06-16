@@ -8,11 +8,7 @@ public_html: ../../projects/behavior-learning-loops.html
 
 # Behavior Learning Loops
 
-This project is a mechanical experiment log for OpenClaw learning loops.
-
-The principle is simple: learning has not happened until behavior changes. Each record should show the output, what the evaluator noticed, what it changed, and whether Christopher and OpenClaw judge the change as useful.
-
-The first lane is image generation. Later lanes may test text output, YouTube concepts, Tumblr posts, or other workflows.
+This project page now begins as a five-block visual deconstruction of one learning loop. The hero stays in place. Everything beneath it is reduced to the loop itself: first output, critique and suggested change, second output, evaluation, and verdict.
 
 ## Experiment 001: Image Learning Loop
 
@@ -24,13 +20,15 @@ Pattern tested: separated generation job plus evaluator job
 
 Result: success
 
-The generation job created one image. The evaluator looked at it and changed one prompt nudge for the next run.
+## Block 1: Output
 
-Before nudge:
+Run 1 showed a rooftop signal-work scene with Christopher and an OpenClaw robot present.
 
-```text
-make the scene legible to a stranger in one second by showing a clear physical action, not only symbolic AI ambience.
-```
+The image worked as a physical field note, but OpenClaw was not yet visually dominant.
+
+Image: `assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg`
+
+## Block 2: Critique And Suggested Change
 
 Evaluator noticed:
 
@@ -41,25 +39,26 @@ Evaluator noticed:
 - It avoided readable text/logos.
 - But OpenClaw's visual identity was not strong enough: the robot was present, but the red claw insignia and foreground identity were weak.
 
-Changed nudge:
+Suggested change:
 
 ```text
 make the OpenClaw robot identity instantly visible with a close foreground robot action and subtle red claw markings.
 ```
 
-Christopher judgment:
+## Block 3: New Output
+
+Run 2 moved OpenClaw into the foreground and made the red claw marking visible while Christopher stayed in the working scene.
+
+Image: `assets/images/learning-loops/image-loop-all-in-one-2026-06-15.jpg`
+
+## Block 4: Evaluation Of New Output
+
+The second output kept the useful rooftop context, but gave the viewer a faster subject: OpenClaw became the foreground actor.
+
+The red claw mark made the image feel less generic and closer to a repeatable public identity.
+
+## Block 5: Loop Verdict
 
 This was a clear success. The second image put OpenClaw in the foreground, restored the red claw insignia, kept Christopher in the working scene, and made the output feel closer to the intended public identity.
 
-## Experiment Log Fields
-
-Future entries should keep this shape:
-
-1. Output type
-2. Original output
-3. Evaluator observation
-4. Changed behavior
-5. Next output
-6. Christopher judgment
-7. Keep, reverse, or adjust
-
+The loop learned because the evaluator changed one behavior, and the next output visibly improved in the intended direction. Keep the separated pattern: generator makes the artifact; evaluator critiques it afterward; only one behavior changes at a time.

@@ -7,105 +7,139 @@
     <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
     <!-- Source content: ../content/projects/behavior-learning-loops.md -->
     <style>
-      .loop-log {
-        display: grid;
-        gap: 1rem;
-        margin: 1.2rem 0 2rem;
+      .learning-loop-board {
+        width: 100%;
+        margin: 1rem 0 2.5rem;
       }
 
-      .loop-row {
+      .learning-loop-strip {
         display: grid;
-        grid-template-columns: minmax(10rem, 0.55fr) minmax(0, 1.45fr);
-        gap: 1rem;
-        padding: 1rem;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .loop-step {
+        min-width: 0;
+        min-height: clamp(15rem, 19vw, 20rem);
         border: 1px solid rgb(255 246 229 / 0.14);
         border-radius: 8px;
-        background: rgb(255 255 255 / 0.05);
-      }
-
-      .loop-label {
-        color: var(--ember);
-        font-weight: 850;
-      }
-
-      .loop-value p:first-child {
-        margin-top: 0;
-      }
-
-      .loop-value p:last-child,
-      .loop-value ul:last-child {
-        margin-bottom: 0;
-      }
-
-      .image-comparison {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-        margin: 1rem 0 0;
-      }
-
-      .image-result {
-        border: 1px solid rgb(255 246 229 / 0.16);
-        border-radius: 8px;
-        background: rgb(8 17 28 / 0.42);
+        background:
+          linear-gradient(180deg, rgb(255 255 255 / 0.085), rgb(255 255 255 / 0.038)),
+          rgb(5 7 13 / 0.56);
+        box-shadow: 0 18px 48px rgb(0 0 0 / 0.24);
         overflow: hidden;
       }
 
-      .image-result img {
+      .loop-step.image-step {
+        position: relative;
+        background: rgb(5 7 13 / 0.72);
+      }
+
+      .loop-step.image-step img {
         display: block;
         width: 100%;
-        aspect-ratio: 1 / 1;
+        height: 100%;
+        min-height: inherit;
         object-fit: cover;
       }
 
-      .image-result-body {
-        padding: 0.85rem;
+      .loop-image-label {
+        position: absolute;
+        inset: auto 0.7rem 0.7rem;
+        display: grid;
+        gap: 0.18rem;
+        padding: 0.65rem 0.7rem;
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 8px;
+        background: rgb(5 7 13 / 0.78);
+        backdrop-filter: blur(10px);
       }
 
-      .image-result-body strong {
-        display: block;
+      .loop-step.text-step {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0.9rem;
+        padding: clamp(0.85rem, 1.35vw, 1.15rem);
+      }
+
+      .step-kicker {
         color: var(--ember);
-        margin-bottom: 0.35rem;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .verdict-chip {
-        display: inline-flex;
-        width: fit-content;
-        margin-bottom: 0.8rem;
-        padding: 0.35rem 0.58rem;
-        border: 1px solid rgb(116 211 194 / 0.42);
-        border-radius: 999px;
-        color: var(--teal);
-        background: rgb(8 17 28 / 0.52);
-        font-size: 0.82rem;
-        font-weight: 850;
+      .loop-step h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+        line-height: 1.08;
+        letter-spacing: 0;
       }
 
-      .loop-table {
+      .loop-step p {
+        margin: 0;
+        color: rgb(255 246 229 / 0.82);
+        font-size: clamp(0.84rem, 1.02vw, 0.96rem);
+        line-height: 1.45;
+      }
+
+      .loop-step strong {
+        color: var(--ink);
+      }
+
+      .step-detail {
         display: grid;
         gap: 0.55rem;
-        margin-top: 1rem;
       }
 
-      .loop-table div {
-        display: grid;
-        grid-template-columns: 2.2rem minmax(0, 1fr);
-        gap: 0.65rem;
-        padding: 0.7rem 0.8rem;
-        border: 1px solid rgb(255 246 229 / 0.12);
-        border-radius: 8px;
-        background: rgb(255 255 255 / 0.045);
+      .step-detail p {
+        padding-top: 0.55rem;
+        border-top: 1px solid rgb(255 246 229 / 0.12);
       }
 
-      .loop-table span:first-child {
-        color: var(--ember);
+      .verdict-line {
+        display: inline-flex;
+        width: fit-content;
+        max-width: 100%;
+        padding: 0.35rem 0.52rem;
+        border: 1px solid rgb(116 211 194 / 0.38);
+        border-radius: 999px;
+        color: var(--teal);
+        background: rgb(8 17 28 / 0.54);
+        font-size: 0.78rem;
         font-weight: 850;
+        line-height: 1.2;
       }
 
-      @media (max-width: 820px) {
-        .loop-row,
-        .image-comparison {
+      @media (max-width: 1180px) {
+        .learning-loop-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .loop-step {
+          min-height: 17rem;
+        }
+
+        .loop-step:last-child {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .learning-loop-strip {
           grid-template-columns: 1fr;
+        }
+
+        .loop-step,
+        .loop-step.image-step img {
+          min-height: 19rem;
+        }
+
+        .loop-step:last-child {
+          grid-column: auto;
         }
       }
     </style>
@@ -133,101 +167,54 @@
           </div>
         </section>
 
-        <section class="article-shell">
-          <article class="article-card">
-            <div class="eyebrow">Projects / Learning Loops</div>
-            <h1>Behavior Learning Loops</h1>
-            <div class="article-meta">
-              <span>Status: active experiment log</span>
-              <span>Current lane: image generation</span>
-              <span>Rule: learning means behavior change</span>
-            </div>
+        <section class="learning-loop-board" aria-label="Image learning loop run comparison">
+          <div class="learning-loop-strip">
+            <figure class="loop-step image-step">
+              <img src="../assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg" alt="A human collaborator and OpenClaw robot repairing rooftop signal equipment at sunset." />
+              <figcaption class="loop-image-label">
+                <span class="step-kicker">Block 1 · Output</span>
+                <h2>Run 1</h2>
+                <p>Rooftop signal work with OpenClaw present, but not yet visually dominant.</p>
+              </figcaption>
+            </figure>
 
-            <div class="prose">
-              <p>This page tracks learning loops in the simplest possible form: what the system produced, what the evaluator noticed, what changed, and whether the change was useful.</p>
-
-              <p>The first lane is image generation. Later lanes can test text output, YouTube concepts, Tumblr posts, or other workflows, but this page should stay mechanical enough to compare runs quickly.</p>
-
-              <h2>Experiment 001: Image Learning Loop</h2>
-              <div class="loop-log" aria-label="Experiment 001 log">
-                <div class="loop-row">
-                  <div class="loop-label">Output type</div>
-                  <div class="loop-value">Image generation · Bluesky-style field note · safe Workshop mirror lane</div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Pattern tested</div>
-                  <div class="loop-value">Separated image-prep cron plus evaluator cron. The generator made one image; the evaluator reviewed it and changed one prompt nudge.</div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Image comparison</div>
-                  <div class="loop-value">
-                    <span class="verdict-chip">Judgment: clear success</span>
-                    <div class="image-comparison">
-                      <figure class="image-result">
-                        <img src="../assets/images/learning-loops/image-loop-two-job-2026-06-15.jpg" alt="A human collaborator and OpenClaw robot repairing rooftop signal equipment at sunset." />
-                        <figcaption class="image-result-body">
-                          <strong>Run 1: before evaluator change</strong>
-                          The image works as rooftop signal labor, but OpenClaw's identity is softer. The robot is present, yet the red claw insignia is missing or weak.
-                        </figcaption>
-                      </figure>
-
-                      <figure class="image-result">
-                        <img src="../assets/images/learning-loops/image-loop-all-in-one-2026-06-15.jpg" alt="A foreground OpenClaw robot with red claw markings while a human collaborator and smaller robot work on rooftop signal gear." />
-                        <figcaption class="image-result-body">
-                          <strong>Run 2: after evaluator change</strong>
-                          OpenClaw moves into the foreground, the red claw insignia is visible, Christopher remains in the working scene, and the image reads closer to the intended identity.
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Evaluator noticed</div>
-                  <div class="loop-value">
-                    <ul>
-                      <li>The first image existed and was square.</li>
-                      <li>It avoided the old notebook/table pattern.</li>
-                      <li>It showed clear rooftop signal work.</li>
-                      <li>It avoided readable text and logos.</li>
-                      <li>OpenClaw's identity needed to be more immediate.</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Changed behavior</div>
-                  <div class="loop-value">
-                    <p><strong>Before:</strong> make the scene legible to a stranger in one second by showing a clear physical action, not only symbolic AI ambience.</p>
-                    <p><strong>After:</strong> make the OpenClaw robot identity instantly visible with a close foreground robot action and subtle red claw markings.</p>
-                  </div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Christopher judgment</div>
-                  <div class="loop-value">The change was a blatant success. The second image is closer to the desired public identity: OpenClaw is up front, working, marked with the insignia, while Christopher remains part of the system in the background.</div>
-                </div>
-
-                <div class="loop-row">
-                  <div class="loop-label">Decision</div>
-                  <div class="loop-value">Keep the separated generator/evaluator pattern. Use this page as the mirror surface for future loop experiments before applying the pattern to public channels.</div>
-                </div>
+            <article class="loop-step text-step">
+              <div class="step-detail">
+                <span class="step-kicker">Block 2 · Critique</span>
+                <h2>Good scene, soft identity</h2>
+                <p>The image worked as a physical field note: square, non-textual, and clear enough to read as rooftop signal labor.</p>
+                <p><strong>Suggested change:</strong> make OpenClaw instantly visible through close foreground robot action and subtle red claw markings.</p>
               </div>
+            </article>
 
-              <h2>Log Template</h2>
-              <div class="loop-table" aria-label="Future experiment template">
-                <div><span>1</span><span>Output type</span></div>
-                <div><span>2</span><span>Original output</span></div>
-                <div><span>3</span><span>Evaluator observation</span></div>
-                <div><span>4</span><span>Changed behavior</span></div>
-                <div><span>5</span><span>Next output</span></div>
-                <div><span>6</span><span>Christopher judgment</span></div>
-                <div><span>7</span><span>Keep, reverse, or adjust</span></div>
+            <figure class="loop-step image-step">
+              <img src="../assets/images/learning-loops/image-loop-all-in-one-2026-06-15.jpg" alt="A foreground OpenClaw robot with red claw markings while a human collaborator and smaller robot work on rooftop signal gear." />
+              <figcaption class="loop-image-label">
+                <span class="step-kicker">Block 3 · New Output</span>
+                <h2>Run 2</h2>
+                <p>OpenClaw moves forward, marked by the red claw, while Christopher remains in the working system.</p>
+              </figcaption>
+            </figure>
+
+            <article class="loop-step text-step">
+              <div class="step-detail">
+                <span class="step-kicker">Block 4 · Evaluation</span>
+                <h2>The change landed</h2>
+                <p>The second output keeps the useful rooftop context, but gives the viewer a faster subject: OpenClaw is now the foreground actor.</p>
+                <p>The red claw mark also makes the image feel less generic and closer to a repeatable public identity.</p>
               </div>
-            </div>
-          </article>
+            </article>
+
+            <article class="loop-step text-step">
+              <div class="step-detail">
+                <span class="step-kicker">Block 5 · Loop Verdict</span>
+                <h2>Yes, this learned</h2>
+                <p><span class="verdict-line">Result: clear success</span></p>
+                <p>The evaluator changed one behavior, and the next output visibly improved in the intended direction.</p>
+                <p>Keep this separated pattern: generator makes the artifact; evaluator critiques it afterward; only one behavior changes at a time.</p>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
     </div>
