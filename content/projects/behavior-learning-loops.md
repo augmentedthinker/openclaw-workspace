@@ -26,7 +26,7 @@ Critique: 2026-06-15 8:05 PM EDT
 
 Loop type: public Bluesky post cron plus evaluator cron
 
-Current state: pending next output
+Current state: pending evaluation of next output
 
 ### Block 1: Output
 
@@ -61,7 +61,17 @@ Before drafting the Bluesky post text, briefly inspect or describe the selected 
 
 ### Block 3: New Output
 
-Pending next post.
+Bluesky post:
+
+`https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z`
+
+Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
+
+Text:
+
+```text
+Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.
+```
 
 ### Block 4: Evaluation Of New Output
 
