@@ -93,7 +93,10 @@ The Skills room is the Workshop's reusable procedure index. It is not a replacem
 
 Future fresh sessions should review `skills.html` when the task may match an existing procedure or when Christopher asks about available skills. The page distinguishes Workspace-owned OpenClaw skills from runtime-provided skills that may vary by session. If a Workspace skill is loaded by the runtime, keep it documented in the Workspace-owned section rather than duplicating it in the runtime list. New Workspace skills should be added to the top of the Skills list with the added date/time, skill name, purpose, usage explanation, and the actual skill source or a direct source link.
 
-The first live skill is `session-primer-artifact`, added on June 19, 2026. It creates and publishes public-safe session-primer artifacts from recent memory, notes, artifacts, projects, and Reflections, with explicit Reflection review built into the workflow.
+Live Workspace skills currently include:
+
+- `bluesky-daily-field-note`, added on June 20, 2026. It creates safe Bluesky image field-note posts with image/text alignment, dry-run validation, posting boundaries, and cron-ready failure handling.
+- `session-primer-artifact`, added on June 19, 2026. It creates and publishes public-safe session-primer artifacts from recent memory, notes, artifacts, projects, and Reflections, with explicit Reflection review built into the workflow.
 
 The active routine is the **Daily YouTube Short all-in-one** noon job. It reads the latest critique, recent public-safe context, and local vibe references, then creates, renders, uploads, verifies, logs, and reports one public Short when duplicate protection allows it.
 
