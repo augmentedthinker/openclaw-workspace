@@ -1,13 +1,13 @@
 ---
 name: "bluesky-daily-field-note"
-description: "Create Bluesky field notes with fresh daily images."
+description: "Create fresh Bluesky field notes with post-ready images."
 ---
 
 # Bluesky Daily Field Note
 
 Use when Christopher asks OpenClaw to draft, test, post, or run the Bluesky daily field-note workflow, or when an approved cron should publish one Bluesky image post using a stable skill instead of embedding the whole procedure in the cron prompt.
 
-The skill creates one public-safe Bluesky field note with one freshly generated AI image and related text, verifies the post path before publication, uses local Bluesky tools, and logs the result or blocker. It should be manual/approval-gated by default unless Christopher has explicitly approved the cron routine using this skill.
+The skill creates one public-safe Bluesky field note with one freshly generated AI image and related text, prepares a Bluesky-safe image derivative, verifies the post path before publication, uses local Bluesky tools, and logs the result or blocker. It should be manual/approval-gated by default unless Christopher has explicitly approved the cron routine using this skill.
 
 ## Boundaries
 
@@ -17,7 +17,7 @@ The skill creates one public-safe Bluesky field note with one freshly generated 
 - Do not post secrets, raw private memory, personal private details, credentials, or uncurated logs.
 - Do not print `.secrets/bluesky.env` or any credential value.
 - Do not reply, DM, follow, quote-post, or engage with other accounts unless Christopher explicitly asks for that action.
-- Do not improvise around missing credentials, failed image generation, missing images, failed dry-runs, duplicate risk, or verification failures. Stop, log/report the blocker, and do not post.
+- Do not improvise around missing credentials, failed image generation, missing images, failed media preparation, failed dry-runs, duplicate risk, or verification failures. Stop, log/report the blocker, and do not post.
 - Routine generated media should stay in managed media or scratch locations. Promote images into `assets/` only when deliberately publishing them as Workshop site assets.
 - Treat `tmp/` as scratch/evidence, not a source of truth. Reference images from `tmp/` may inform style only after they are deliberately promoted to a stable reference location. They must not become fallback post media.
 
@@ -31,6 +31,32 @@ Actual Bluesky field-note posts must use a freshly generated AI image for the cu
 - If image generation fails, stop the workflow and send a clear message such as: `Image generation failed, so I did not post to Bluesky.`
 - If image generation produces an unusable image, treat that as image generation failure unless there is time and authorization to retry.
 - Do not silently fall back to yesterday's image, a Learning Loops image, `tmp/` cache media, or a stable Workshop asset.
+
+## Image Size Preflight
+
+Bluesky image blobs must be under 2,000,000 bytes. Fresh generated PNGs may be too large even when visually correct.
+
+After generating the fresh image:
+
+1. Keep the original generated image.
+2. Create a post-ready derivative in `tmp/bluesky/fresh-images/`.
+3. Prefer JPEG for painterly/photo-like field-note images.
+4. Use `ffmpeg` to resize/compress the derivative under a conservative target such as 1.9 MB.
+5. Use the compressed derivative for dry-run and posting.
+6. Verify the derivative exists, is non-empty, and is under 2,000,000 bytes before calling the Bluesky helper.
+7. If compression/preparation fails, stop and report: `Image preparation failed, so I did not post to Bluesky.`
+
+Example compression command:
+
+```bash
+ffmpeg -y \
+  -i <fresh-generated-image> \
+  -vf "scale='min(1024,iw)':-2" \
+  -q:v 5 \
+  tmp/bluesky/fresh-images/<post-ready-name>.jpg
+```
+
+If the output is still over 2,000,000 bytes, retry once with a smaller scale or lower quality, for example `scale='min(900,iw)':-2` and `-q:v 7`. Do not use an old image as fallback.
 
 ## Source Loading
 
@@ -86,12 +112,14 @@ They are not the normal media source for live field-note posts.
 3. For actual posting runs, generate one fresh AI image for the day.
 4. If image generation fails or produces no usable image, stop and report: `Image generation failed, so I did not post to Bluesky.`
 5. Inspect/describe the generated image in plain language.
-6. Draft one post under 300 graphemes that connects the image to recent real Workshop work.
-7. Draft alt text for the image.
-8. Check duplicate risk against recent logs or recent known Bluesky posts when available.
-9. Save any draft text in scratch only if useful; do not create public files unless requested.
-10. Run a dry-run before any actual post.
-11. If the dry-run succeeds and the run is approved to publish, post with the same generated image, text, and alt text.
+6. Create a post-ready compressed derivative and verify it is under 2,000,000 bytes.
+7. If media preparation fails, stop and report: `Image preparation failed, so I did not post to Bluesky.`
+8. Draft one post under 300 graphemes that connects the image to recent real Workshop work.
+9. Draft alt text for the image.
+10. Check duplicate risk against recent logs or recent known Bluesky posts when available.
+11. Save any draft text in scratch only if useful; do not create public files unless requested.
+12. Run a dry-run before any actual post using the post-ready derivative.
+13. If the dry-run succeeds and the run is approved to publish, post with the same post-ready derivative, text, and alt text.
 
 ## Posting Command
 
@@ -101,7 +129,7 @@ Use the local image-post helper for image posts:
 node tools/bluesky-post-image.mjs \
   --env .secrets/bluesky.env \
   --file <draft-file> \
-  --image <fresh-generated-image-path> \
+  --image <post-ready-image-path> \
   --alt <alt-text> \
   --dry-run
 ```
@@ -112,7 +140,7 @@ If the dry-run succeeds and the run is approved to publish, remove `--dry-run`:
 node tools/bluesky-post-image.mjs \
   --env .secrets/bluesky.env \
   --file <draft-file> \
-  --image <fresh-generated-image-path> \
+  --image <post-ready-image-path> \
   --alt <alt-text>
 ```
 
@@ -123,7 +151,9 @@ Use `tools/bluesky-post.mjs` only for text-only posts and only when Christopher 
 Before posting:
 
 - image was freshly generated for this run, unless Christopher explicitly approved reuse;
-- image path exists;
+- original generated image path exists;
+- post-ready derivative path exists;
+- post-ready derivative is under 2,000,000 bytes;
 - image appears to be the intended asset;
 - post text is under 300 graphemes;
 - alt text is present;
@@ -135,7 +165,7 @@ Before posting:
 After posting:
 
 - capture the Bluesky URL printed by the helper;
-- report the image path, post text, alt text summary, and URL;
+- report the original image path, post-ready image path, post text, alt text summary, and URL;
 - log the outcome in the appropriate private/local log if one is established;
 - if this run belongs to a learning loop, update or prepare the relevant Learning Loops Ledger information.
 
@@ -145,6 +175,8 @@ If any step fails, do not post. Report the blocker clearly:
 
 - image generation failed;
 - generated image was unusable;
+- image preparation failed;
+- post-ready image exceeded Bluesky's size limit;
 - missing credentials;
 - missing or unusable image;
 - post too long;
@@ -155,6 +187,7 @@ If any step fails, do not post. Report the blocker clearly:
 - verification could not confirm the post URL.
 
 For image generation failure, use clear language: `Image generation failed, so I did not post to Bluesky.`
+For image preparation failure, use clear language: `Image preparation failed, so I did not post to Bluesky.`
 
 For cron use, the final report should include `posted`, `skipped`, or `failed`, plus the reason.
 
@@ -163,7 +196,7 @@ For cron use, the final report should include `posted`, `skipped`, or `failed`, 
 A cron should stay short and invoke this skill by name, for example:
 
 ```text
-Use the bluesky-daily-field-note skill. Run the approved daily Bluesky image field-note workflow for today. Generate a fresh AI image for today's post. Respect duplicate protection, public/private boundaries, media verification, dry-run before posting, and logging requirements. If image generation fails or required verification fails, do not post; log/report the blocker.
+Use the bluesky-daily-field-note skill. Run the approved daily Bluesky image field-note workflow for today. Generate a fresh AI image for today's post, prepare a post-ready derivative under Bluesky's image-size limit, dry-run before posting, and respect duplicate protection, public/private boundaries, media verification, and logging requirements. If image generation, media preparation, or required verification fails, do not post; log/report the blocker.
 ```
 
 The cron should not duplicate this whole procedure. Keep schedule-specific details in the cron and procedure details in this skill.
@@ -174,7 +207,8 @@ Report concisely:
 
 - run mode;
 - fresh image generation status;
-- image source/path;
+- original image path;
+- post-ready image path and byte size;
 - post text;
 - alt text summary;
 - dry-run status;
