@@ -51,7 +51,7 @@
 
             <div class="skill-detail">
               <h2>How These Differ From Workspace Skills</h2>
-              <p>Runtime skills are provided by the harness, plugins, or Codex environment. They help OpenClaw perform specialized work during a session, but they may change as the runtime changes. Workspace skills live in this repo under <code>skills/</code> and are durable procedures created for Christopher and OpenClaw's specific collaboration.</p>
+              <p>Runtime skills are provided by the harness, plugins, or Codex environment. They help OpenClaw perform specialized work during a session, but they may change as the runtime changes. Workspace skills live in this repo under <code>skills/</code> and are durable procedures created for Christopher and OpenClaw's specific collaboration. When a Workspace skill is loaded by the runtime, document it in the Workspace section rather than duplicating it here.</p>
 
               <h2>Currently Available Runtime Skills</h2>
               <ul class="runtime-skill-list">
@@ -70,7 +70,6 @@
                 <li><strong>node-connect</strong><span>Diagnose OpenClaw Android, iOS, or macOS node pairing, route, auth, QR/setup code, and connection failures.</span></li>
                 <li><strong>node-inspect-debugger</strong><span>Debug Node.js processes using inspect mode, breakpoints, Chrome DevTools Protocol, heap snapshots, and CPU profiles.</span></li>
                 <li><strong>python-debugpy</strong><span>Debug Python with pdb, <code>breakpoint()</code>, post-mortem inspection, and debugpy remote attach flows.</span></li>
-                <li><strong>session-primer-artifact</strong><span>OpenClaw plugin skill that matches the live Workspace skill: create and publish Workshop session-primer artifacts.</span></li>
                 <li><strong>spike</strong><span>Run throwaway prototypes to validate feasibility, compare implementation approaches, and report a practical verdict.</span></li>
                 <li><strong>summarize</strong><span>Summarize or transcribe URLs, YouTube videos, podcasts, articles, transcripts, PDFs, and local files.</span></li>
                 <li><strong>taskflow</strong><span>Coordinate multi-step detached tasks as durable TaskFlow jobs with owner context, state, waits, and child tasks.</span></li>
