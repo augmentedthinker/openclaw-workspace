@@ -42,6 +42,47 @@
         <section class="disclosure-grid skills-grid" aria-label="Available OpenClaw skills">
           <details class="disclosure-card skill-card">
             <summary>
+              <span class="disclosure-count">Runtime provided · varies by session</span>
+              <span class="artifact-summary">
+                <strong>Available Runtime Skills</strong>
+                <span>Skills supplied by the current Codex/OpenClaw environment. These are useful capabilities OpenClaw can invoke, but they are not Workshop-owned procedures unless we deliberately create a local OpenClaw version.</span>
+              </span>
+            </summary>
+
+            <div class="skill-detail">
+              <h2>How These Differ From Workspace Skills</h2>
+              <p>Runtime skills are provided by the harness, plugins, or Codex environment. They help OpenClaw perform specialized work during a session, but they may change as the runtime changes. Workspace skills live in this repo under <code>skills/</code> and are durable procedures created for Christopher and OpenClaw's specific collaboration.</p>
+
+              <h2>Currently Available Runtime Skills</h2>
+              <ul class="runtime-skill-list">
+                <li><strong>imagegen</strong><span>Generate or edit raster images, then move project-bound assets into the workspace. Used for hero images, illustrations, textures, sprites, mockups, and visual variants.</span></li>
+                <li><strong>openai-docs</strong><span>Answer OpenAI product, API, model, Codex, and prompt-upgrade questions using official OpenAI documentation.</span></li>
+                <li><strong>plugin-creator</strong><span>Create and scaffold local Codex plugins, including manifests and marketplace metadata.</span></li>
+                <li><strong>skill-creator</strong><span>Create, update, audit, or restructure Codex skill files and skill packages.</span></li>
+                <li><strong>skill-installer</strong><span>Install curated Codex skills or skills from GitHub repositories into the local Codex skills directory.</span></li>
+                <li><strong>browser-automation</strong><span>Control browser sessions for multi-step web flows, login checks, tab management, and recovery from stale browser references.</span></li>
+                <li><strong>canvas</strong><span>Present and debug HTML on connected OpenClaw node canvases, including navigation, evaluation, snapshots, and canvas host checks.</span></li>
+                <li><strong>diagram-maker</strong><span>Create SVG, HTML, Excalidraw, or whiteboard-style diagrams for concepts, architectures, flows, and system maps.</span></li>
+                <li><strong>gh-issues</strong><span>Fetch GitHub issues, select fix candidates, coordinate background fix agents, open PRs, and process PR review comments.</span></li>
+                <li><strong>github</strong><span>Use GitHub CLI and related workflows for issues, pull requests, CI logs, comments, reviews, releases, repositories, and API queries.</span></li>
+                <li><strong>healthcheck</strong><span>Audit and harden OpenClaw hosts, including SSH, firewall, updates, exposure, backups, disk encryption, and gateway security.</span></li>
+                <li><strong>meme-maker</strong><span>Search meme templates, suggest meme formats, and generate local or hosted image memes.</span></li>
+                <li><strong>node-connect</strong><span>Diagnose OpenClaw Android, iOS, or macOS node pairing, route, auth, QR/setup code, and connection failures.</span></li>
+                <li><strong>node-inspect-debugger</strong><span>Debug Node.js processes using inspect mode, breakpoints, Chrome DevTools Protocol, heap snapshots, and CPU profiles.</span></li>
+                <li><strong>python-debugpy</strong><span>Debug Python with pdb, <code>breakpoint()</code>, post-mortem inspection, and debugpy remote attach flows.</span></li>
+                <li><strong>session-primer-artifact</strong><span>OpenClaw plugin skill that matches the live Workspace skill: create and publish Workshop session-primer artifacts.</span></li>
+                <li><strong>spike</strong><span>Run throwaway prototypes to validate feasibility, compare implementation approaches, and report a practical verdict.</span></li>
+                <li><strong>summarize</strong><span>Summarize or transcribe URLs, YouTube videos, podcasts, articles, transcripts, PDFs, and local files.</span></li>
+                <li><strong>taskflow</strong><span>Coordinate multi-step detached tasks as durable TaskFlow jobs with owner context, state, waits, and child tasks.</span></li>
+                <li><strong>taskflow-inbox-triage</strong><span>Example TaskFlow pattern for inbox triage, intent routing, reply waits, and later summaries.</span></li>
+                <li><strong>video-frames</strong><span>Extract frames or short clips from videos using ffmpeg.</span></li>
+                <li><strong>weather</strong><span>Retrieve current weather and forecasts for locations, rain checks, temperature, and travel planning.</span></li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="disclosure-card skill-card">
+            <summary>
               <span class="disclosure-count">Added 2026-06-19 · 06:00 EDT</span>
               <span class="artifact-summary">
                 <strong>session-primer-artifact</strong>
