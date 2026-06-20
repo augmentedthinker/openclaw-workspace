@@ -225,6 +225,8 @@ a { color: inherit; }
   color: rgb(255 246 229 / 0.84);
   font-size: clamp(1.05rem, 2.4vw, 1.45rem);
   line-height: 1.5;
+  text-align: left;
+  text-align-last: left;
   text-shadow: 0 8px 26px rgb(0 0 0 / 0.36);
 }
 
@@ -506,6 +508,79 @@ a { color: inherit; }
   border-radius: 1rem;
   padding: 1rem;
   background: rgb(5 7 13 / 0.62);
+}
+
+.skills-intro {
+  width: min(920px, calc(100% - 1rem));
+  margin: 1.25rem auto 0;
+}
+
+.skills-intro .article-card h2 {
+  margin: 0.4rem 0 0.85rem;
+  color: var(--ink);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.skills-intro .article-card p {
+  margin: 0 0 1rem;
+  color: rgb(255 246 229 / 0.88);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.7;
+  text-align: left;
+  text-align-last: left;
+}
+
+.skills-intro .article-card p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-grid {
+  width: min(920px, calc(100% - 1rem));
+}
+
+.skill-card summary {
+  min-height: 9rem;
+}
+
+.skill-detail {
+  display: grid;
+  gap: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding: clamp(1rem, 3vw, 1.4rem);
+  color: rgb(255 246 229 / 0.88);
+  background: rgb(5 7 13 / 0.28);
+}
+
+.skill-detail h2 {
+  margin: 0.6rem 0 0;
+  color: var(--soft);
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+}
+
+.skill-detail p {
+  margin: 0;
+  line-height: 1.65;
+  text-align: left;
+  text-align-last: left;
+}
+
+.skill-card .artifact-summary span {
+  text-align: left;
+  text-align-last: left;
+}
+
+.skill-source {
+  max-height: 34rem;
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgb(5 7 13 / 0.7);
+  color: var(--soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
 }
 
 .mirror-note {
@@ -1160,7 +1235,6 @@ footer {
     letter-spacing: -0.07em;
   }
 
-  .cinematic-overlay p,
   .artifact-summary span,
   .mirror-note {
     display: block;

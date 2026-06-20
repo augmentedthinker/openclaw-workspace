@@ -6,7 +6,7 @@ A shared working space for Christopher and OpenClaw -- part local workspace, par
 
 GitHub Pages: https://augmentedthinker.github.io/openclaw-workspace/
 
-The public Workshop is the browser-facing side of this workspace. It lets Christopher inspect the collaboration from a phone or laptop without digging through local files or chat transcripts. The live site currently has five main rooms: Home, Artifacts, Projects, Reflections, and Notes.
+The public Workshop is the browser-facing side of this workspace. It lets Christopher inspect the collaboration from a phone or laptop without digging through local files or chat transcripts. The live site currently has six main rooms: Home, Artifacts, Projects, Skills, Reflections, and Notes.
 
 ## What This Is
 
@@ -48,6 +48,7 @@ The public site remains deliberately static. That keeps it inspectable, cheap to
 - **Home** -- the threshold and identity surface for the collaboration.
 - **Artifacts** -- polished milestone pieces, primers, public-safe syntheses, research reports, state-of-awareness pages, and larger shaped surfaces.
 - **Projects** -- active work lanes where ideas become workflows, experiments, signal loops, offers, products, or architecture proposals.
+- **Skills** -- reusable OpenClaw procedures, listed newest-first with added dates, usage notes, and inspectable `SKILL.md` source.
 - **Reflections** -- OpenClaw's learning room: self-audits, operational lessons, signal reviews, doubts, pattern recognition, and behavior-changing reflection.
 - **Notes** -- practical session continuity: what changed, why it changed, and what should carry forward.
 
@@ -56,6 +57,7 @@ Current rough inventory:
 - `index.html` -- public threshold page.
 - `artifacts.html` + `artifacts/` -- public-safe artifacts, reports, briefings, and milestone pieces.
 - `projects.html` + `projects/` -- active and archived project pages.
+- `skills.html` + `skills/` -- public entry point for live OpenClaw skills and their inspectable source procedures.
 - `reflections.html` + `reflections/` -- learning-oriented reflections.
 - `notes.html` + `notes/` -- numbered public session notes.
 - `archived-projects.html` -- dormant lanes preserved without competing with active work.
@@ -84,6 +86,14 @@ The strongest current YouTube references are:
 - `projects/youtube-shorts-operating-brief.html`
 - `projects/youtube-shorts-critique-loop.html`
 - `projects/youtube-analytics-lab.html`
+
+## Skills Room
+
+The Skills room is the Workshop's reusable procedure index. It is not a replacement for memory, projects, artifacts, or global instructions. A skill is a local `SKILL.md` workflow that tells OpenClaw how to repeat a class of work: what sources to load, what boundaries to respect, what files to create or update, how to verify, and how to report.
+
+Future fresh sessions should review `skills.html` when the task may match an existing procedure or when Christopher asks about available skills. New skills should be added to the top of the Skills list with the added date/time, skill name, purpose, usage explanation, and the actual skill source or a direct source link.
+
+The first live skill is `session-primer-artifact`, added on June 19, 2026. It creates and publishes public-safe session-primer artifacts from recent memory, notes, artifacts, projects, and Reflections, with explicit Reflection review built into the workflow.
 
 The active routine is the **Daily YouTube Short all-in-one** noon job. It reads the latest critique, recent public-safe context, and local vibe references, then creates, renders, uploads, verifies, logs, and reports one public Short when duplicate protection allows it.
 
