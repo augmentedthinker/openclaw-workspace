@@ -95,6 +95,7 @@ Future fresh sessions should review `skills.html` when the task may match an exi
 
 Live Workspace skills currently include:
 
+- `youtube-short-field-note`, added on June 21, 2026. It creates and publishes four-scene YouTube Shorts with fresh vertical AI images, varied Ken Burns-style motion, concise readable overlays, local contact-sheet verification, YouTube upload, API verification, and logging. It must stop and report failures instead of uploading when image generation, render verification, caption readability, or upload verification fails.
 - `bluesky-daily-field-note`, added on June 20, 2026. It creates Bluesky field-note posts with a fresh daily AI image, post-ready image compression, image/text alignment, dry-run validation, posting boundaries, and cron-ready failure handling. It must stop and report image generation or media-preparation failure instead of recycling old images.
 - `session-primer-artifact`, added on June 19, 2026. It creates and publishes public-safe session-primer artifacts from recent memory, notes, artifacts, projects, and Reflections, with explicit Reflection review built into the workflow.
 
