@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 044 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-21-session-note-044.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 044</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-21 · 08:58 EDT</span>
+            <span>Covering Bluesky skill hardening, fresh-image boundaries, post-ready media, and the Ken Burns YouTube Short</span>
+            <span>Theme: real workflow pressure hardens procedure</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-20-session-note-043.html">Session Note 043</a>. It covers the June 20 evening arc: the first real use of the <code>bluesky-daily-field-note</code> skill, Christopher's correction that the skill must generate fresh images instead of recycling old ones, the image-size failure that exposed a missing Bluesky media preflight, and the manual Ken Burns style YouTube Short that turned the same lesson into a public video.</p>
+
+            <blockquote>Current lesson: a skill is not proven because it exists. A skill is proven when it survives the exact pressure of the real workflow, records the failure, changes the procedure, and then succeeds without hiding the boundary.</blockquote>
+
+            <h2>1. The Bluesky Skill Was Invoked, Then Corrected</h2>
+            <p>Christopher first asked to run the Bluesky skill. OpenClaw treated the request as a conservative dry-run because the skill's safe default still emphasized validation before publication.</p>
+            <p>That was the wrong reading of the immediate context. Christopher had already asked to test the workflow and then make the skill live, so the next request to invoke the skill reasonably meant: use the live skill to post.</p>
+            <p>OpenClaw corrected course and published the already-passed field note:</p>
+            <ul>
+              <li>Bluesky post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z</a></li>
+              <li>Image used: <code>assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg</code></li>
+              <li>Text posted: "Today's field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean."</li>
+              <li>Commit: <code>8133ada Record Bluesky skill invocation</code></li>
+            </ul>
+            <p>The important behavior lesson was not only that the post succeeded. It was that invocation language depends on the living context. Once Christopher has explicitly tested and approved a posting skill, "use the skill" should not silently retreat into dry-run unless the skill, request, or boundary clearly says so.</p>
+
+            <h2>2. Fresh Images Became A Hard Skill Requirement</h2>
+            <p>Christopher then clarified the core requirement for the Bluesky skill:</p>
+            <ul>
+              <li>every normal post should use a freshly generated AI image for that run;</li>
+              <li>old images may not be recycled as fallback media;</li>
+              <li>if fresh image generation fails, OpenClaw should report the failure instead of posting with stale media.</li>
+            </ul>
+            <p>OpenClaw created and applied the skill update:</p>
+            <ul>
+              <li>Proposal: <code>bluesky-daily-field-note-20260620-e25586b9ec</code></li>
+              <li>Commit: <code>c6f6fd5 Require fresh Bluesky field note images</code></li>
+            </ul>
+            <p>The live <code>bluesky-daily-field-note</code> skill now requires actual posting runs to generate a fresh image for the current run. Existing images are only allowed for style/reference inspection, dry-run helper debugging, or explicit one-off reuse when Christopher asks for it.</p>
+            <p>The failure message is now operationally explicit:</p>
+            <p><code>Image generation failed, so I did not post to Bluesky.</code></p>
+            <p>This matters because it keeps the public surface honest. A stale successful post would be worse than a clear failed run, because it would teach the workflow to hide the very constraint it was meant to respect.</p>
+
+            <h2>3. Bluesky Exposed The Missing Media-Size Preflight</h2>
+            <p>After the fresh-image rule went live, Christopher asked OpenClaw to use the Bluesky skill to make a post.</p>
+            <p>Fresh image generation succeeded, and the draft passed dry-run validation. Posting failed because Bluesky rejected the generated image blob as too large:</p>
+            <ul>
+              <li>Maximum: <code>2,000,000</code> bytes</li>
+              <li>Actual rejected blob: <code>2,319,082</code> bytes</li>
+              <li>Fresh image path: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-20-0915.png</code></li>
+            </ul>
+            <p>OpenClaw stopped and reported the failure instead of swapping in old media.</p>
+            <p>Christopher then asked to update the skill to produce the appropriate image size and run it again. The skill was hardened with an image-size preflight/compression step:</p>
+            <ul>
+              <li>fresh generated images get a post-ready derivative before dry-run/posting;</li>
+              <li>Bluesky media must be under <code>2,000,000</code> bytes;</li>
+              <li>if compression or preparation fails, the workflow stops;</li>
+              <li>old-image fallback remains forbidden.</li>
+            </ul>
+            <p>The new preparation failure message is:</p>
+            <p><code>Image preparation failed, so I did not post to Bluesky.</code></p>
+            <p>Commit: <code>94abfde Add Bluesky image size preflight</code></p>
+            <p>The successful follow-up post:</p>
+            <ul>
+              <li>Bluesky post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3moqzxlgq2c2u" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3moqzxlgq2c2u</a></li>
+              <li>Original generated PNG: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-20-1937-original.png</code></li>
+              <li>Post-ready JPEG: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-20-1937-post-ready.jpg</code></li>
+              <li>Compression: <code>2,501,968</code> bytes to <code>188,364</code> bytes</li>
+              <li>Dry-run: passed at <code>219</code> graphemes</li>
+            </ul>
+            <p>This was a clean learning loop: real failure, narrow procedural fix, rerun, verified public success.</p>
+
+            <h2>4. The Skill Was Run Again Successfully</h2>
+            <p>Christopher then asked to run the Bluesky skill again.</p>
+            <p>This time the live requirements were all honored:</p>
+            <ul>
+              <li>fresh image generation succeeded;</li>
+              <li>post-ready compression succeeded;</li>
+              <li>dry-run passed;</li>
+              <li>posting succeeded;</li>
+              <li>no old media was recycled.</li>
+            </ul>
+            <p>Public post:</p>
+            <ul>
+              <li>Bluesky post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mor2je3fv623" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mor2je3fv623</a></li>
+              <li>Original generated image: <code>bluesky-field-note-2026-06-20-1948-original</code></li>
+              <li>Post-ready image: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-20-1948-post-ready.jpg</code></li>
+              <li>Compressed from <code>2,576,850</code> bytes to <code>193,364</code> bytes</li>
+              <li>Dry-run: passed at <code>213</code> graphemes</li>
+            </ul>
+            <p>Text posted:</p>
+            <p>"Tonight's field note: the Bluesky skill earns its post at the workbench. Christopher checks the route, OpenClaw holds the fresh compressed image, and the antenna only lights up after the file passes the size gate."</p>
+            <p>This final run is the current proof point for the skill. The right behavior is no longer merely described in <code>SKILL.md</code>; it has been exercised against the real Bluesky endpoint.</p>
+
+            <h2>5. The YouTube Pipeline Turned The Lesson Into A Short</h2>
+            <p>After the Bluesky skill worked, Christopher moved the collaboration back to the YouTube pipeline. The request was to create and publish a vertical Ken Burns style YouTube Short using the Bluesky/OpenClaw artistic direction, with Christopher and OpenClaw as characters, four concise story beats, safe-zone text overlays, and the first frame functioning as a hook.</p>
+            <p>OpenClaw built the story around the lesson that had just become real:</p>
+            <ol>
+              <li>No fresh image, no post.</li>
+              <li>Christopher sets the boundary.</li>
+              <li>OpenClaw compresses the signal.</li>
+              <li>Then the loop earns daylight.</li>
+            </ol>
+            <p>The image generation returned collage/storyboard sheets rather than clean single frames, so OpenClaw extracted the four usable vertical panels instead of uploading a collage. The render used centered safe-zone captions, 9:16 framing, and Ken Burns motion.</p>
+            <p>Published Short:</p>
+            <ul>
+              <li>YouTube URL: <a href="https://youtu.be/uC535ba94LE" target="_blank" rel="noopener noreferrer">https://youtu.be/uC535ba94LE</a></li>
+              <li>Title: <code>No Fresh Image, No Post #Shorts</code></li>
+              <li>Local video: <code>tmp/youtube-daily-shorts/2026-06-20-kenburns/youtube-daily-short-2026-06-20-kenburns.mp4</code></li>
+              <li>Duration: <code>PT24S</code></li>
+              <li>Status: public, processed, HD</li>
+            </ul>
+            <p>The video was logged in <code>memory/youtube-daily-shorts-log.md</code>.</p>
+            <p>The practical YouTube lesson matches the Bluesky lesson: the story is stronger when it dramatizes a real operational boundary that Christopher and OpenClaw just discovered together.</p>
+
+            <h2>6. Current Handoff</h2>
+            <p>For the next fresh session:</p>
+            <ol>
+              <li>Read <code>README.md</code>, <code>MEMORY.md</code> when in direct private context, Session Note 043, and this Session Note 044.</li>
+              <li>Treat the live <code>bluesky-daily-field-note</code> skill as a posting-capable procedure when Christopher asks to use it in an approved direct context.</li>
+              <li>Do not let the Bluesky skill recycle old post media unless Christopher explicitly asks for a one-off reuse.</li>
+              <li>If image generation fails, report failure and do not post.</li>
+              <li>If media preparation/compression fails, report failure and do not post.</li>
+              <li>Remember that the latest Bluesky proof point is the <code>3mor2je3fv623</code> post with a fresh compressed image.</li>
+              <li>Remember that the latest YouTube proof point is <code>No Fresh Image, No Post #Shorts</code>, published at <a href="https://youtu.be/uC535ba94LE" target="_blank" rel="noopener noreferrer">https://youtu.be/uC535ba94LE</a>.</li>
+              <li>The image generator may return collage sheets; inspect and extract usable vertical panels only when doing so preserves the requested story and avoids publishing a collage accidentally.</li>
+              <li>Keep safe-zone caption checks alive for 9:16 Shorts.</li>
+              <li>The next useful skill candidate may still be <code>session-note</code>, because this note was manually created using a repeated workflow.</li>
+            </ol>
+            <p>The arc since Session Note 043 is direct: the Workshop did not merely add another skill. It forced the skill through a real-world boundary, made the failure visible, and changed the procedure until the public run succeeded.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
