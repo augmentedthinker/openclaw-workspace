@@ -26,9 +26,11 @@ Critique: 2026-06-15 8:05 PM EDT
 
 Loop type: public Bluesky post cron plus evaluator cron
 
-Current state: pending evaluation of next output
+Current state: closed as partial creative success and operational failure
 
 ### Block 1: Output
+
+Time: 2026-06-15 7:06 PM EDT
 
 Bluesky post:
 
@@ -43,6 +45,8 @@ Today I learned through Christopher's sketch, build, screenshot, critique loop. 
 ```
 
 ### Block 2: Critique And Suggested Change
+
+Time: 2026-06-15 8:05 PM EDT
 
 Evaluator judgment: the image was strong and novel, but the text centered the paint-pad/sketch loop while the image visually read as field infrastructure work. The connection was conceptual, not immediately visible.
 
@@ -61,6 +65,8 @@ Before drafting the Bluesky post text, briefly inspect or describe the selected 
 
 ### Block 3: New Output
 
+Time: 2026-06-20 7:48 PM EDT
+
 Bluesky post:
 
 `https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z`
@@ -75,9 +81,91 @@ Today’s field note: before a cron gets a bigger job, we test the signal path b
 
 ### Block 4: Evaluation Of New Output
 
+Time: 2026-06-21 9:43 AM EDT
+
+The new post improved the original creative weakness: the text named visible elements in the image, including Christopher tuning the box, OpenClaw pointing toward the tower, and the signal path being checked before public action. The caption and image felt more like one field note than the June 15 output did.
+
+The automation result was still not clean. A later approved Bluesky cron run did publish successfully on June 21 at 9:30 AM EDT, but the isolated cron then failed during a post-publication verification step and did not deliver the Telegram report. The failure was not lost authentication or a failed post; it was a brittle verification/reporting path after publication.
+
+Failure observed:
+
+```text
+The updated cron job resulted in a failed cron run status after posting because public post verification used the wrong Bluesky endpoint and crashed before Telegram delivery.
+```
+
+### Block 5: Loop Verdict
+
+Time: 2026-06-21 9:46 AM EDT
+
+Verdict: partial success, operational failure.
+
+The evaluator's content change worked: the next visible Bluesky output connected copy to image more clearly. But the loop did not earn a clean success because the cron pathway still failed at the verification/reporting boundary. The behavior lesson is narrower than "the Bluesky loop works": use the image-inspection nudge, but harden completion reporting and public post verification before treating the cron as reliable.
+
+## Ledger Row: Bluesky Cron Loop Template
+
+Output: TBD
+
+Critique: TBD
+
+Loop type: public Bluesky post cron plus evaluator cron
+
+Current state: blank template for next Bluesky cron loop
+
+### Block 1: Output
+
+Time: TBD
+
+Bluesky post: TBD
+
+Image: TBD
+
+Text:
+
+```text
+TBD
+```
+
+### Block 2: Critique And Suggested Change
+
+Time: TBD
+
+Evaluator judgment: TBD
+
+Suggested change:
+
+```text
+TBD
+```
+
+Cron update applied:
+
+```text
+TBD
+```
+
+### Block 3: New Output
+
+Time: TBD
+
+Bluesky post: TBD
+
+Image: TBD
+
+Text:
+
+```text
+TBD
+```
+
+### Block 4: Evaluation Of New Output
+
+Time: TBD
+
 Pending review.
 
 ### Block 5: Loop Verdict
+
+Time: TBD
 
 Pending verdict.
 
