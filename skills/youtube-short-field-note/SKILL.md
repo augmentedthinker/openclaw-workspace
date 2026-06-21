@@ -75,13 +75,13 @@ Prompt each image as one clean scene:
 After generation:
 
 - Copy selected images into `/home/augmentedthinker/.openclaw/media/tool-image-generation/`.
-- Use a stable run-specific prefix, such as `youtube-daily-short-YYYY-MM-DD-<slug>-scene-01.png`.
+- Use a stable run-specific prefix, such as `youtube-daily-short-YYYY-MM-DD-{slug}-scene-01.png`.
 - Preserve original generated files unless Christopher asks to delete them.
 - Verify each file exists and is vertical.
 
 ## Story Metadata
 
-Create a small story JSON under `tmp/youtube-daily-shorts/<date-or-slug>/story.json`.
+Create a small story JSON under `tmp/youtube-daily-shorts/{date-or-slug}/story.json`.
 
 Include:
 
@@ -106,7 +106,7 @@ Render with FFmpeg or an inspected local helper. For varied timing, do not use t
 Use the June 21 proof-run pattern:
 
 - Feed each PNG as a single still input, not `-loop 1 -t ...` into `zoompan`.
-- Use `zoompan d=<frame_count>` to control each scene duration.
+- Use `zoompan d={frame_count}` to control each scene duration.
 - Concatenate the four processed video streams.
 - Use `1080x1920`, `30 fps`, `libx264`, `yuv420p`, and `+faststart`.
 - Draw each caption line separately to avoid visible square newline artifacts.
@@ -132,9 +132,9 @@ Before uploading, verify:
 Create and inspect a contact sheet before upload. Example:
 
 ```bash
-ffmpeg -y -i <video.mp4> \
+ffmpeg -y -i {video}.mp4 \
   -vf "select='eq(n,30)+eq(n,115)+eq(n,230)+eq(n,340)',scale=270:480,tile=4x1" \
-  -frames:v 1 -update 1 <contact-sheet.jpg>
+  -frames:v 1 -update 1 {contact-sheet}.jpg
 ```
 
 If the contact sheet shows clipped text, unreadable captions, newline artifacts, or confusing images, fix the render before upload.
