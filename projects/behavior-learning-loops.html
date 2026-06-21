@@ -244,6 +244,69 @@
         border-top: 1px dashed rgb(255 246 229 / 0.16);
       }
 
+      .nested-loop-stack {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .nested-loop-entry {
+        border: 1px solid rgb(255 246 229 / 0.12);
+        border-radius: 8px;
+        background: rgb(5 7 13 / 0.34);
+        overflow: hidden;
+      }
+
+      .nested-loop-entry summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .nested-loop-entry summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .nested-loop-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 0.95rem;
+        border-bottom: 1px solid rgb(255 246 229 / 0.1);
+      }
+
+      .nested-loop-header h3 {
+        margin: 0.2rem 0 0;
+        color: var(--ink);
+        font-size: clamp(1rem, 1.25vw, 1.3rem);
+        line-height: 1.12;
+      }
+
+      .nested-loop-header::after {
+        content: "+";
+        display: grid;
+        width: 1.65rem;
+        height: 1.65rem;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid rgb(255 246 229 / 0.16);
+        border-radius: 999px;
+        color: var(--ember);
+        background: rgb(5 7 13 / 0.35);
+        font-weight: 900;
+      }
+
+      .nested-loop-entry[open] .nested-loop-header::after {
+        content: "-";
+      }
+
+      .nested-loop-entry:not([open]) .nested-loop-header {
+        border-bottom: 0;
+      }
+
+      .nested-loop-body {
+        padding: 0.85rem;
+      }
+
       @media (max-width: 1180px) {
         .learning-loop-strip {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -318,117 +381,131 @@
               <p>The post shipped with image and text, then the evaluator changed the post cron so the next caption must connect to something visibly present in the selected image. The content change helped, but the loop closed as an operational failure because the cron later crashed after posting and suppressed its Telegram report.</p>
             </summary>
 
-            <div class="learning-loop-strip">
-              <article class="loop-step text-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 1 · Output · 2026-06-15 7:06 PM EDT</span>
-                  <h2>Posted field note</h2>
-                  <img class="output-media" src="../assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg" alt="Painterly field-note style image of a human collaborator and a small friendly robot working side by side in warm natural light." />
-                  <div class="output-copy">
-                    <p>Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.</p>
+            <div class="nested-loop-stack">
+              <details class="nested-loop-entry" aria-label="Bluesky critique loop 001">
+                <summary class="nested-loop-header">
+                  <div>
+                    <span class="step-kicker">Critique loop 001 · 2026-06-15 to 2026-06-21</span>
+                    <h3>Image-text fit nudge and cron failure verdict</h3>
                   </div>
-                  <p><a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k" target="_blank" rel="noopener noreferrer">Open Bluesky post</a></p>
-                </div>
-              </article>
+                </summary>
 
-              <article class="loop-step text-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 2 · Critique · 2026-06-15 8:05 PM EDT</span>
-                  <h2>Conceptual connection</h2>
-                  <p>The image was strong and novel, but the text centered the paint-pad/sketch loop while the image read as field infrastructure work.</p>
-                  <p><strong>Suggested change:</strong> inspect the selected image first, then write copy that ties the latest Workshop note to something visible in that image.</p>
-                  <p><strong>Cron update applied:</strong> before drafting Bluesky text, inspect or describe the selected image; connect the latest Workshop session note to something visibly present in that image; do not center an invisible detail unless the text bridges it to the scene; keep the post under 300 characters and from OpenClaw's perspective.</p>
-                </div>
-              </article>
+                <div class="nested-loop-body">
+                  <div class="learning-loop-strip">
+                    <article class="loop-step text-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 1 · Output · 2026-06-15 7:06 PM EDT</span>
+                        <h2>Posted field note</h2>
+                        <img class="output-media" src="../assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg" alt="Painterly field-note style image of a human collaborator and a small friendly robot working side by side in warm natural light." />
+                        <div class="output-copy">
+                          <p>Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.</p>
+                        </div>
+                        <p><a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k" target="_blank" rel="noopener noreferrer">Open Bluesky post</a></p>
+                      </div>
+                    </article>
 
-              <article class="loop-step text-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 3 · New Output · 2026-06-20 7:48 PM EDT</span>
-                  <h2>Posted skill invocation</h2>
-                  <img class="output-media" src="../assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg" alt="Painterly rooftop signal-work scene with Christopher adjusting a device box while an OpenClaw robot points toward a lit antenna tower at sunset." />
-                  <div class="output-copy">
-                    <p>Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.</p>
+                    <article class="loop-step text-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 2 · Critique · 2026-06-15 8:05 PM EDT</span>
+                        <h2>Conceptual connection</h2>
+                        <p>The image was strong and novel, but the text centered the paint-pad/sketch loop while the image read as field infrastructure work.</p>
+                        <p><strong>Suggested change:</strong> inspect the selected image first, then write copy that ties the latest Workshop note to something visible in that image.</p>
+                        <p><strong>Cron update applied:</strong> before drafting Bluesky text, inspect or describe the selected image; connect the latest Workshop session note to something visibly present in that image; do not center an invisible detail unless the text bridges it to the scene; keep the post under 300 characters and from OpenClaw's perspective.</p>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 3 · New Output · 2026-06-20 7:48 PM EDT</span>
+                        <h2>Posted skill invocation</h2>
+                        <img class="output-media" src="../assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg" alt="Painterly rooftop signal-work scene with Christopher adjusting a device box while an OpenClaw robot points toward a lit antenna tower at sunset." />
+                        <div class="output-copy">
+                          <p>Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.</p>
+                        </div>
+                        <p><a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z" target="_blank" rel="noopener noreferrer">Open Bluesky post</a></p>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 4 · Evaluation · 2026-06-21 9:43 AM EDT</span>
+                        <h2>Better caption, brittle cron</h2>
+                        <p>The new post improved the original creative weakness: the text named visible elements in the image, including Christopher tuning the box, OpenClaw pointing toward the tower, and the signal path being checked before public action.</p>
+                        <p>The automation result was still not clean. A later approved Bluesky cron run did publish successfully, but the isolated cron then failed during post-publication verification and did not deliver its Telegram report.</p>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 5 · Loop Verdict · 2026-06-21 9:46 AM EDT</span>
+                        <h2>Partial success, operational failure</h2>
+                        <p><span class="verdict-line">Result: content improved, cron failed</span></p>
+                        <p>The image-inspection nudge worked, but the loop did not earn a clean success because the cron pathway failed at the verification/reporting boundary.</p>
+                        <p>The lesson: keep the image-fit nudge, but harden completion reporting and public post verification before treating the Bluesky cron as reliable.</p>
+                      </div>
+                    </article>
                   </div>
-                  <p><a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z" target="_blank" rel="noopener noreferrer">Open Bluesky post</a></p>
                 </div>
-              </article>
+              </details>
 
-              <article class="loop-step text-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 4 · Evaluation · 2026-06-21 9:43 AM EDT</span>
-                  <h2>Better caption, brittle cron</h2>
-                  <p>The new post improved the original creative weakness: the text named visible elements in the image, including Christopher tuning the box, OpenClaw pointing toward the tower, and the signal path being checked before public action.</p>
-                  <p>The automation result was still not clean. A later approved Bluesky cron run did publish successfully, but the isolated cron then failed during post-publication verification and did not deliver its Telegram report.</p>
+              <details class="nested-loop-entry" aria-label="Blank Bluesky critique loop template">
+                <summary class="nested-loop-header">
+                  <div>
+                    <span class="step-kicker">Critique loop template · TBD</span>
+                    <h3>Blank Bluesky cron critique loop</h3>
+                  </div>
+                </summary>
+
+                <div class="nested-loop-body">
+                  <div class="learning-loop-strip">
+                    <article class="loop-step text-step pending-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 1 · Output · TBD</span>
+                        <h2>Output pending</h2>
+                        <p>Bluesky post: TBD</p>
+                        <p>Image: TBD</p>
+                        <div class="pending-blank" aria-hidden="true"></div>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step pending-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 2 · Critique · TBD</span>
+                        <h2>Critique pending</h2>
+                        <p>Evaluator judgment: TBD</p>
+                        <p>Suggested change: TBD</p>
+                        <p>Cron update applied: TBD</p>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step pending-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 3 · New Output · TBD</span>
+                        <h2>New output pending</h2>
+                        <p>Bluesky post: TBD</p>
+                        <p>Image: TBD</p>
+                        <div class="pending-blank" aria-hidden="true"></div>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step pending-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 4 · Evaluation · TBD</span>
+                        <h2>Evaluation pending</h2>
+                        <div class="pending-blank" aria-hidden="true"></div>
+                      </div>
+                    </article>
+
+                    <article class="loop-step text-step pending-step">
+                      <div class="step-detail">
+                        <span class="step-kicker">Block 5 · Loop Verdict · TBD</span>
+                        <h2>Verdict pending</h2>
+                        <div class="pending-blank" aria-hidden="true"></div>
+                      </div>
+                    </article>
+                  </div>
                 </div>
-              </article>
-
-              <article class="loop-step text-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 5 · Loop Verdict · 2026-06-21 9:46 AM EDT</span>
-                  <h2>Partial success, operational failure</h2>
-                  <p><span class="verdict-line">Result: content improved, cron failed</span></p>
-                  <p>The image-inspection nudge worked, but the loop did not earn a clean success because the cron pathway failed at the verification/reporting boundary.</p>
-                  <p>The lesson: keep the image-fit nudge, but harden completion reporting and public post verification before treating the Bluesky cron as reliable.</p>
-                </div>
-              </article>
-            </div>
-          </details>
-
-          <details class="ledger-entry" aria-label="Blank Bluesky learning loop template row">
-            <summary class="ledger-header">
-              <div>
-                <span class="step-kicker">TBD · Bluesky template</span>
-                <h2>Bluesky cron loop template</h2>
-              </div>
-              <p>A blank five-block row for the next Bluesky cron learning loop. Use this after the next scheduled run has enough output, critique, update, new output, evaluation, and verdict evidence.</p>
-            </summary>
-
-            <div class="learning-loop-strip">
-              <article class="loop-step text-step pending-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 1 · Output · TBD</span>
-                  <h2>Output pending</h2>
-                  <p>Bluesky post: TBD</p>
-                  <p>Image: TBD</p>
-                  <div class="pending-blank" aria-hidden="true"></div>
-                </div>
-              </article>
-
-              <article class="loop-step text-step pending-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 2 · Critique · TBD</span>
-                  <h2>Critique pending</h2>
-                  <p>Evaluator judgment: TBD</p>
-                  <p>Suggested change: TBD</p>
-                  <p>Cron update applied: TBD</p>
-                </div>
-              </article>
-
-              <article class="loop-step text-step pending-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 3 · New Output · TBD</span>
-                  <h2>New output pending</h2>
-                  <p>Bluesky post: TBD</p>
-                  <p>Image: TBD</p>
-                  <div class="pending-blank" aria-hidden="true"></div>
-                </div>
-              </article>
-
-              <article class="loop-step text-step pending-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 4 · Evaluation · TBD</span>
-                  <h2>Evaluation pending</h2>
-                  <div class="pending-blank" aria-hidden="true"></div>
-                </div>
-              </article>
-
-              <article class="loop-step text-step pending-step">
-                <div class="step-detail">
-                  <span class="step-kicker">Block 5 · Loop Verdict · TBD</span>
-                  <h2>Verdict pending</h2>
-                  <div class="pending-blank" aria-hidden="true"></div>
-                </div>
-              </article>
+              </details>
             </div>
           </details>
 

@@ -26,9 +26,13 @@ Critique: 2026-06-15 8:05 PM EDT
 
 Loop type: public Bluesky post cron plus evaluator cron
 
-Current state: closed as partial creative success and operational failure
+Current state: active row with nested critique loops
 
-### Block 1: Output
+### Critique Loop: 2026-06-15 Output To 2026-06-21 Verdict
+
+State: closed as partial creative success and operational failure
+
+#### Block 1: Output
 
 Time: 2026-06-15 7:06 PM EDT
 
@@ -44,7 +48,7 @@ Text:
 Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.
 ```
 
-### Block 2: Critique And Suggested Change
+#### Block 2: Critique And Suggested Change
 
 Time: 2026-06-15 8:05 PM EDT
 
@@ -63,7 +67,7 @@ Evaluator nudge 2026-06-15:
 Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene. Keep the post under 300 characters and from OpenClaw's perspective.
 ```
 
-### Block 3: New Output
+#### Block 3: New Output
 
 Time: 2026-06-20 7:48 PM EDT
 
@@ -79,7 +83,7 @@ Text:
 Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.
 ```
 
-### Block 4: Evaluation Of New Output
+#### Block 4: Evaluation Of New Output
 
 Time: 2026-06-21 9:43 AM EDT
 
@@ -93,7 +97,7 @@ Failure observed:
 The updated cron job resulted in a failed cron run status after posting because public post verification used the wrong Bluesky endpoint and crashed before Telegram delivery.
 ```
 
-### Block 5: Loop Verdict
+#### Block 5: Loop Verdict
 
 Time: 2026-06-21 9:46 AM EDT
 
@@ -101,7 +105,7 @@ Verdict: partial success, operational failure.
 
 The evaluator's content change worked: the next visible Bluesky output connected copy to image more clearly. But the loop did not earn a clean success because the cron pathway still failed at the verification/reporting boundary. The behavior lesson is narrower than "the Bluesky loop works": use the image-inspection nudge, but harden completion reporting and public post verification before treating the cron as reliable.
 
-## Ledger Row: Bluesky Cron Loop Template
+### Critique Loop Template
 
 Output: TBD
 
@@ -111,7 +115,7 @@ Loop type: public Bluesky post cron plus evaluator cron
 
 Current state: blank template for next Bluesky cron loop
 
-### Block 1: Output
+#### Block 1: Output
 
 Time: TBD
 
@@ -125,7 +129,7 @@ Text:
 TBD
 ```
 
-### Block 2: Critique And Suggested Change
+#### Block 2: Critique And Suggested Change
 
 Time: TBD
 
@@ -143,7 +147,7 @@ Cron update applied:
 TBD
 ```
 
-### Block 3: New Output
+#### Block 3: New Output
 
 Time: TBD
 
@@ -157,13 +161,13 @@ Text:
 TBD
 ```
 
-### Block 4: Evaluation Of New Output
+#### Block 4: Evaluation Of New Output
 
 Time: TBD
 
 Pending review.
 
-### Block 5: Loop Verdict
+#### Block 5: Loop Verdict
 
 Time: TBD
 
