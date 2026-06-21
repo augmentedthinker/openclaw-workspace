@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 045 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/notes/2026-06-21-session-note-045.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 045</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-21 · 10:42 EDT</span>
+            <span>Covering Bluesky cron reliability, same-day posting, and Learning Loops Ledger nesting</span>
+            <span>Theme: scheduled workflows must report, verify, and teach</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-21-session-note-044.html">Session Note 044</a>. It covers the June 21 morning work: turning the live <code>bluesky-daily-field-note</code> skill into a scheduled cron, diagnosing the first run's reporting failure, repairing public verification, proving the report path, allowing intentional same-day posts, and reshaping the Learning Loops Ledger so Bluesky critique loops are nested newest-first inside one parent card.</p>
+
+            <blockquote>Current lesson: a public workflow is not complete when the post exists. It is complete when the post exists, the verification path is correct, the report arrives, the log is written, and the lesson is preserved where the next run can inherit it.</blockquote>
+
+            <h2>1. The Bluesky Skill Became A Daily Cron</h2>
+            <p>Christopher opened the morning by asking for a daily Bluesky cron job. The desired behavior was simple: run the live skill every morning, create a fresh AI image, prepare a Bluesky-safe image, dry-run before posting, publish only when validation passes, and send Telegram a success or blocker report.</p>
+            <p>OpenClaw created the OpenClaw cron job:</p>
+            <ul>
+              <li>Job ID: <code>17e7b866-0027-4735-824c-184d41238a82</code></li>
+              <li>Name: <code>Daily Bluesky field note</code></li>
+              <li>Initial schedule: <code>9:30 AM America/New_York</code></li>
+              <li>Target: isolated agent turn</li>
+              <li>Delivery: Telegram announce to Christopher</li>
+              <li>Failure alert: Telegram announce after one failure</li>
+            </ul>
+            <p>The cron intentionally stayed short and invoked the skill by name rather than duplicating the whole procedure.</p>
+
+            <h2>2. The First Run Posted But Failed The Report Path</h2>
+            <p>The first scheduled run fired at 9:30 AM EDT and succeeded at the public posting task:</p>
+            <ul>
+              <li>Bluesky post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mosiew2oym2c" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mosiew2oym2c</a></li>
+              <li>Fresh image: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-21-0930-original.png</code></li>
+              <li>Post-ready image: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-21-0930-post-ready.jpg</code></li>
+              <li>Draft text: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-21-0930-draft.txt</code></li>
+              <li>Log: appended to <code>memory/bluesky-field-agent-log.md</code></li>
+            </ul>
+            <p>But the cron showed <code>lastRunStatus: error</code> and no Telegram report arrived. Investigation showed the failure happened after publication: the isolated cron used <code>https://bsky.social/xrpc/app.bsky.feed.getPostThread</code> for public post verification, and that endpoint returned <code>401 AuthMissing</code>.</p>
+            <p>The post verified correctly through the public AppView endpoints <code>public.api.bsky.app</code> and <code>api.bsky.app</code>. OpenClaw patched the cron prompt so public post verification uses public AppView, and so optional verification failures after a successful post are reported as warnings rather than crashing the run.</p>
+
+            <h2>3. The 10:00 Test Proved Reporting But Hit Same-Day Protection</h2>
+            <p>Christopher asked to move the cron to 10:00 AM for an immediate test. OpenClaw changed only the schedule to <code>0 10 * * *</code>.</p>
+            <p>The 10:00 run completed with scheduler status <code>ok</code> and Telegram delivery <code>delivered</code>. It skipped posting because duplicate protection saw the 9:30 same-day post:</p>
+            <ul>
+              <li>Existing post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mosiew2oym2c" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mosiew2oym2c</a></li>
+              <li>Fresh image generation: succeeded</li>
+              <li>Image preparation: succeeded</li>
+              <li>Public AppView verification: succeeded</li>
+              <li>Dry-run/posting: skipped before publication because of same-day duplicate protection</li>
+              <li>Log: written</li>
+            </ul>
+            <p>That proved the report path worked, but it exposed the next question: same-day posts should be allowed when Christopher intentionally asks for them.</p>
+
+            <h2>4. The 10:15 Test Proved The Cron End To End</h2>
+            <p>Christopher asked to move the cron to 10:15 AM and change the duplicate convention so same-day prior posts are context, not an automatic failure point, when he intentionally requests or schedules another post.</p>
+            <p>OpenClaw updated the schedule to <code>15 10 * * *</code> and changed the prompt so same-day posts are allowed when distinct.</p>
+            <p>The 10:15 run completed cleanly:</p>
+            <ul>
+              <li>Status: <code>posted</code></li>
+              <li>Bluesky post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3moskvaiea725" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3moskvaiea725</a></li>
+              <li>Post-ready image: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-21-1015-post-ready.jpg</code></li>
+              <li>Post-ready size: <code>184,469</code> bytes</li>
+              <li>Dry-run: passed at <code>247</code> graphemes</li>
+              <li>Public AppView verification: succeeded</li>
+              <li>Telegram delivery: succeeded</li>
+              <li>Log: appended to <code>memory/bluesky-field-agent-log.md</code></li>
+            </ul>
+            <p>Christopher reviewed the output and said the text was appropriate, the image was appropriate, and the text matched what was happening in the image. No change was requested. OpenClaw also corrected the cron description from 9:30 to 10:15 so the scheduler metadata matched the real schedule.</p>
+
+            <h2>5. The Learning Loops Ledger Was Updated</h2>
+            <p>Christopher then redirected attention to the Learning Loops Ledger, specifically the Bluesky cron loop.</p>
+            <p>The first pass filled Blocks 4 and 5 of the existing Bluesky loop: Block 4 evaluated that text-image fit improved but automation failed at verification/reporting, and Block 5 closed the loop as a partial creative success and operational failure.</p>
+            <p>Then Christopher corrected the page structure. The desired structure was one parent <code>Bluesky cron loop</code> card containing individual nested critique-loop dropdowns, minimized by default, newest first.</p>
+            <p>OpenClaw reworked the page so the Bluesky parent card now contains:</p>
+            <ol>
+              <li><code>Critique loop 002 - 2026-06-21 10:15 AM EDT</code></li>
+              <li><code>Critique loop 001 - 2026-06-15 to 2026-06-21</code></li>
+            </ol>
+            <p>The 10:15 loop records the successful scheduled run, Christopher's evaluation, no requested change, and the hold-steady verdict.</p>
+            <p>Published page: <a href="https://augmentedthinker.github.io/openclaw-workspace/projects/behavior-learning-loops.html?v=78d3d6f2" target="_blank" rel="noopener noreferrer">Learning Loops Ledger</a></p>
+            <p>Relevant commits: <code>8b5ad0e</code>, <code>5bb0d15</code>, and <code>78d3d6f</code>.</p>
+
+            <h2>6. Current Handoff</h2>
+            <p>For the next fresh session:</p>
+            <ol>
+              <li>Read <code>README.md</code>, <code>MEMORY.md</code> in direct private context, Session Note 044, and this Session Note 045.</li>
+              <li>The live Bluesky cron is <code>Daily Bluesky field note</code>, job ID <code>17e7b866-0027-4735-824c-184d41238a82</code>.</li>
+              <li>The current Bluesky cron schedule is <code>10:15 AM America/New_York</code>, cron expression <code>15 10 * * *</code>.</li>
+              <li>The cron is allowed to publish more than one same-day post when Christopher intentionally requests or schedules it, as long as the run is distinct.</li>
+              <li>Same-day prior posts are context for avoiding repetition, not an automatic failure point.</li>
+              <li>Public Bluesky post verification should use public AppView endpoints, not <code>bsky.social</code>.</li>
+              <li>The latest proven run is the 10:15 post: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3moskvaiea725" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3moskvaiea725</a>.</li>
+              <li>The Learning Loops Ledger now has nested Bluesky critique loops newest-first inside the parent Bluesky card.</li>
+              <li>The current Bluesky loop verdict is hold steady: no prompt or cron behavior change is requested right now.</li>
+            </ol>
+            <p>The arc since Session Note 044 is a strong reliability loop: schedule the skill, watch it fail after a real post, locate the brittle boundary, patch verification, prove report delivery, adjust same-day posting semantics, prove a clean second post, and preserve the learning in the public ledger.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>

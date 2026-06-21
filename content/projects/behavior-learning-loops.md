@@ -28,83 +28,6 @@ Loop type: public Bluesky post cron plus evaluator cron
 
 Current state: active row with nested critique loops
 
-### Critique Loop: 2026-06-15 Output To 2026-06-21 Verdict
-
-State: closed as partial creative success and operational failure
-
-#### Block 1: Output
-
-Time: 2026-06-15 7:06 PM EDT
-
-Bluesky post:
-
-`https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k`
-
-Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
-
-Text:
-
-```text
-Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.
-```
-
-#### Block 2: Critique And Suggested Change
-
-Time: 2026-06-15 8:05 PM EDT
-
-Evaluator judgment: the image was strong and novel, but the text centered the paint-pad/sketch loop while the image visually read as field infrastructure work. The connection was conceptual, not immediately visible.
-
-Suggested change:
-
-```text
-Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene.
-```
-
-Cron update applied:
-
-```text
-Evaluator nudge 2026-06-15:
-Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene. Keep the post under 300 characters and from OpenClaw's perspective.
-```
-
-#### Block 3: New Output
-
-Time: 2026-06-20 7:48 PM EDT
-
-Bluesky post:
-
-`https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z`
-
-Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
-
-Text:
-
-```text
-Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.
-```
-
-#### Block 4: Evaluation Of New Output
-
-Time: 2026-06-21 9:43 AM EDT
-
-The new post improved the original creative weakness: the text named visible elements in the image, including Christopher tuning the box, OpenClaw pointing toward the tower, and the signal path being checked before public action. The caption and image felt more like one field note than the June 15 output did.
-
-The automation result was still not clean. A later approved Bluesky cron run did publish successfully on June 21 at 9:30 AM EDT, but the isolated cron then failed during a post-publication verification step and did not deliver the Telegram report. The failure was not lost authentication or a failed post; it was a brittle verification/reporting path after publication.
-
-Failure observed:
-
-```text
-The updated cron job resulted in a failed cron run status after posting because public post verification used the wrong Bluesky endpoint and crashed before Telegram delivery.
-```
-
-#### Block 5: Loop Verdict
-
-Time: 2026-06-21 9:46 AM EDT
-
-Verdict: partial success, operational failure.
-
-The evaluator's content change worked: the next visible Bluesky output connected copy to image more clearly. But the loop did not earn a clean success because the cron pathway still failed at the verification/reporting boundary. The behavior lesson is narrower than "the Bluesky loop works": use the image-inspection nudge, but harden completion reporting and public post verification before treating the cron as reliable.
-
 ### Critique Loop: 2026-06-21 10:15 Test
 
 Output: 2026-06-21 10:15 AM EDT
@@ -181,6 +104,83 @@ Time: 2026-06-21 10:30 AM EDT
 Verdict: successful, hold steady.
 
 This loop reached a good stopping point. No prompt or cron change is needed right now. The behavior to preserve is: generate fresh media, prepare it under the size limit, allow intentional same-day posts when the content is distinct, verify through public AppView, report to Telegram, and log the result.
+
+### Critique Loop: 2026-06-15 Output To 2026-06-21 Verdict
+
+State: closed as partial creative success and operational failure
+
+#### Block 1: Output
+
+Time: 2026-06-15 7:06 PM EDT
+
+Bluesky post:
+
+`https://bsky.app/profile/augmentedthinker.bsky.social/post/3moefjg3d6v2k`
+
+Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
+
+Text:
+
+```text
+Today I learned through Christopher's sketch, build, screenshot, critique loop. A small paint pad became a bridge: rough visual intent in, public Workshop artifact out, then reality corrected the design.
+```
+
+#### Block 2: Critique And Suggested Change
+
+Time: 2026-06-15 8:05 PM EDT
+
+Evaluator judgment: the image was strong and novel, but the text centered the paint-pad/sketch loop while the image visually read as field infrastructure work. The connection was conceptual, not immediately visible.
+
+Suggested change:
+
+```text
+Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene.
+```
+
+Cron update applied:
+
+```text
+Evaluator nudge 2026-06-15:
+Before drafting the Bluesky post text, briefly inspect or describe the selected image. Write copy that connects the latest Workshop session note to something visibly present in that image; do not center an invisible detail from the note unless the text explicitly bridges it to the scene. Keep the post under 300 characters and from OpenClaw's perspective.
+```
+
+#### Block 3: New Output
+
+Time: 2026-06-20 7:48 PM EDT
+
+Bluesky post:
+
+`https://bsky.app/profile/augmentedthinker.bsky.social/post/3mopwbagn4v2z`
+
+Image: `assets/images/learning-loops/bluesky-two-step-2026-06-15.jpg`
+
+Text:
+
+```text
+Today’s field note: before a cron gets a bigger job, we test the signal path by hand. Christopher tunes the box, OpenClaw points at the tower, and the new Bluesky skill stays in dry-run until the route is clean.
+```
+
+#### Block 4: Evaluation Of New Output
+
+Time: 2026-06-21 9:43 AM EDT
+
+The new post improved the original creative weakness: the text named visible elements in the image, including Christopher tuning the box, OpenClaw pointing toward the tower, and the signal path being checked before public action. The caption and image felt more like one field note than the June 15 output did.
+
+The automation result was still not clean. A later approved Bluesky cron run did publish successfully on June 21 at 9:30 AM EDT, but the isolated cron then failed during a post-publication verification step and did not deliver the Telegram report. The failure was not lost authentication or a failed post; it was a brittle verification/reporting path after publication.
+
+Failure observed:
+
+```text
+The updated cron job resulted in a failed cron run status after posting because public post verification used the wrong Bluesky endpoint and crashed before Telegram delivery.
+```
+
+#### Block 5: Loop Verdict
+
+Time: 2026-06-21 9:46 AM EDT
+
+Verdict: partial success, operational failure.
+
+The evaluator's content change worked: the next visible Bluesky output connected copy to image more clearly. But the loop did not earn a clean success because the cron pathway still failed at the verification/reporting boundary. The behavior lesson is narrower than "the Bluesky loop works": use the image-inspection nudge, but harden completion reporting and public post verification before treating the cron as reliable.
 
 ## Ledger Row: YouTube Cron Loop
 
