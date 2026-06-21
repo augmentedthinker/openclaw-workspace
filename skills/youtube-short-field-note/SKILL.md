@@ -211,7 +211,7 @@ Use plain language:
 
 ## Skills Page Update
 
-When this skill is applied live, update `skills.html` and `README.md` so the Skills room lists it as a Workspace-owned skill, newest-first, with an inspectable source link to `skills/youtube-short-field-note/SKILL.md`.
+When this skill is applied live, update `skills.html` and `README.md` so the Skills room lists it as a Workspace-owned skill, newest-first, with the current `SKILL.md` embedded in the dropdown.
 
 Suggested summary:
 
