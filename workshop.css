@@ -569,6 +569,65 @@ a { color: inherit; }
   text-align-last: left;
 }
 
+.skill-variation {
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 0.04);
+  overflow: hidden;
+}
+
+.skill-variation summary {
+  display: grid;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0.9rem 1rem;
+  list-style: none;
+}
+
+.skill-variation summary::-webkit-details-marker {
+  display: none;
+}
+
+.skill-variation summary::after {
+  content: "+";
+  justify-self: end;
+  grid-row: 1 / span 2;
+  color: var(--muted);
+}
+
+.skill-variation[open] summary::after {
+  content: "-";
+}
+
+.skill-variation summary:hover {
+  background: rgb(255 255 255 / 0.05);
+}
+
+.skill-variation summary strong {
+  color: var(--soft);
+}
+
+.variation-kicker {
+  color: var(--ember);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skill-variation-body {
+  display: grid;
+  gap: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.skill-variation-body h3 {
+  margin: 0.25rem 0 0;
+  color: var(--blue);
+  font-size: 1rem;
+}
+
 .runtime-skill-list {
   display: grid;
   gap: 0.75rem;
