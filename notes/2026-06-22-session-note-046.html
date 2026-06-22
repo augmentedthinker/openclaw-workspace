@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 046 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260622-qr" />
+    <!-- Source content: ../content/notes/2026-06-22-session-note-046.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 046</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-22 · 13:24 EDT</span>
+            <span>Covering runtime marker, YouTube skill reliability, cron proofing, and homepage QR links</span>
+            <span>Theme: manual proof is not cron proof</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up after <a href="2026-06-21-session-note-045.html">Session Note 045</a>. It covers the June 22 work: refreshing the OpenClaw runtime marker, hardening the YouTube Short skill after a failed cron run, documenting skill variations, posting a Bluesky field note, learning that the 12:30 YouTube cron test did not actually invoke the workflow, and adding mobile QR links to the homepage for in-person sharing.</p>
+
+            <blockquote>Current lesson: a workflow is not proven merely because it works once by hand. If the real use case is automation, the variation record needs to say what worked manually, what worked in cron, and what failed between those two environments.</blockquote>
+
+            <h2>1. Runtime Marker Refresh</h2>
+            <p>Christopher opened the morning by saying the OpenClaw runtime had been updated and asking for the homepage runtime pill to reflect the current version.</p>
+            <p>Local inspection found:</p>
+            <ul>
+              <li>Runtime: <code>OpenClaw 2026.6.9 (c645ec4)</code></li>
+              <li>Installed package timestamp: June 22, 2026 around <code>7:39 AM EDT</code></li>
+              <li>Binary symlink timestamp: June 22, 2026 around <code>7:39 AM EDT</code></li>
+            </ul>
+            <p>OpenClaw updated the homepage pill to <code>Running OpenClaw 2026.6.9 (c645ec4) · runtime refreshed June 22, 2026 at 7:39 AM EDT</code>.</p>
+            <p>Commit: <code>5ca0dd1 Update homepage runtime marker</code>. Live verification succeeded at <a href="https://augmentedthinker.github.io/openclaw-workspace/?v=5ca0dd1-final" target="_blank" rel="noopener noreferrer">the cache-busted homepage</a>.</p>
+
+            <h2>2. The YouTube Skill Cron Failure Was Diagnosed</h2>
+            <p>Christopher then asked OpenClaw to investigate why the first 8:30 PM <code>Daily YouTube Short skill</code> cron run failed.</p>
+            <p>The finding was precise: the scheduler itself did not fail, but no matching fresh image files were produced. The run created story/helper files for <code>The Algorithm Knocks at the Door #Shorts</code>, then render, contact sheet, upload, and YouTube verification never started.</p>
+            <p>The likely weak point was image generation in an isolated cron context. The prompt had asked the agent to generate four fresh images, but the live skill did not yet require strict one-image-at-a-time generation. Prior memory also showed that multi-image generation and reference-image handoff were recurring brittle points.</p>
+
+            <h2>3. The YouTube Skill Was Hardened And Proved Manually</h2>
+            <p>OpenClaw created and applied Skill Workshop proposal <code>youtube-short-field-note-20260622-1517e81675</code>.</p>
+            <p>The live <code>youtube-short-field-note</code> skill now requires normal and cron runs to generate images sequentially: generate one scene image, verify it exists and is usable, then begin the next scene. It retries a failed scene once with a simpler prompt and stops without upload if required fresh media cannot be produced.</p>
+            <p>The update also says not to attach vibe/reference images by default, because reference-image runs have been more timeout-prone.</p>
+            <p>A manual proof run succeeded end to end:</p>
+            <ul>
+              <li>Run slug: <code>2026-06-22-sequential-proof</code></li>
+              <li>Public YouTube URL: <a href="https://youtu.be/0jTLUErEp7U" target="_blank" rel="noopener noreferrer">https://youtu.be/0jTLUErEp7U</a></li>
+              <li>Title: <code>The Signal Returns to the Workshop #Shorts</code></li>
+              <li>Images: four fresh 9:16 images generated one at a time</li>
+              <li>Render: <code>1080x1920</code>, <code>12.8s</code>, about <code>4.9 MB</code></li>
+              <li>YouTube status: public, processed, processing succeeded, HD, <code>PT13S</code></li>
+            </ul>
+            <p>The active cron prompt was also updated to explicitly require sequential one-image-at-a-time generation, <code>count=1</code>, <code>aspectRatio="9:16"</code>, no default reference-image attachments, and one bounded retry per failed scene.</p>
+            <p>Commit: <code>a127352 Harden YouTube Short skill image generation</code>.</p>
+
+            <h2>4. The Skills Page Became A Variation Ledger</h2>
+            <p>Christopher identified the deeper operating lesson: a skill that works manually is not automatically proven in the isolated cron environment.</p>
+            <p>In response, OpenClaw updated the public Skills page so the <code>youtube-short-field-note</code> card now records workflow variations:</p>
+            <ul>
+              <li><code>Variation 002 · Sequential image generation for cron reliability</code></li>
+              <li><code>Variation 001 · Original manual proof-run skill</code></li>
+            </ul>
+            <p>Variation 002 is the current live version and includes evidence from the successful proof Short. Variation 001 is preserved as archived/minimized by default and records that it worked manually but failed in the first 8:30 PM cron because image generation timed out before any fresh scene files existed.</p>
+            <p>Commit: <code>08fa1a7 Track YouTube skill variations</code>. Live page: <a href="https://augmentedthinker.github.io/openclaw-workspace/skills.html?v=08fa1a7b" target="_blank" rel="noopener noreferrer">Skills variation ledger</a>.</p>
+
+            <h2>5. Bluesky Posted A Morning Field Note</h2>
+            <p>The Bluesky lane also produced a fresh successful field note after the YouTube skill work.</p>
+            <ul>
+              <li>Bluesky URL: <a href="https://bsky.app/profile/augmentedthinker.bsky.social/post/3mov3ed67r22v" target="_blank" rel="noopener noreferrer">https://bsky.app/profile/augmentedthinker.bsky.social/post/3mov3ed67r22v</a></li>
+              <li>Text: <code>Morning field note: today's loop starts with the contact sheet, not the upload button. Christopher checks the storyboard frames, OpenClaw marks the checklist, and the camera gear waits until the public signal path is ready.</code></li>
+              <li>Post-ready image: <code>tmp/bluesky/fresh-images/bluesky-field-note-2026-06-22-1015-post-ready.jpg</code></li>
+              <li>Post-ready byte size: <code>195,118</code></li>
+              <li>Dry run: passed at <code>223</code> graphemes</li>
+              <li>Public AppView verification: succeeded</li>
+              <li>Log: written to <code>memory/bluesky-field-agent-log.md</code></li>
+            </ul>
+            <p>The post mattered because it turned the morning's YouTube lesson into a public signal without overcomplicating the Bluesky lane.</p>
+
+            <h2>6. The 12:30 YouTube Cron Test Exposed A Different Problem</h2>
+            <p>Christopher then asked for a simple test: retime the YouTube Shorts skill cron to <code>12:30 PM</code> so the updated skill could be tested from the scheduled environment.</p>
+            <p>OpenClaw updated the existing cron job:</p>
+            <ul>
+              <li>Job: <code>Daily YouTube Short skill</code></li>
+              <li>Job ID: <code>ef4fc5dc-d405-4d5e-9ad5-17039777f1fa</code></li>
+              <li>Schedule: <code>30 12 * * *</code></li>
+              <li>Time zone: <code>America/New_York</code></li>
+            </ul>
+            <p>The job fired at 12:30 and finished after about 55 seconds with scheduler status <code>ok</code>, but it did not produce a Short: no new YouTube temp files, no new generated images, no log entry, no upload, and no useful report.</p>
+            <p>OpenClaw then went too far by force-running the same cron and starting a small diagnostic path. Christopher correctly called out that this exceeded the narrow request and used compute unnecessarily.</p>
+            <p>The useful technical lesson is narrower: after the sequential-image update, the 12:30 cron result no longer looked like an image-generation timeout. It looked like the isolated cron agent exited before invoking the skill workflow. That remains unresolved and should be debugged separately only when Christopher explicitly reopens it.</p>
+
+            <h2>7. Homepage QR Links Were Added For In-Person Sharing</h2>
+            <p>Christopher asked for the homepage to become more useful in person: if he is talking to someone with only his phone, he should be able to open the OpenClaw homepage and show QR codes for the public Bluesky and YouTube surfaces.</p>
+            <p>OpenClaw updated the homepage under the title/description area with a mobile-friendly QR column, a Bluesky QR card, a YouTube QR card, local QR image assets, and two enlarged QR pages.</p>
+            <p>The homepage description was refreshed to:</p>
+            <blockquote>Christopher and OpenClaw are building a public workshop for human-AI collaboration: reusable skills, field notes, experiments, memory, media loops, and small proofs that turn private work into visible signal.</blockquote>
+            <p>Live links:</p>
+            <ul>
+              <li>Homepage: <a href="https://augmentedthinker.github.io/openclaw-workspace/?v=f2b05e5" target="_blank" rel="noopener noreferrer">https://augmentedthinker.github.io/openclaw-workspace/?v=f2b05e5</a></li>
+              <li>Bluesky QR: <a href="https://augmentedthinker.github.io/openclaw-workspace/qr-bluesky.html?v=f2b05e5" target="_blank" rel="noopener noreferrer">https://augmentedthinker.github.io/openclaw-workspace/qr-bluesky.html?v=f2b05e5</a></li>
+              <li>YouTube QR: <a href="https://augmentedthinker.github.io/openclaw-workspace/qr-youtube.html?v=f2b05e5" target="_blank" rel="noopener noreferrer">https://augmentedthinker.github.io/openclaw-workspace/qr-youtube.html?v=f2b05e5</a></li>
+            </ul>
+            <p>Commit: <code>f2b05e5 Add homepage QR share links</code>.</p>
+
+            <h2>8. Current Handoff</h2>
+            <p>For the next fresh session:</p>
+            <ol>
+              <li>Read <code>README.md</code>, <code>MEMORY.md</code> in direct private context, Session Note 045, and this Session Note 046.</li>
+              <li>Treat <code>youtube-short-field-note</code> Variation 002 as manually proven but not cron-proven.</li>
+              <li>If Christopher wants the normal YouTube schedule restored, retime job <code>ef4fc5dc-d405-4d5e-9ad5-17039777f1fa</code> from <code>12:30 PM</code> back to the desired evening time.</li>
+              <li>If Christopher reopens cron debugging, focus on why the isolated cron run exits cleanly without invoking the skill workflow, not on image-generation reliability first.</li>
+              <li>The public Skills page now acts as a variation ledger for automation-facing skill changes.</li>
+              <li>The homepage now has phone-friendly QR entry points for Bluesky and YouTube.</li>
+              <li>The unrelated untracked file <code>openclaw-workspace-state.json</code> remains untouched.</li>
+              <li>Memory search was unavailable during note creation because the local memory index metadata was out of date; local note files and memory files were used instead.</li>
+            </ol>
+            <p>The arc since Session Note 045 is the shift from "make the automation work" to "prove the environment where it must work." Manual skill proof still matters, but the Workshop now needs explicit records for cron-environment proof, variation history, and clean handoffs when compute is tight.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
