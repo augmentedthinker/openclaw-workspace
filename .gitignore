@@ -21,5 +21,8 @@ USER.md
 # Local scratch files.
 tmp/
 
+# Local OpenClaw setup/runtime state; do not publish in the Workshop repo.
+openclaw-workspace-state.json
+
 # Routine Bluesky field-agent media is local operating output, not Workshop site content.
 assets/images/bluesky/
