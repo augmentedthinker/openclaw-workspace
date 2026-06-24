@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 048 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260622-qr" />
+    <!-- Source content: ../content/notes/2026-06-24-session-note-048.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 048</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-24 · 05:58 EDT</span>
+            <span>Covering OpenClaw 2026.6.10 maintenance, legacy codex state cleanup, doctor normalization, and security follow-up</span>
+            <span>Theme: stop once the urgent warning is resolved and the next maintenance queue is clear</span>
+          </div>
+
+          <div class="prose">
+            <p>This short note records the OpenClaw maintenance pass that happened after <a href="2026-06-24-session-note-047.html">Session Note 047</a>. Christopher was heading into work, so the goal was not to fully harden the installation. The goal was to fix the active warning, apply safe cleanup, and leave a clear next-session handoff.</p>
+
+            <blockquote>Current lesson: local maintenance should stop once the urgent warning is resolved and the remaining work is clearly queued. Do not turn a clean repair into an open-ended troubleshooting spiral before work.</blockquote>
+
+            <h2>1. OpenClaw Updated To 2026.6.10</h2>
+            <p>Christopher ran:</p>
+            <pre><code>openclaw update</code></pre>
+            <p>The update completed successfully:</p>
+            <ul>
+              <li>Before: <code>2026.6.9</code></li>
+              <li>After: <code>2026.6.10</code></li>
+              <li>Plugin update: <code>@openclaw/codex</code> updated</li>
+              <li>Gateway: restarted and verified by the updater</li>
+            </ul>
+            <p>The update still printed the same legacy state warning:</p>
+            <pre><code>Left plugin install index in place because shared SQLite state has conflicting plugin install metadata for: codex</code></pre>
+            <p>That meant the package update succeeded, but the stale legacy plugin-install index was still present.</p>
+
+            <h2>2. Stale Codex Install Index Was Archived</h2>
+            <p>The stale file was:</p>
+            <pre><code>~/.openclaw/plugins/installs.json</code></pre>
+            <p>Inspection showed it still recorded <code>codex</code> / <code>@openclaw/codex</code> as <code>2026.5.28</code>, while the active managed install had moved forward. OpenClaw was correctly refusing to merge that older conflicting metadata into the newer shared SQLite state.</p>
+            <p>The file was archived recoverably as:</p>
+            <pre><code>~/.openclaw/plugins/installs.json.migrated-manual-2026-06-24</code></pre>
+            <p>After that, <code>openclaw doctor</code> no longer showed the legacy codex migration warning. Treat the original codex migration issue as fixed.</p>
+
+            <h2>3. Doctor Cleanup Applied Safely</h2>
+            <p>Christopher then ran:</p>
+            <pre><code>openclaw doctor</code></pre>
+            <p>Two safe cleanup prompts were accepted:</p>
+            <ul>
+              <li><code>83</code> orphan transcript files in <code>~/.openclaw/agents/main/sessions</code> were archived as <code>.deleted.&lt;timestamp&gt;</code> backups.</li>
+              <li>Legacy cron jobs in <code>~/.openclaw/cron/jobs.json</code> were normalized.</li>
+            </ul>
+            <p>The doctor output then showed:</p>
+            <ul>
+              <li>Skills status: <code>20</code> eligible</li>
+              <li>Missing requirements: <code>0</code></li>
+              <li>Plugins loaded: <code>55</code></li>
+              <li>Plugin errors: <code>0</code></li>
+            </ul>
+            <p>The earlier <code>summarize</code> missing-requirement warning was no longer present after the update/doctor pass.</p>
+
+            <h2>4. Security Audit And One Safe Hardening Change</h2>
+            <p>Christopher ran:</p>
+            <pre><code>openclaw security audit --deep</code></pre>
+            <p>The audit reported:</p>
+            <ul>
+              <li><code>0</code> critical</li>
+              <li><code>4</code> warnings</li>
+              <li><code>1</code> info item</li>
+            </ul>
+            <p>The safest immediate hardening change was to disable the insecure Control UI auth flag:</p>
+            <pre><code>openclaw config set gateway.controlUi.allowInsecureAuth false
+systemctl --user restart openclaw-gateway.service</code></pre>
+            <p>That config update succeeded and the gateway was restarted to apply it.</p>
+            <p>The remaining security warnings are not emergency items in Christopher's personal-assistant setup, but they should be reviewed later:</p>
+            <ul>
+              <li><code>gateway.trustedProxies</code> is empty while <code>gateway.bind</code> is loopback. This only matters if the Control UI is exposed through a reverse proxy.</li>
+              <li>The trust model remains personal-assistant style: powerful tools are available under Christopher's trusted-operator boundary, not a hostile multi-tenant gateway.</li>
+            </ul>
+
+            <h2>5. Remaining Follow-Up Items</h2>
+            <p>Leave these for the next maintenance session:</p>
+            <ol>
+              <li>Rerun <code>openclaw doctor</code> and <code>openclaw security audit --deep</code> to confirm the new baseline after the gateway restart.</li>
+              <li>Migrate plaintext secret-bearing config fields in <code>openclaw.json</code> to SecretRefs. Do this deliberately, not through a rushed auto-fix.</li>
+              <li>Fix or intentionally disable Gemini-backed memory search. Doctor reported that memory search is configured for <code>gemini</code> but no API key was found.</li>
+              <li>Decide whether the Telegram group allowlist warning is intentional. Direct Telegram use is working; group behavior may simply be locked down.</li>
+              <li>Consider startup optimization later: <code>NODE_COMPILE_CACHE</code> and <code>OPENCLAW_NO_RESPAWN</code> are performance/convenience items, not urgent security issues.</li>
+            </ol>
+
+            <h2>6. Handoff</h2>
+            <p>The stopping point is good:</p>
+            <ul>
+              <li>OpenClaw is updated to <code>2026.6.10</code>.</li>
+              <li>The stale codex legacy install index is archived.</li>
+              <li>The codex migration warning is gone.</li>
+              <li>Orphan transcripts were archived.</li>
+              <li>Cron store normalization completed.</li>
+              <li>The insecure Control UI auth toggle was disabled.</li>
+              <li>The gateway was restarted.</li>
+            </ul>
+            <p>Do not restart this maintenance thread by chasing every doctor line at once. The next high-value work is secrets migration and memory-search repair, in that order, when Christopher has time.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
