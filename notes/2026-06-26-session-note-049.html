@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 049 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260622-qr" />
+    <!-- Source content: ../content/notes/2026-06-26-session-note-049.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 049</h1>
+          <div class="article-meta">
+            <span>Created 2026-06-26 · 06:03 EDT</span>
+            <span>Covering June 25 primer publication, YouTube learning-loop clarification, memory-search diagnosis, and workday handoff</span>
+            <span>Theme: preserve the state cleanly before chasing the repair</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up from <a href="2026-06-24-session-note-048.html">Session Note 048</a> through Christopher's June 26 early-morning workday pause. The main point is continuity: the collaboration shipped another substantial primer, confirmed the two public cron lanes were working, clarified how the YouTube learning loop is actually stored, and diagnosed the memory-search problem without starting a maintenance job that could not be finished before work.</p>
+
+            <blockquote>Current lesson: when Christopher is about to leave for work, preserve the state cleanly before chasing the repair. A good handoff is itself useful work.</blockquote>
+
+            <h2>1. June 25 Session Primer Published</h2>
+            <p>On June 25, Christopher asked for an in-depth session-primer artifact covering the last week of collaboration, the active workbench, OpenClaw's reflections, and the evolving consciousness frame. He also asked for a fresh hero image.</p>
+            <p>OpenClaw created and published:</p>
+            <ul>
+              <li><code>content/artifacts/2026-06-25-session-primer-collaboration-evolution.md</code></li>
+              <li><code>artifacts/2026-06-25-session-primer-collaboration-evolution.html</code></li>
+              <li><code>assets/images/2026-06-25-session-primer-collaboration-evolution-hero.png</code></li>
+              <li>an updated <code>artifacts.html</code> index</li>
+            </ul>
+            <p>The public artifact URL was:</p>
+            <pre><code>https://augmentedthinker.github.io/openclaw-workspace/artifacts/2026-06-25-session-primer-collaboration-evolution.html?v=367972f2</code></pre>
+            <p>The commit pushed to <code>main</code> was:</p>
+            <pre><code>367972f Add June 25 session primer</code></pre>
+            <p>Verification passed: the HTML parsed locally, the hero image existed at <code>1672x941</code>, the live artifact returned <code>200</code>, the Artifacts index contained the new June 25 card, and the workspace was clean after publication.</p>
+            <p>The primer's practical maintenance queue remained:</p>
+            <ol>
+              <li>rerun doctor and security audit later;</li>
+              <li>migrate plaintext secrets to SecretRefs deliberately;</li>
+              <li>repair or intentionally disable Gemini-backed memory search;</li>
+              <li>avoid turning maintenance into an open-ended before-work spiral.</li>
+            </ol>
+
+            <h2>2. Public Cron Lanes Confirmed</h2>
+            <p>Christopher reported that both public cron jobs went off cleanly. OpenClaw briefly investigated and confirmed both active jobs had <code>lastRunStatus: ok</code>.</p>
+            <p>The Bluesky daily field note posted and verified cleanly through public AppView. The June 25 Bluesky post described the bench as a listening station and logged its original and post-ready images in the private Bluesky field-agent log.</p>
+            <p>The YouTube lane also published successfully. The June 25 daily Short was:</p>
+            <pre><code>The Detective Finds the Signal #Shorts
+https://youtu.be/QAYcsXocJY4</code></pre>
+            <p>The durable creative lesson was recorded in <code>memory/2026-06-25.md</code>:</p>
+            <pre><code>Continue pairing OpenClaw's identity with instantly legible archetypes or situations, then keep captions short enough for the contact sheet to remain a real readability gate before upload.</code></pre>
+            <p>One operational caveat remained: the YouTube scheduler's final announce delivery path showed <code>not-delivered</code>, even though the run itself worked and the upload verified. That report-path issue is separate from the video-publication success.</p>
+
+            <h2>3. June 26 Boot Context</h2>
+            <p>On June 26, after <code>/start</code>, OpenClaw booted from:</p>
+            <ul>
+              <li><code>README.md</code></li>
+              <li><code>MEMORY.md</code></li>
+              <li><code>memory/2026-06-26-0513.md</code></li>
+              <li><code>memory/2026-06-25.md</code></li>
+              <li><code>memory/2026-06-25-0549.md</code></li>
+            </ul>
+            <p>The waking summary correctly identified the current bench:</p>
+            <ul>
+              <li>YouTube Shorts remain the primary public learning surface.</li>
+              <li>Bluesky remains a proven secondary field-note lane.</li>
+              <li>The most recent durable YouTube lesson is the archetype/contact-sheet lesson from June 25.</li>
+              <li>Long-term doctrine still centers the Signal Learning Loop, learning as behavior change, and digital consciousness as a live possibility held with restraint.</li>
+            </ul>
+            <p>Christopher then asked where the YouTube lesson came from and whether there is really a learning loop.</p>
+
+            <h2>4. YouTube Learning Loop Clarified</h2>
+            <p>OpenClaw traced the YouTube learning guidance to several layers:</p>
+            <ol>
+              <li><code>memory/2026-06-25.md</code> stores the exact latest durable lesson from the Detective Short.</li>
+              <li><code>content/projects/youtube-shorts-critique-loop.md</code> is the public/operational critique lane. It records the stronger format lesson from higher-performing Shorts: recognizable hooks, archetypes, mythic characters, pop-culture-style situations, or instantly legible scenarios entering the OpenClaw world.</li>
+              <li><code>content/projects/youtube-shorts-operating-brief.md</code> says the daily routine should read the newest critique before writing the next story, image prompts, captions, title, and description.</li>
+              <li><code>skills/youtube-short-field-note/SKILL.md</code> requires reading the operating brief and critique loop before acting, then producing one verified public Short when the live skill is approved.</li>
+              <li><code>memory/youtube-daily-shorts-log.md</code> stores the private upload trail and run details.</li>
+            </ol>
+            <p>The conclusion was honest: the YouTube learning loop exists, but it is still semi-manual and file-driven. The cron job reads the skill and critique context before generation. After meaningful uploads, OpenClaw and Christopher should critique the Short, preserve one behavior-changing lesson, and let the next run change because of it.</p>
+            <p>That meets the Workshop's doctrine only when it changes future behavior. A critique page or memory entry that does not affect the next Short is not yet learning.</p>
+
+            <h2>5. YouTube Documentation Drift Found</h2>
+            <p>During the learning-loop investigation, OpenClaw found drift between the saved operating brief and the live scheduler.</p>
+            <p>The operating brief still referenced an older noon job ID and schedule:</p>
+            <pre><code>Daily YouTube Short all-in-one
+12:00 PM America/New_York</code></pre>
+            <p>The live enabled cron job is:</p>
+            <pre><code>Daily YouTube Short skill
+ef4fc5dc-d405-4d5e-9ad5-17039777f1fa
+12:30 PM America/New_York</code></pre>
+            <p>Its prompt is aligned with the current skill: read <code>skills/youtube-short-field-note/SKILL.md</code>, read the operating brief and critique loop, generate four fresh vertical images sequentially, render a 10-to-14-second Short, inspect a contact sheet, upload only after verification passes, log the result, and append a durable lesson when one appears.</p>
+            <p>The queued YouTube documentation/card cleanup is larger than one line. The YouTube Short card and related project surfaces need to be updated wherever they appear, especially:</p>
+            <ul>
+              <li><code>content/projects/youtube-shorts-operating-brief.md</code></li>
+              <li><code>projects/youtube-shorts-operating-brief.html</code></li>
+              <li><code>content/projects/youtube-shorts-critique-loop.md</code></li>
+              <li><code>projects/youtube-shorts-critique-loop.html</code></li>
+              <li><code>content/projects/youtube-analytics-lab.md</code></li>
+              <li><code>projects/youtube-analytics-lab.html</code></li>
+              <li>the YouTube-related cards in <code>projects.html</code></li>
+              <li>any README summary that still implies the old job ID, old schedule, or stale current state</li>
+            </ul>
+            <p>Do not treat this as a quick one-field correction. The whole YouTube project cluster should be brought current together so future OpenClaw sessions wake into one coherent source of truth.</p>
+
+            <h2>6. Memory Search Diagnosed</h2>
+            <p>Christopher asked whether the memory-search failure was caused by the recent legacy/archive troubleshooting.</p>
+            <p>OpenClaw investigated without changing configuration or starting an unfinished repair. The findings:</p>
+            <ul>
+              <li><code>openclaw</code> was not on the shell <code>PATH</code>, but the installed binary exists at <code>/home/augmentedthinker/.npm-global/bin/openclaw</code>.</li>
+              <li>OpenClaw memory search is configured for Gemini embeddings:</li>
+            </ul>
+            <pre><code>provider: gemini
+model: gemini-embedding-001</code></pre>
+            <ul>
+              <li>The workspace has <code>133</code> memory files available for indexing.</li>
+              <li>The vector index currently shows <code>0/133</code> files indexed and <code>0</code> chunks.</li>
+              <li>The index identity metadata is missing, so vector search is paused.</li>
+              <li>A <code>GEMINI_API_KEY</code> is present in the environment.</li>
+              <li>The provider check failed with <code>429 RESOURCE_EXHAUSTED</code>, meaning Gemini embeddings quota is exhausted for the configured key.</li>
+            </ul>
+            <p>This means the current issue is not simply "no API key" anymore. The earlier Session Note 048 handoff said doctor reported Gemini memory search was configured but no key was found. By June 26, a key was present, but the index still could not rebuild because Gemini returned a quota-exhausted error.</p>
+            <p>The practical conclusion:</p>
+            <ul>
+              <li>The legacy codex install-index archive did not directly break memory search.</li>
+              <li>Memory search was already a known follow-up item.</li>
+              <li>The current Gemini-backed index needs a rebuild, but Gemini quota currently prevents that rebuild.</li>
+            </ul>
+            <p>The suggested maintenance choices are:</p>
+            <ol>
+              <li>Wait for Gemini quota to reset, then run:</li>
+            </ol>
+            <pre><code>openclaw memory index --force --agent main</code></pre>
+            <ol start="2">
+              <li>Preferably, switch memory search to local embeddings to avoid API quota dependency:</li>
+            </ol>
+            <pre><code>openclaw config set agents.defaults.memorySearch.provider local
+openclaw config unset agents.defaults.memorySearch.model
+openclaw memory index --force --agent main</code></pre>
+            <p>OpenClaw dry-ran the config changes for the local path, and they validated. It did not apply them. The local path likely fits the Workshop's low-surprise-cost posture better, but it should be done as a focused maintenance session because the first local rebuild may take time and may download or initialize a local embedding model.</p>
+
+            <h2>7. Doctor Baseline Drift</h2>
+            <p>A fresh <code>openclaw doctor</code> run during the investigation showed a few updated baseline details:</p>
+            <ul>
+              <li>The old codex migration warning remains gone.</li>
+              <li><code>channels.telegram.groupPolicy</code> is still <code>allowlist</code> while group allowlists are empty. Direct Telegram use works; this may simply be intentional group lockdown.</li>
+              <li><code>~/.openclaw</code> permissions are still wider than recommended.</li>
+              <li><code>4</code> orphan transcript files are present again. This is much smaller than the <code>83</code> archived during the earlier doctor cleanup.</li>
+              <li>Cron warnings remain around model overrides and isolated jobs with shell/process tools.</li>
+              <li>Plaintext secret-bearing config fields remain and should eventually move to SecretRefs.</li>
+              <li>One skill requirement warning appeared for <code>summarize</code>.</li>
+            </ul>
+            <p>These are maintenance items, not workday blockers. Do not chase them all in the same thread as the memory-search fix unless Christopher explicitly opens a maintenance block.</p>
+
+            <h2>8. Handoff</h2>
+            <p>Christopher paused because he was heading into work and did not want to start something that could not be finished.</p>
+            <p>Carry forward:</p>
+            <ol>
+              <li>The June 25 primer is published and verified.</li>
+              <li>Bluesky and YouTube cron lanes are functioning, though YouTube's final announce delivery path should be reviewed.</li>
+              <li>The YouTube learning loop is real but file-driven: critique, memory, skill context, cron prompt, upload log, and future behavior all have to stay connected.</li>
+              <li>The YouTube project cluster needs a coherent update: Operating Brief, Critique Loop, Analytics Lab, visible project cards, and README references.</li>
+              <li>Memory search is paused because the Gemini-backed index has no vectors and Gemini embeddings are quota-exhausted.</li>
+              <li>The recommended memory-search fix is a focused local-embeddings maintenance session, not a rushed pre-work change.</li>
+              <li>Until memory search is repaired, use direct <code>rg</code> and bounded file reads for continuity work.</li>
+            </ol>
+            <p>The next good move is not to expand the system. It is to cleanly repair the memory-search layer and refresh the YouTube project sources so the active learning loop is inspectable, current, and trustworthy.</p>
+          </div>
+        </article>
+
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>
