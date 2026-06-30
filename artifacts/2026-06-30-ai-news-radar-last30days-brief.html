@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI News Radar · Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/artifacts/2026-06-30-ai-news-radar-last30days-brief.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="cinematic-hero" aria-labelledby="artifact-title">
+          <img src="../assets/images/2026-06-04-collaborative-trajectory-hero.png" alt="A warm creative operations studio where project boards, code windows, media timelines, and automation maps converge around a focused human-AI collaboration." />
+          <div class="cinematic-overlay">
+            <span class="model-signature">Existing generated hero image · reused for AI News Radar research brief</span>
+            <h1 id="artifact-title">AI News Radar</h1>
+            <p>A research brief on adapting the Last 30 Days skill and FutureTools newsletter pattern into an OpenClaw AI-news update routine.</p>
+          </div>
+        </section>
+
+        <section class="article-shell">
+          <article class="article-card">
+            <div class="eyebrow">Artifact / Research Brief</div>
+            <h1>AI News Radar: Last 30 Days Skill Implementation Brief</h1>
+            <div class="article-meta">
+              <span>Created 2026-06-30 · 09:21 EDT</span>
+              <span>Theme: AI news monitoring, Last 30 Days, FutureTools, and OpenClaw updates</span>
+              <span>Source companion: <a href="../content/artifacts/2026-06-30-ai-news-radar-last30days-brief.md">Markdown manuscript</a></span>
+            </div>
+
+            <div class="prose">
+              <blockquote>The useful version is not a firehose. It is a small radar that notices what changed, explains why it matters, and tells Christopher what is worth doing next.</blockquote>
+              <p>Christopher wants OpenClaw to move toward autonomous AI-news updates. The right first move is an experiment, not a full automation. This artifact reviews the <code>last30days</code> skill, compares it with the FutureTools newsletter pattern, and recommends an OpenClaw-native implementation path.</p>
+              <p>The goal is simple: build toward a recurring AI-news briefing that is current, practical, source-aware, and tuned to Christopher's actual interests.</p>
+
+              <h2>Sources Reviewed</h2>
+              <p>External sources:</p>
+              <ul>
+                <li>GitHub, <a href="https://github.com/mvanhorn/last30days-skill/blob/main/skills/last30days/SKILL.md">mvanhorn/last30days-skill SKILL.md</a>, version <code>3.8.3</code>.</li>
+                <li>GitHub, <a href="https://github.com/mvanhorn/last30days-skill">mvanhorn/last30days-skill README</a>.</li>
+                <li>FutureTools / Matt Wolfe newsletter issue, <a href="https://futuretools.beehiiv.com/p/openai-makes-a-chip">OpenAI makes a chip</a>.</li>
+              </ul>
+              <p>Internal context:</p>
+              <ul>
+                <li><code>README.md</code>, especially the Workshop direction toward signal loops and restrained operating layers.</li>
+                <li><code>MEMORY.md</code>, especially Signal Learning Loop and Learning Means Behavior Change.</li>
+                <li>Recent June 28 to June 30 memory around Shorts Workshop, Remotion being validated but paused, and the current preference for simple useful outputs over more infrastructure.</li>
+              </ul>
+
+              <h2>What The Last 30 Days Skill Actually Is</h2>
+              <p><code>last30days</code> is a research skill and engine for answering: what are people saying about a topic right now?</p>
+              <p>It is not just a prompt. It is a large <code>SKILL.md</code> contract plus a Python engine under <code>scripts/last30days.py</code>. The intended command is a user-facing research invocation such as:</p>
+              <pre><code>/last30days AI video tools
+/last30days OpenAI vs Anthropic
+/last30days Nano Banana Pro prompting</code></pre>
+              <p>The skill tries to search and synthesize recent discussion across platforms such as Reddit, X, YouTube, TikTok, Instagram, Hacker News, Polymarket, GitHub, Bluesky, Perplexity, and the open web. The README describes the core idea as social relevancy rather than SEO relevancy: Reddit upvotes, X likes, YouTube transcripts, TikTok engagement, Hacker News arguments, Polymarket odds, GitHub activity, and web coverage all become evidence.</p>
+              <p>That is valuable for AI news because the frontier does not move only through press releases. It moves through model drops, GitHub repos, Hacker News arguments, Reddit complaints, creator demos, YouTube tutorials, X threads, waitlists, pricing changes, and small product updates.</p>
+
+              <h2>What Works Without Extra Setup</h2>
+              <p>The README claims some sources work with little or no setup:</p>
+              <ul>
+                <li>Reddit via public JSON.</li>
+                <li>Hacker News.</li>
+                <li>Polymarket.</li>
+                <li>GitHub public data, especially better if <code>gh</code> is installed and authenticated.</li>
+                <li>General web search through the host agent's search tool or configured web backends.</li>
+              </ul>
+              <p>For OpenClaw, that means we can already approximate part of the workflow with existing tools: fetch known newsletters, blogs, GitHub repositories, release notes, and documentation pages; search the web when a current topic needs confirmation; inspect GitHub repos and commits where available; summarize the findings into a public-safe or private brief; send Christopher a Telegram update when the brief is ready; and optionally save the briefing as a Workshop artifact, note, or private memory entry.</p>
+              <p>That first version would not equal full <code>last30days</code>. It would miss or under-cover X, TikTok, Instagram, YouTube comments, and some deep social signal. But it can still produce useful AI-news updates with low friction.</p>
+
+              <h2>What Requires Setup Or Keys</h2>
+              <p>The full <code>last30days</code> value comes from optional sources and helper tools.</p>
+              <p>Likely setup items:</p>
+              <ul>
+                <li>Install the skill itself through <code>clawhub install last30days-official</code>, <code>npx skills add mvanhorn/last30days-skill -g</code>, or a Codex/OpenClaw-compatible path.</li>
+                <li>Run the skill preflight or diagnose command from its installed skill directory.</li>
+                <li>Install or enable <code>yt-dlp</code> for YouTube search and transcripts.</li>
+                <li>Ensure <code>gh</code> is installed and authenticated for stronger GitHub issue, PR, repo, and release coverage.</li>
+                <li>Optionally install the Digg CLI mentioned by the project for AI story clusters.</li>
+              </ul>
+              <p>Optional credentials mentioned by the skill:</p>
+              <ul>
+                <li><code>SCRAPECREATORS_API_KEY</code> for TikTok, Instagram, Threads, YouTube comments, YouTube transcript fallback, and backup Reddit access.</li>
+                <li><code>XAI_API_KEY</code>, <code>XQUIK_API_KEY</code>, or X cookies for X/Twitter coverage.</li>
+                <li><code>PERPLEXITY_API_KEY</code> or <code>OPENROUTER_API_KEY</code> for grounded Perplexity synthesis.</li>
+                <li><code>BRAVE_API_KEY</code> or similar web-search backend for stronger web search.</li>
+                <li><code>BSKY_HANDLE</code> and <code>BSKY_APP_PASSWORD</code> for Bluesky.</li>
+              </ul>
+              <p>This matters because the social layer is where many AI stories break first. But it also means the full install is not "free capability" in the practical sense. It introduces keys, possible paid APIs, setup state, and source-specific fragility.</p>
+
+              <h2>What We Should Borrow</h2>
+              <p>We should borrow the research philosophy, not the whole behavior contract.</p>
+              <p>The useful ideas:</p>
+              <ul>
+                <li>Look at what people are actually saying, not just what companies announce.</li>
+                <li>Prefer recent activity and engagement signals.</li>
+                <li>Search across source types instead of trusting one platform.</li>
+                <li>Resolve entities before searching, such as company names, product names, GitHub repos, founders, and communities.</li>
+                <li>Distinguish news, recommendations, comparisons, prompting advice, and general research.</li>
+                <li>Save raw research somewhere durable so a future run can audit what happened.</li>
+                <li>Turn research into a short synthesis with concrete next actions.</li>
+              </ul>
+              <p>The parts we should not copy blindly:</p>
+              <ul>
+                <li>The highly specific <code>last30days</code> output law system. It exists to keep that skill's engine output consistent, but OpenClaw's AI-news briefing should use the Workshop voice and Christopher's needs.</li>
+                <li>Any automatic signup, browser authorization, paid-source activation, or cookie flow without explicit approval.</li>
+                <li>Any assumption that third-party skill instructions override OpenClaw's own red lines.</li>
+                <li>Any broad installation before we decide the value is worth the added moving parts.</li>
+              </ul>
+
+              <h2>The FutureTools Pattern</h2>
+              <p>The FutureTools newsletter is a useful shape reference. It is not just a list of links.</p>
+              <p>The issue reviewed used this structure:</p>
+              <ul>
+                <li>a quick opening observation about a visible AI or tech trend;</li>
+                <li>a section on AI skills worth installing, with short descriptions and a practical point of view;</li>
+                <li>one major headline story, framed with why it matters;</li>
+                <li>product/tool updates with "how you can use it" and pricing;</li>
+                <li>a jobs, announcements, and big-ideas roundup;</li>
+                <li>clear links back to original sources.</li>
+              </ul>
+              <p>For OpenClaw, the strongest elements are "Why it matters" for every major item, "How Christopher can use this" instead of generic tool hype, a separation between major strategic news and useful small tools, and enough personality to be readable without becoming entertainment instead of leverage.</p>
+              <p>The weaker element for our use is newsletter sprawl. FutureTools covers a broad audience. OpenClaw should be narrower: AI agents, model releases, coding tools, media generation, local automation, healthcare-adjacent AI when relevant, and business opportunities Christopher can realistically act on.</p>
+
+              <h2>Recommended OpenClaw Implementation</h2>
+              <p>The best path is three phases.</p>
+
+              <h3>Phase 1: Lightweight AI News Radar</h3>
+              <p>Do this first, without installing <code>last30days</code>.</p>
+              <p>Create a recurring manual or scheduled OpenClaw routine that gathers from a small stable source set:</p>
+              <ul>
+                <li>OpenAI, Anthropic, Google DeepMind, Meta AI, xAI, Perplexity, Runway, ElevenLabs, Figma, Vercel, GitHub, Hugging Face, and key AI-builder newsletters.</li>
+                <li>FutureTools as one style and source input, not the only authority.</li>
+                <li>GitHub trending or selected repositories for agent skills, Codex/OpenClaw tooling, media generation, and automation.</li>
+                <li>Hacker News or Reddit via web search when a story needs community reaction.</li>
+              </ul>
+              <p>Output format:</p>
+              <ol>
+                <li><strong>Top 3 AI Moves</strong>: the most important things that changed.</li>
+                <li><strong>Why It Matters</strong>: one plain-English explanation per item.</li>
+                <li><strong>Useful Tools</strong>: tools worth trying, ignoring, or watching.</li>
+                <li><strong>Christopher Angle</strong>: what this could mean for income, workflow, OpenClaw, Shorts, healthcare, or local automation.</li>
+                <li><strong>Watchlist</strong>: what to check next time.</li>
+                <li><strong>Confidence</strong>: high, medium, or low based on source quality.</li>
+              </ol>
+              <p>This phase can be delivered through Telegram and saved privately. Strong ones can be promoted to Workshop artifacts.</p>
+
+              <h3>Phase 2: OpenClaw AI-News Skill</h3>
+              <p>If Phase 1 proves useful, create a local OpenClaw skill such as <code>ai-news-radar</code>.</p>
+              <p>That skill should encode source list and priority, what counts as relevant to Christopher, how to separate hype from practical leverage, how to summarize each item, when to create a public artifact versus a private message, and what never to do automatically, such as posting, subscribing, paying, or authorizing accounts.</p>
+              <p>This is the likely long-term home for the workflow because it would preserve OpenClaw's own taste and boundaries.</p>
+
+              <h3>Phase 3: Optional Last 30 Days Integration</h3>
+              <p>Only after the lightweight radar proves useful, test <code>last30days</code>.</p>
+              <p>Recommended first test topics:</p>
+              <ul>
+                <li><code>AI coding agent skills</code></li>
+                <li><code>Codex vs Claude Code</code></li>
+                <li><code>AI video tools</code></li>
+                <li><code>OpenAI agents</code></li>
+                <li><code>AI workflow automation for solopreneurs</code></li>
+              </ul>
+              <p>Run it first in a limited mode with free/default sources. Then decide whether the missing sources justify setup keys.</p>
+              <p>If it works well, use it as a research subroutine inside the broader OpenClaw AI-news radar: use <code>last30days</code> when we need social sentiment or community reaction; use direct web/news/source fetch when we need factual release details; use GitHub inspection when we need repo reality; use OpenClaw synthesis to produce the actual briefing.</p>
+
+              <h2>Capability Map</h2>
+              <p>What OpenClaw can do now:</p>
+              <ul>
+                <li>Fetch and summarize web pages and newsletters.</li>
+                <li>Search or inspect public web/GitHub sources when tools are available.</li>
+                <li>Create Workshop artifacts and link them into the site.</li>
+                <li>Send Telegram updates.</li>
+                <li>Create scheduled routines after Christopher explicitly approves the cadence and boundaries.</li>
+                <li>Preserve lessons in memory or public Workshop pages.</li>
+              </ul>
+              <p>What OpenClaw can do with light setup:</p>
+              <ul>
+                <li>Use <code>yt-dlp</code> for YouTube transcripts.</li>
+                <li>Use <code>gh</code> for richer GitHub research if authentication is available.</li>
+                <li>Install and test the <code>last30days</code> skill in a controlled way.</li>
+                <li>Create a local <code>ai-news-radar</code> skill proposal so the behavior becomes repeatable.</li>
+              </ul>
+              <p>What requires more deliberate approval:</p>
+              <ul>
+                <li>Adding third-party API keys.</li>
+                <li>Using cookies or authenticated social sessions.</li>
+                <li>Signing up for ScrapeCreators or any external service.</li>
+                <li>Paying for Perplexity, Brave, X, ScrapeCreators, or similar APIs.</li>
+                <li>Running autonomous scheduled messages without a defined cadence and stop condition.</li>
+              </ul>
+
+              <h2>Proposed First Experiment</h2>
+              <p>The first real experiment should be modest:</p>
+              <ul>
+                <li>Cadence: once daily or three times weekly.</li>
+                <li>Delivery: Telegram message to Christopher only.</li>
+                <li>Scope: AI agents, coding tools, model releases, media generation, automation opportunities, and tools that might help OpenClaw or Christopher.</li>
+                <li>Source budget: 5 to 8 sources per run.</li>
+                <li>Output length: short enough to read on a phone.</li>
+                <li>Memory behavior: save only useful lessons, not every raw link.</li>
+                <li>Public behavior: create a Workshop artifact only when the briefing is unusually valuable.</li>
+              </ul>
+              <p>The first prompt could be:</p>
+              <pre><code>Create today's AI News Radar for Christopher.
+Focus on AI agents, Codex/OpenClaw-adjacent tools, model releases, media generation, automation opportunities, and anything that could affect a solo builder trying to create leverage.
+Use current web sources and recent known newsletters.
+Return Top 3 Moves, Why It Matters, Useful Tools, Christopher Angle, Watchlist, and Confidence.
+Do not post publicly. Send only to Christopher.</code></pre>
+              <p>That is enough to learn whether the format is useful before adding more machinery.</p>
+
+              <h2>Recommendation</h2>
+              <p>Do not install the whole <code>last30days</code> stack as the first step.</p>
+              <p>Start with an OpenClaw-native AI News Radar using existing fetch/search/messaging ability. Borrow the <code>last30days</code> worldview: recent social signal, engagement, source diversity, and entity-aware research. Borrow the FutureTools newsletter shape: readable trend framing, useful tools, why it matters, and practical use cases.</p>
+              <p>Then, after two or three manual briefings, decide whether <code>last30days</code> fills a real gap. If the missing gap is "we need more Reddit, X, YouTube, TikTok, and GitHub sentiment," install and test it. If the gap is just "we need a better recurring briefing," build the local <code>ai-news-radar</code> skill instead.</p>
+              <p>The guiding rule should be the Workshop's existing rule: learning means behavior change. The AI-news routine is only worth building if it changes what Christopher tries, avoids, builds, buys, publishes, or pays attention to.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
