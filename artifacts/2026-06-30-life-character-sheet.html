@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Life Character Sheet · Artifacts · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/artifacts/2026-06-30-life-character-sheet.md -->
+    <style>
+      :root {
+        --sheet-bg: #05070c;
+        --sheet-panel: rgb(13 22 36 / 0.84);
+        --sheet-panel-2: rgb(20 31 49 / 0.76);
+        --sheet-line: rgb(214 224 255 / 0.16);
+        --sheet-ink: #f4f7f0;
+        --sheet-muted: #aab8cc;
+        --sheet-gold: #f6c15b;
+        --sheet-teal: #64d6c6;
+        --sheet-blue: #76a7ff;
+        --sheet-green: #84d77d;
+        --sheet-violet: #b992ff;
+        --sheet-rose: #ff8a9a;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 8% 8%, rgb(118 167 255 / 0.24), transparent 28rem),
+          radial-gradient(circle at 84% 14%, rgb(246 193 91 / 0.14), transparent 22rem),
+          linear-gradient(135deg, #09111f, var(--sheet-bg) 64%);
+      }
+
+      .sheet-shell {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .sheet-topbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+        border: 1px solid var(--sheet-line);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgb(246 193 91 / 0.12), transparent 40%),
+          rgb(8 17 28 / 0.72);
+        box-shadow: 0 18px 50px rgb(0 0 0 / 0.25);
+      }
+
+      .sheet-kicker {
+        color: var(--sheet-teal);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .sheet-title {
+        margin: 0.25rem 0 0;
+        color: var(--sheet-ink);
+        font-size: clamp(2rem, 4vw, 4.1rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .sheet-subtitle {
+        max-width: 58rem;
+        margin: 0.75rem 0 0;
+        color: var(--sheet-muted);
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .build-badge {
+        display: grid;
+        place-items: center;
+        min-width: 10rem;
+        aspect-ratio: 1;
+        border: 1px solid rgb(246 193 91 / 0.3);
+        border-radius: 50%;
+        background:
+          conic-gradient(from 180deg, rgb(100 214 198 / 0.32), rgb(246 193 91 / 0.3), rgb(185 146 255 / 0.3), rgb(100 214 198 / 0.32)),
+          radial-gradient(circle, #111d2e 0 52%, transparent 53%);
+        box-shadow: inset 0 0 30px rgb(246 193 91 / 0.12), 0 0 35px rgb(100 214 198 / 0.12);
+      }
+
+      .build-badge span {
+        display: block;
+        text-align: center;
+        color: var(--sheet-ink);
+        font-weight: 950;
+      }
+
+      .build-badge .level {
+        color: var(--sheet-gold);
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+
+      .sheet-grid {
+        display: grid;
+        grid-template-columns: minmax(18rem, 0.88fr) minmax(24rem, 1.38fr) minmax(19rem, 0.98fr);
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .sheet-card {
+        min-width: 0;
+        border: 1px solid var(--sheet-line);
+        border-radius: 8px;
+        background: var(--sheet-panel);
+        box-shadow: 0 18px 48px rgb(0 0 0 / 0.22);
+        overflow: hidden;
+      }
+
+      .sheet-card header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: baseline;
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid var(--sheet-line);
+        background: rgb(255 255 255 / 0.035);
+      }
+
+      .sheet-card h2,
+      .sheet-card h3 {
+        margin: 0;
+        color: var(--sheet-ink);
+        letter-spacing: 0;
+      }
+
+      .sheet-card h2 {
+        font-size: 1.05rem;
+      }
+
+      .sheet-card h3 {
+        font-size: 0.98rem;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+      }
+
+      .meta-tile,
+      .trait,
+      .status-effect,
+      .resource-row,
+      .tradeoff-note,
+      .mini-panel {
+        border: 1px solid rgb(214 224 255 / 0.13);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.04);
+      }
+
+      .meta-tile {
+        padding: 0.7rem;
+      }
+
+      .meta-label {
+        display: block;
+        color: var(--sheet-muted);
+        font-size: 0.76rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .meta-value {
+        display: block;
+        margin-top: 0.15rem;
+        color: var(--sheet-ink);
+        font-weight: 900;
+      }
+
+      .identity-quote {
+        margin: 0.9rem 0 0;
+        padding: 0.85rem;
+        border-left: 3px solid var(--sheet-gold);
+        color: var(--sheet-ink);
+        background: rgb(246 193 91 / 0.08);
+        line-height: 1.5;
+      }
+
+      .trait-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.85rem;
+      }
+
+      .trait {
+        padding: 0.38rem 0.52rem;
+        color: var(--sheet-teal);
+        font-size: 0.84rem;
+        font-weight: 850;
+      }
+
+      .status-stack {
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 0.85rem;
+      }
+
+      .status-effect {
+        padding: 0.68rem;
+      }
+
+      .status-effect strong {
+        display: block;
+        color: var(--sheet-gold);
+        font-size: 0.92rem;
+      }
+
+      .status-effect span {
+        display: block;
+        margin-top: 0.22rem;
+        color: var(--sheet-muted);
+        font-size: 0.84rem;
+        line-height: 1.35;
+      }
+
+      .attribute-list {
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .attribute-row {
+        padding: 0.75rem;
+        border: 1px solid rgb(214 224 255 / 0.13);
+        border-radius: 8px;
+        background: rgb(255 255 255 / 0.035);
+        transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .attribute-row.changed {
+        border-color: rgb(246 193 91 / 0.44);
+        background: rgb(246 193 91 / 0.07);
+      }
+
+      .attribute-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.7rem;
+        align-items: baseline;
+      }
+
+      .axis-title {
+        color: var(--sheet-ink);
+        font-weight: 900;
+      }
+
+      .axis-title small {
+        display: block;
+        margin-top: 0.16rem;
+        color: var(--sheet-muted);
+        font-size: 0.78rem;
+        font-weight: 650;
+        line-height: 1.35;
+      }
+
+      .score-pill {
+        min-width: 3.1rem;
+        padding: 0.28rem 0.48rem;
+        border: 1px solid rgb(100 214 198 / 0.35);
+        border-radius: 8px;
+        color: var(--sheet-teal);
+        text-align: center;
+        font-weight: 950;
+        background: rgb(100 214 198 / 0.08);
+      }
+
+      .axis-labels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 0.55rem 0 0.25rem;
+        color: var(--sheet-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .axis-labels span:last-child {
+        text-align: right;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--sheet-gold);
+      }
+
+      .resource-stack {
+        display: grid;
+        gap: 0.62rem;
+      }
+
+      .resource-row {
+        padding: 0.72rem;
+      }
+
+      .resource-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        color: var(--sheet-ink);
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .bar-track {
+        height: 0.52rem;
+        margin-top: 0.5rem;
+        border-radius: 999px;
+        background: rgb(255 255 255 / 0.09);
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        width: 0%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--sheet-teal), var(--sheet-gold));
+        transition: width 180ms ease;
+      }
+
+      .narrative-title {
+        color: var(--sheet-gold);
+        font-size: 1rem;
+        font-weight: 950;
+      }
+
+      .narrative-block {
+        display: grid;
+        gap: 0.75rem;
+        color: var(--sheet-ink);
+        line-height: 1.55;
+      }
+
+      .narrative-block p {
+        margin: 0;
+      }
+
+      .confidence {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 0.4rem;
+        padding: 0.32rem 0.55rem;
+        border: 1px solid rgb(132 215 125 / 0.35);
+        border-radius: 8px;
+        color: var(--sheet-green);
+        font-size: 0.82rem;
+        font-weight: 900;
+        background: rgb(132 215 125 / 0.08);
+      }
+
+      .control-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.65rem;
+      }
+
+      .sheet-button,
+      .sheet-select,
+      .sheet-number {
+        width: 100%;
+        min-height: 2.55rem;
+        border: 1px solid rgb(214 224 255 / 0.18);
+        border-radius: 8px;
+        color: var(--sheet-ink);
+        background: rgb(6 14 25 / 0.86);
+        font: inherit;
+      }
+
+      .sheet-button {
+        padding: 0.58rem 0.7rem;
+        cursor: pointer;
+        font-size: 0.86rem;
+        font-weight: 900;
+        transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+      }
+
+      .sheet-button:hover,
+      .sheet-button:focus-visible {
+        border-color: rgb(100 214 198 / 0.54);
+        background: rgb(100 214 198 / 0.1);
+        outline: none;
+      }
+
+      .sheet-button:active {
+        transform: translateY(1px);
+      }
+
+      .sheet-button.primary {
+        border-color: rgb(246 193 91 / 0.45);
+        color: #120d05;
+        background: linear-gradient(135deg, var(--sheet-gold), #f4e09a);
+      }
+
+      .sheet-select,
+      .sheet-number {
+        padding: 0.55rem;
+      }
+
+      .preset-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 0.55rem;
+      }
+
+      .tradeoff-stack {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .tradeoff-note {
+        padding: 0.65rem;
+        color: var(--sheet-muted);
+        font-size: 0.88rem;
+        line-height: 1.4;
+      }
+
+      .tradeoff-note strong {
+        color: var(--sheet-violet);
+      }
+
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 1rem;
+      }
+
+      .mini-panel {
+        padding: 0.85rem;
+      }
+
+      .sim-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr) minmax(5rem, 0.55fr) auto;
+        gap: 0.55rem;
+      }
+
+      .saved-status {
+        margin-top: 0.65rem;
+        color: var(--sheet-muted);
+        font-size: 0.88rem;
+      }
+
+      .sheet-note {
+        color: var(--sheet-muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      @media (max-width: 1150px) {
+        .sheet-grid,
+        .bottom-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .preset-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .sheet-topbar {
+          grid-template-columns: 1fr;
+        }
+
+        .build-badge {
+          min-width: min(12rem, 60vw);
+          justify-self: center;
+        }
+
+        .control-grid,
+        .preset-grid,
+        .sim-row {
+          grid-template-columns: 1fr;
+        }
+
+        .sheet-title {
+          font-size: 2.35rem;
+        }
+
+        .article-shell {
+          padding-inline: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html" aria-current="page">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html">Notes</a>
+        </div>
+      </nav>
+
+      <main class="sheet-shell" aria-label="Life Character Sheet prototype">
+        <section class="sheet-topbar">
+          <div>
+            <div class="sheet-kicker">Artifact / Interactive Prototype / v0.1 Current Build</div>
+            <h1 class="sheet-title">Life Character Sheet</h1>
+            <p class="sheet-subtitle">A reflective RPG-style simulator for viewing a life as a build: attributes, resources, tradeoffs, and narrative projection. Move a slider and watch the whole system answer.</p>
+          </div>
+          <div class="build-badge" aria-label="Character level 37">
+            <span>
+              <span class="level">37</span>
+              <span>Independent<br />Explorer</span>
+            </span>
+          </div>
+        </section>
+
+        <section class="sheet-grid">
+          <aside class="sheet-card" aria-label="Identity panel">
+            <header>
+              <h2>Identity</h2>
+              <span class="sheet-kicker">Current Build</span>
+            </header>
+            <div class="card-body">
+              <div class="meta-grid">
+                <div class="meta-tile"><span class="meta-label">Archetype</span><span class="meta-value" id="archetypeText"></span></div>
+                <div class="meta-tile"><span class="meta-label">Class</span><span class="meta-value" id="classText"></span></div>
+                <div class="meta-tile"><span class="meta-label">Level</span><span class="meta-value" id="levelText"></span></div>
+                <div class="meta-tile"><span class="meta-label">Mode</span><span class="meta-value">Reflective Sim</span></div>
+              </div>
+              <p class="identity-quote" id="identityQuote"></p>
+              <div class="sheet-note" id="lifePathText"></div>
+              <div class="trait-list" id="traitList" aria-label="Active traits"></div>
+              <div class="status-stack" id="statusList" aria-label="Status effects"></div>
+            </div>
+          </aside>
+
+          <section class="sheet-card" aria-label="Attribute sliders">
+            <header>
+              <h2>Attributes</h2>
+              <span class="sheet-kicker" id="changedCount">0 changed</span>
+            </header>
+            <div class="card-body">
+              <div class="attribute-list" id="attributeList"></div>
+            </div>
+          </section>
+
+          <aside class="sheet-card" aria-label="Resources and narrative">
+            <header>
+              <h2>Resources</h2>
+              <span class="sheet-kicker">Derived</span>
+            </header>
+            <div class="card-body">
+              <div class="resource-stack" id="resourceList"></div>
+            </div>
+            <header>
+              <h2>Narrative Engine</h2>
+              <span class="sheet-kicker">Local</span>
+            </header>
+            <div class="card-body">
+              <div class="narrative-block" aria-live="polite">
+                <div class="narrative-title" id="narrativeTitle"></div>
+                <p id="narrativeSummary"></p>
+                <p><strong>Upside:</strong> <span id="narrativeUpside"></span></p>
+                <p><strong>Cost:</strong> <span id="narrativeCost"></span></p>
+                <p><strong>Watch point:</strong> <span id="narrativeWatch"></span></p>
+                <span class="confidence" id="narrativeConfidence"></span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="sheet-card" aria-label="Scenario controls">
+          <header>
+            <h2>Scenario Simulator</h2>
+            <span class="sheet-kicker">Presets and saves</span>
+          </header>
+          <div class="card-body">
+            <div class="preset-grid" id="presetGrid"></div>
+            <div class="mini-panel" style="margin-top:0.8rem">
+              <h3>Manual Scenario</h3>
+              <div class="sim-row" style="margin-top:0.65rem">
+                <select class="sheet-select" id="scenarioAttribute" aria-label="Scenario attribute"></select>
+                <select class="sheet-select" id="scenarioDirection" aria-label="Scenario direction">
+                  <option value="left">Toward left pole</option>
+                  <option value="right">Toward right pole</option>
+                </select>
+                <input class="sheet-number" id="scenarioAmount" type="number" min="1" max="30" value="10" aria-label="Scenario amount" />
+                <button class="sheet-button primary" type="button" id="simulateButton">Simulate</button>
+              </div>
+            </div>
+            <div class="control-grid" style="margin-top:0.8rem">
+              <button class="sheet-button" type="button" id="saveBuild">Save Build</button>
+              <button class="sheet-button" type="button" id="loadBuild">Load Saved</button>
+              <button class="sheet-button" type="button" id="resetBuild">Reset Current</button>
+              <button class="sheet-button" type="button" id="exportJson">Export JSON</button>
+              <button class="sheet-button" type="button" id="exportMarkdown">Export Markdown</button>
+            </div>
+            <div class="saved-status" id="saveStatus" aria-live="polite">No saved build loaded in this session.</div>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="sheet-card">
+            <header>
+              <h2>Tradeoff Notes</h2>
+              <span class="sheet-kicker">Triggered</span>
+            </header>
+            <div class="card-body">
+              <div class="tradeoff-stack" id="tradeoffList"></div>
+            </div>
+          </div>
+
+          <div class="sheet-card">
+            <header>
+              <h2>Boundary</h2>
+              <span class="sheet-kicker">Symbolic model</span>
+            </header>
+            <div class="card-body">
+              <p class="sheet-note">This is a reflective life-design simulator. It is not medical, financial, legal, or psychological advice. The numbers are symbolic, not scientific.</p>
+              <p class="sheet-note">The purpose is to make tradeoffs visible. The question is not which stat is morally best. The question is whether the build supports the story you want to live next.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        const STORAGE_KEY = "lifeCharacterSheet.savedBuild.v01";
+        const clamp = (value) => Math.max(0, Math.min(100, Math.round(value)));
+
+        const BASELINE_BUILD = {
+          version: "0.1",
+          name: "Current Build",
+          archetype: "Independent Explorer",
+          className: "AI Tinkerer",
+          level: 37,
+          identityQuote: "I value freedom of time and mind to explore, create, and understand the world on my own terms.",
+          lifePath: "Exploring technology, creativity, and self-understanding while maintaining a high degree of personal freedom.",
+          traits: ["Curious", "Analytical", "Independent", "Reflective", "Persistent", "Adaptive", "Frontier-Oriented", "Systems Thinker"],
+          statusEffects: [
+            { label: "Protected Solitude", benefit: "Focus, recovery, autonomy", cost: "Lower collaboration and social momentum" },
+            { label: "Financial Stability", benefit: "Peace of mind", cost: "Reduced pressure to change" },
+            { label: "Creative Momentum", benefit: "Ongoing AI experimentation", cost: "Risk of scattered unfinished projects" },
+            { label: "Low Obligation", benefit: "Flexible days", cost: "Fewer external catalysts" },
+            { label: "Relationship Anchor", benefit: "Intimacy and connection", cost: "Requires time and emotional presence" },
+            { label: "Short Work Week", benefit: "Time abundance", cost: "Narrower income expansion" }
+          ],
+          attributes: [
+            { id: "solitude_collaboration", left: "Solitude", right: "Collaboration", value: 88, description: "Protected alone time versus active collaboration." },
+            { id: "free_time_structure", left: "Free Time", right: "Structured Commitments", value: 90, description: "Open discretionary time versus recurring obligations." },
+            { id: "autonomy_obligation", left: "Autonomy", right: "Obligation", value: 92, description: "Self-directed choice versus external demands." },
+            { id: "financial_security_risk", left: "Financial Security", right: "Financial Risk", value: 82, description: "Stability and cushion versus risk exposure." },
+            { id: "stability_exploration", left: "Stability", right: "Exploration", value: 62, description: "Anchored routine versus novelty and adventure." },
+            { id: "reflection_action", left: "Reflection", right: "Action", value: 82, description: "Internal processing versus external movement." },
+            { id: "creation_consumption", left: "Creation", right: "Consumption", value: 58, description: "Creative output versus passive intake." },
+            { id: "experimentation_completion", left: "Experimentation", right: "Finished Artifacts", value: 75, description: "Tinkering versus polishing and shipping." },
+            { id: "comfort_challenge", left: "Comfort", right: "Challenge", value: 68, description: "Protected ease versus deliberate difficulty." },
+            { id: "independence_interdependence", left: "Independence", right: "Interdependence", value: 90, description: "Self-contained life system versus shared reliance." },
+            { id: "health_recovery_debt", left: "Health Momentum", right: "Recovery Debt", value: 66, description: "Strength and recovery versus depletion." },
+            { id: "connection_isolation", left: "Social Connection", right: "Isolation", value: 35, description: "Active social nourishment versus narrow social field." },
+            { id: "contribution_private_study", left: "Contribution / Public Reach", right: "Private Study", value: 38, description: "Shared contribution versus private learning." },
+            { id: "novelty_routine", left: "Novelty", right: "Routine", value: 52, description: "Fresh environments versus familiar rhythms." }
+          ]
+        };
+
+        const PRESETS = {
+          "Current Build": {},
+          "More Connection": {
+            solitude_collaboration: 65,
+            connection_isolation: 55,
+            independence_interdependence: 75,
+            free_time_structure: 82,
+            contribution_private_study: 48
+          },
+          "More Finished Artifacts": {
+            experimentation_completion: 45,
+            contribution_private_study: 60,
+            creation_consumption: 70,
+            free_time_structure: 78,
+            reflection_action: 72
+          },
+          "More Exploration": {
+            stability_exploration: 45,
+            novelty_routine: 72,
+            comfort_challenge: 55,
+            financial_security_risk: 75
+          },
+          "High Structure": {
+            free_time_structure: 55,
+            autonomy_obligation: 78,
+            reflection_action: 66,
+            experimentation_completion: 52,
+            comfort_challenge: 58
+          },
+          "Public Creator": {
+            contribution_private_study: 72,
+            creation_consumption: 76,
+            experimentation_completion: 42,
+            solitude_collaboration: 70,
+            connection_isolation: 52
+          },
+          "Minimalist Plus": {
+            financial_security_risk: 88,
+            free_time_structure: 86,
+            autonomy_obligation: 90,
+            novelty_routine: 60,
+            comfort_challenge: 60
+          }
+        };
+
+        const FRAGMENTS = {
+          solitude_collaboration: {
+            moreLeft: ["More solitude protects focus and reduces social noise.", "It may slow collaboration, feedback, and opportunity flow."],
+            moreRight: ["More collaboration increases feedback, shared energy, and external opportunity.", "It may reduce uninterrupted thinking time and add logistical complexity."]
+          },
+          free_time_structure: {
+            moreLeft: ["More free time keeps the build spacious and self-directed.", "Without structure, important work can stay optional for too long."],
+            moreRight: ["More structure improves follow-through and rhythm.", "It spends some of the open time that currently protects recovery and exploration."]
+          },
+          experimentation_completion: {
+            moreLeft: ["More experimentation keeps discovery alive.", "It can leave promising work scattered across half-built prototypes."],
+            moreRight: ["More finished artifacts turn private learning into visible proof.", "It narrows the play field and may feel constraining at first."]
+          },
+          contribution_private_study: {
+            moreLeft: ["More contribution makes the work visible and testable.", "Public reach adds pressure and invites judgment."],
+            moreRight: ["More private study deepens understanding before exposure.", "It can delay market contact and outside feedback."]
+          },
+          connection_isolation: {
+            moreLeft: ["More social connection brings warmth, feedback, and external perspective.", "It asks for time, attention, and emotional presence."],
+            moreRight: ["More isolation protects control of attention.", "It can make opportunity and belonging arrive slowly."]
+          },
+          stability_exploration: {
+            moreLeft: ["More stability protects the base camp.", "Too much stability can flatten the story material."],
+            moreRight: ["More exploration increases freshness and possibility.", "It adds logistics, uncertainty, and possible cost."]
+          }
+        };
+
+        const state = Object.fromEntries(BASELINE_BUILD.attributes.map((attr) => [attr.id, attr.value]));
+        let resources = {};
+        let narrative = {};
+        let activeRules = [];
+
+        const attrById = (id) => BASELINE_BUILD.attributes.find((attr) => attr.id === id);
+        const baselineValue = (id) => attrById(id).value;
+        const deltaFor = (id) => state[id] - baselineValue(id);
+
+        function calculateResources(values) {
+          const r = {};
+          r.Money = clamp(60 + (values.financial_security_risk - 50) * 0.45 + (values.free_time_structure - 50) * 0.05 - (values.connection_isolation - 50) * 0.05);
+          r.Time = clamp(70 + (values.free_time_structure - 50) * 0.55 + (values.autonomy_obligation - 50) * 0.25 - (100 - values.solitude_collaboration) * 0.15);
+          r.Energy = clamp(55 + (values.health_recovery_debt - 50) * 0.45 - (values.comfort_challenge - 50) * 0.10 + (values.novelty_routine - 50) * 0.10);
+          r["Social Capital"] = clamp(30 + (100 - values.solitude_collaboration) * 0.30 + values.connection_isolation * 0.45 + (100 - values.independence_interdependence) * 0.15);
+          r["Creative Momentum"] = clamp(45 + values.creation_consumption * 0.30 + values.experimentation_completion * 0.25 + values.reflection_action * 0.10 + r.Time * 0.15);
+          r["Environmental Freshness"] = clamp(30 + values.novelty_routine * 0.45 + (100 - values.stability_exploration) * 0.25 + (100 - values.comfort_challenge) * 0.10);
+          r["Public Reach"] = clamp(20 + values.contribution_private_study * 0.45 + (100 - values.solitude_collaboration) * 0.15 + values.creation_consumption * 0.15 + (100 - values.experimentation_completion) * 0.10);
+          return r;
+        }
+
+        function getActiveRules(values) {
+          const rules = [];
+          if (deltaFor("solitude_collaboration") <= -10 || deltaFor("connection_isolation") >= 10) {
+            rules.push(["Increasing Collaboration", "Social capital rises, opportunity flow improves, and protected solitude gets thinner."]);
+          }
+          if (deltaFor("free_time_structure") <= -10) {
+            rules.push(["Increasing Structure", "Follow-through gets help, but free time and spontaneity pay part of the bill."]);
+          }
+          if (deltaFor("stability_exploration") <= -10 || deltaFor("novelty_routine") >= 10) {
+            rules.push(["Increasing Exploration", "Freshness and story material rise, while logistics and uncertainty increase."]);
+          }
+          if (deltaFor("experimentation_completion") <= -10) {
+            rules.push(["Increasing Finished Artifacts", "Visible proof and portfolio value rise, while wandering room narrows."]);
+          }
+          if (deltaFor("financial_security_risk") <= -10) {
+            rules.push(["Increasing Financial Risk", "Optionality may expand, but stress and required income can climb quickly."]);
+          }
+          if (deltaFor("contribution_private_study") >= 10) {
+            rules.push(["Increasing Public Contribution", "The work has more chance to compound because other people can see it."]);
+          }
+          return rules;
+        }
+
+        function generateNarrative() {
+          const major = BASELINE_BUILD.attributes
+            .map((attr) => [attr.id, deltaFor(attr.id)])
+            .filter(([, delta]) => Math.abs(delta) >= 10)
+            .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+
+          if (!major.length) {
+            return {
+              title: "Current Narrative",
+              summary: "This build preserves high autonomy, protected solitude, spacious time, and enough financial stability to keep exploration alive without immediate pressure.",
+              upside: "The system supports deep reflection, AI tinkering, recovery, and self-directed learning.",
+              cost: "The same protections can reduce collaboration, social momentum, and external catalysts for change.",
+              watchPoint: "The main risk is not collapse; it is stagnation disguised as peace.",
+              confidence: "High"
+            };
+          }
+
+          const [topId, topDelta] = major[0];
+          const attr = attrById(topId);
+          const direction = topDelta > 0 ? attr.left : attr.right;
+          const fragment = FRAGMENTS[topId]?.[topDelta > 0 ? "moreLeft" : "moreRight"] || [
+            `This adjustment moves the build toward ${direction.toLowerCase()}.`,
+            "The cost is indirect because this axis touches other parts of the system."
+          ];
+          const ruleText = activeRules.length ? activeRules.map((rule) => rule[0].toLowerCase()).join(", ") : "a small symbolic shift";
+          return {
+            title: "Projected Narrative",
+            summary: `This adjustment pushes the build toward ${direction.toLowerCase()}, with ${ruleText} now visible in the model. The shift is real, but it is not isolated.`,
+            upside: fragment[0],
+            cost: fragment[1],
+            watchPoint: activeRules[0]?.[1] || "Watch whether the change creates energy in real life, not only a cleaner-looking sheet.",
+            confidence: major.length > 3 ? "Medium" : "High"
+          };
+        }
+
+        function renderIdentity() {
+          document.getElementById("archetypeText").textContent = BASELINE_BUILD.archetype;
+          document.getElementById("classText").textContent = BASELINE_BUILD.className;
+          document.getElementById("levelText").textContent = String(BASELINE_BUILD.level);
+          document.getElementById("identityQuote").textContent = `"${BASELINE_BUILD.identityQuote}"`;
+          document.getElementById("lifePathText").textContent = BASELINE_BUILD.lifePath;
+          document.getElementById("traitList").innerHTML = BASELINE_BUILD.traits.map((trait) => `<span class="trait">${trait}</span>`).join("");
+          document.getElementById("statusList").innerHTML = BASELINE_BUILD.statusEffects.map((effect) => `
+            <div class="status-effect">
+              <strong>${effect.label}</strong>
+              <span>${effect.benefit}</span>
+              <span>Cost: ${effect.cost}</span>
+            </div>
+          `).join("");
+        }
+
+        function renderAttributes() {
+          const list = document.getElementById("attributeList");
+          list.innerHTML = BASELINE_BUILD.attributes.map((attr) => {
+            const changed = Math.abs(deltaFor(attr.id)) >= 1;
+            return `
+              <div class="attribute-row ${changed ? "changed" : ""}" data-row="${attr.id}">
+                <div class="attribute-head">
+                  <label class="axis-title" for="${attr.id}">
+                    ${attr.left} / ${attr.right}
+                    <small>${attr.description}</small>
+                  </label>
+                  <span class="score-pill" id="${attr.id}_score">${state[attr.id]}</span>
+                </div>
+                <div class="axis-labels"><span>${attr.left}</span><span>${attr.right}</span></div>
+                <input id="${attr.id}" type="range" min="0" max="100" value="${state[attr.id]}" aria-label="${attr.left} to ${attr.right}" />
+              </div>
+            `;
+          }).join("");
+          BASELINE_BUILD.attributes.forEach((attr) => {
+            document.getElementById(attr.id).addEventListener("input", (event) => {
+              state[attr.id] = Number(event.target.value);
+              updateAll();
+            });
+          });
+          document.getElementById("scenarioAttribute").innerHTML = BASELINE_BUILD.attributes.map((attr) => `<option value="${attr.id}">${attr.left} / ${attr.right}</option>`).join("");
+        }
+
+        function renderResources() {
+          const colors = ["--sheet-teal", "--sheet-gold", "--sheet-green", "--sheet-blue", "--sheet-violet", "--sheet-rose", "--sheet-teal"];
+          document.getElementById("resourceList").innerHTML = Object.entries(resources).map(([name, value], index) => `
+            <div class="resource-row">
+              <div class="resource-head"><span>${name}</span><span>${value}</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:${value}%; background:linear-gradient(90deg, var(${colors[index % colors.length]}), var(--sheet-gold));"></div></div>
+            </div>
+          `).join("");
+        }
+
+        function renderNarrative() {
+          document.getElementById("narrativeTitle").textContent = narrative.title;
+          document.getElementById("narrativeSummary").textContent = narrative.summary;
+          document.getElementById("narrativeUpside").textContent = narrative.upside;
+          document.getElementById("narrativeCost").textContent = narrative.cost;
+          document.getElementById("narrativeWatch").textContent = narrative.watchPoint;
+          document.getElementById("narrativeConfidence").textContent = `Confidence: ${narrative.confidence}`;
+        }
+
+        function renderTradeoffs() {
+          const list = document.getElementById("tradeoffList");
+          if (!activeRules.length) {
+            list.innerHTML = `<div class="tradeoff-note"><strong>Baseline:</strong> No major slider has moved 10 or more points from the current build. The system is showing the default configuration.</div>`;
+            return;
+          }
+          list.innerHTML = activeRules.map(([title, text]) => `<div class="tradeoff-note"><strong>${title}:</strong> ${text}</div>`).join("");
+        }
+
+        function renderPresets() {
+          document.getElementById("presetGrid").innerHTML = Object.keys(PRESETS).map((name) => `<button class="sheet-button" type="button" data-preset="${name}">${name}</button>`).join("");
+          document.querySelectorAll("[data-preset]").forEach((button) => {
+            button.addEventListener("click", () => applyPreset(button.dataset.preset));
+          });
+        }
+
+        function updateAll() {
+          resources = calculateResources(state);
+          activeRules = getActiveRules(state);
+          narrative = generateNarrative();
+          const changedCount = BASELINE_BUILD.attributes.filter((attr) => Math.abs(deltaFor(attr.id)) >= 1).length;
+          document.getElementById("changedCount").textContent = `${changedCount} changed`;
+          BASELINE_BUILD.attributes.forEach((attr) => {
+            const input = document.getElementById(attr.id);
+            const score = document.getElementById(`${attr.id}_score`);
+            const row = document.querySelector(`[data-row="${attr.id}"]`);
+            if (input) input.value = state[attr.id];
+            if (score) score.textContent = state[attr.id];
+            if (row) row.classList.toggle("changed", Math.abs(deltaFor(attr.id)) >= 1);
+          });
+          renderResources();
+          renderNarrative();
+          renderTradeoffs();
+        }
+
+        function applyPreset(name) {
+          Object.assign(state, Object.fromEntries(BASELINE_BUILD.attributes.map((attr) => [attr.id, attr.value])), PRESETS[name]);
+          document.getElementById("saveStatus").textContent = `Applied preset: ${name}.`;
+          updateAll();
+        }
+
+        function buildExportPayload() {
+          return {
+            timestamp: new Date().toISOString(),
+            version: BASELINE_BUILD.version,
+            attributes: { ...state },
+            resources,
+            narrative,
+            activeTradeoffs: activeRules.map(([title, text]) => ({ title, text }))
+          };
+        }
+
+        function download(filename, text, type) {
+          const blob = new Blob([text], { type });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          URL.revokeObjectURL(url);
+        }
+
+        function exportMarkdown() {
+          const attrRows = BASELINE_BUILD.attributes.map((attr) => `| ${attr.left} / ${attr.right} | ${state[attr.id]} | ${baselineValue(attr.id)} | ${deltaFor(attr.id)} |`).join("\n");
+          const resourceRows = Object.entries(resources).map(([name, value]) => `| ${name} | ${value} |`).join("\n");
+          const tradeoffText = activeRules.length ? activeRules.map(([title, text]) => `- **${title}:** ${text}`).join("\n") : "- No major tradeoff rules triggered.";
+          const md = `# Life Character Sheet Export\n\nGenerated: ${new Date().toLocaleString()}\n\n## Narrative\n\n${narrative.summary}\n\n**Upside:** ${narrative.upside}\n\n**Cost:** ${narrative.cost}\n\n**Watch point:** ${narrative.watchPoint}\n\n## Attributes\n\n| Axis | Current | Baseline | Delta |\n|---|---:|---:|---:|\n${attrRows}\n\n## Resources\n\n| Resource | Value |\n|---|---:|\n${resourceRows}\n\n## Tradeoffs\n\n${tradeoffText}\n`;
+          download("life-character-sheet-reflection.md", md, "text/markdown");
+        }
+
+        document.getElementById("saveBuild").addEventListener("click", () => {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          document.getElementById("saveStatus").textContent = "Saved this build in localStorage.";
+        });
+
+        document.getElementById("loadBuild").addEventListener("click", () => {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (!saved) {
+            document.getElementById("saveStatus").textContent = "No saved build found yet.";
+            return;
+          }
+          try {
+            const parsed = JSON.parse(saved);
+            BASELINE_BUILD.attributes.forEach((attr) => {
+              if (Number.isFinite(parsed[attr.id])) state[attr.id] = clamp(parsed[attr.id]);
+            });
+            document.getElementById("saveStatus").textContent = "Loaded saved build.";
+            updateAll();
+          } catch {
+            document.getElementById("saveStatus").textContent = "Saved build could not be loaded.";
+          }
+        });
+
+        document.getElementById("resetBuild").addEventListener("click", () => applyPreset("Current Build"));
+        document.getElementById("exportJson").addEventListener("click", () => download("life-character-sheet-build.json", JSON.stringify(buildExportPayload(), null, 2), "application/json"));
+        document.getElementById("exportMarkdown").addEventListener("click", exportMarkdown);
+        document.getElementById("simulateButton").addEventListener("click", () => {
+          const id = document.getElementById("scenarioAttribute").value;
+          const direction = document.getElementById("scenarioDirection").value;
+          const amount = clamp(Number(document.getElementById("scenarioAmount").value) || 10);
+          state[id] = clamp(state[id] + (direction === "left" ? amount : -amount));
+          document.getElementById("saveStatus").textContent = `Simulated ${direction === "left" ? attrById(id).left : attrById(id).right} by ${amount}.`;
+          updateAll();
+        });
+
+        renderIdentity();
+        renderAttributes();
+        renderPresets();
+        updateAll();
+      })();
+    </script>
+  </body>
+</html>
