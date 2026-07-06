@@ -9,7 +9,7 @@ Use this skill to create the next Kron Evolution Workshop iteration. The skill t
 
 ## Core Rule
 
-Each iteration evaluates the previous iteration, not itself. The current iteration may include a `Next Evaluation Target`, but its actual evaluation belongs in the next run.
+Each iteration evaluates the previous iteration, not itself. Do not include a `Next Evaluation Target` or any other forward-looking target section inside the current iteration. The current turn should evaluate the prior turn, implement one change, record the output, and stop.
 
 Human input is part of the loop. Treat Christopher's corrections, preferences, and interruptions since the prior iteration as signal to preserve in the next evaluation and change record.
 
@@ -21,7 +21,7 @@ The loop must accumulate learning. Each iteration should add or refine one conci
 - Do not create, edit, enable, or schedule cron jobs unless Christopher explicitly requests that step.
 - Do not post publicly unless Christopher explicitly approves publication.
 - Keep the first output path inside the Workshop unless told otherwise.
-- Make every run visible: record what was evaluated, what changed, what was created, and what should be checked next.
+- Make every run visible: record what was evaluated, what changed, what was created, and what safety boundaries stayed closed.
 
 ## Required Sources
 
@@ -93,19 +93,14 @@ assets/images/kron-evolution/kron-evolution-iteration-NNN.png
 What We Were Going For
 [plain explanation of the visual and process goal]
 
-Next Evaluation Target
-- Question for the next iteration: ...
-- What to inspect next: ...
-- Safety state: no cron job was changed, no public post was made, unless explicitly true.
-
 Output Record
 - Image path: ...
 - Source mode: ...
 - Publication status: ...
-- Next proposed change: ...
+- Safety state: no cron job was changed, no public post was made, unless explicitly true.
 ```
 
-Do not add an `Initial Evaluation` or self-evaluation section for the current iteration. Use `Next Evaluation Target` instead.
+Do not add an `Initial Evaluation`, self-evaluation, `Next Evaluation Target`, or `Next proposed change` section for the current iteration. The next turn can decide what to evaluate when it arrives.
 
 ## Lesson Archive Shape
 
@@ -119,6 +114,7 @@ I-004: preserve each lesson in a concise archive so the loop accumulates learnin
 I-005: store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 I-006: leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
 I-007: keep the evolving object distinct from the scaffolding that records its evolution.
+I-008: complete each turn as evaluation plus implemented change, without adding a forward-looking target section.
 ```
 
 Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
@@ -144,7 +140,7 @@ Keep the final report concise:
 - verification result;
 - commit hash if committed and pushed.
 
-## Notes From The First Seven Iterations
+## Notes From The First Eight Iterations
 
 - Iteration 1 proved the seed artifact: one parable plus one image, saved only to the Workshop.
 - Iteration 2 made the evaluation/rubric/next-run structure visible.
@@ -153,5 +149,6 @@ Keep the final report concise:
 - Iteration 5 added the structured metadata companion: the warm human-readable ledger should have a small machine-readable source for future consolidation.
 - Iteration 6 added the minimal audit trail: each run should leave concise verification evidence so trust can be checked without creating another maintenance-heavy record.
 - Iteration 7 corrected the trajectory: the ledger and audit trail are scaffolding, while the loop still needs a visible object or target artifact to evolve.
+- Iteration 8 corrected the entry rhythm: each turn should evaluate the previous iteration and embody the change without also adding a forward-looking target section.
 
 The direction is not autonomy for its own sake, and it is not process documentation for its own sake. The direction is a disciplined visible loop that evolves a concrete artifact or capability through output, evaluation, correction, archived lesson, and changed next action.

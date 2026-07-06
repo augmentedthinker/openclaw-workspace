@@ -1,14 +1,14 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-06",
-  "iteration_count": 7,
+  "iteration_count": 8,
   "latest_iteration": {
-    "id": "I-007",
-    "number": 7,
-    "title": "The Object Beyond The Ledger",
-    "evaluates": "I-006",
-    "lesson": "keep the evolving object distinct from the scaffolding that records its evolution.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-007.png",
+    "id": "I-008",
+    "number": 8,
+    "title": "The Completed Turn",
+    "evaluates": "I-007",
+    "lesson": "complete each turn as evaluation plus implemented change, without adding a forward-looking target section.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-008.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -40,6 +40,10 @@
     {
       "id": "I-007",
       "lesson": "keep the evolving object distinct from the scaffolding that records its evolution."
+    },
+    {
+      "id": "I-008",
+      "lesson": "complete each turn as evaluation plus implemented change, without adding a forward-looking target section."
     }
   ]
 }
