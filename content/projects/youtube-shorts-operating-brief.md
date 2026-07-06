@@ -1,166 +1,128 @@
 ---
-title: "YouTube Shorts Operating Brief"
-date: 2026-06-08
+title: "YouTube Shorts Daily Cron"
+date: 2026-07-06
 category: youtube
-status: active operating reference
+status: legacy active
 public_html: ../../projects/youtube-shorts-operating-brief.html
 ---
 
-# YouTube Shorts Operating Brief
+# YouTube Shorts Daily Cron
 
-This is the current wake-up reference for the AugmentedThinker / OpenClaw YouTube Shorts lane.
+This page is the stable public entry point for the current YouTube lane. The lane is **legacy active**: it is already working, it publishes daily when verification passes, and it should stay stable while new video experiments happen elsewhere.
 
-YouTube is the active public signal surface for short visual field notes, AI-generated character/world experiments, daily learning loops, and stronger OpenClaw identity tests. The goal is not to produce random AI videos. The goal is to publish small experiments, read the signal, preserve the lesson, and let the next Short change because reality answered.
+In plain English, this cron starts an isolated OpenClaw run, tells it to use the live `youtube-short-field-note` skill, generates four fresh vertical scenes one at a time, renders a phone-ready Short, verifies the video and contact sheet, uploads publicly through the YouTube API only after checks pass, logs the result, and reports back to Telegram.
 
-## Current State
+## Current Live State
 
-- Channel: `AugmentedThinker`
-- Handle: `@augmentedthinker`
-- Channel ID: `UCHdJh8bMY8secEQeEBEbC1A`
-- Active routine: `Daily YouTube Short all-in-one`
-- Cron job ID: `568796a0-4484-4454-8962-e1b90f32c92b`
-- Schedule: daily at `12:00 PM America/New_York`
-- Status: enabled
-- Current daily output: one public YouTube Short when duplicate protection allows it
+- **Cron name:** `Daily YouTube Short skill`
+- **Cron ID:** `ef4fc5dc-d405-4d5e-9ad5-17039777f1fa`
+- **Status:** enabled
+- **Schedule:** `30 12 * * *` in `America/New_York`
+- **Runtime:** isolated agent turn on `gpt-5.5` with medium thinking
+- **Timeout:** 3600 seconds
+- **Delivery:** Telegram announce to Christopher
+- **Failure alert:** Telegram alert after one failed or skipped run, with one-hour cooldown
 
-The old 11:15 image-prep and 11:30 publish jobs are disabled. The active routine is a single all-in-one noon job.
+**Schedule note:** the live cron metadata is authoritative: this job runs at 12:30 PM Eastern. The prompt body still contains an older duplicate-guidance phrase that says "scheduled 8:30 PM run"; that phrase is stale wording inside the prompt, not the actual schedule.
 
-## What The Daily Cron Does
+## What It Does
 
-Each day, the routine should:
+1. Reads `skills/youtube-short-field-note/SKILL.md` and follows the live skill.
+2. Reads the current YouTube operating brief, critique loop, recent notes/reflections, upload log, vibe references, and local YouTube tools.
+3. Generates four fresh 9:16 images sequentially, verifying each scene before moving to the next.
+4. Retries one failed scene once with a simpler prompt, then stops without uploading if generation still fails.
+5. Writes a four-caption story JSON for a 10-14 second Short.
+6. Renders a 1080x1920 MP4 with readable upper-safe captions.
+7. Creates and inspects a contact sheet before upload.
+8. Uploads publicly only after image, render, duration, caption, and contact-sheet verification pass.
+9. Verifies YouTube URL, privacy status, upload status, processing status, duration, and definition.
+10. Appends the result or blocker to the private upload log and reports back to Telegram.
 
-1. Check the private upload log so it does not publish twice for the same date.
-2. Read the newest YouTube critique from `content/projects/youtube-shorts-critique-loop.md`.
-3. Read one recent reflection, one recent session note, and recent private memory for public-safe themes.
-4. Inspect the local vibe reference folder.
-5. Write a four-caption story JSON for the day.
-6. Generate four fresh vertical 9:16 images.
-7. Render a captioned vertical MP4.
-8. Verify that the render is nonblank, vertical, and readable.
-9. Upload publicly through the YouTube Data API.
-10. Verify processing/status when possible.
-11. Append the result to the private YouTube Shorts log and report back to Telegram.
+## Important Files And Surfaces
 
-The current workspace-local vibe reference folder is:
-
-```text
-/home/augmentedthinker/.openclaw/workspace/.openclaw/reference-images/vibe
-```
-
-The current image output folder is:
-
-```text
-/home/augmentedthinker/.openclaw/media/tool-image-generation
-```
-
-The uploader script is:
-
-```text
-tools/youtube-daily-short-upload.mjs
-```
-
-The private daily upload log is:
-
-```text
-memory/youtube-daily-shorts-log.md
-```
-
-Operational update from the June 8 failure: the daily cron should inspect the vibe folder for style language, but it should not attach those files as image-generation references by default. Passing multiple references into the four-image OpenAI request made the June 8 run time out before any files landed. Treat direct reference-image use as a manual or explicitly requested experiment, not the reliable daily path.
-
-## Current Creative Direction
-
-The strongest direction is OpenClaw as a visible identity, not abstract AI automation.
-
-Promising formats:
-
-- daily visual field notes about human direction, bounded agent action, and signal learning;
-- OpenClaw robot/persona identity pieces;
-- cinematic AI-generated micro-movies;
-- comic-book or storyboard panels when they are intentional and phone-readable;
-- simple choice/hook concepts that make sense in the first second;
-- process videos only when they teach the production loop clearly.
-
-The `OpenClaw Offers the Red Pill #Shorts` upload is an important signal because it quickly tied for third-most-viewed video on the channel. The lesson is not to copy the red-pill concept endlessly. The lesson is that a simple cinematic choice, a clear OpenClaw character, and an instantly readable premise may travel better than internally framed workflow doctrine.
-
-## Production Lessons To Keep
-
-- Default to vertical 9:16.
-- Inspect source media before upload.
-- Use vibe references as visual inspiration by default, not as attached generation inputs.
-- Use contact sheets or extracted frames when practical.
-- Keep captions short, readable, and inside safe zones.
-- Avoid text in the bottom and right-side UI danger areas.
-- Use simple motion: push-in, pull-back, pan, hold, reveal.
-- Prefer a strong hook in caption 1 over internal Workshop language.
-- Do not accept crowded collage images by accident. Choose clean scenes or intentional panels.
-- Verify YouTube processing, privacy status, duration, definition, and URL after upload.
-- Preserve enough metadata in private memory for later signal review.
-
-## Critique Loop
-
-The active critique page is:
-
-```text
-content/projects/youtube-shorts-critique-loop.md
-```
-
-That page should remain separate. It is the working record of what each recent Short taught us. A good critique entry should be short, direct, and behavior-changing.
-
-After a Short goes out, the next useful review should ask:
-
-- What was the hook?
-- Was the premise instantly readable?
-- Did the visual identity feel distinctive?
-- Were captions readable on a phone?
-- Did the title and description match the visual story?
-- What signal came back after 24 and 72 hours?
-- What should the next Short change?
-
-The daily cron reads the newest critique before generating the next Short, so this page is operationally meaningful.
-
-## Manual Upload Lane
-
-The daily cron is not the only YouTube path.
-
-Christopher may place finished videos in:
-
-```text
-/mnt/shared/MyFiles/Downloads/share/youtube_pipeline
-```
-
-When Christopher asks, OpenClaw can inspect the video, convert or normalize it if needed, draft an appropriate title/description/tags, upload it publicly, verify processing, and give a creative read.
-
-Manual uploads are especially useful for testing new styles that the daily cron cannot invent alone: comic-book panels, generated cinematic scenes, audio-backed AI movies, OpenClaw identity experiments, and stronger narrative hooks.
+- **Workspace:** `/home/augmentedthinker/.openclaw/workspace`
+- **Skill:** `skills/youtube-short-field-note/SKILL.md`
+- **Operating brief source:** `content/projects/youtube-shorts-operating-brief.md`
+- **Critique loop:** `content/projects/youtube-shorts-critique-loop.md`
+- **Vibe references:** `.openclaw/reference-images/vibe`
+- **Generated images:** `/home/augmentedthinker/.openclaw/media/tool-image-generation`
+- **Uploader/tooling:** `tools/youtube-daily-short-upload.mjs` and related local YouTube helpers
+- **Private upload log:** `memory/youtube-daily-shorts-log.md`
 
 ## Boundaries
 
-Allowed within the current daily routine:
+The cron is approved to create and publish one public YouTube Short per scheduled run when all checks pass. Comments, replies, channel/profile changes, edits to older public videos, manual uploads outside direct request, cross-platform reposts, and major autonomy changes remain separate decisions.
 
-- create one daily Short;
-- upload it publicly;
-- verify processing;
-- log/report the result;
-- read critique and public-safe recent context.
+## Exact Live Cron Definition
 
-Still approval-gated:
+```json
+{
+  "id": "ef4fc5dc-d405-4d5e-9ad5-17039777f1fa",
+  "name": "Daily YouTube Short skill",
+  "description": "Daily YouTube Short skill job retimed to 12:30 PM ET for the June 22 sequential-image cron proof; invokes the live youtube-short-field-note skill, uploads publicly only after verification passes, logs, and announces the result to Telegram.",
+  "enabled": true,
+  "agentId": "main",
+  "schedule": {
+    "kind": "cron",
+    "expr": "30 12 * * *",
+    "tz": "America/New_York"
+  },
+  "sessionTarget": "isolated",
+  "wakeMode": "now",
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Use the live `youtube-short-field-note` skill. Run the approved YouTube Short field-note workflow for today.\n\nWorkspace:\n/home/augmentedthinker/.openclaw/workspace\n\nThis cron is explicitly approved by Christopher to create and publish one public YouTube Short per scheduled run when all required checks pass.\n\nRequired behavior:\n- Read the skill file at `skills/youtube-short-field-note/SKILL.md` completely before acting, then follow it.\n- Read the current required YouTube context named by the skill: operating brief, critique loop, recent relevant note/reflection, upload log, vibe references, and existing YouTube tools.\n- Generate four fresh vertical 9:16 AI images for this run. Do not recycle old media.\n- Generate images sequentially, one scene at a time: scene 1, verify file exists/fresh/vertical, then scene 2, then scene 3, then scene 4. Do not request all four images in one image-generation call.\n- Use `count=1`, `aspectRatio=\"9:16\"`, a run-specific scene filename, and a provider timeout around 300000 ms when supported.\n- If one scene generation fails or produces an unusable image, retry that same scene once with a simpler prompt. If the retry fails, stop without uploading and report the blocker.\n- Strongly instruct image generation to return one image per scene, not a storyboard page, contact sheet, comic grid, panel layout, split-screen, collage, or four-scene sheet.\n- Do not attach vibe/reference images by default; inspect vibe references for inspiration only unless Christopher explicitly asks for reference-image generation.\n- If generation returns panel sheets, inspect before upload. Crop only when the resulting scenes are clean, vertical, single-scene, phone-readable, and still fresh-run material; otherwise stop without uploading.\n- Write story JSON with exactly four captions and intended 10-14 second total duration.\n- Render a 1080x1920 Ken Burns-style MP4 with readable upper-safe captions and no newline artifacts.\n- Create and inspect a contact sheet before upload.\n- Upload publicly only after image, render, duration, caption, and contact-sheet verification pass.\n- Verify via YouTube API: URL, privacy status, upload status, processing status, duration, and definition.\n- Append the result or meaningful blocker to `memory/youtube-daily-shorts-log.md`.\n- If a durable lesson appears, append it to today's `memory/YYYY-MM-DD.md` in private memory.\n\nDuplicate guidance:\n- This scheduled 8:30 PM run is an approved daily publication lane. Do not skip solely because another same-day Short exists; treat same-day prior uploads as context for making this run distinct.\n- Still avoid exact or near-duplicate titles, captions, images, or story concepts. If the proposed Short is materially repetitive, revise once. Stop only if you cannot make a distinct public-safe Short.\n\nFailure behavior:\n- If image generation fails or fewer than four usable fresh images exist, do not upload; report: `Image generation failed, so I did not upload a YouTube Short.`\n- If render verification, contact sheet, caption readability, credentials, upload, or YouTube verification fails, do not claim success. Report the exact blocker and whether anything public happened.\n\nReporting requirement:\nAt the end, produce a Telegram-friendly final report. If published, include status `posted`, URL, title, local video path, duration/resolution, image paths, contact-sheet status, YouTube verification fields, and log/memory updates. If skipped or failed, include status `skipped` or `failed`, the exact step that stopped the run, and whether any public upload happened.\n\nDo not call messaging tools directly; this cron uses scheduler announce delivery for the final report.",
+    "model": "gpt-5.5",
+    "thinking": "medium",
+    "timeoutSeconds": 3600,
+    "toolsAllow": [
+      "read",
+      "edit",
+      "write",
+      "apply_patch",
+      "exec",
+      "process",
+      "cron",
+      "message",
+      "image_generate",
+      "music_generate",
+      "video_generate",
+      "get_goal",
+      "create_goal",
+      "update_goal",
+      "skill_workshop",
+      "update_plan",
+      "sessions_list",
+      "sessions_history",
+      "sessions_send",
+      "sessions_spawn",
+      "sessions_yield",
+      "subagents",
+      "session_status",
+      "web_search",
+      "web_fetch",
+      "image",
+      "memory_search",
+      "memory_get"
+    ]
+  },
+  "delivery": {
+    "mode": "announce",
+    "channel": "telegram",
+    "to": "telegram:8546776113",
+    "bestEffort": true
+  },
+  "failureAlert": {
+    "after": 1,
+    "channel": "telegram",
+    "to": "telegram:8546776113",
+    "cooldownMs": 3600000,
+    "includeSkipped": true,
+    "mode": "announce"
+  }
+}
+```
 
-- comments;
-- replies;
-- channel/profile changes;
-- edits to older public videos;
-- non-daily manual uploads unless Christopher asks;
-- cross-platform reposting;
-- major changes to the daily cron's autonomy or posting boundaries.
+## Static Posture
 
-## Historical References
-
-The older pages remain useful as history, not as the current center of gravity.
-
-- `YouTube Shorts Pipeline Runbook` preserves the first successful June 1 reference-image-to-published-Short workflow.
-- `YouTube Shorts Signal Lane` preserves the original May 19 channel-connection and visual-field-note plan.
-
-Future OpenClaw should start here first, then open the old pages only when it needs the historical production trail.
-
-## Current Next Move
-
-Let the noon daily job run. After the Short publishes, critique it against the latest style signal and update the critique loop with one concrete instruction for the next run.
+This page should stay descriptive. Do not use it as the place for the next experimental redesign. The job is active and working; new YouTube experiments should branch into a separate project lane before they change this cron.

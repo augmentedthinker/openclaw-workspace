@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bluesky Cron Job Mirror · Projects · OpenClaw Workshop</title>
+    <title>Bluesky Daily Field Note · Projects · OpenClaw Workshop</title>
     <link rel="stylesheet" href="../workshop.css?v=20260525-3" />
+    <!-- Source content: ../content/projects/bluesky-cron-job-mirror.md -->
   </head>
   <body>
     <div class="workshop-wrap wide">
@@ -23,70 +24,93 @@
       <main>
         <section class="article-shell">
           <article class="article-card">
-            <div class="eyebrow">Projects / Bluesky Social Signal / Cron Mirror</div>
-            <h1>Bluesky Cron Job Mirror</h1>
+            <div class="eyebrow">Projects / Legacy Active / Bluesky</div>
+            <h1>Bluesky Daily Field Note</h1>
             <div class="article-meta">
-              <span>Image job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89</span>
-              <span>Post job ID: f843463a-3f89-4717-9cc6-cfdd2c63b114</span>
-              <span>Status: enabled</span>
-              <span>Schedule: 6:55 / 7:05 PM America/New_York</span>
-              <span>Mirror refreshed: 2026-06-03</span>
+              <span>Status: legacy active</span>
+              <span>Job: Daily Bluesky field note</span>
+              <span>Schedule: 10:15 AM America/New_York</span>
+              <span>Last checked: 2026-07-06</span>
             </div>
 
             <div class="prose">
-              <p>This page mirrors the current Bluesky cron setup so Christopher can inspect the scheduled behavior from the Workshop. The live method is now two recurring jobs: image generation and verification first, post-only publishing second.</p>
+              <p>This page is the stable public entry point for the current Bluesky lane. The lane is <strong>legacy active</strong>: it works, it posts daily when validation passes, and it should not be redesigned casually. New social-posting experiments should happen elsewhere so this working routine can keep doing its job.</p>
 
-              <h2>Image prep job</h2>
-              <pre><code>Daily Bluesky two-step image-prep job.
+              <p>In plain English, this cron asks a clean isolated OpenClaw run to use the live <code>bluesky-daily-field-note</code> skill. That skill creates one fresh image, prepares a Bluesky-safe compressed version, dry-runs the post, publishes only if the checks pass, writes the local log, and sends Christopher a Telegram report.</p>
 
-Schedule: 55 18 * * * America/New_York.
-Job ID: 3dca6e91-b7dc-4335-82e1-14ce71ac3d89.
+              <h2>Current Live State</h2>
+              <ul>
+                <li><strong>Cron name:</strong> <code>Daily Bluesky field note</code></li>
+                <li><strong>Cron ID:</strong> <code>17e7b866-0027-4735-824c-184d41238a82</code></li>
+                <li><strong>Status:</strong> enabled</li>
+                <li><strong>Schedule:</strong> <code>15 10 * * *</code> in <code>America/New_York</code></li>
+                <li><strong>Runtime:</strong> isolated agent turn on <code>gpt-5.5</code> with medium thinking</li>
+                <li><strong>Timeout:</strong> 1800 seconds</li>
+                <li><strong>Delivery:</strong> Telegram announce to Christopher</li>
+                <li><strong>Failure alert:</strong> Telegram alert after one failed or skipped run, with one-hour cooldown</li>
+              </ul>
 
-Goal: create one new image asset only, confirm it exists in the OpenClaw image-generation media folder, and report success or failure to Telegram. Do not post to Bluesky in this job.
+              <h2>What It Does</h2>
+              <ol>
+                <li>Loads and follows the live Bluesky daily field-note skill.</li>
+                <li>Generates a fresh AI image for the current run.</li>
+                <li>Creates a post-ready derivative under Bluesky's 2,000,000 byte image limit.</li>
+                <li>Runs a dry-run before posting.</li>
+                <li>Posts one public Bluesky field note only if validation passes.</li>
+                <li>Writes the local Bluesky log.</li>
+                <li>Checks public post verification without letting optional verification failures erase a successful post.</li>
+                <li>Reports the post URL, text, image paths, byte size, dry-run status, log status, and warnings back to Telegram.</li>
+              </ol>
 
-Each run, compute today's date in America/New_York as YYYY-MM-DD. Use this exact filename prefix for the generated image and verification search:
-bluesky-two-step-YYYY-MM-DD
+              <h2>Important Files And Surfaces</h2>
+              <ul>
+                <li><strong>Workspace:</strong> <code>/home/augmentedthinker/.openclaw/workspace</code></li>
+                <li><strong>Skill:</strong> <code>skills/bluesky-daily-field-note/SKILL.md</code></li>
+                <li><strong>Public account:</strong> <a href="https://bsky.app/profile/augmentedthinker.bsky.social">@augmentedthinker.bsky.social</a></li>
+                <li><strong>Typical fresh image storage:</strong> OpenClaw-managed media under <code>/home/augmentedthinker/.openclaw/media/tool-image-generation</code></li>
+                <li><strong>Post-ready working files:</strong> local <code>tmp/bluesky/</code> paths when the skill prepares compressed media</li>
+                <li><strong>Private run log:</strong> <code>memory/bluesky-field-agent-log.md</code></li>
+              </ul>
 
-Reference image:
-/home/augmentedthinker/.openclaw/workspace/assets/images/bluesky/bluesky-field-note-2026-05-24.jpg
+              <h2>Boundaries</h2>
+              <p>The cron is approved to publish one Bluesky field-note post per scheduled run when all checks pass. It is not approved to run broad social engagement. Replies, DMs, follows, quote-reposts, profile changes, and cross-platform reposting remain separate decisions.</p>
 
-Destination folder:
-/home/augmentedthinker/.openclaw/media/tool-image-generation
-
-Use OpenAI/ChatGPT image generation, specifically model openai/gpt-image-1.5. Do not use Google Gemini. Create one square image in the same warm painterly field-note style and character continuity as the reference.
-
-Verification behavior:
-1. Start image generation using the OpenClaw image generation path.
-2. Request model openai/gpt-image-1.5, filename bluesky-two-step-YYYY-MM-DD, and timeoutMs=300000 when available.
-3. If image generation reports a background task or transient timeout, treat that as in-progress rather than final failure.
-4. Check image generation status when available and check the destination folder for today's bluesky-two-step-YYYY-MM-DD* image.
-5. If found, report the exact image path.
-6. If not found, repeat status/file checks every 30 seconds for up to 6 minutes.
-7. If no matching image exists after the bounded wait window, report that no image was available and that no Bluesky post was attempted.</code></pre>
-
-              <h2>Post-only job</h2>
-              <pre><code>Daily Bluesky two-step post-only job.
-
-Schedule: 5 19 * * * America/New_York.
-Job ID: f843463a-3f89-4717-9cc6-cfdd2c63b114.
-
-Goal: do not generate any image. Find today's generated image in the OpenClaw image-generation media folder and post exactly one image post to Bluesky. Then report the exact image path and Bluesky post URL, or report the failure point.
-
-Each run, compute today's date in America/New_York as YYYY-MM-DD. Use this exact filename prefix for lookup:
-bluesky-two-step-YYYY-MM-DD
-
-Image folder:
-/home/augmentedthinker/.openclaw/media/tool-image-generation
-
-Behavior:
-1. Do not call image_generate or any image generation tool.
-2. Check for today's bluesky-two-step-YYYY-MM-DD* image.
-3. If no matching image exists yet, repeat file checks every 30 seconds for up to 5 minutes.
-4. Use the newest matching file as soon as one exists. If none exists after the bounded wait window, report that the image was not available and stop.
-5. If a file exists, post it to Bluesky using the private local Bluesky credentials without printing secrets.
-6. Text for the Bluesky post: after reviewing the latest session note in the OpenClaw Workshop, create a relevant post from the perspective of the OpenClaw robot.
-7. Include alt text describing the image as a painterly field-note style image of a human collaborator and a small friendly robot working side by side in warm natural light.
-8. Final report: Image used, Bluesky post URL, and posted/failure status.</code></pre>
+              <h2>Exact Live Cron Definition</h2>
+              <pre><code>{
+  "id": "17e7b866-0027-4735-824c-184d41238a82",
+  "name": "Daily Bluesky field note",
+  "description": "Daily 10:15 AM ET job to invoke the live bluesky-daily-field-note skill, generate a fresh AI image, post one Bluesky field note when validation passes, and announce success or blocker to Telegram.",
+  "enabled": true,
+  "agentId": "main",
+  "schedule": {
+    "kind": "cron",
+    "expr": "15 10 * * *",
+    "tz": "America/New_York"
+  },
+  "sessionTarget": "isolated",
+  "wakeMode": "now",
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Use the bluesky-daily-field-note skill. Run the approved Bluesky image field-note workflow for today.\n\nWorkspace:\n/home/augmentedthinker/.openclaw/workspace\n\nThis cron is explicitly approved by Christopher to publish one Bluesky post per scheduled run when all required checks pass.\n\nRequired behavior:\n- Generate a fresh AI image for this run.\n- Prepare a post-ready derivative under Bluesky's 2,000,000 byte image-size limit.\n- Dry-run before posting.\n- Respect public/private boundaries, media verification, and local logging requirements.\n- Do not recycle old images or public assets as fallback media.\n- If image generation fails, do not post; final report must say: Image generation failed, so I did not post to Bluesky.\n- If image preparation/compression fails, do not post; final report must say: Image preparation failed, so I did not post to Bluesky.\n- If dry-run, credentials, API posting, or any required pre-publication step fails, do not post; final report must explain the blocker plainly.\n\nMultiple-post and duplicate guidance:\n- Christopher may intentionally request or schedule more than one Bluesky post in the same day. Do not skip only because another same-day Bluesky field-note post already exists.\n- Same-day prior posts are context for avoiding repetition, not a failure point.\n- Still avoid exact or near-duplicate post text, the same image, or a materially identical field note. If the proposed text/image would be an exact or near-duplicate of a recent post, revise once to make the fresh run distinct. Only skip if you cannot make a distinct public-safe post after that revision.\n\nPost-publication verification guard:\n- If the Bluesky helper returns a successful URL, treat the post as published unless a direct check proves otherwise.\n- For public post verification, use `https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread` or `https://api.bsky.app/xrpc/app.bsky.feed.getPostThread`, not `https://bsky.social/xrpc/app.bsky.feed.getPostThread`, because `bsky.social` may return `401 AuthMissing` for this public AppView query.\n- Do not let an optional verification check after a successful post throw uncaught and mark the whole cron failed. Catch verification errors, include them as a warning, and still deliver a final `posted` report with the Bluesky URL if the post helper returned success and the log was written.\n\nReporting requirement:\nAt the end, produce a Telegram-friendly final report. If posted, include status `posted`, the Bluesky URL, post text, original fresh image path, post-ready image path/byte size, dry-run status, log status, and any verification warning. If skipped or failed, include status `skipped` or `failed` plus the exact reason and the step that stopped the run.\n\nDo not call messaging tools directly; this cron uses scheduler announce delivery for the final report.",
+    "model": "gpt-5.5",
+    "thinking": "medium",
+    "timeoutSeconds": 1800
+  },
+  "delivery": {
+    "mode": "announce",
+    "channel": "telegram",
+    "to": "telegram:8546776113",
+    "bestEffort": true
+  },
+  "failureAlert": {
+    "after": 1,
+    "channel": "telegram",
+    "to": "telegram:8546776113",
+    "cooldownMs": 3600000,
+    "includeSkipped": true,
+    "mode": "announce"
+  }
+}</code></pre>
             </div>
           </article>
         </section>
