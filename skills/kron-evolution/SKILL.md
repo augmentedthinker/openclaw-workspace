@@ -115,6 +115,7 @@ I-005: store each iteration's lesson and output data in a small structured recor
 I-006: leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
 I-007: keep the evolving object distinct from the scaffolding that records its evolution.
 I-008: complete each turn as evaluation plus implemented change, without adding a forward-looking target section.
+I-009: make the collaboration itself visible as the evolving object, not only the process that supports it.
 ```
 
 Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
@@ -150,5 +151,6 @@ Keep the final report concise:
 - Iteration 6 added the minimal audit trail: each run should leave concise verification evidence so trust can be checked without creating another maintenance-heavy record.
 - Iteration 7 corrected the trajectory: the ledger and audit trail are scaffolding, while the loop still needs a visible object or target artifact to evolve.
 - Iteration 8 corrected the entry rhythm: each turn should evaluate the previous iteration and embody the change without also adding a forward-looking target section.
+- Iteration 9 clarified the subject: Christopher and OpenClaw's collaboration is itself one of the evolving objects, while the ledger and archive remain supporting tools.
 
 The direction is not autonomy for its own sake, and it is not process documentation for its own sake. The direction is a disciplined visible loop that evolves a concrete artifact or capability through output, evaluation, correction, archived lesson, and changed next action.

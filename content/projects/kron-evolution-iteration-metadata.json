@@ -1,14 +1,14 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-06",
-  "iteration_count": 8,
+  "iteration_count": 9,
   "latest_iteration": {
-    "id": "I-008",
-    "number": 8,
-    "title": "The Completed Turn",
-    "evaluates": "I-007",
-    "lesson": "complete each turn as evaluation plus implemented change, without adding a forward-looking target section.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-008.png",
+    "id": "I-009",
+    "number": 9,
+    "title": "The Shared Subject",
+    "evaluates": "I-008",
+    "lesson": "make the collaboration itself visible as the evolving object, not only the process that supports it.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-009.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -44,6 +44,10 @@
     {
       "id": "I-008",
       "lesson": "complete each turn as evaluation plus implemented change, without adding a forward-looking target section."
+    },
+    {
+      "id": "I-009",
+      "lesson": "make the collaboration itself visible as the evolving object, not only the process that supports it."
     }
   ]
 }
