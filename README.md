@@ -67,25 +67,28 @@ Current rough inventory:
 
 ## Current Project Direction
 
-The Workshop has moved from initial scaffolding into practical public-signal loops. The active direction is now **YouTube Shorts as the near-term learning surface**.
+The Workshop has moved from broad public-signal scaffolding into two clearer layers:
 
-The current center of gravity is the AugmentedThinker / OpenClaw YouTube lane:
+1. **Legacy-active public routines** -- the working Bluesky and YouTube cron lanes should stay stable, inspected, and lightly maintained.
+2. **Kron Evolution** -- the active experimental lane for learning-loop iteration inside the Workshop, away from public posting and away from the stable cron jobs.
 
-- publish short visual field notes and AI-generated identity experiments;
-- test OpenClaw as a visible character and public idea, not just a private assistant;
-- use daily Shorts as a small, measurable public object;
-- critique each meaningful upload;
-- preserve one concrete lesson;
-- make the next routine change because the prior signal answered.
+The current center of gravity is **Kron Evolution**: a manual proof loop that creates a visible artifact, evaluates the previous iteration, preserves Christopher's corrections as human-in-the-loop learning, records one concise lesson, and changes the next output because of that lesson. It is not yet a public-posting or self-scheduling system.
 
-The strongest current YouTube references are:
+The strongest current Kron Evolution references are:
+
+- `content/projects/kron-evolution.md`
+- `content/projects/kron-evolution-iterations.md`
+- `content/projects/kron-evolution-iteration-metadata.json`
+- `projects/kron-evolution.html`
+- `projects/kron-evolution-iterations.html`
+- `skills/kron-evolution/SKILL.md`
+
+The current stable public-routine references are:
 
 - `content/projects/youtube-shorts-operating-brief.md`
-- `content/projects/youtube-shorts-critique-loop.md`
-- `content/projects/youtube-analytics-lab.md`
 - `projects/youtube-shorts-operating-brief.html`
-- `projects/youtube-shorts-critique-loop.html`
-- `projects/youtube-analytics-lab.html`
+- `content/projects/bluesky-cron-job-mirror.md`
+- `projects/bluesky-cron-job-mirror.html`
 
 ## Skills Room
 
@@ -97,22 +100,32 @@ Live Workspace skills currently include:
 
 - `youtube-short-field-note`, added on June 21, 2026. It creates and publishes four-scene YouTube Shorts with sequential one-scene-at-a-time fresh image generation, varied Ken Burns-style motion, concise readable overlays, local contact-sheet verification, YouTube upload, API verification, and logging. It must stop and report failures instead of uploading when image generation, render verification, caption readability, or upload verification fails.
 - `bluesky-daily-field-note`, added on June 20, 2026. It creates Bluesky field-note posts with a fresh daily AI image, post-ready image compression, image/text alignment, dry-run validation, posting boundaries, and cron-ready failure handling. It must stop and report image generation or media-preparation failure instead of recycling old images.
-- `kron-evolution`, added on July 6, 2026. It creates the next Kron Evolution Workshop iteration by evaluating the previous iteration, preserving Christopher's human-in-the-loop corrections, generating one new image/artifact, updating the newest-first ledger, maintaining a concise lesson archive keyed by iteration number, verifying links/assets, and committing the public Workshop update.
+- `kron-evolution`, added on July 6, 2026. It creates the next Kron Evolution Workshop iteration by evaluating the previous iteration, preserving Christopher's human-in-the-loop corrections, generating one new image/artifact, updating the newest-first ledger, maintaining a concise lesson archive keyed by iteration number, updating the structured metadata companion when present, verifying links/assets, and committing the public Workshop update.
 - `session-primer-artifact`, added on June 19, 2026. It creates and publishes public-safe session-primer artifacts from recent memory, notes, artifacts, projects, and Reflections, with explicit Reflection review built into the workflow.
 
-The active routine is the **Daily YouTube Short all-in-one** noon job. It reads the latest critique, recent public-safe context, and local vibe references, then creates, renders, uploads, verifies, logs, and reports one public Short when duplicate protection allows it.
-
-The latest public measurement page now compares the June 2 baseline to the June 8 snapshot. As of the June 8 query, the channel had 18 public videos, 6 subscribers, 1,645 Data API channel views, 2,051 summed public video views, and 1,473 Analytics API views for May 25 through June 8. The important read is not raw vanity metrics; it is that YouTube is producing enough real signal to justify a disciplined daily loop.
+The active public routines are the **Daily YouTube Short** job and the **Daily Bluesky Field Note** job. They should continue to run inside their existing boundaries while Kron Evolution develops separately as a Workshop-only learning experiment.
 
 ## Active And Secondary Lanes
 
-**Primary active lane: YouTube Shorts**
+**Primary experimental lane: Kron Evolution**
 
-YouTube is the current public learning surface. Start with the operating brief, then the critique loop, then the analytics lab. The older YouTube pipeline runbook and original signal lane are archived historical references, not the current center of gravity.
+Kron Evolution is the current active experiment. It has a project brief, a newest-first collapsible iteration ledger, a concise lesson archive, a structured metadata companion, and a live skill that can create the next iteration. Its current lesson archive is:
 
-**Secondary lane: Bluesky**
+- **I-001:** start with one visible artifact before trying autonomy.
+- **I-002:** make evaluation, rubric, and next action visible.
+- **I-003:** treat Christopher's correction as part of the learning loop.
+- **I-004:** preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
+- **I-005:** store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 
-Bluesky remains a useful public field-note surface. Its routine history matters because it taught the Workshop about narrow cron jobs, media handoffs, post verification, and creative variety. It is not the current primary focus unless Christopher reopens it.
+Safety state: Kron Evolution must not modify Bluesky or YouTube cron jobs, schedule itself, or post publicly unless Christopher explicitly asks for that separate step.
+
+**Legacy-active lane: YouTube Shorts**
+
+YouTube remains a working public signal surface and daily cron lane. It should stay stable while new learning-loop experiments happen in Kron Evolution. Start with the operating brief and use the critique/analytics pages as historical context when needed. The older YouTube pipeline runbook and original signal lane are archived historical references, not the current experimental center.
+
+**Legacy-active lane: Bluesky**
+
+Bluesky remains a useful public field-note surface and daily cron lane. Its routine history matters because it taught the Workshop about narrow cron jobs, media handoffs, post verification, and creative variety. It is not the current experimental focus unless Christopher reopens it.
 
 **Secondary lane: Tumblr**
 
@@ -134,6 +147,9 @@ The VR lane is not active because the Quest 2 comfort and motion-sickness issue 
 
 Recent public work has clarified the Workshop's current shape:
 
+- **Kron Evolution Iterations** -- newest-first ledger for Iterations 1-5, including the lesson archive and structured metadata companion.
+- **Kron Evolution Skill** -- live workspace skill for turning the learning loop forward while preserving the rule that each iteration evaluates the previous one, not itself.
+- **Projects Cleanup** -- paused lanes were moved into the archive, while Bluesky and YouTube were reframed as legacy-active cron mirrors.
 - **YouTube Shorts Operating Brief** -- current wake-up reference for the noon all-in-one cron, local vibe references, manual upload lane, approval boundaries, and critique loop.
 - **YouTube Shorts Critique Loop** -- working record for turning each meaningful Short into one behavior-changing instruction for the next routine.
 - **YouTube Analytics Lab** -- measurement page comparing the June 2 baseline with the June 8 current snapshot.
@@ -206,6 +222,10 @@ If a private memory becomes worth sharing, rewrite it as a deliberate artifact, 
 
 Current operational surfaces include:
 
+- Kron Evolution project sources under `content/projects/kron-evolution.md`, `content/projects/kron-evolution-iterations.md`, and `content/projects/kron-evolution-iteration-metadata.json`.
+- Kron Evolution public pages under `projects/kron-evolution.html` and `projects/kron-evolution-iterations.html`.
+- Kron Evolution generated assets under `assets/images/kron-evolution/`.
+- The live Kron Evolution skill at `skills/kron-evolution/SKILL.md`.
 - YouTube helpers under `tools/`, especially `tools/youtube-daily-short-upload.mjs` and `tools/youtube-oauth.mjs`.
 - The private YouTube daily Shorts log in `memory/youtube-daily-shorts-log.md`.
 - The active YouTube critique source in `content/projects/youtube-shorts-critique-loop.md`.
@@ -240,14 +260,14 @@ Do not build infrastructure for infrastructure's sake. The Workshop grows when a
 
 The bench exists. The rooms are visible. The current job is to make the system increasingly useful without making it careless.
 
-The immediate test is whether the YouTube Shorts loop can become a true learning loop:
+The immediate test is whether Kron Evolution can become a disciplined learning loop before it becomes any kind of scheduled or public system:
 
-- create one public-safe Short;
-- publish inside the approved boundary;
-- read the signal without overfitting;
-- critique the creative and production result;
-- preserve one behavior-changing lesson;
-- update the next routine;
-- repeat with less confusion and more leverage.
+- create one Workshop-only artifact;
+- evaluate the previous iteration, not the current one;
+- preserve Christopher's corrections as real learning signal;
+- archive one concise lesson with a stable identifier;
+- keep a small structured metadata record for future consolidation;
+- update the next iteration because the lesson changed the instruction;
+- keep the stable Bluesky and YouTube routines untouched unless Christopher explicitly asks otherwise.
 
-The work now is not to add more channels. The work is to let the active channel teach.
+The work now is not to add more channels. The work is to let one controlled loop teach without destabilizing the systems that already work.
