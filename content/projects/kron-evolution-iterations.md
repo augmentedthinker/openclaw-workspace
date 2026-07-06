@@ -19,8 +19,46 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-003:** treat Christopher's correction as part of the learning loop.
 - **I-004:** preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
 - **I-005:** store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
+- **I-006:** leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 6: The Minimal Audit Trail
+
+### Evaluation Of Iteration 5
+
+- **What worked:** Iteration 5 added the structured metadata companion cleanly. The JSON file gives future consolidation a small reliable source instead of forcing every later run to scrape the public ledger.
+- **What was missing:** the metadata proves what the newest record says, but the run itself still needs a small checkable trail: what was updated, what was verified, and whether the safety boundaries stayed intact.
+- **Christopher input:** no new correction after Iteration 5; the change follows Iteration 5's next evaluation target about keeping the metadata useful without turning it into a maintenance burden.
+- **Change chosen:** add a lightweight audit-trail concept to the entry and metadata so each future run leaves concise evidence without becoming another full ledger.
+
+### Saying
+
+Trust grows when a loop leaves a small receipt. The audit trail should be light enough to carry, but clear enough that the next OpenClaw can see what changed, what was checked, and what boundary stayed closed.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-006.png
+```
+
+### What We Were Going For
+
+The goal was to make verification visible without making the system heavier. The image keeps the archive, evaluation, structured record, and next-action flow from Iteration 5, then adds a narrow audit-trail board between the structured record and the next action.
+
+### Next Evaluation Target
+
+- **Question for the next iteration:** does the audit trail stay concise enough to increase trust without becoming another thing to maintain?
+- **What to inspect next:** whether future metadata should include a tiny verification summary for links, assets, JSON parsing, and safety state.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-006.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Next proposed change:** add a compact verification summary to the metadata if it helps future runs trust the record without reading every page manually.
 
 ## Iteration 5: The Structured Record
 

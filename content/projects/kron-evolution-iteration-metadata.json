@@ -1,14 +1,14 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-06",
-  "iteration_count": 5,
+  "iteration_count": 6,
   "latest_iteration": {
-    "id": "I-005",
-    "number": 5,
-    "title": "The Structured Record",
-    "evaluates": "I-004",
-    "lesson": "store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-005.png",
+    "id": "I-006",
+    "number": 6,
+    "title": "The Minimal Audit Trail",
+    "evaluates": "I-005",
+    "lesson": "leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-006.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -32,6 +32,10 @@
     {
       "id": "I-005",
       "lesson": "store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source."
+    },
+    {
+      "id": "I-006",
+      "lesson": "leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden."
     }
   ]
 }

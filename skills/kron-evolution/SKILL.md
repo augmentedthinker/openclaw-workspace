@@ -117,6 +117,7 @@ I-002: make evaluation, rubric, and next action visible.
 I-003: treat Christopher's correction as part of the learning loop.
 I-004: preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
 I-005: store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
+I-006: leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
 ```
 
 Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
@@ -142,12 +143,13 @@ Keep the final report concise:
 - verification result;
 - commit hash if committed and pushed.
 
-## Notes From The First Five Iterations
+## Notes From The First Six Iterations
 
 - Iteration 1 proved the seed artifact: one parable plus one image, saved only to the Workshop.
 - Iteration 2 made the evaluation/rubric/next-run structure visible.
 - Iteration 3 corrected the process: the current iteration should not evaluate itself, and Christopher's human-in-the-loop correction is part of the learning signal.
 - Iteration 4 added the lesson archive: the loop should accumulate concise lessons keyed by iteration number so future work can consolidate learning.
 - Iteration 5 added the structured metadata companion: the warm human-readable ledger should have a small machine-readable source for future consolidation.
+- Iteration 6 added the minimal audit trail: each run should leave concise verification evidence so trust can be checked without creating another maintenance-heavy record.
 
 The direction is not autonomy for its own sake. The direction is a disciplined visible loop: output, evaluation, correction, archived lesson, changed next action.
