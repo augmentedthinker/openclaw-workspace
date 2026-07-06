@@ -118,6 +118,7 @@ I-003: treat Christopher's correction as part of the learning loop.
 I-004: preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
 I-005: store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 I-006: leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
+I-007: keep the evolving object distinct from the scaffolding that records its evolution.
 ```
 
 Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
@@ -143,7 +144,7 @@ Keep the final report concise:
 - verification result;
 - commit hash if committed and pushed.
 
-## Notes From The First Six Iterations
+## Notes From The First Seven Iterations
 
 - Iteration 1 proved the seed artifact: one parable plus one image, saved only to the Workshop.
 - Iteration 2 made the evaluation/rubric/next-run structure visible.
@@ -151,5 +152,6 @@ Keep the final report concise:
 - Iteration 4 added the lesson archive: the loop should accumulate concise lessons keyed by iteration number so future work can consolidate learning.
 - Iteration 5 added the structured metadata companion: the warm human-readable ledger should have a small machine-readable source for future consolidation.
 - Iteration 6 added the minimal audit trail: each run should leave concise verification evidence so trust can be checked without creating another maintenance-heavy record.
+- Iteration 7 corrected the trajectory: the ledger and audit trail are scaffolding, while the loop still needs a visible object or target artifact to evolve.
 
-The direction is not autonomy for its own sake. The direction is a disciplined visible loop: output, evaluation, correction, archived lesson, changed next action.
+The direction is not autonomy for its own sake, and it is not process documentation for its own sake. The direction is a disciplined visible loop that evolves a concrete artifact or capability through output, evaluation, correction, archived lesson, and changed next action.

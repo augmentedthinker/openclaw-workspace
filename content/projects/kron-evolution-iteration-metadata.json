@@ -1,14 +1,14 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-06",
-  "iteration_count": 6,
+  "iteration_count": 7,
   "latest_iteration": {
-    "id": "I-006",
-    "number": 6,
-    "title": "The Minimal Audit Trail",
-    "evaluates": "I-005",
-    "lesson": "leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-006.png",
+    "id": "I-007",
+    "number": 7,
+    "title": "The Object Beyond The Ledger",
+    "evaluates": "I-006",
+    "lesson": "keep the evolving object distinct from the scaffolding that records its evolution.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-007.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -36,6 +36,10 @@
     {
       "id": "I-006",
       "lesson": "leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden."
+    },
+    {
+      "id": "I-007",
+      "lesson": "keep the evolving object distinct from the scaffolding that records its evolution."
     }
   ]
 }

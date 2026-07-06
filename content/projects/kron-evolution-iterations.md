@@ -20,8 +20,46 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-004:** preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
 - **I-005:** store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 - **I-006:** leave a minimal audit trail for each run so trust can be checked without expanding the maintenance burden.
+- **I-007:** keep the evolving object distinct from the scaffolding that records its evolution.
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 7: The Object Beyond The Ledger
+
+### Evaluation Of Iteration 6
+
+- **What worked:** Iteration 6 made verification visible and kept the audit-trail idea small. It strengthened trust without changing cron jobs or posting publicly.
+- **What was missing or wrong:** the image and trajectory were starting to reflect the process apparatus itself more than the thing Kron Evolution is supposed to evolve. The loop gained records, but the destination still felt vague.
+- **Christopher input:** the images are starting to depict the thing we are building, not a separate thing being evolved; the project needs to start thinking about what this becomes, even if the objective is not yet completely clear.
+- **Change chosen:** make the new output show a provisional object of evolution separate from the ledger, with the archive, evaluation, metadata, and audit trail serving as scaffolding around it.
+
+### Saying
+
+A compass is not the destination, and a ledger is not the living thing. The next turn should let the records stand beside the work, so the work can begin to show what it wants to become.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-007.png
+```
+
+### What We Were Going For
+
+The goal was to respond directly to Christopher's feedback by shifting visual attention away from another process panel and toward a provisional object of evolution. The image keeps the lesson cards and verification machinery visible, but places them beside a small living prototype under glass so the record supports the work instead of becoming the work.
+
+### Next Evaluation Target
+
+- **Question for the next iteration:** what is the smallest concrete output Kron Evolution should evolve toward, beyond maintaining its own ledger?
+- **What to inspect next:** whether the next iteration should define a target artifact type, such as a field note, mini-report, prototype card, or reusable autonomous-workflow pattern.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-007.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Next proposed change:** choose a small target artifact or output type so the loop can evolve something more concrete than its own process record.
 
 ## Iteration 6: The Minimal Audit Trail
 
