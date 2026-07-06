@@ -23,7 +23,7 @@
 
       <main>
         <section class="cinematic-hero" aria-labelledby="kron-iterations-title">
-          <img src="../assets/images/kron-evolution/kron-evolution-iteration-002.png" alt="A small friendly robot and human collaborator review a previous output card, an icon-only rubric board, and a blank next-run card on a warm workshop desk." />
+          <img src="../assets/images/kron-evolution/kron-evolution-iteration-003.png" alt="A small friendly robot and human collaborator review a previous output card, an icon-only rubric board, and a next-run card with a human correction node on a warm workshop desk." />
           <div class="cinematic-overlay">
             <span class="model-signature">Kron Evolution · iteration ledger · 2026-07-06</span>
             <h1 id="kron-iterations-title">Kron Evolution Iterations</h1>
@@ -37,13 +37,48 @@
             <h1>Iteration Ledger</h1>
             <div class="article-meta">
               <span>Status: manual proof loop</span>
-              <span>Iteration count: 2</span>
+              <span>Iteration count: 3</span>
               <span>Newest first</span>
               <span>Public posting: none</span>
             </div>
 
             <div class="prose">
               <p>This page is the visible running list for Kron Evolution. Each iteration stays collapsed by default so the ledger can grow without becoming a wall of text. Open an entry to inspect the previous evaluation, the new output, and the next proposed change.</p>
+
+              <details class="iteration-entry">
+                <summary>
+                  <strong>Iteration 3: The Human Hand In The Loop</strong>
+                  <span>Evaluates Iteration 2 and adds Christopher's correction as part of the loop.</span>
+                </summary>
+                <div class="iteration-entry-body">
+                  <h2>Evaluation Of Iteration 2</h2>
+                  <ul>
+                    <li><strong>What worked:</strong> Iteration 2 made the evaluation layer much clearer by showing the previous output, a rubric board, and a next-run card.</li>
+                    <li><strong>What was wrong in the ledger:</strong> the entry also included an "Initial Evaluation" of itself, which broke the intended rhythm. The evaluation should happen in the next iteration, after there is enough distance to compare what changed.</li>
+                    <li><strong>Christopher input:</strong> the human collaborator can periodically interrupt the loop with a correction. That is not a failure of automation; it is part of the learning system.</li>
+                    <li><strong>Change chosen:</strong> make the next image and entry explicitly show human-in-the-loop correction between evaluation and next action.</li>
+                  </ul>
+
+                  <h2>Saying</h2>
+                  <p>A learning loop should not close so tightly that no human hand can enter it. Christopher's correction is not outside the system; it is the signal that keeps the system honest. The next turn learns better when the loop leaves a place for guidance.</p>
+
+                  <figure class="iteration-figure">
+                    <img src="../assets/images/kron-evolution/kron-evolution-iteration-003.png" alt="A warm painterly workshop scene with a friendly robot and human collaborator inserting a correction card into an icon-only evaluation loop before the next-run card." />
+                    <figcaption>Iteration 3 image: the human correction card becomes a visible part of the loop between evaluation and next action.</figcaption>
+                  </figure>
+
+                  <h2>What We Were Going For</h2>
+                  <p>The goal was to make the process less self-contained and more honest. The image keeps the output, rubric, and next-action structure from Iteration 2, but adds a human correction node so the loop can learn from Christopher's intervention.</p>
+
+                  <h2>Output Record</h2>
+                  <ul>
+                    <li><strong>Image path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-003.png</code></li>
+                    <li><strong>Source mode:</strong> generated with the imagegen built-in image generation path</li>
+                    <li><strong>Publication status:</strong> Workshop page only</li>
+                    <li><strong>Next proposed change:</strong> add a structured human-input field to the iteration metadata before attempting any scheduled cron version.</li>
+                  </ul>
+                </div>
+              </details>
 
               <details class="iteration-entry">
                 <summary>
@@ -69,11 +104,11 @@
                   <h2>What We Were Going For</h2>
                   <p>The goal was to move from pure parable into inspectable process. The new image keeps the warm workshop language but adds a clearer structure: left side for the previous output, center for evaluation, right side for the next changed action.</p>
 
-                  <h2>Initial Evaluation</h2>
+                  <h2>Next Evaluation Target</h2>
                   <ul>
-                    <li><strong>What improved:</strong> the evaluation board and next-run card make the iteration process easier to understand at a glance.</li>
-                    <li><strong>What stayed safe:</strong> no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.</li>
-                    <li><strong>What to improve next:</strong> Iteration 3 should add a small machine-readable metadata record beside the visual ledger so the learning loop has data, not only presentation.</li>
+                    <li><strong>Question for the next iteration:</strong> does this entry correctly separate the current output from the later evaluation?</li>
+                    <li><strong>What to inspect next:</strong> whether the rubric and next-run card are clear enough, and whether the ledger needs a human correction field.</li>
+                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.</li>
                   </ul>
 
                   <h2>Output Record</h2>
