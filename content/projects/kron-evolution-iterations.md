@@ -18,6 +18,46 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-002:** make evaluation, rubric, and next action visible.
 - **I-003:** treat Christopher's correction as part of the learning loop.
 - **I-004:** preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
+- **I-005:** store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
+
+Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 5: The Structured Record
+
+### Evaluation Of Iteration 4
+
+- **What worked:** Iteration 4 made the lesson archive visually and textually clear. The numbered lesson cards gave the loop a memory beyond the newest artifact.
+- **What was missing:** the archive was still embedded only in prose and page markup. That is readable for humans, but future consolidation would be easier if the current lessons and latest output were also preserved in a small structured file.
+- **Christopher input:** no new correction after Iteration 4; the change follows Iteration 4's own next evaluation target about structured metadata.
+- **Change chosen:** add a compact JSON metadata companion and make the new image show the archive being translated into a structured record before the next action.
+
+### Saying
+
+A lesson is easier to carry when it has both a sentence and a handle. The archive tells the human what changed; the structured record gives the future loop something clean to gather.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-005.png
+```
+
+### What We Were Going For
+
+The goal was to keep the human-readable ledger warm while adding a practical consolidation surface. The image shows the lesson archive feeding an evaluation board, then becoming a tidy structured record beside the next-action card.
+
+### Next Evaluation Target
+
+- **Question for the next iteration:** does the metadata companion stay small enough to help future consolidation without becoming another maintenance burden?
+- **What to inspect next:** whether the skill should update this JSON file on every run as a required output.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-005.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Next proposed change:** make structured metadata updates a required step in the live Kron Evolution skill if this format proves useful.
 
 ## Iteration 4: The Lesson Archive
 

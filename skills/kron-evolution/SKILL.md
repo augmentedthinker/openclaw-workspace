@@ -28,6 +28,7 @@ The loop must accumulate learning. Each iteration should add or refine one conci
 Before creating the next iteration, read the current Workshop sources:
 
 - `content/projects/kron-evolution-iterations.md`
+- `content/projects/kron-evolution-iteration-metadata.json` if it exists
 - `projects/kron-evolution-iterations.html`
 - `projects.html`
 - `content/projects/kron-evolution.md` when the concept or boundaries need refreshing
@@ -44,25 +45,30 @@ Also inspect the latest generated image when evaluating visual continuity.
    - what Christopher added or corrected, if anything;
    - what single change should shape the new output.
 4. Identify the concise lesson for iteration `N` and add it to the lesson archive with an identifier derived from the iteration number, such as `I-004`.
-5. Write a short saying or parable for the new iteration. Prefer one to three plain but resonant sentences.
-6. Generate one new image that visibly reflects the chosen change.
+5. Update the structured metadata companion when it exists, or create it once the archive needs machine-readable consolidation:
+   - path: `content/projects/kron-evolution-iteration-metadata.json`;
+   - include `iteration_count`, `latest_iteration`, and a compact `lessons` array;
+   - keep it factual and concise, not a second full ledger.
+6. Write a short saying or parable for the new iteration. Prefer one to three plain but resonant sentences.
+7. Generate one new image that visibly reflects the chosen change.
    - Keep the image readable without relying on exact text inside the image.
    - Prefer warm Workshop/process imagery over abstract diagrams.
    - Include concrete visual anchors for output, evaluation, human input, lesson archive, and next action when relevant.
-7. Save the image as:
+8. Save the image as:
    - `assets/images/kron-evolution/kron-evolution-iteration-NNN.png`
-8. Update `projects/kron-evolution-iterations.html`:
+9. Update `projects/kron-evolution-iterations.html`:
    - make the hero image the new image;
    - update `Iteration count: N`;
    - update the compact lesson archive near the top;
+   - mention the metadata companion when present;
    - insert a new collapsed `<details class="iteration-entry">` entry at the top of the ledger;
    - keep older entries below it, collapsed by default.
-9. Update `content/projects/kron-evolution-iterations.md` with the same newest-first content and lesson archive.
-10. Update `projects.html` so the Kron Evolution dropdown points to the ledger as the latest iteration:
+10. Update `content/projects/kron-evolution-iterations.md` with the same newest-first content and lesson archive.
+11. Update `projects.html` so the Kron Evolution dropdown points to the ledger as the latest iteration:
    - `Ledger<br />Iteration N<br />YYYY-MM-DD`
    - summary should name the current lesson/change.
-11. Verify local href/src references on changed pages and confirm the new image file exists.
-12. If this is the normal public Workshop flow, commit and push the changes. If the user asked for a draft only, leave it uncommitted and report paths.
+12. Verify local href/src references on changed pages and confirm the new image file exists.
+13. If this is the normal public Workshop flow, commit and push the changes. If the user asked for a draft only, leave it uncommitted and report paths.
 
 ## New Ledger Entry Shape
 
@@ -110,6 +116,7 @@ I-001: start with one visible artifact before trying autonomy.
 I-002: make evaluation, rubric, and next action visible.
 I-003: treat Christopher's correction as part of the learning loop.
 I-004: preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
+I-005: store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 ```
 
 Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
@@ -135,11 +142,12 @@ Keep the final report concise:
 - verification result;
 - commit hash if committed and pushed.
 
-## Notes From The First Four Iterations
+## Notes From The First Five Iterations
 
 - Iteration 1 proved the seed artifact: one parable plus one image, saved only to the Workshop.
 - Iteration 2 made the evaluation/rubric/next-run structure visible.
 - Iteration 3 corrected the process: the current iteration should not evaluate itself, and Christopher's human-in-the-loop correction is part of the learning signal.
 - Iteration 4 added the lesson archive: the loop should accumulate concise lessons keyed by iteration number so future work can consolidate learning.
+- Iteration 5 added the structured metadata companion: the warm human-readable ledger should have a small machine-readable source for future consolidation.
 
 The direction is not autonomy for its own sake. The direction is a disciplined visible loop: output, evaluation, correction, archived lesson, changed next action.

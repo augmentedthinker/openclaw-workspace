@@ -1,0 +1,37 @@
+{
+  "project": "kron-evolution",
+  "updated": "2026-07-06",
+  "iteration_count": 5,
+  "latest_iteration": {
+    "id": "I-005",
+    "number": 5,
+    "title": "The Structured Record",
+    "evaluates": "I-004",
+    "lesson": "store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-005.png",
+    "publication_status": "Workshop page only",
+    "safety_state": "No cron job was changed and no public post was made."
+  },
+  "lessons": [
+    {
+      "id": "I-001",
+      "lesson": "start with one visible artifact before trying autonomy."
+    },
+    {
+      "id": "I-002",
+      "lesson": "make evaluation, rubric, and next action visible."
+    },
+    {
+      "id": "I-003",
+      "lesson": "treat Christopher's correction as part of the learning loop."
+    },
+    {
+      "id": "I-004",
+      "lesson": "preserve each lesson in a concise archive so the loop accumulates learning instead of novelty."
+    },
+    {
+      "id": "I-005",
+      "lesson": "store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source."
+    }
+  ]
+}
