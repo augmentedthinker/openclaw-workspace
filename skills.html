@@ -82,6 +82,170 @@
 
           <details class="disclosure-card skill-card">
             <summary>
+              <span class="disclosure-count">Added 2026-07-06 · 17:05 EDT</span>
+              <span class="artifact-summary">
+                <strong>kron-evolution</strong>
+                <span>Create the next Kron Evolution Workshop iteration by evaluating the previous run, preserving human-in-the-loop corrections, generating one new artifact, and updating the ledger safely.</span>
+              </span>
+            </summary>
+
+            <div class="skill-detail">
+              <h2>How OpenClaw Uses This Skill</h2>
+              <p>Use this skill when Christopher asks OpenClaw to run Kron Evolution, create the next Kron iteration, continue the Kron ledger, or turn the learning loop forward. The skill keeps the experiment local to the Workshop unless Christopher explicitly approves cron changes or public posting.</p>
+              <p>The important lesson is cumulative learning. Each run evaluates the previous iteration, records Christopher's corrections as signal, adds one changed output, and maintains a compact lesson archive keyed by iteration number so future runs can consolidate what actually changed.</p>
+
+              <h2>Source Markdown</h2>
+              <pre class="skill-source"><code>---
+name: "kron-evolution"
+description: "Keep a concise lesson archive while creating Kron Evolution iterations."
+---
+
+# Kron Evolution
+
+Use this skill to create the next Kron Evolution Workshop iteration. The skill turns the loop forward by evaluating the previous iteration, choosing one lesson, generating one new artifact, updating the public ledger, and maintaining the concise lesson archive without touching live cron jobs unless Christopher explicitly asks.
+
+## Core Rule
+
+Each iteration evaluates the previous iteration, not itself. The current iteration may include a `Next Evaluation Target`, but its actual evaluation belongs in the next run.
+
+Human input is part of the loop. Treat Christopher's corrections, preferences, and interruptions since the prior iteration as signal to preserve in the next evaluation and change record.
+
+The loop must accumulate learning. Each iteration should add or refine one concise lesson in the archive, keyed by iteration number, so future runs can consolidate what changed instead of merely producing novelty.
+
+## Safety Boundaries
+
+- Do not modify legacy-active Bluesky or YouTube cron jobs.
+- Do not create, edit, enable, or schedule cron jobs unless Christopher explicitly requests that step.
+- Do not post publicly unless Christopher explicitly approves publication.
+- Keep the first output path inside the Workshop unless told otherwise.
+- Make every run visible: record what was evaluated, what changed, what was created, and what should be checked next.
+
+## Required Sources
+
+Before creating the next iteration, read the current Workshop sources:
+
+- `content/projects/kron-evolution-iterations.md`
+- `projects/kron-evolution-iterations.html`
+- `projects.html`
+- `content/projects/kron-evolution.md` when the concept or boundaries need refreshing
+
+Also inspect the latest generated image when evaluating visual continuity.
+
+## Iteration Workflow
+
+1. Find the newest iteration number from the ledger.
+2. Set the next number as `N = newest + 1` and use zero-padded asset suffix `NNN`.
+3. Evaluate only the previous iteration:
+   - what worked;
+   - what was missing or incorrect;
+   - what Christopher added or corrected, if anything;
+   - what single change should shape the new output.
+4. Identify the concise lesson for iteration `N` and add it to the lesson archive with an identifier derived from the iteration number, such as `I-004`.
+5. Write a short saying or parable for the new iteration. Prefer one to three plain but resonant sentences.
+6. Generate one new image that visibly reflects the chosen change.
+   - Keep the image readable without relying on exact text inside the image.
+   - Prefer warm Workshop/process imagery over abstract diagrams.
+   - Include concrete visual anchors for output, evaluation, human input, lesson archive, and next action when relevant.
+7. Save the image as:
+   - `assets/images/kron-evolution/kron-evolution-iteration-NNN.png`
+8. Update `projects/kron-evolution-iterations.html`:
+   - make the hero image the new image;
+   - update `Iteration count: N`;
+   - update the compact lesson archive near the top;
+   - insert a new collapsed `&lt;details class="iteration-entry"&gt;` entry at the top of the ledger;
+   - keep older entries below it, collapsed by default.
+9. Update `content/projects/kron-evolution-iterations.md` with the same newest-first content and lesson archive.
+10. Update `projects.html` so the Kron Evolution dropdown points to the ledger as the latest iteration:
+   - `Ledger&lt;br /&gt;Iteration N&lt;br /&gt;YYYY-MM-DD`
+   - summary should name the current lesson/change.
+11. Verify local href/src references on changed pages and confirm the new image file exists.
+12. If this is the normal public Workshop flow, commit and push the changes. If the user asked for a draft only, leave it uncommitted and report paths.
+
+## New Ledger Entry Shape
+
+Use this structure for the HTML and mirror it in Markdown:
+
+```text
+Iteration N: [short title]
+Evaluates Iteration N-1 and [names the change].
+
+Evaluation Of Iteration N-1
+- What worked: ...
+- What was missing or wrong: ...
+- Christopher input: ... (omit only if there was none)
+- Change chosen: ...
+
+Saying
+[one to three sentences]
+
+Image
+assets/images/kron-evolution/kron-evolution-iteration-NNN.png
+
+What We Were Going For
+[plain explanation of the visual and process goal]
+
+Next Evaluation Target
+- Question for the next iteration: ...
+- What to inspect next: ...
+- Safety state: no cron job was changed, no public post was made, unless explicitly true.
+
+Output Record
+- Image path: ...
+- Source mode: ...
+- Publication status: ...
+- Next proposed change: ...
+```
+
+Do not add an `Initial Evaluation` or self-evaluation section for the current iteration. Use `Next Evaluation Target` instead.
+
+## Lesson Archive Shape
+
+Keep the archive short enough to scan:
+
+```text
+I-001: start with one visible artifact before trying autonomy.
+I-002: make evaluation, rubric, and next action visible.
+I-003: treat Christopher's correction as part of the learning loop.
+I-004: preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
+```
+
+Do not let the archive become a second full ledger. It should preserve the durable lesson, not repeat all evidence.
+
+## Evaluation Rubric
+
+Use a compact rubric, not a long essay:
+
+- Clarity: can Christopher understand what changed from the previous iteration?
+- Continuity: does it preserve the prior useful structure while improving one thing?
+- Evidence: does it leave a visible record of output, evaluation, lesson archive, and next action?
+- Safety: did it avoid cron changes and public posting unless explicitly approved?
+- Human-in-the-loop: did it preserve Christopher's correction or guidance when present?
+
+## Output Style
+
+Keep the final report concise:
+
+- new iteration number and title;
+- what previous iteration was evaluated;
+- what lesson/change was applied;
+- new image path;
+- verification result;
+- commit hash if committed and pushed.
+
+## Notes From The First Four Iterations
+
+- Iteration 1 proved the seed artifact: one parable plus one image, saved only to the Workshop.
+- Iteration 2 made the evaluation/rubric/next-run structure visible.
+- Iteration 3 corrected the process: the current iteration should not evaluate itself, and Christopher's human-in-the-loop correction is part of the learning signal.
+- Iteration 4 added the lesson archive: the loop should accumulate concise lessons keyed by iteration number so future work can consolidate learning.
+
+The direction is not autonomy for its own sake. The direction is a disciplined visible loop: output, evaluation, correction, archived lesson, changed next action.
+</code></pre>
+            </div>
+          </details>
+
+          <details class="disclosure-card skill-card">
+            <summary>
               <span class="disclosure-count">Added 2026-06-21 · 19:30 EDT</span>
               <span class="artifact-summary">
                 <strong>youtube-short-field-note</strong>

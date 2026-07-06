@@ -10,6 +10,51 @@ public_html: ../../projects/kron-evolution-iterations.html
 
 This page is the visible running list for Kron Evolution. Each iteration stays collapsed by default in the public HTML so the ledger can grow without becoming a wall of text. Open an entry to inspect the previous evaluation, the new output, and the next proposed change.
 
+## Lesson Archive
+
+A compact memory of what each turn taught, keyed by iteration number for later consolidation.
+
+- **I-001:** start with one visible artifact before trying autonomy.
+- **I-002:** make evaluation, rubric, and next action visible.
+- **I-003:** treat Christopher's correction as part of the learning loop.
+- **I-004:** preserve each lesson in a concise archive so the loop accumulates learning instead of novelty.
+
+## Iteration 4: The Lesson Archive
+
+### Evaluation Of Iteration 3
+
+- **What worked:** Iteration 3 clearly made the human correction visible as a real part of the loop between evaluation and next action.
+- **What was missing:** the ledger still lacked a compact memory of the cumulative lessons. Without that, the sequence could become different every time without clearly showing what was learned.
+- **Christopher input:** ongoing iterations should include a concise archive of lessons, each keyed by its iteration number, so the project can later consolidate the learning.
+- **Change chosen:** add a lesson archive near the top of the ledger and make the new image show lesson cards accumulating between evaluation and next action.
+
+### Saying
+
+A loop that remembers only its newest turn is not learning; it is wandering with better decoration. Each lesson needs a small tag and a place on the shelf, so future work can consolidate what actually changed.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-004.png
+```
+
+### What We Were Going For
+
+The goal was to make accumulated learning visible. The image keeps the previous output, evaluation, human guidance, and next-action structure, then adds a small archive rail where each iteration's lesson can be kept under a stable identifier.
+
+### Next Evaluation Target
+
+- **Question for the next iteration:** is the lesson archive concise enough to help consolidation without turning into another long ledger?
+- **What to inspect next:** whether each future run should also write a small structured metadata record beside the public page.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-004.png`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Next proposed change:** add structured machine-readable iteration metadata after confirming the archive format stays concise.
+
 ## Iteration 3: The Human Hand In The Loop
 
 ### Evaluation Of Iteration 2
