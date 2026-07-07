@@ -1,6 +1,6 @@
 ---
 title: "Kron Evolution Iterations"
-date: 2026-07-06
+date: 2026-07-07
 category: cron
 status: manual proof loop
 public_html: ../../projects/kron-evolution-iterations.html
@@ -23,8 +23,43 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-007:** keep the evolving object distinct from the scaffolding that records its evolution.
 - **I-008:** complete each turn as evaluation plus implemented change, without adding a forward-looking target section.
 - **I-009:** make the collaboration itself visible as the evolving object, not only the process that supports it.
+- **I-010:** treat an interrupted or timed-out run as recoverable signal by recording what persisted, what vanished, and what changed next.
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 10: The Interrupted Turn
+
+Evaluates Iteration 9 and turns the failed timeout attempt into a visible recovery lesson.
+
+### Evaluation Of Iteration 9
+
+- **What worked:** Iteration 9 made the shared Christopher/OpenClaw collaboration the visible subject instead of leaving it hidden behind process scaffolding. The image and entry clearly placed the archive, evaluation, and metadata around the relationship rather than above it.
+- **What was missing or wrong:** the next attempted run failed with a Codex timeout before a new ledger entry or asset was saved. That exposed a gap in the loop: an interrupted turn can disappear unless the next run deliberately checks what persisted and records the recovery.
+- **Christopher input:** Christopher noticed the failed attempt, named the timeout symptom, and asked to try the skill again with troubleshooting instead of silently moving past it.
+- **Change chosen:** make interruption recovery part of the loop by recording what the timeout did and did not change, then embodying that lesson in the new image and output record.
+
+### Saying
+
+A broken turn still leaves a shape. First find what survived, then name what vanished, then let the next artifact carry the lesson instead of pretending the interruption did not happen.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-010.png
+```
+
+### What We Were Going For
+
+The goal was to make the recovery visible. The image keeps Iteration 9's shared sphere nearby for continuity, but moves the center of attention to the stopped hourglass, the incomplete step, and the clean recovery ledger. The collaboration is not erased by the timeout; it learns to inspect the gap and resume from the last durable state.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-010.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Troubleshooting note:** the failed attempt left no tracked file changes and no Iteration 10 asset; the durable ledger was still at Iteration 9 before this recovery run.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 9: The Shared Subject
 
