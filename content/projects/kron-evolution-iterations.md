@@ -29,10 +29,47 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-010:** treat an interrupted or timed-out run as recoverable signal by recording what persisted, what vanished, and what changed next.
 - **I-011:** separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own.
 - **I-012:** judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.
+- **I-013:** move from receiving a signal to embodied action by making the consequence of the idea visible.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 13: The Hand At The Wheel
+
+Evaluates Iteration 12 and sidesteps from receiving a signal to acting by it.
+
+### Evaluation Of Iteration 12
+
+- **Intended idea evaluated:** a signal becomes meaningful when someone can steer by it.
+- **What worked:** the lighthouse image clearly showed a source, a signal, a receiver, and a dangerous environment where the signal mattered. The accompanying text aligned with the image and stood apart from the project machinery.
+- **What was missing or wrong:** the artifact worked, but the viewer remained outside the action. The boat was visible at a distance, so the act of steering by the signal was implied more than felt.
+- **Christopher input:** no new correction after Iteration 12; this turn follows Christopher's prior direction to move toward more meaningful, engaging, and resonant artifacts when the previous one is coherent.
+- **Change or sidestep chosen:** move from the external view of a useful signal into the embodied moment of action: hands on the wheel, weather pressing in, and the signal changing the turn.
+
+### New Artifact
+
+**Intended idea:** guidance becomes real when it changes action.
+
+**Accompanying text:** A signal is not wisdom until it changes the hand at the wheel. Turn by it, or it was only light.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-013.png
+```
+
+### What We Were Going For
+
+The goal was to preserve Iteration 12's signal metaphor while making its consequence more immediate. The new image puts the viewer inside the boat, with wet hands gripping and turning the wheel as the lighthouse beam cuts through the storm. The artifact should make the idea feel less like distant guidance and more like changed behavior under pressure.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-013.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 12: The Signal That Can Be Steered By
 

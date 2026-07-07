@@ -1,15 +1,15 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 12,
+  "iteration_count": 13,
   "latest_iteration": {
-    "id": "I-012",
-    "number": 12,
-    "title": "The Signal That Can Be Steered By",
-    "evaluates": "I-011",
-    "lesson": "judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.",
-    "intended_idea": "A signal becomes meaningful when someone can steer by it.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-012.png",
+    "id": "I-013",
+    "number": 13,
+    "title": "The Hand At The Wheel",
+    "evaluates": "I-012",
+    "lesson": "move from receiving a signal to embodied action by making the consequence of the idea visible.",
+    "intended_idea": "Guidance becomes real when it changes action.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-013.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -61,6 +61,10 @@
     {
       "id": "I-012",
       "lesson": "judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance."
+    },
+    {
+      "id": "I-013",
+      "lesson": "move from receiving a signal to embodied action by making the consequence of the idea visible."
     }
   ]
 }
