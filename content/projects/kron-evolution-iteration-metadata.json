@@ -1,14 +1,15 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 11,
+  "iteration_count": 12,
   "latest_iteration": {
-    "id": "I-011",
-    "number": 11,
-    "title": "The Map Is Not The Mountain",
-    "evaluates": "I-010",
-    "lesson": "separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-011.png",
+    "id": "I-012",
+    "number": 12,
+    "title": "The Signal That Can Be Steered By",
+    "evaluates": "I-011",
+    "lesson": "judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.",
+    "intended_idea": "A signal becomes meaningful when someone can steer by it.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-012.png",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -56,6 +57,10 @@
     {
       "id": "I-011",
       "lesson": "separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own."
+    },
+    {
+      "id": "I-012",
+      "lesson": "judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance."
     }
   ]
 }

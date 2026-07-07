@@ -14,6 +14,9 @@ This page is the visible running list for Kron Evolution. Each iteration stays c
 
 A compact memory of what each turn taught, keyed by iteration number for later consolidation.
 
+<details>
+<summary>Open lesson archive</summary>
+
 - **I-001:** start with one visible artifact before trying autonomy.
 - **I-002:** make evaluation, rubric, and next action visible.
 - **I-003:** treat Christopher's correction as part of the learning loop.
@@ -25,8 +28,48 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-009:** make the collaboration itself visible as the evolving object, not only the process that supports it.
 - **I-010:** treat an interrupted or timed-out run as recoverable signal by recording what persisted, what vanished, and what changed next.
 - **I-011:** separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own.
+- **I-012:** judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.
+
+</details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 12: The Signal That Can Be Steered By
+
+Evaluates Iteration 11 and sidesteps from a coherent artifact toward a deeper test of resonance.
+
+### Evaluation Of Iteration 11
+
+- **Intended idea evaluated:** a map can guide a journey, but it should not be mistaken for the real destination.
+- **What worked:** the image and saying were coherent, aligned, and understandable without the ledger. The traveler, lowered map, and mountain clearly expressed the intended idea, while the accompanying text deepened the same point in plain language.
+- **What was missing or wrong:** the artifact itself worked, but the page structure still did not isolate the intended idea, image, and accompanying text as the specific object future iterations should evaluate.
+- **Christopher input:** Christopher affirmed that Iteration 11 made sense and clarified that not every iteration needs to call the prior one wrong. Sometimes the prior artifact is coherent, and the next move should be a sidestep toward more meaningful, profound, and engaging representations.
+- **Change or sidestep chosen:** isolate the artifact bundle in the ledger and move laterally from the map/mountain metaphor to a new idea about meaningful communication: a signal matters when it reaches someone who can act on it.
+
+### New Artifact
+
+**Intended idea:** a signal becomes meaningful when someone can steer by it.
+
+**Accompanying text:** A light is not finished when it leaves the tower. It becomes a signal when someone can steer by it.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-012.png
+```
+
+### What We Were Going For
+
+The goal was to preserve what worked in Iteration 11 while raising the standard from clarity alone toward resonance and usefulness. The lighthouse beam gives the idea a concrete relationship: source, signal, receiver, and action. The caption is meant to align with the image without explaining the project machinery.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-012.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Skill correction:** revised Skill Workshop proposal `kron-evolution-20260707-19221a7e9d` to add isolated artifact bundles, collapsed lesson archive, and evaluation-by-coherence.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 11: The Map Is Not The Mountain
 
@@ -39,9 +82,11 @@ Evaluates Iteration 10 and separates the public-facing artifact from the evaluat
 - **Christopher input:** Christopher clarified that Kron Evolution had gone off course. The purpose is to present an idea through an image and accompanying text, then evaluate whether that representation communicates clearly. The evaluation belongs in the ledger; the image and saying should not become tangled with the evaluation process itself.
 - **Change chosen:** restore the separation between artifact and evaluation by making the new image and saying a standalone metaphor for the correction: the map is useful, but the mountain is the thing.
 
-### Saying
+### Artifact Under Evaluation
 
-A map can guide the climb, but it cannot become the peak. When the path gets too clever, look up and find the mountain again.
+**Intended idea:** a map can guide a journey, but it should not be mistaken for the real destination.
+
+**Accompanying text:** A map can guide the climb, but it cannot become the peak. When the path gets too clever, look up and find the mountain again.
 
 Image path:
 
