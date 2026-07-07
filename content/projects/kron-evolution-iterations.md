@@ -35,10 +35,66 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-016:** test whether image, timed text, and voice become clearer when they all point to the same object.
 - **I-017:** use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.
 - **I-018:** make the speaker feel present by tying voice to subtle visible light changes.
+- **I-019:** make guidance feel reciprocal by showing the viewer answering the signal with motion.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 19: The Signal Answered
+
+Evaluates Iteration 18 and shifts aliveness from a speaker-side pulse to a shared signal the viewer begins to answer.
+
+### Evaluation Of Iteration 18
+
+- **Intended idea evaluated:** OpenClaw becomes more believable as a guide when its spoken signal creates a visible pulse of presence.
+- **What worked:** the artifact preserved the strong first-person OpenClaw address, kept the typewriter narration direction, and made the speaker feel more present by tying the voice to visible light in the eyes and chest. The River narration was calmer than George and closer to a guide than a storyteller.
+- **What was missing or wrong:** the aliveness still mostly lived inside OpenClaw. The viewer could see the robot speaking, but the image did not yet make the human response feel active enough. The latest artifact needed the signal to cross the desk and create a visible moment of choice in the viewer's hand.
+- **Christopher input:** no new critique after Iteration 18 in this turn; the skill evaluated the previous artifact directly.
+- **Change or sidestep chosen:** keep the voice-plus-typewriter format, try ElevenLabs Brian as a deeper voice trial, and make the new image show OpenClaw offering a signal that the viewer physically begins to answer.
+
+### New Artifact
+
+**Intended idea:** Guidance becomes real only when the person receiving the signal answers it with action.
+
+**Accompanying text:** I can offer a signal, but I cannot move your hand. When you answer it with one honest motion, the path becomes yours.
+
+**Narration script:** I can offer a signal, but I cannot move your hand. When you answer it with one honest motion, the path becomes yours.
+
+**Motion treatment:** typewriter overlay synchronized to ElevenLabs Brian narration, with the generated cyan-gold signal thread already connecting OpenClaw's open palm to the viewer's moving hand.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-019.png
+```
+
+Shared-signal motion path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-019-shared-signal.mp4
+```
+
+Narration audio path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-019-narration.mp3
+```
+
+### What We Were Going For
+
+Iteration 18 made OpenClaw feel more alive as a speaker. Iteration 19 tests whether the artifact becomes more meaningful when presence is reciprocal: OpenClaw offers a signal, but the human hand must move toward it. The image removes embedded text, preserves room for the typewriter overlay, and lets the glowing path carry the idea visually before the narration explains it.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-019.png`
+- **Shared-signal motion path:** `assets/images/kron-evolution/kron-evolution-iteration-019-shared-signal.mp4`
+- **Narration audio path:** `assets/images/kron-evolution/kron-evolution-iteration-019-narration.mp3`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path, narrated with ElevenLabs Brian using the existing local ElevenLabs key, then rendered with `ffmpeg` and a procedural typewriter overlay.
+- **Voice:** ElevenLabs Brian - Deep, Resonant, Comforting (`nPczCjzI2devNBz1zQrb`)
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the assets were saved only as Workshop files.
 
 ## Iteration 18: The Living Signal
 
