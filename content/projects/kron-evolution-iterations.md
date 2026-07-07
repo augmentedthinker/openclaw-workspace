@@ -24,8 +24,43 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-008:** complete each turn as evaluation plus implemented change, without adding a forward-looking target section.
 - **I-009:** make the collaboration itself visible as the evolving object, not only the process that supports it.
 - **I-010:** treat an interrupted or timed-out run as recoverable signal by recording what persisted, what vanished, and what changed next.
+- **I-011:** separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own.
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 11: The Map Is Not The Mountain
+
+Evaluates Iteration 10 and separates the public-facing artifact from the evaluation process.
+
+### Evaluation Of Iteration 10
+
+- **What worked:** Iteration 10 successfully recovered from the timeout and made the interruption legible in the ledger. It preserved what happened and created a durable record instead of losing the failed turn.
+- **What was missing or wrong:** the image and saying were still mostly about the internal process: recovery, timeout, ledger, checkpoint, and run state. They made sense to Christopher and OpenClaw inside the project, but they did not stand well as an outside-facing image-and-text artifact.
+- **Christopher input:** Christopher clarified that Kron Evolution had gone off course. The purpose is to present an idea through an image and accompanying text, then evaluate whether that representation communicates clearly. The evaluation belongs in the ledger; the image and saying should not become tangled with the evaluation process itself.
+- **Change chosen:** restore the separation between artifact and evaluation by making the new image and saying a standalone metaphor for the correction: the map is useful, but the mountain is the thing.
+
+### Saying
+
+A map can guide the climb, but it cannot become the peak. When the path gets too clever, look up and find the mountain again.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-011.png
+```
+
+### What We Were Going For
+
+The goal was to create an artifact that an outside person could understand before reading the ledger. The image shows a traveler holding a map while facing the real mountain, making the distinction visible without process symbols. The saying pairs with that scene and carries the same idea in plain language: tools and plans are useful, but they should not replace the thing they are meant to reveal.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-011.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path
+- **Publication status:** Workshop page only
+- **Skill correction:** proposed Skill Workshop update `kron-evolution-20260707-19221a7e9d` to preserve artifact/evaluation separation in future runs.
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 10: The Interrupted Turn
 
