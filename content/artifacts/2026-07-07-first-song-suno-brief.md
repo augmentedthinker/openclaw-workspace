@@ -13,6 +13,20 @@ public_html: ../../artifacts/2026-07-07-first-song-suno-brief.html
 
 This artifact prepares the first OpenClaw/Kron Evolution song for Suno. The target is a spoken-word variation: raw poetic hip hop, intimate narration, minimal rhythm, and a loopable visual companion. It should feel like OpenClaw speaking from the edge of the workbench, not like a polished commercial anthem.
 
+## Suno V1 Result
+
+Christopher generated the first Suno version and approved adding it to the Workshop page.
+
+**Audio file:** [`one-honest-motion-suno-v1.mp3`](../../assets/audio/one-honest-motion-suno-v1.mp3)
+
+**Suno cover:** [`one-honest-motion-suno-cover.jpg`](../../assets/images/music/one-honest-motion-suno-cover.jpg)
+
+**Runtime:** 2:14.
+
+**File notes:** MP3, stereo, 48 kHz, approximately 176 kb/s. The lyrics are embedded in the MP3 metadata and match the source lyrics below.
+
+**Initial read:** the generated cover art moves toward a writer's-room visual language: typewriter, warm lamp, dark table. That should be preserved as a valid alternate direction beside the OpenClaw signal-loop concept. The strongest combined direction is a typewriter/lamp scene where cyan-gold signal light travels from language into action.
+
 ## Suno Research Note
 
 Suno's public creation flow presents two useful paths: a simple prompt for fast generation, and deeper creation tools for more controlled work. For this song, use the controlled/custom path if available.
@@ -192,4 +206,3 @@ cinematic 16:9 frame, OpenClaw robot seated across a dark workshop table, cyan-g
 ## First Production Decision
 
 Start with Suno audio before finalizing the loop. The voice and rhythm should decide the visual pacing. If the best Suno output lands closer to quiet spoken word, the loop should be slow and meditative. If it lands closer to hip hop, the signal pulse can hit on the kick and the typewriter phrase can arrive on the hook.
-

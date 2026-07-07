@@ -21,6 +21,48 @@
         padding: 1rem;
       }
 
+      .song-release-card {
+        display: grid;
+        grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+        gap: 1rem;
+        align-items: center;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.66);
+      }
+
+      .song-release-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid rgba(226, 232, 240, 0.2);
+      }
+
+      .song-release-card audio {
+        width: 100%;
+        margin: 0.7rem 0 0.4rem;
+      }
+
+      .song-release-card .release-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.65rem;
+      }
+
+      .song-release-card .release-meta span {
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 999px;
+        padding: 0.26rem 0.55rem;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.2;
+      }
+
       .loop-preview {
         position: relative;
         min-height: 320px;
@@ -183,6 +225,7 @@
 
       @media (max-width: 860px) {
         .song-brief-grid { grid-template-columns: 1fr; }
+        .song-release-card { grid-template-columns: 1fr; }
         .loop-preview { min-height: 280px; }
       }
     </style>
@@ -224,6 +267,25 @@
             <div class="prose">
               <blockquote>The first song should not explain the machinery. It should make the listener feel the moment when a signal becomes action.</blockquote>
               <p>This artifact prepares the first OpenClaw/Kron Evolution song for Suno. The target is a spoken-word variation: raw poetic hip hop, intimate narration, minimal rhythm, and a loopable visual companion. It should feel like OpenClaw speaking from the edge of the workbench, not like a polished commercial anthem.</p>
+
+              <section class="song-release-card" aria-labelledby="suno-v1-title">
+                <img src="../assets/images/music/one-honest-motion-suno-cover.jpg" alt="Suno cover art showing a vintage typewriter on a dark wooden desk under a warm hanging lamp." />
+                <div>
+                  <h2 id="suno-v1-title">Suno V1 Result</h2>
+                  <p>Christopher generated the first Suno version and approved adding it to the Workshop page.</p>
+                  <audio controls preload="metadata" src="../assets/audio/one-honest-motion-suno-v1.mp3">
+                    <a href="../assets/audio/one-honest-motion-suno-v1.mp3">Download One Honest Motion Suno V1</a>
+                  </audio>
+                  <div class="release-meta" aria-label="Audio file details">
+                    <span>Runtime 2:14</span>
+                    <span>MP3 stereo</span>
+                    <span>48 kHz</span>
+                    <span>~176 kb/s</span>
+                    <span>Lyrics embedded</span>
+                  </div>
+                  <p>The cover art leans toward a writer's-room visual language: typewriter, warm lamp, dark table. That should stay in play beside the OpenClaw signal-loop concept.</p>
+                </div>
+              </section>
 
               <div class="song-brief-grid" aria-label="Song package and loop preview">
                 <section class="song-brief-panel">
