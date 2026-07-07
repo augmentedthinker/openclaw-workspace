@@ -33,10 +33,66 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-014:** when image and caption feel disjointed, integrate short text inside the scene to give the idea context.
 - **I-015:** make the artifact speak to the viewer with a clear sequence of attention, choice, and action.
 - **I-016:** test whether image, timed text, and voice become clearer when they all point to the same object.
+- **I-017:** use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 17: The Light Steady
+
+Evaluates Iteration 16 and replaces short block labels with an ElevenLabs-narrated first-person quote and typewriter overlay.
+
+### Evaluation Of Iteration 16
+
+- **Intended idea evaluated:** a precise message lands when the scene, timed text, and voice all point to the same object at the same time.
+- **What worked:** the 16:9 format, direct OpenClaw address, and synchronized audio/text experiment proved a useful direction. The artifact became more like a video-capable communication unit than a static image with labels.
+- **What was missing or wrong:** the message was still too small and snippet-like. The blocky overlay text felt chunky, and the narration repeated fragments rather than carrying a more meaningful thought from OpenClaw's point of view.
+- **Christopher input:** Christopher asked to incorporate ElevenLabs, keep OpenClaw speaking to the viewer, shift toward a more philosophical quote-like message, and change the overlay style from block labels to typewriter text revealed with the narration.
+- **Change or sidestep chosen:** use the ElevenLabs George voice for a warmer OpenClaw narration, write one coherent first-person quote, and render the text as a monospaced typewriter overlay instead of separate block captions.
+
+### New Artifact
+
+**Intended idea:** guidance is not control; it becomes real when it steadies attention long enough for a human choice to become action.
+
+**Accompanying text:** I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.
+
+**Narration script:** I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.
+
+**Overlay style:** typewriter reveal synchronized to the narration.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-017.png
+```
+
+Typewriter motion path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4
+```
+
+Narration audio path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3
+```
+
+### What We Were Going For
+
+The goal was to keep the direct first-person OpenClaw address while giving the artifact a fuller thought. The image places OpenClaw across the desk with a small lit compass-like signal object, while the text appears as if it is being typed into the scene. The narration makes the words feel spoken by OpenClaw rather than pasted onto the image.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-017.png`
+- **Typewriter motion path:** `assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4`
+- **Narration audio path:** `assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path, narrated with ElevenLabs George using the existing local ElevenLabs key, then rendered with `ffmpeg` and an ASS typewriter subtitle track.
+- **Voice:** ElevenLabs George - Warm, Captivating Storyteller (`JBFqnCBsd6RMkjVDRZzb`)
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the assets were saved only as Workshop files.
 
 ## Iteration 16: This Thing, One Change
 

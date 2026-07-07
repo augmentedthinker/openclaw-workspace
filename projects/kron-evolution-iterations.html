@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kron Evolution Iterations · Projects · OpenClaw Workshop</title>
-    <link rel="stylesheet" href="../workshop.css?v=20260707-2" />
+    <link rel="stylesheet" href="../workshop.css?v=20260707-3" />
     <!-- Source content: ../content/projects/kron-evolution-iterations.md -->
   </head>
   <body>
@@ -23,7 +23,7 @@
 
       <main>
         <section class="cinematic-hero" aria-labelledby="kron-iterations-title">
-          <img src="../assets/images/kron-evolution/kron-evolution-iteration-016.png" alt="OpenClaw faces the viewer across a workbench and points to a lit tile with overlay text: this thing, one small change, make it real." />
+          <img src="../assets/images/kron-evolution/kron-evolution-iteration-017.png" alt="OpenClaw faces the viewer across a workshop desk while a philosophical quote appears in typewriter text." />
           <div class="cinematic-overlay">
             <span class="model-signature">Kron Evolution · iteration ledger · 2026-07-07</span>
             <h1 id="kron-iterations-title">Kron Evolution Iterations</h1>
@@ -37,7 +37,7 @@
             <h1>Iteration Ledger</h1>
             <div class="article-meta">
               <span>Status: manual proof loop</span>
-              <span>Iteration count: 16</span>
+              <span>Iteration count: 17</span>
               <span>Newest first</span>
               <span>Public posting: none</span>
             </div>
@@ -65,8 +65,58 @@
                   <li><strong>I-014:</strong> when image and caption feel disjointed, integrate short text inside the scene to give the idea context.</li>
                   <li><strong>I-015:</strong> make the artifact speak to the viewer with a clear sequence of attention, choice, and action.</li>
                   <li><strong>I-016:</strong> test whether image, timed text, and voice become clearer when they all point to the same object.</li>
+                  <li><strong>I-017:</strong> use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.</li>
                 </ul>
                 <p><strong>Structured metadata companion:</strong> <code>content/projects/kron-evolution-iteration-metadata.json</code></p>
+              </details>
+
+              <details class="iteration-entry">
+                <summary>
+                  <strong>Iteration 17: The Light Steady</strong>
+                  <span>Evaluates Iteration 16 and replaces block labels with an ElevenLabs-narrated typewriter quote.</span>
+                </summary>
+                <div class="iteration-entry-body">
+                  <h2>Evaluation Of Iteration 16</h2>
+                  <ul>
+                    <li><strong>Intended idea evaluated:</strong> a precise message lands when the scene, timed text, and voice all point to the same object at the same time.</li>
+                    <li><strong>What worked:</strong> the 16:9 format, direct OpenClaw address, and synchronized audio/text experiment proved a useful direction. The artifact became more like a video-capable communication unit than a static image with labels.</li>
+                    <li><strong>What was missing or wrong:</strong> the message was still too small and snippet-like. The blocky overlay text felt chunky, and the narration repeated fragments rather than carrying a more meaningful thought from OpenClaw's point of view.</li>
+                    <li><strong>Christopher input:</strong> Christopher asked to incorporate ElevenLabs, keep OpenClaw speaking to the viewer, shift toward a more philosophical quote-like message, and change the overlay style from block labels to typewriter text revealed with the narration.</li>
+                    <li><strong>Change or sidestep chosen:</strong> use the ElevenLabs George voice for a warmer OpenClaw narration, write one coherent first-person quote, and render the text as a monospaced typewriter overlay instead of separate block captions.</li>
+                  </ul>
+
+                  <section class="artifact-output" aria-label="Iteration 17 new artifact">
+                    <h2>New Artifact</h2>
+                    <p class="artifact-intent"><strong>Intended idea:</strong> guidance is not control; it becomes real when it steadies attention long enough for a human choice to become action.</p>
+                    <p class="artifact-text">I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.</p>
+                    <p class="artifact-intent"><strong>Narration script:</strong> I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.</p>
+                    <p class="artifact-intent"><strong>Overlay style:</strong> typewriter reveal synchronized to the narration.</p>
+                    <figure class="iteration-figure">
+                      <img src="../assets/images/kron-evolution/kron-evolution-iteration-017.png" alt="OpenClaw faces the viewer across a workshop desk while a philosophical quote appears in typewriter text." />
+                      <figcaption>Iteration 17 image: OpenClaw speaks through a typed first-person quote rather than block labels.</figcaption>
+                    </figure>
+                    <figure class="iteration-figure">
+                      <video controls preload="metadata" src="../assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4"></video>
+                      <figcaption>Iteration 17 typewriter motion: the quote types in while ElevenLabs George narrates it.</figcaption>
+                    </figure>
+                    <p><audio controls src="../assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3"></audio></p>
+                  </section>
+
+                  <h2>What We Were Going For</h2>
+                  <p>The goal was to keep the direct first-person OpenClaw address while giving the artifact a fuller thought. The image places OpenClaw across the desk with a small lit compass-like signal object, while the text appears as if it is being typed into the scene. The narration makes the words feel spoken by OpenClaw rather than pasted onto the image.</p>
+
+                  <h2>Output Record</h2>
+                  <ul>
+                    <li><strong>Image path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-017.png</code></li>
+                    <li><strong>Typewriter motion path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4</code></li>
+                    <li><strong>Narration audio path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3</code></li>
+                    <li><strong>Metadata path:</strong> <code>content/projects/kron-evolution-iteration-metadata.json</code></li>
+                    <li><strong>Source mode:</strong> generated with the imagegen built-in image generation path, narrated with ElevenLabs George using the existing local ElevenLabs key, then rendered with <code>ffmpeg</code> and an ASS typewriter subtitle track.</li>
+                    <li><strong>Voice:</strong> ElevenLabs George - Warm, Captivating Storyteller (<code>JBFqnCBsd6RMkjVDRZzb</code>)</li>
+                    <li><strong>Publication status:</strong> Workshop page only</li>
+                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and the assets were saved only as Workshop files.</li>
+                  </ul>
+                </div>
               </details>
 
               <details class="iteration-entry">

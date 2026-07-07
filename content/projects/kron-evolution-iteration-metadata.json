@@ -1,23 +1,25 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 16,
+  "iteration_count": 17,
   "latest_iteration": {
-    "id": "I-016",
-    "number": 16,
-    "title": "This Thing, One Change",
-    "evaluates": "I-015",
-    "lesson": "test whether image, timed text, and voice become clearer when they all point to the same object.",
-    "intended_idea": "A precise message lands when the scene, timed text, and voice all point to the same object at the same time.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-016.png",
-    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4",
-    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav",
-    "overlay_text": [
-      "THIS THING",
-      "ONE SMALL CHANGE",
-      "MAKE IT REAL"
-    ],
-    "narration_script": "This is the thing in front of you. Choose one small change. Make it real.",
+    "id": "I-017",
+    "number": 17,
+    "title": "The Light Steady",
+    "evaluates": "I-016",
+    "lesson": "use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.",
+    "intended_idea": "Guidance is not control; it becomes real when it steadies attention long enough for a human choice to become action.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-017.png",
+    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4",
+    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3",
+    "overlay_style": "typewriter reveal synchronized to narration",
+    "voice": {
+      "provider": "ElevenLabs",
+      "name": "George - Warm, Captivating Storyteller",
+      "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+      "model_id": "eleven_multilingual_v2"
+    },
+    "narration_script": "I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -85,6 +87,10 @@
     {
       "id": "I-016",
       "lesson": "test whether image, timed text, and voice become clearer when they all point to the same object."
+    },
+    {
+      "id": "I-017",
+      "lesson": "use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene."
     }
   ]
 }
