@@ -32,10 +32,66 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-013:** move from receiving a signal to embodied action by making the consequence of the idea visible.
 - **I-014:** when image and caption feel disjointed, integrate short text inside the scene to give the idea context.
 - **I-015:** make the artifact speak to the viewer with a clear sequence of attention, choice, and action.
+- **I-016:** test whether image, timed text, and voice become clearer when they all point to the same object.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 16: This Thing, One Change
+
+Evaluates Iteration 15 and adds a narrated 16:9 motion artifact so image, text, and voice deliver the same message in sequence.
+
+### Evaluation Of Iteration 15
+
+- **Intended idea evaluated:** a learning loop becomes real when the viewer chooses one change and acts on it.
+- **What worked:** the OpenClaw robot looking directly at the viewer was stronger than the prior label-based artifacts. The first-person workbench perspective, viewer hands, and imperative overlay made the artifact feel more embodied and more direct.
+- **What was missing or wrong:** the artifact still depended on visual overlay alone. It had a useful command sequence, but the text and image did not yet test whether a short spoken cadence could make the message feel more coherent, narrative, and immediately graspable.
+- **Christopher input:** Christopher liked the direct viewer engagement and the overall perspective of Iteration 15, then asked to move slightly tangent by testing audio, a 16:9 format, and overlay text revealed at the same pace as a short narration. He wanted the robot to describe something simple in the image so the text, voice, and scene align.
+- **Change or sidestep chosen:** keep OpenClaw as the direct guide, reduce the visual subject to one lit object on the table, and make the narration and overlay reveal the same three beats: the object, the small change, and the act of making it real.
+
+### New Artifact
+
+**Intended idea:** a precise message lands when the scene, timed text, and voice all point to the same object at the same time.
+
+**Accompanying text:** This is the thing in front of you. Choose one small change. Make it real.
+
+**Integrated overlay sequence:** THIS THING / ONE SMALL CHANGE / MAKE IT REAL
+
+**Narration script:** This is the thing in front of you. Choose one small change. Make it real.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-016.png
+```
+
+Narrated motion path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4
+```
+
+Narration audio path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav
+```
+
+### What We Were Going For
+
+The goal was to test whether the artifact becomes more coherent when the robot, the text overlay, and the voice all direct attention to the same simple object. The image uses a wide 16:9 workshop frame with OpenClaw facing the viewer and pointing to a blank tile in a pool of light. The narrated MP4 reveals the overlay in three short beats timed to the spoken line, turning the prior visual command into a tiny guided sequence.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-016.png`
+- **Narrated motion path:** `assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4`
+- **Narration audio path:** `assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path, then deterministic local text overlay and narrated MP4 with `ffmpeg`; narration used local `flite` speech synthesis rather than ElevenLabs because no ElevenLabs connector or API key was available in this session.
+- **Integrated overlay:** `THIS THING`, `ONE SMALL CHANGE`, `MAKE IT REAL`
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the assets were saved only as Workshop files.
 
 ## Iteration 15: Look, Choose, Make
 

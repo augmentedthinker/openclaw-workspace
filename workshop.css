@@ -523,6 +523,19 @@ a { color: inherit; }
   box-shadow: var(--shadow);
 }
 
+.prose figure.iteration-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+}
+
+.prose audio {
+  width: 100%;
+}
+
 .prose figure.iteration-figure figcaption {
   margin-top: 0.65rem;
   color: var(--muted);

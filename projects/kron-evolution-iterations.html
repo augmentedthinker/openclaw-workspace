@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kron Evolution Iterations · Projects · OpenClaw Workshop</title>
-    <link rel="stylesheet" href="../workshop.css?v=20260707-1" />
+    <link rel="stylesheet" href="../workshop.css?v=20260707-2" />
     <!-- Source content: ../content/projects/kron-evolution-iterations.md -->
   </head>
   <body>
@@ -23,7 +23,7 @@
 
       <main>
         <section class="cinematic-hero" aria-labelledby="kron-iterations-title">
-          <img src="../assets/images/kron-evolution/kron-evolution-iteration-015.png" alt="OpenClaw faces the viewer across a workbench with overlay text: look here, choose one change, make it real." />
+          <img src="../assets/images/kron-evolution/kron-evolution-iteration-016.png" alt="OpenClaw faces the viewer across a workbench and points to a lit tile with overlay text: this thing, one small change, make it real." />
           <div class="cinematic-overlay">
             <span class="model-signature">Kron Evolution · iteration ledger · 2026-07-07</span>
             <h1 id="kron-iterations-title">Kron Evolution Iterations</h1>
@@ -37,7 +37,7 @@
             <h1>Iteration Ledger</h1>
             <div class="article-meta">
               <span>Status: manual proof loop</span>
-              <span>Iteration count: 15</span>
+              <span>Iteration count: 16</span>
               <span>Newest first</span>
               <span>Public posting: none</span>
             </div>
@@ -64,8 +64,58 @@
                   <li><strong>I-013:</strong> move from receiving a signal to embodied action by making the consequence of the idea visible.</li>
                   <li><strong>I-014:</strong> when image and caption feel disjointed, integrate short text inside the scene to give the idea context.</li>
                   <li><strong>I-015:</strong> make the artifact speak to the viewer with a clear sequence of attention, choice, and action.</li>
+                  <li><strong>I-016:</strong> test whether image, timed text, and voice become clearer when they all point to the same object.</li>
                 </ul>
                 <p><strong>Structured metadata companion:</strong> <code>content/projects/kron-evolution-iteration-metadata.json</code></p>
+              </details>
+
+              <details class="iteration-entry">
+                <summary>
+                  <strong>Iteration 16: This Thing, One Change</strong>
+                  <span>Evaluates Iteration 15 and adds a narrated 16:9 motion artifact.</span>
+                </summary>
+                <div class="iteration-entry-body">
+                  <h2>Evaluation Of Iteration 15</h2>
+                  <ul>
+                    <li><strong>Intended idea evaluated:</strong> a learning loop becomes real when the viewer chooses one change and acts on it.</li>
+                    <li><strong>What worked:</strong> the OpenClaw robot looking directly at the viewer was stronger than the prior label-based artifacts. The first-person workbench perspective, viewer hands, and imperative overlay made the artifact feel more embodied and more direct.</li>
+                    <li><strong>What was missing or wrong:</strong> the artifact still depended on visual overlay alone. It had a useful command sequence, but the text and image did not yet test whether a short spoken cadence could make the message feel more coherent, narrative, and immediately graspable.</li>
+                    <li><strong>Christopher input:</strong> Christopher liked the direct viewer engagement and the overall perspective of Iteration 15, then asked to move slightly tangent by testing audio, a 16:9 format, and overlay text revealed at the same pace as a short narration. He wanted the robot to describe something simple in the image so the text, voice, and scene align.</li>
+                    <li><strong>Change or sidestep chosen:</strong> keep OpenClaw as the direct guide, reduce the visual subject to one lit object on the table, and make the narration and overlay reveal the same three beats: the object, the small change, and the act of making it real.</li>
+                  </ul>
+
+                  <section class="artifact-output" aria-label="Iteration 16 new artifact">
+                    <h2>New Artifact</h2>
+                    <p class="artifact-intent"><strong>Intended idea:</strong> a precise message lands when the scene, timed text, and voice all point to the same object at the same time.</p>
+                    <p class="artifact-text">This is the thing in front of you. Choose one small change. Make it real.</p>
+                    <p class="artifact-intent"><strong>Integrated overlay sequence:</strong> THIS THING / ONE SMALL CHANGE / MAKE IT REAL</p>
+                    <p class="artifact-intent"><strong>Narration script:</strong> This is the thing in front of you. Choose one small change. Make it real.</p>
+                    <figure class="iteration-figure">
+                      <img src="../assets/images/kron-evolution/kron-evolution-iteration-016.png" alt="OpenClaw faces the viewer across a workbench and points to a lit tile with overlay text: this thing, one small change, make it real." />
+                      <figcaption>Iteration 16 image: the robot, viewer hands, and overlay all focus on one lit object.</figcaption>
+                    </figure>
+                    <figure class="iteration-figure">
+                      <video controls preload="metadata" src="../assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4"></video>
+                      <figcaption>Iteration 16 narrated motion: the overlay appears in sync with a short synthesized voice line.</figcaption>
+                    </figure>
+                    <p><audio controls src="../assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav"></audio></p>
+                  </section>
+
+                  <h2>What We Were Going For</h2>
+                  <p>The goal was to test whether the artifact becomes more coherent when the robot, the text overlay, and the voice all direct attention to the same simple object. The image uses a wide 16:9 workshop frame with OpenClaw facing the viewer and pointing to a blank tile in a pool of light. The narrated MP4 reveals the overlay in three short beats timed to the spoken line, turning the prior visual command into a tiny guided sequence.</p>
+
+                  <h2>Output Record</h2>
+                  <ul>
+                    <li><strong>Image path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-016.png</code></li>
+                    <li><strong>Narrated motion path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4</code></li>
+                    <li><strong>Narration audio path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav</code></li>
+                    <li><strong>Metadata path:</strong> <code>content/projects/kron-evolution-iteration-metadata.json</code></li>
+                    <li><strong>Source mode:</strong> generated with the imagegen built-in image generation path, then deterministic local text overlay and narrated MP4 with <code>ffmpeg</code>; narration used local <code>flite</code> speech synthesis rather than ElevenLabs because no ElevenLabs connector or API key was available in this session.</li>
+                    <li><strong>Integrated overlay:</strong> <code>THIS THING</code>, <code>ONE SMALL CHANGE</code>, <code>MAKE IT REAL</code></li>
+                    <li><strong>Publication status:</strong> Workshop page only</li>
+                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and the assets were saved only as Workshop files.</li>
+                  </ul>
+                </div>
               </details>
 
               <details class="iteration-entry">

@@ -1,21 +1,23 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 15,
+  "iteration_count": 16,
   "latest_iteration": {
-    "id": "I-015",
-    "number": 15,
-    "title": "Look, Choose, Make",
-    "evaluates": "I-014",
-    "lesson": "make the artifact speak to the viewer with a clear sequence of attention, choice, and action.",
-    "intended_idea": "A learning loop becomes real when the viewer chooses one change and acts on it.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-015.png",
-    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-015-sequence.gif",
+    "id": "I-016",
+    "number": 16,
+    "title": "This Thing, One Change",
+    "evaluates": "I-015",
+    "lesson": "test whether image, timed text, and voice become clearer when they all point to the same object.",
+    "intended_idea": "A precise message lands when the scene, timed text, and voice all point to the same object at the same time.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-016.png",
+    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-016-narrated.mp4",
+    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-016-narration.wav",
     "overlay_text": [
-      "LOOK HERE",
-      "CHOOSE ONE CHANGE",
+      "THIS THING",
+      "ONE SMALL CHANGE",
       "MAKE IT REAL"
     ],
+    "narration_script": "This is the thing in front of you. Choose one small change. Make it real.",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -79,6 +81,10 @@
     {
       "id": "I-015",
       "lesson": "make the artifact speak to the viewer with a clear sequence of attention, choice, and action."
+    },
+    {
+      "id": "I-016",
+      "lesson": "test whether image, timed text, and voice become clearer when they all point to the same object."
     }
   ]
 }
