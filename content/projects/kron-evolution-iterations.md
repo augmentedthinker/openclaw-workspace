@@ -31,10 +31,57 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-012:** judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.
 - **I-013:** move from receiving a signal to embodied action by making the consequence of the idea visible.
 - **I-014:** when image and caption feel disjointed, integrate short text inside the scene to give the idea context.
+- **I-015:** make the artifact speak to the viewer with a clear sequence of attention, choice, and action.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 15: Look, Choose, Make
+
+Evaluates Iteration 14 and turns the overlay from scene labels into direct viewer address.
+
+### Evaluation Of Iteration 14
+
+- **Intended idea evaluated:** context anchors meaning inside the scene.
+- **What worked:** the integrated overlay made the train-platform artifact more coherent than a separate caption alone. The phrases matched visible regions of the image and helped explain the situation.
+- **What was missing or wrong:** the words still behaved mostly like labels. `WHERE I AM`, `WHAT I HOLD`, and `NEXT STEP` described the scene, but they did not speak strongly enough to the viewer or create a narrative command that would make sense without knowing the project.
+- **Christopher input:** Christopher said Iteration 14 was close but still not coherent enough. He wanted the image to talk to the viewer more directly through both imagery and overlay, possibly with sequencing or animation, and asked for a message that is universal while still aligned with Kron Evolution and the broader OpenClaw project.
+- **Change or sidestep chosen:** bring OpenClaw back into the image as a direct viewer-facing guide, make the viewer's hands part of the scene, and sequence the overlay as a simple imperative path: attention, choice, action.
+
+### New Artifact
+
+**Intended idea:** a learning loop becomes real when the viewer chooses one change and acts on it.
+
+**Accompanying text:** Do not only watch the pattern. Look at the thing in front of you, choose one change, and make it real.
+
+**Integrated overlay text:** LOOK HERE / CHOOSE ONE CHANGE / MAKE IT REAL
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-015.png
+```
+
+Motion sequence path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-015-sequence.gif
+```
+
+### What We Were Going For
+
+The goal was to make the artifact address an outside viewer instead of only documenting an internal project idea. The image returns to the OpenClaw workbench, but the robot faces the viewer directly and points toward the card in the viewer's hands. The overlay is no longer a set of labels; it unfolds as a short command: look, choose, make. The small animated GIF tests whether timed text can guide attention more clearly than a static overlay alone.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-015.png`
+- **Motion sequence path:** `assets/images/kron-evolution/kron-evolution-iteration-015-sequence.gif`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path, then deterministic local text overlay and GIF sequence with `ffmpeg`
+- **Integrated overlay:** `LOOK HERE`, `CHOOSE ONE CHANGE`, `MAKE IT REAL`
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 14: The Words Need Ground
 

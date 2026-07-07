@@ -1,19 +1,20 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 14,
+  "iteration_count": 15,
   "latest_iteration": {
-    "id": "I-014",
-    "number": 14,
-    "title": "The Words Need Ground",
-    "evaluates": "I-013",
-    "lesson": "when image and caption feel disjointed, integrate short text inside the scene to give the idea context.",
-    "intended_idea": "Context anchors meaning inside the scene.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-014.png",
+    "id": "I-015",
+    "number": 15,
+    "title": "Look, Choose, Make",
+    "evaluates": "I-014",
+    "lesson": "make the artifact speak to the viewer with a clear sequence of attention, choice, and action.",
+    "intended_idea": "A learning loop becomes real when the viewer chooses one change and acts on it.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-015.png",
+    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-015-sequence.gif",
     "overlay_text": [
-      "WHERE I AM",
-      "WHAT I HOLD",
-      "NEXT STEP"
+      "LOOK HERE",
+      "CHOOSE ONE CHANGE",
+      "MAKE IT REAL"
     ],
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
@@ -74,6 +75,10 @@
     {
       "id": "I-014",
       "lesson": "when image and caption feel disjointed, integrate short text inside the scene to give the idea context."
+    },
+    {
+      "id": "I-015",
+      "lesson": "make the artifact speak to the viewer with a clear sequence of attention, choice, and action."
     }
   ]
 }
