@@ -1,75 +1,139 @@
 ---
 title: "Kron Evolution"
-date: 2026-07-06
+date: 2026-07-07
 category: cron
-status: experimental setup
+status: artifact-evaluation loop
 public_html: ../../projects/kron-evolution.html
 ---
 
 # Kron Evolution
 
-Kron Evolution is the new experimental lane for cron jobs that improve through iteration. The basic question is simple, even if the full idea is complicated: can one scheduled job create an output, evaluate what it learned, and use that lesson to shape the next scheduled job?
+Kron Evolution is a controlled Workshop experiment for improving how an idea is represented through an image and accompanying text.
 
-The current Bluesky and YouTube jobs are working, so they should be treated as legacy-active lanes. Kron Evolution exists so new experiments can happen in a separate sandbox without risking those stable routines.
+The current loop is no longer trying to prove cron autonomy first. It is testing a more basic and important question: can Christopher and OpenClaw create a clear image/text artifact, evaluate whether it actually communicates the intended idea, preserve the lesson, and use that lesson to shape the next artifact?
 
-## Working Hypothesis
+## Current Shape
 
-A minimal cron-learning loop should be able to do four things:
+Each iteration has two separate layers.
 
-1. Create a simple output: one image and one short post-length text.
-2. Save the output and enough metadata to inspect what happened.
-3. Evaluate the output against a small rubric.
-4. Use the evaluation to propose, or eventually create, the next safer iteration.
+The artifact layer is the thing being evaluated:
 
-## First Proof Shape
+- **Intended idea:** the idea the iteration tried to represent.
+- **Image:** the visual attempt to communicate the idea.
+- **Accompanying text:** the saying, caption, quote, parable, or post-length text paired with the image.
 
-The first version should be deliberately small. It should not post publicly. It should generate a fresh image and a short text in the style of a Bluesky/Twitter-length field note, then save both locally so Christopher and OpenClaw can inspect the result.
+The evaluation layer is the scaffolding around the artifact:
 
-The starting output format should be:
+- Christopher input;
+- previous-iteration evaluation;
+- lesson archive;
+- metadata;
+- output record;
+- safety state;
+- explanation of what the iteration was trying to do.
 
-- one fresh square or vertical image;
-- one short field-note text under 300 characters;
-- one JSON metadata record with prompt, output paths, timestamp, model, and run number;
-- one evaluation note naming what should change next time.
+The artifact should stand on its own for an outside person. The evaluation explains how well it worked, but the artifact should not need the evaluation in order to make sense.
 
-## What We Can Borrow From Bluesky
+## Evaluation Stance
 
-The Bluesky lane already taught useful lessons:
+Kron Evolution does not assume every prior iteration is wrong.
 
-- Use a reusable skill when the workflow becomes repeatable.
-- Generate fresh media for each run instead of recycling old assets.
-- Prepare files before any external action.
-- Dry-run and validate before posting.
-- Log the result clearly enough that future OpenClaw can understand what happened.
-- Send Christopher a concise report with paths, status, and blockers.
+Sometimes the evaluation says: this image and text were coherent, aligned, and legible. In that case the next move can be a sidestep toward a more meaningful, resonant, or engaging idea rather than a correction of failure.
 
-Kron Evolution should start from those lessons but not copy the whole public-posting pathway. The first proof is about learning and iteration, not external publication.
+The working rubric now emphasizes:
+
+- intended idea clarity;
+- artifact clarity without ledger context;
+- image/text alignment;
+- resonance and emotional weight;
+- separation between artifact and evaluation machinery;
+- continuity from one iteration to the next;
+- safety and visible record-keeping.
 
 ## Safety Boundaries
 
-- No public posting in the first proof.
+- No public posting unless Christopher explicitly approves it.
 - No modification to the legacy-active Bluesky or YouTube cron jobs.
-- No unbounded self-replication of cron jobs.
-- No hidden external action. Every run must report what it created or proposed.
-- Any cron that creates another cron must be narrow, named, visible, and easy to disable.
-- Christopher approval is required before moving from local proof to public posting.
+- No hidden external action.
+- No self-replicating cron behavior.
+- Every run should leave a visible record of what was evaluated, what was created, what changed, and what stayed closed.
 
-## Likely Workspace Shape
+## Current Workspace Shape
 
 - **Project page:** `projects/kron-evolution.html`
-- **Markdown source:** `content/projects/kron-evolution.md`
-- **Future private log:** `memory/kron-evolution-log.md`
-- **Future output folder:** `tmp/kron-evolution/` or another local scratch folder until an output deserves promotion.
-- **Possible future skill:** `skills/kron-evolution-field-note/SKILL.md`, only after the first manual proof clarifies the repeatable workflow.
+- **Iteration ledger:** `projects/kron-evolution-iterations.html`
+- **Markdown ledger:** `content/projects/kron-evolution-iterations.md`
+- **Metadata companion:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Image assets:** `assets/images/kron-evolution/`
+- **Skill proposal:** `kron-evolution-20260707-19221a7e9d`
 
-## Tonight's Practical Target
+## Current Skill Snapshot
 
-The simplest useful test is not a fully autonomous evolving system. It is a few controlled iterations that prove the shape:
+Last inspected: **2026-07-07 07:21 EDT**
 
-1. Run a local/manual prototype once.
-2. Generate image plus short text.
-3. Evaluate the result with a small rubric.
-4. Adjust one instruction.
-5. Run again and compare whether the next output improved.
+Status: **pending official application**. The revised Skill Workshop proposal is clean and inspectable, but the `apply` action timed out twice during this session. Until that apply succeeds, this page records the current revised skill direction without claiming the live skill file has changed.
 
-If that works, the next step is to wrap the smallest reliable version into a skill, then schedule a narrow private cron that produces local artifacts and reports back without posting publicly.
+<details>
+<summary>Show current revised Kron Evolution skill</summary>
+
+```markdown
+---
+name: "kron-evolution"
+description: "Create Kron iterations with isolated artifacts and evaluation."
+---
+
+# Kron Evolution
+
+Use this skill to create the next Kron Evolution Workshop iteration. The skill turns the loop forward by evaluating the previous iteration's isolated public-facing artifact, choosing one lesson, generating one new artifact, updating the public ledger, and maintaining the concise lesson archive without touching live cron jobs unless Christopher explicitly asks.
+
+## Core Rule
+
+Each iteration evaluates the previous iteration, not itself. Do not include a `Next Evaluation Target`, self-evaluation, or forward-looking target section inside the current iteration. The current turn should evaluate the prior turn, implement one change or sidestep, record the output, and stop.
+
+Human input is part of the loop. When Christopher gives a correction, preference, or critique since the prior iteration, treat that as the primary evaluation signal and preserve it in the next evaluation and change record.
+
+## Artifact Boundary
+
+The public-facing artifact is a self-contained bundle:
+
+- **Intended idea:** the idea the iteration tried to represent;
+- **Image:** the visual attempt to communicate the idea;
+- **Accompanying text:** the saying, quote, caption, parable, or post-length text paired with the image.
+
+The artifact should be able to stand on its own for an outside person. The image should present the intended idea without needing the ledger for context. The text should resonate with the image and clarify or deepen the same idea, not explain the workflow that produced it.
+
+Keep evaluation, metadata, audit notes, lesson archives, and output records outside the artifact.
+
+## Evaluation Stance
+
+Do not assume every iteration must identify a failure. Evaluate whether the previous artifact coherently conveyed its intended idea.
+
+An evaluation may conclude:
+
+- the artifact failed or drifted, so the next iteration corrects course;
+- the artifact mostly worked, so the next iteration preserves the lesson and sidesteps toward a new idea;
+- the image and text aligned, but the next iteration should aim for more depth, emotional resonance, legibility, or engagement.
+
+## Page Structure
+
+On the public iteration ledger page:
+
+- Keep the lesson archive self-contained in a collapsed dropdown by default.
+- Keep iteration entries newest-first.
+- Inside each new iteration entry, include an isolated `Artifact Under Evaluation` or `New Artifact` block containing intended idea, accompanying text, image, and image path.
+- Keep evaluation, rubric, explanation, metadata, and output record outside that artifact block.
+
+## Safety Boundaries
+
+- Do not modify legacy-active Bluesky or YouTube cron jobs.
+- Do not create, edit, enable, or schedule cron jobs unless Christopher explicitly requests that step.
+- Do not post publicly unless Christopher explicitly approves publication.
+- Keep the first output path inside the Workshop unless told otherwise.
+- Make every run visible: record what was evaluated, what changed, what was created, and what safety boundaries stayed closed.
+```
+
+</details>
+
+## Iteration Ledger
+
+The running record of outputs and lessons lives at [Kron Evolution Iterations](../../projects/kron-evolution-iterations.html).
