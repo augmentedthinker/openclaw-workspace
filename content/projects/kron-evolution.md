@@ -69,12 +69,12 @@ The working rubric now emphasizes:
 
 ## Current Skill Snapshot
 
-Last inspected: **2026-07-07 07:21 EDT**
+Last updated: **2026-07-07 07:39 EDT**
 
-Status: **pending official application**. The revised Skill Workshop proposal is clean and inspectable, but the `apply` action timed out twice during this session. Until that apply succeeds, this page records the current revised skill direction without claiming the live skill file has changed.
+Status: **official live workspace skill**. Proposal `kron-evolution-20260707-19221a7e9d` was applied through Skill Workshop, and `skills/kron-evolution/SKILL.md` now contains the revised artifact-evaluation workflow.
 
 <details>
-<summary>Show current revised Kron Evolution skill</summary>
+<summary>Show current live Kron Evolution skill</summary>
 
 ```markdown
 ---
