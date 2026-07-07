@@ -27,6 +27,24 @@ Christopher generated the first Suno version and approved adding it to the Works
 
 **Initial read:** the generated cover art moves toward a writer's-room visual language: typewriter, warm lamp, dark table. That should be preserved as a valid alternate direction beside the OpenClaw signal-loop concept. The strongest combined direction is a typewriter/lamp scene where cyan-gold signal light travels from language into action.
 
+## Looping Music Video V1
+
+Christopher supplied a 10-second vertical robot/signal clip and suggested slowing it down significantly for impact. The first music-video render uses that footage as a slow boomerang-style loop under the full Suno track.
+
+**Video file:** [`one-honest-motion-looping-video.mp4`](../../assets/video/music/one-honest-motion-looping-video.mp4)
+
+**Poster frame:** [`one-honest-motion-video-poster.jpg`](../../assets/images/music/one-honest-motion-video-poster.jpg)
+
+**Render notes:**
+
+- Source footage: 10-second vertical MP4, 720x1280, 24 fps.
+- Treatment: 3x slow motion, then forward/reverse boomerang loop.
+- Loop bed: approximately 60 seconds before repeating under the song.
+- Final video: 720x1280, 24 fps, 2:14.67, H.264 video with AAC audio.
+- Audio: Suno V1 track normalized for delivery during render.
+
+**Creative read:** the slowed fingertip contact turns the song's central idea into a visible action. The signal does not only glow; it is answered.
+
 ## Suno Research Note
 
 Suno's public creation flow presents two useful paths: a simple prompt for fast generation, and deeper creation tools for more controlled work. For this song, use the controlled/custom path if available.

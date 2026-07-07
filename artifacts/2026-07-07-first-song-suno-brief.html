@@ -63,6 +63,24 @@
         line-height: 1.2;
       }
 
+      .music-video-card {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.66);
+      }
+
+      .music-video-card video {
+        display: block;
+        width: min(100%, 430px);
+        margin: 0 auto 1rem;
+        aspect-ratio: 9 / 16;
+        border-radius: 8px;
+        border: 1px solid rgba(226, 232, 240, 0.2);
+        background: #05070b;
+      }
+
       .loop-preview {
         position: relative;
         min-height: 320px;
@@ -285,6 +303,16 @@
                   </div>
                   <p>The cover art leans toward a writer's-room visual language: typewriter, warm lamp, dark table. That should stay in play beside the OpenClaw signal-loop concept.</p>
                 </div>
+              </section>
+
+              <section class="music-video-card" aria-labelledby="music-video-v1-title">
+                <h2 id="music-video-v1-title">Looping Music Video V1</h2>
+                <video controls preload="metadata" playsinline poster="../assets/images/music/one-honest-motion-video-poster.jpg" src="../assets/video/music/one-honest-motion-looping-video.mp4">
+                  <a href="../assets/video/music/one-honest-motion-looping-video.mp4">Download One Honest Motion looping music video</a>
+                </video>
+                <p>Christopher supplied a 10-second vertical robot/signal clip and suggested slowing it down significantly for impact. This render uses the footage as a 3x slow-motion forward/reverse loop under the full Suno track.</p>
+                <p><strong>Render notes:</strong> source 720x1280 at 24 fps; loop bed about 60 seconds before repeating; final video 720x1280, 24 fps, 2:14.67, H.264 video with AAC audio.</p>
+                <p><strong>Creative read:</strong> the slowed fingertip contact turns the song's central idea into a visible action. The signal does not only glow; it is answered.</p>
               </section>
 
               <div class="song-brief-grid" aria-label="Song package and loop preview">
