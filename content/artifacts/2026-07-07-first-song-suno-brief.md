@@ -33,6 +33,8 @@ Christopher supplied a 10-second vertical robot/signal clip and suggested slowin
 
 **Video file:** [`one-honest-motion-looping-video.mp4`](../../assets/video/music/one-honest-motion-looping-video.mp4)
 
+**Published YouTube URL:** <https://youtu.be/3FX22OVSe1w>
+
 **Poster frame:** [`one-honest-motion-video-poster.jpg`](../../assets/images/music/one-honest-motion-video-poster.jpg)
 
 **Render notes:**
@@ -44,6 +46,8 @@ Christopher supplied a 10-second vertical robot/signal clip and suggested slowin
 - Audio: Suno V1 track normalized for delivery during render.
 
 **Creative read:** the slowed fingertip contact turns the song's central idea into a visible action. The signal does not only glow; it is answered.
+
+**Publication status:** public YouTube upload verified through the YouTube API on 2026-07-07. Upload status processed, processing succeeded, HD definition, not made for kids.
 
 ## Suno Research Note
 
