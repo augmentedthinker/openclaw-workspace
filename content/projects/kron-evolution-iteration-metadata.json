@@ -1,15 +1,20 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 13,
+  "iteration_count": 14,
   "latest_iteration": {
-    "id": "I-013",
-    "number": 13,
-    "title": "The Hand At The Wheel",
-    "evaluates": "I-012",
-    "lesson": "move from receiving a signal to embodied action by making the consequence of the idea visible.",
-    "intended_idea": "Guidance becomes real when it changes action.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-013.png",
+    "id": "I-014",
+    "number": 14,
+    "title": "The Words Need Ground",
+    "evaluates": "I-013",
+    "lesson": "when image and caption feel disjointed, integrate short text inside the scene to give the idea context.",
+    "intended_idea": "Context anchors meaning inside the scene.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-014.png",
+    "overlay_text": [
+      "WHERE I AM",
+      "WHAT I HOLD",
+      "NEXT STEP"
+    ],
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -65,6 +70,10 @@
     {
       "id": "I-013",
       "lesson": "move from receiving a signal to embodied action by making the consequence of the idea visible."
+    },
+    {
+      "id": "I-014",
+      "lesson": "when image and caption feel disjointed, integrate short text inside the scene to give the idea context."
     }
   ]
 }

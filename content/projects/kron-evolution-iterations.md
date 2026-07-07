@@ -30,10 +30,51 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-011:** separate the public-facing image and saying from the evaluation machinery so the artifact can stand on its own.
 - **I-012:** judge the intended idea, image, and text as one isolated artifact; when it works, sidestep toward deeper resonance.
 - **I-013:** move from receiving a signal to embodied action by making the consequence of the idea visible.
+- **I-014:** when image and caption feel disjointed, integrate short text inside the scene to give the idea context.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 14: The Words Need Ground
+
+Evaluates Iteration 13 and experiments with integrated text overlay for stronger context.
+
+### Evaluation Of Iteration 13
+
+- **Intended idea evaluated:** guidance becomes real when it changes action.
+- **What worked:** the first-person point of view was powerful. Putting the viewer's hands at the wheel made the idea more immediate than the distant lighthouse view in Iteration 12.
+- **What was missing or wrong:** the artifact still felt a little disjointed. The image had emotional force, but the viewer had to read the accompanying text first and then look back at the image to connect the message.
+- **Christopher input:** Christopher affirmed the first-person direction, emphasized that Kron does not need to stay in the same location or visual theme, and asked to experiment with text overlay placed in the image so the message has more foundation and coherence inside the scene itself.
+- **Change or sidestep chosen:** leave the storm/lighthouse setting, keep the first-person perspective, and add short exact overlay phrases to anchor the viewer's situation, object, and next action inside the image.
+
+### New Artifact
+
+**Intended idea:** context anchors meaning inside the scene.
+
+**Accompanying text:** Meaning needs a place to stand. Name where you are, what you hold, and the step that changes things.
+
+**Integrated overlay text:** WHERE I AM / WHAT I HOLD / NEXT STEP
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-014.png
+```
+
+### What We Were Going For
+
+The goal was to test Christopher's critique directly. The new artifact changes the setting to a rain-wet train platform at dawn, still from first-person view, with a ticket in hand and an open train door ahead. The overlay phrases are meant to reduce the gap between caption and image by giving the viewer three anchors inside the scene: present location, held context, and actionable threshold.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-014.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path, then deterministic local text overlay with `ffmpeg`
+- **Integrated overlay:** `WHERE I AM`, `WHAT I HOLD`, `NEXT STEP`
+- **Skill correction:** proposed Skill Workshop update `kron-evolution-20260707-f706db207e` to make explicit text-overlay experiments part of the artifact workflow when Christopher requests them.
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the image was saved only as a Workshop asset.
 
 ## Iteration 13: The Hand At The Wheel
 
