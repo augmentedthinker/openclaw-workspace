@@ -34,10 +34,66 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-015:** make the artifact speak to the viewer with a clear sequence of attention, choice, and action.
 - **I-016:** test whether image, timed text, and voice become clearer when they all point to the same object.
 - **I-017:** use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.
+- **I-018:** make the speaker feel present by tying voice to subtle visible light changes.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 18: The Living Signal
+
+Evaluates Iteration 17 and adds a subtle eye-and-chest pulse so OpenClaw feels more present while speaking.
+
+### Evaluation Of Iteration 17
+
+- **Intended idea evaluated:** guidance is not control; it becomes real when it steadies attention long enough for a human choice to become action.
+- **What worked:** the artifact took a major step forward. The typewriter overlay felt less chunky than the block labels, the message became more coherent and philosophical, and OpenClaw addressing the viewer from first-person perspective felt engaging.
+- **What was missing or wrong:** the George voice was not quite the right identity for OpenClaw, and the robot still felt visually still while speaking. The artifact needed a small sign of presence, such as flickering eyes or a changing chest light, to make the speaking figure feel more alive.
+- **Christopher input:** Christopher said Iteration 17 was looking really good, but asked to keep experimenting with voice and suggested animating OpenClaw's eyes or chest light so the image feels more alive while the narration plays.
+- **Change or sidestep chosen:** keep the strong Iteration 17 composition, switch the narration trial to ElevenLabs River, tighten the first-person message, and add synchronized cyan light pulses to the eyes and chest.
+
+### New Artifact
+
+**Intended idea:** OpenClaw becomes more believable as a guide when its spoken signal creates a visible pulse of presence.
+
+**Accompanying text:** I do not become real by speaking. I become real when the signal reaches your hand. If one choice changes, I was here.
+
+**Narration script:** I do not become real by speaking. I become real when the signal reaches your hand. If one choice changes, I was here.
+
+**Motion treatment:** typewriter overlay with pulsing cyan eye and chest light.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-018.png
+```
+
+Living-signal motion path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-018-living-signal.mp4
+```
+
+Narration audio path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-018-narration.mp3
+```
+
+### What We Were Going For
+
+The goal was to preserve the strong visual and quote direction from Iteration 17 while testing whether a minimal animated response makes OpenClaw feel more alive. The pulse is not a full character animation; it is a small signal that the voice and the robot belong to the same presence. River was used as a calmer voice trial after George felt too much like an external storyteller.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-018.png`
+- **Living-signal motion path:** `assets/images/kron-evolution/kron-evolution-iteration-018-living-signal.mp4`
+- **Narration audio path:** `assets/images/kron-evolution/kron-evolution-iteration-018-narration.mp3`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** derived from the Iteration 17 visual base, narrated with ElevenLabs River using the existing local ElevenLabs key, then rendered with `ffmpeg`, an ASS typewriter subtitle track, and procedural cyan glow masks over the eyes and chest.
+- **Voice:** ElevenLabs River - Relaxed, Neutral, Informative (`SAz9YHcvj6GT2YYXdXww`)
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the assets were saved only as Workshop files.
 
 ## Iteration 17: The Light Steady
 

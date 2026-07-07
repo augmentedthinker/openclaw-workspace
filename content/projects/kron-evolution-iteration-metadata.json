@@ -1,25 +1,25 @@
 {
   "project": "kron-evolution",
   "updated": "2026-07-07",
-  "iteration_count": 17,
+  "iteration_count": 18,
   "latest_iteration": {
-    "id": "I-017",
-    "number": 17,
-    "title": "The Light Steady",
-    "evaluates": "I-016",
-    "lesson": "use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.",
-    "intended_idea": "Guidance is not control; it becomes real when it steadies attention long enough for a human choice to become action.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-017.png",
-    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-017-typewriter.mp4",
-    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-017-narration.mp3",
-    "overlay_style": "typewriter reveal synchronized to narration",
+    "id": "I-018",
+    "number": 18,
+    "title": "The Living Signal",
+    "evaluates": "I-017",
+    "lesson": "make the speaker feel present by tying voice to subtle visible light changes.",
+    "intended_idea": "OpenClaw becomes more believable as a guide when its spoken signal creates a visible pulse of presence.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-018.png",
+    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-018-living-signal.mp4",
+    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-018-narration.mp3",
+    "overlay_style": "typewriter reveal with pulsing eye and chest light",
     "voice": {
       "provider": "ElevenLabs",
-      "name": "George - Warm, Captivating Storyteller",
-      "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+      "name": "River - Relaxed, Neutral, Informative",
+      "voice_id": "SAz9YHcvj6GT2YYXdXww",
       "model_id": "eleven_multilingual_v2"
     },
-    "narration_script": "I do not choose the road for you. I hold the light steady while you choose. When one true change moves your hand, the loop has learned.",
+    "narration_script": "I do not become real by speaking. I become real when the signal reaches your hand. If one choice changes, I was here.",
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -91,6 +91,10 @@
     {
       "id": "I-017",
       "lesson": "use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene."
+    },
+    {
+      "id": "I-018",
+      "lesson": "make the speaker feel present by tying voice to subtle visible light changes."
     }
   ]
 }
