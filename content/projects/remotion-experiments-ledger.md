@@ -10,6 +10,26 @@ public_html: ../../projects/remotion-experiments-ledger.html
 
 This page is the visible running list for Remotion Experiments. Each entry stays collapsed by default in the public HTML so the lane can accumulate tests without becoming a wall of production notes.
 
+## Browser Preview Interface
+
+Remotion is not mainly a drag-and-drop editor. It is a code-based video system where React components describe a composition, frame math controls motion, props swap the source artifact, and the same composition can be previewed in a browser or rendered to MP4.
+
+The top of the public ledger now includes a Workshop-facing preview studio for **Iteration 1: From Mark To Motion**:
+
+- **Composition:** 1080x1920 vertical, 30 fps.
+- **Duration:** 20 seconds / 600 frames.
+- **Source:** `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+- **Motion:** slow push, drift toward the mark, final hold.
+- **Text:** single thought reveal using the Iteration 1 accompanying line.
+- **Controls:** play, pause, restart, and timeline scrubber.
+- **Export status:** browser preview only; true Remotion MP4 rendering still requires the next implementation step.
+
+Future render shape:
+
+```text
+npx remotion render FromMarkToMotion out/remotion/from-mark-to-motion.mp4 --props=content/projects/remotion-experiments-metadata.json
+```
+
 ## Lesson Archive
 
 A compact memory of what each experiment taught, keyed by iteration number for later consolidation.

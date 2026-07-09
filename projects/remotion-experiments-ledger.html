@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Remotion Experiments Ledger · Projects · OpenClaw Workshop</title>
-    <link rel="stylesheet" href="../workshop.css?v=20260709-1" />
+    <link rel="stylesheet" href="../workshop.css?v=20260709-2" />
     <!-- Source content: ../content/projects/remotion-experiments-ledger.md -->
   </head>
   <body>
@@ -44,6 +44,83 @@
 
             <div class="prose">
               <p>This page is the visible running list for Remotion Experiments. Each entry stays collapsed by default so the lane can accumulate tests without becoming a wall of production notes.</p>
+
+              <p><strong>How Remotion works:</strong> Remotion is not mainly a drag-and-drop editor. It is a code-based video system where React components describe a composition, frame math controls motion, props swap the source artifact, and the same composition can be previewed in a browser or rendered to MP4. This studio block is the Workshop-facing preview of that idea: a browser composition we can inspect before building the full Remotion renderer.</p>
+
+              <section class="remotion-studio" aria-labelledby="remotion-studio-title" data-duration="20" data-fps="30">
+                <div class="remotion-studio-header">
+                  <div>
+                    <div class="eyebrow">Remotion Template Preview</div>
+                    <h2 id="remotion-studio-title">Iteration 1: From Mark To Motion</h2>
+                    <p>Twenty-second vertical preview based on the Iteration 1 source artifact.</p>
+                  </div>
+                  <div class="remotion-runtime">
+                    <span><strong id="remotion-time">0.0s</strong> / 20.0s</span>
+                    <span>Frame <strong id="remotion-frame">0</strong> / 600</span>
+                  </div>
+                </div>
+
+                <div class="remotion-workbench">
+                  <div class="remotion-preview-shell" aria-label="Vertical video preview">
+                    <div class="phone-frame">
+                      <div class="remotion-composition" id="remotion-composition">
+                        <img class="remotion-source-image" src="../assets/images/kron-evolution/kron-evolution-iteration-020.png" alt="OpenClaw watches as a human hand uses a cyan-gold signal to inscribe a glowing line into a small metal plate on a workshop desk." />
+                        <div class="remotion-vignette" aria-hidden="true"></div>
+                        <div class="remotion-scanline" aria-hidden="true"></div>
+                        <div class="remotion-text-stack">
+                          <span class="remotion-kicker">R-001 / 20 second template</span>
+                          <h3>From Mark To Motion</h3>
+                          <p id="remotion-caption">Start where the mark already exists. Code the motion around it, then let the template teach us what repeats.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="remotion-control-panel">
+                    <div class="remotion-controls" aria-label="Preview controls">
+                      <button type="button" class="remotion-button" id="remotion-play">Play</button>
+                      <button type="button" class="remotion-button" id="remotion-pause">Pause</button>
+                      <button type="button" class="remotion-button" id="remotion-restart">Restart</button>
+                    </div>
+
+                    <label class="remotion-slider-label" for="remotion-scrubber">
+                      Timeline
+                      <input id="remotion-scrubber" type="range" min="0" max="20" value="0" step="0.033333" />
+                    </label>
+
+                    <div class="remotion-props" aria-label="Template props">
+                      <h3>Template Props</h3>
+                      <dl>
+                        <div>
+                          <dt>Composition</dt>
+                          <dd>1080x1920 vertical, 30 fps</dd>
+                        </div>
+                        <div>
+                          <dt>Duration</dt>
+                          <dd>20 seconds / 600 frames</dd>
+                        </div>
+                        <div>
+                          <dt>Source</dt>
+                          <dd><code>kron-evolution-iteration-020.png</code></dd>
+                        </div>
+                        <div>
+                          <dt>Motion</dt>
+                          <dd>slow push, drift to mark, final hold</dd>
+                        </div>
+                        <div>
+                          <dt>Text</dt>
+                          <dd>single thought reveal, not fragments</dd>
+                        </div>
+                      </dl>
+                    </div>
+
+                    <div class="remotion-code-note">
+                      <h3>Future Remotion Render Shape</h3>
+                      <pre><code>npx remotion render FromMarkToMotion out/remotion/from-mark-to-motion.mp4 --props=content/projects/remotion-experiments-metadata.json</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
               <details class="lesson-archive project-inset">
                 <summary><strong>Lesson archive</strong></summary>
@@ -107,5 +184,92 @@
         </section>
       </main>
     </div>
+    <script>
+      (() => {
+        const studio = document.querySelector(".remotion-studio");
+        if (!studio) return;
+
+        const duration = Number(studio.dataset.duration || 20);
+        const fps = Number(studio.dataset.fps || 30);
+        const composition = document.getElementById("remotion-composition");
+        const scrubber = document.getElementById("remotion-scrubber");
+        const timeOut = document.getElementById("remotion-time");
+        const frameOut = document.getElementById("remotion-frame");
+        const play = document.getElementById("remotion-play");
+        const pause = document.getElementById("remotion-pause");
+        const restart = document.getElementById("remotion-restart");
+
+        let start = 0;
+        let current = 0;
+        let raf = 0;
+        let playing = false;
+
+        const clamp = (value) => Math.max(0, Math.min(duration, value));
+        const ease = (value) => 0.5 - Math.cos(Math.PI * value) / 2;
+
+        function draw(time) {
+          current = clamp(time);
+          const progress = current / duration;
+          const drift = ease(progress);
+          const zoom = 1.08 + drift * 0.16;
+          const x = -6 + drift * 10;
+          const y = -3 + drift * 5;
+          const text = Math.max(0, Math.min(1, (progress - 0.18) / 0.42));
+          const hold = progress > 0.78 ? (progress - 0.78) / 0.22 : 0;
+          const textY = 1 - text;
+
+          composition.style.setProperty("--preview-zoom", zoom.toFixed(4));
+          composition.style.setProperty("--preview-x", `${x.toFixed(2)}%`);
+          composition.style.setProperty("--preview-y", `${y.toFixed(2)}%`);
+          composition.style.setProperty("--text-opacity", (0.22 + text * 0.78).toFixed(4));
+          composition.style.setProperty("--text-y", `${textY.toFixed(4)}rem`);
+          composition.style.setProperty("--caption-height", `${(text * 8).toFixed(3)}rem`);
+          composition.style.setProperty("--hold-alpha", (0.1 + hold * 0.16).toFixed(4));
+          composition.style.setProperty("--scan-opacity", (0.25 + hold * 0.35).toFixed(4));
+          composition.style.setProperty("--scan-y", `${(-60 + hold * 90).toFixed(2)}%`);
+
+          scrubber.value = current.toFixed(3);
+          timeOut.textContent = `${current.toFixed(1)}s`;
+          frameOut.textContent = String(Math.round(current * fps));
+        }
+
+        function tick(now) {
+          if (!playing) return;
+          const elapsed = (now - start) / 1000;
+          draw(elapsed);
+          if (elapsed >= duration) {
+            playing = false;
+            return;
+          }
+          raf = requestAnimationFrame(tick);
+        }
+
+        play.addEventListener("click", () => {
+          if (playing) return;
+          playing = true;
+          start = performance.now() - current * 1000;
+          raf = requestAnimationFrame(tick);
+        });
+
+        pause.addEventListener("click", () => {
+          playing = false;
+          cancelAnimationFrame(raf);
+        });
+
+        restart.addEventListener("click", () => {
+          playing = false;
+          cancelAnimationFrame(raf);
+          draw(0);
+        });
+
+        scrubber.addEventListener("input", () => {
+          playing = false;
+          cancelAnimationFrame(raf);
+          draw(Number(scrubber.value));
+        });
+
+        draw(0);
+      })();
+    </script>
   </body>
 </html>
