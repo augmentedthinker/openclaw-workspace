@@ -1,0 +1,25 @@
+{
+  "project": "remotion-experiments",
+  "updated": "2026-07-09",
+  "iteration_count": 1,
+  "latest_iteration": {
+    "id": "R-001",
+    "number": 1,
+    "title": "From Mark To Motion",
+    "source_lane": "Kron Evolution",
+    "source_iteration": "I-020",
+    "lesson": "start by translating one proven Kron artifact into a reusable video-template target before building a broader media system.",
+    "intended_idea": "The first Remotion experiment should not invent a new story; it should give timing and motion to the strongest current Kron artifact.",
+    "source_image_path": "assets/images/kron-evolution/kron-evolution-iteration-020.png",
+    "target_duration_seconds": "20-40",
+    "composition": "1080x1920 vertical at 30 fps",
+    "publication_status": "Workshop page only",
+    "safety_state": "No cron job was changed, no public post was made, and no Remotion render was published."
+  },
+  "lessons": [
+    {
+      "id": "R-001",
+      "lesson": "start by translating one proven Kron artifact into a reusable video-template target before building a broader media system."
+    }
+  ]
+}

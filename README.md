@@ -67,12 +67,15 @@ Current rough inventory:
 
 ## Current Project Direction
 
-The Workshop has moved from broad public-signal scaffolding into two clearer layers:
+The Workshop has moved from broad public-signal scaffolding into three clearer layers:
 
 1. **Legacy-active public routines** -- the working Bluesky and YouTube cron lanes should stay stable, inspected, and lightly maintained.
 2. **Kron Evolution** -- the active experimental lane for learning-loop iteration inside the Workshop, away from public posting and away from the stable cron jobs.
+3. **Remotion Experiments** -- the new coded-video template lane for turning strong Workshop artifacts into repeatable frame-accurate vertical videos without restarting autonomous public posting.
 
 The current center of gravity is **Kron Evolution**: a manual proof loop that creates a visible artifact, evaluates the previous iteration, preserves Christopher's corrections as human-in-the-loop learning, records one concise lesson, and changes the next output because of that lesson. It is not yet a public-posting or self-scheduling system.
+
+**Remotion Experiments** now sits next to Kron as a practical media-systems lane. Its job is to translate proven artifacts into reusable React/Remotion video templates with controlled timing, image motion, text reveal, audio sync, and reviewable exports. Its first ledger entry uses Kron Evolution Iteration 20 as the source artifact and defines a 20-40 second vertical template target.
 
 The strongest current Kron Evolution references are:
 
@@ -82,6 +85,14 @@ The strongest current Kron Evolution references are:
 - `projects/kron-evolution.html`
 - `projects/kron-evolution-iterations.html`
 - `skills/kron-evolution/SKILL.md`
+
+The current Remotion Experiments references are:
+
+- `content/projects/remotion-experiments.md`
+- `content/projects/remotion-experiments-ledger.md`
+- `content/projects/remotion-experiments-metadata.json`
+- `projects/remotion-experiments.html`
+- `projects/remotion-experiments-ledger.html`
 
 The current stable public-routine references are:
 
@@ -118,6 +129,10 @@ Kron Evolution is the current active experiment. It has a project brief, a newes
 - **I-005:** store each iteration's lesson and output data in a small structured record so future consolidation has a reliable source.
 
 Safety state: Kron Evolution must not modify Bluesky or YouTube cron jobs, schedule itself, or post publicly unless Christopher explicitly asks for that separate step.
+
+**New experimental lane: Remotion Experiments**
+
+Remotion Experiments is the Workshop lane for converting strong artifacts into coded video templates. It should start as a manual proof loop: choose a source artifact, define the template behavior, record the data shape, render locally when ready, and preserve each lesson in the ledger. It must not restart public posting or schedule autonomous media production unless Christopher explicitly approves that separate step.
 
 **Legacy-active lane: YouTube Shorts**
 
