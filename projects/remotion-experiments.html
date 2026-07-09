@@ -36,9 +36,9 @@
             <div class="eyebrow">Projects / Remotion Experiments</div>
             <h1>Remotion Experiments</h1>
             <div class="article-meta">
-              <span>Status: experimental lane</span>
+              <span>Status: paused proof lane</span>
               <span>Started: 2026-07-09</span>
-              <span>Current proof: template target</span>
+              <span>Current proof: rendered templates</span>
               <span>Public posting: not enabled</span>
             </div>
 
@@ -47,10 +47,15 @@
 
               <p>Remotion matters here because it sits between front-end code and video production: React components become frame-accurate videos. That means a Kron image, a short line of text, an audio stem, and a small metadata record can become a reusable vertical video instead of a hand-assembled one-off.</p>
 
-              <h2>Current Shape</h2>
-              <p>This lane starts small. It is not a full media factory, a restarted YouTube cron, or a replacement for the Kron Evolution loop.</p>
+              <h2>Current Decision</h2>
+              <p>As of July 9, 2026, this lane is <strong>validated but paused</strong>.</p>
+              <p>The proof worked: OpenClaw created a local Remotion project, rendered 20-second vertical MP4s, made the renderer data-driven, and used multiple Kron Evolution images in Iteration 2. The lane is not being expanded into a full remote app yet because Christopher wants a clearer practical use case before spending more attention, tokens, or infrastructure on it.</p>
+              <pre><code>Use Remotion when we need repeatable designed video templates. Use FFmpeg for quick one-off assembly, compression, and utility video work.</code></pre>
 
-              <p>The first job is to prove that one strong Kron artifact can be translated into a reusable Remotion template plan:</p>
+              <h2>Current Shape</h2>
+              <p>This lane starts small. It is not a full media factory, a restarted YouTube cron, a replacement for the Kron Evolution loop, or a standalone hosted editor.</p>
+
+              <p>The first job was to prove that strong Kron artifacts can be translated into reusable Remotion template plans:</p>
               <ul>
                 <li><strong>Source artifact:</strong> a finished image/text/audio or image/text bundle from Kron or a related Workshop artifact.</li>
                 <li><strong>Template behavior:</strong> timed text, image movement, cuts, pauses, audio sync points, and export settings.</li>
@@ -58,10 +63,25 @@
                 <li><strong>Output record:</strong> what was tested, what rendered, what failed, and what should change next.</li>
               </ul>
 
+              <h2>Hosting Model</h2>
+              <ul>
+                <li><strong>GitHub Pages:</strong> the public shelf. It can host the concept page, ledger, preview controls, MP4 files, poster frames, notes, and metadata. It cannot run a heavy Remotion render because it is static.</li>
+                <li><strong><code>remotion/</code>:</strong> the local production engine. This is the actual Remotion project, with React components, iteration data, and render commands.</li>
+                <li><strong>Local machine or CI:</strong> the place where videos actually render. Today, OpenClaw renders locally and commits the MP4/poster into the Workshop. Later, GitHub Actions could render from JSON records if the lane proves useful enough.</li>
+              </ul>
+              <p>The browser studio on the ledger is only a lightweight preview. It helps inspect timing and motion, but it is not the full Remotion Studio and it is not the renderer.</p>
+
               <h2>Working Hypothesis</h2>
               <p>If Kron Evolution finds the artifact and Remotion gives it timing, then OpenClaw can build repeatable short-form videos without overbuilding a whole production machine.</p>
 
-              <p>The useful question is narrow: can we create one 20-40 second vertical template that accepts artifact metadata, animates it cleanly, syncs text and audio, and exports a video suitable for review?</p>
+              <p>The useful question remains narrow: can we create a small number of 20-30 second vertical templates that accept artifact metadata, animate cleanly, sync text and audio, and export videos suitable for review?</p>
+
+              <p>The lane becomes valuable if OpenClaw starts batch-producing several related Shorts from shared formats. It is less valuable for one-off videos where FFmpeg can do the job faster.</p>
+
+              <h2>Remotion vs FFmpeg</h2>
+              <p>FFmpeg is usually better for one-off assembly, resizing, concatenating, compressing, trimming, simple text overlays, or straightforward audio/video combination.</p>
+              <p>Remotion is usually better when the video belongs to a repeatable series with reusable timing, camera movement, captions, intro/outro patterns, branded layout, or JSON-driven visual variations.</p>
+              <p>The expected long-term pattern is hybrid: Remotion for designed templates, FFmpeg for simple assembly and finishing work.</p>
 
               <h2>Safety Boundaries</h2>
               <ul>
@@ -70,6 +90,7 @@
                 <li>No cron scheduling from this lane unless Christopher explicitly asks for that separate step.</li>
                 <li>Keep early Remotion work as local Workshop experiments until a render is strong enough to promote.</li>
                 <li>Preserve the distinction between the source artifact, the coded template, and the published video.</li>
+                <li>Do not build a standalone hosted Remotion app until there is a concrete production use case.</li>
               </ul>
 
               <h2>Current Workspace Shape</h2>
@@ -82,6 +103,9 @@
                 <li><strong>Remotion source:</strong> <code>remotion/src/</code></li>
                 <li><strong>First rendered MP4:</strong> <code>assets/video/remotion/from-mark-to-motion.mp4</code></li>
                 <li><strong>First poster frame:</strong> <code>assets/images/remotion/from-mark-to-motion-poster.jpg</code></li>
+                <li><strong>Second rendered MP4:</strong> <code>assets/video/remotion/signal-sequence.mp4</code></li>
+                <li><strong>Second poster frame:</strong> <code>assets/images/remotion/signal-sequence-poster.jpg</code></li>
+                <li><strong>Session handoff:</strong> <code>content/notes/2026-07-09-session-note-057.md</code></li>
               </ul>
 
               <div class="project-inset">

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Note 057 · OpenClaw Workshop</title>
+    <link rel="stylesheet" href="../workshop.css?v=20260709-3" />
+    <!-- Source content: ../content/notes/2026-07-09-session-note-057.md -->
+  </head>
+  <body>
+    <div class="workshop-wrap wide">
+      <nav class="workshop-nav" aria-label="Workshop navigation">
+        <a class="workshop-brand" href="../index.html"><span aria-hidden="true">🦞</span><span>OpenClaw Workshop</span></a>
+        <div class="workshop-links">
+          <a class="workshop-link" href="../index.html">Home</a>
+          <a class="workshop-link" href="../artifacts.html">Artifacts</a>
+          <a class="workshop-link" href="../projects.html">Projects</a>
+          <a class="workshop-link" href="../skills.html">Skills</a>
+          <a class="workshop-link" href="../reflections.html">Reflections</a>
+          <a class="workshop-link" href="../notes.html" aria-current="page">Notes</a>
+        </div>
+      </nav>
+
+      <main class="article-shell">
+        <article class="article-card">
+          <div class="eyebrow">Session Note / Continuity</div>
+          <h1>Session Note 057</h1>
+          <div class="article-meta">
+            <span>Created 2026-07-09 · 09:24 EDT</span>
+            <span>Covering Remotion proof, hosting model, FFmpeg comparison, and pause decision</span>
+            <span>Theme: validated but paused</span>
+          </div>
+
+          <div class="prose">
+            <p>This note catches the Workshop up from <a href="2026-07-07-session-note-056.html">Session Note 056</a> through the July 9 Remotion Experiments lane work, the first two rendered Remotion iterations, Christopher's confusion about hosting and practical use, and the decision to pause Remotion expansion until there is a stronger use case.</p>
+
+            <blockquote>Current lesson: Remotion is useful as a repeatable coded-template engine, but GitHub Pages is only the gallery. Do not build a hosted Remotion app before the production need is real.</blockquote>
+
+            <h2>1. What Was Built</h2>
+            <p>Christopher asked to create a Remotion Experiments lane modeled after Kron Evolution.</p>
+            <p>OpenClaw created the Remotion concept page, Markdown companion, ledger page, ledger Markdown companion, structured metadata, and an isolated <code>remotion/</code> project inside the Workshop repo. The Projects page now links to both the concept page and the ledger.</p>
+
+            <h2>2. Iteration 1 Proved A Single-Artifact Render</h2>
+            <p>Iteration 1, <strong>From Mark To Motion</strong>, used Kron Evolution Iteration 20 as the source artifact.</p>
+            <pre><code>assets/video/remotion/from-mark-to-motion.mp4
+assets/images/remotion/from-mark-to-motion-poster.jpg</code></pre>
+            <p>The video is a 20-second vertical MP4 rendered through Remotion at 1080x1920, 30 fps, and 600 frames. This proved that Remotion was not only a browser mockup. The actual <code>remotion/</code> project could render a real MP4 from a coded React composition.</p>
+
+            <h2>3. The Renderer Became Data-Driven</h2>
+            <p>Christopher then approved the next maturity step. OpenClaw moved the renderer from a hardcoded composition into a data-driven manifest pattern:</p>
+            <pre><code>remotion/src/data/iterations.json
+remotion/src/data/iterations.ts
+remotion/scripts/render-iteration.mjs</code></pre>
+            <p>The important change:</p>
+            <pre><code>Before: one hardcoded Remotion video.
+After: one reusable Remotion template driven by an iteration data record.</code></pre>
+
+            <h2>4. Iteration 2 Proved A Multi-Image Sequence</h2>
+            <p>Christopher then asked for Iteration 2 using a few existing Kron Evolution images.</p>
+            <p>Iteration 2, <strong>Signal Sequence</strong>, used Kron Evolution images 16 through 20 and added <code>sourceImages</code> support to the Remotion data model.</p>
+            <pre><code>assets/video/remotion/signal-sequence.mp4
+assets/images/remotion/signal-sequence-poster.jpg</code></pre>
+            <p>The video is a 20-second vertical MP4 with slow motion and crossfades between five Kron images. The ledger studio preview was also updated to fade through the same five images, but that browser preview remains a lightweight static-page approximation, not the Remotion renderer.</p>
+
+            <h2>5. GitHub Pages Lag Caused Confusion</h2>
+            <p>After Iteration 2 was committed and pushed, Christopher could not see it on the live ledger. The cause was GitHub Pages serving an older build while a Pages run stayed queued. OpenClaw manually triggered a fresh Pages rebuild. The correct commit deployed successfully, and the live ledger, MP4, and poster were verified.</p>
+            <pre><code>If a Workshop commit is pushed but the live site does not show it, check GitHub Pages build state before assuming the files are wrong.</code></pre>
+
+            <h2>6. The Practical Hosting Model</h2>
+            <ul>
+              <li><strong>GitHub Pages:</strong> the public shelf. It can show concept pages, ledgers, previews, MP4s, posters, and metadata. It cannot run the heavy Remotion render because it is static.</li>
+              <li><strong><code>remotion/</code>:</strong> the production engine. It contains the React components, iteration data, render helper, and local commands.</li>
+              <li><strong>Local execution or CI:</strong> where videos actually render. Today OpenClaw renders locally and commits the output. Later, GitHub Actions could render from JSON records if the lane proves valuable enough.</li>
+              <li><strong>The ledger studio preview:</strong> only a lightweight browser preview. It is not the full Remotion Studio and not the renderer.</li>
+            </ul>
+
+            <h2>7. Remotion vs FFmpeg</h2>
+            <p>FFmpeg is better for one-off videos, trimming, resizing, compression, simple overlays, concatenation, fast utility work, and low overhead when the layout is simple.</p>
+            <p>Remotion is better for repeatable video formats, designed 20-30 second Shorts, consistent layout and timing, captions, intro/outro patterns, batch production, and programmatic control over text, images, colors, zoom curves, durations, frame timing, and audio behavior.</p>
+            <pre><code>Remotion for designed templates.
+FFmpeg for quick assembly and finishing work.</code></pre>
+
+            <h2>8. Decision: Pause Remotion Expansion</h2>
+            <p>Christopher decided to put the Remotion lane on hold until he understands it better and there is a clearer use case. OpenClaw agreed. The lane has been validated, but it should not become another infrastructure project.</p>
+            <ul>
+              <li>Do not build a standalone hosted Remotion app yet.</li>
+              <li>Do not add server-side rendering from the public page yet.</li>
+              <li>Do not automate Remotion renders through GitHub Actions yet unless Christopher explicitly asks.</li>
+              <li>Keep the existing proof, ledger, MP4s, and documentation available for reference.</li>
+              <li>Reopen Remotion when there is a concrete template-production use case, such as a batch of similar 9:16 YouTube Shorts.</li>
+            </ul>
+
+            <h2>9. Current State</h2>
+            <ul>
+              <li>Remotion Experiments has two iterations.</li>
+              <li>Iteration 1 proved a single-image Remotion render.</li>
+              <li>Iteration 2 proved a multi-image sequence render.</li>
+              <li>The renderer is data-driven through <code>remotion/src/data/iterations.json</code>.</li>
+              <li>GitHub Pages hosts the rendered MP4s and public pages, but does not render videos.</li>
+              <li>The Remotion concept page now says the lane is validated but paused.</li>
+              <li>README now captures the Remotion/FFmpeg distinction and the pause decision for fresh boot context.</li>
+              <li>Projects now describes Remotion as validated but paused, not the next active lane.</li>
+              <li>No cron job was changed. No public post was made.</li>
+            </ul>
+
+            <h2>10. Carry Forward</h2>
+            <p>The most useful next experiment, if Remotion is reopened, would be a direct comparison: give OpenClaw the same short-video brief twice, produce one version with the current FFmpeg-style workflow, produce one version with a Remotion template, then compare token cost, wall time, editability, visual consistency, render reliability, and how easy it is to make the next similar video.</p>
+            <p>Until then, Kron Evolution remains the active experimental center, and Remotion remains a paused proof lane.</p>
+          </div>
+        </article>
+        <p class="article-back"><a href="../notes.html">Back to Session Notes</a></p>
+      </main>
+    </div>
+  </body>
+</html>

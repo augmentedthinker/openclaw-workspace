@@ -1,6 +1,9 @@
 {
   "project": "remotion-experiments",
   "updated": "2026-07-09",
+  "status": "validated_but_paused",
+  "current_decision": "Hold Remotion expansion until there is a clearer production use case; use GitHub Pages as the public gallery, remotion/ as the local render engine, and local execution or future CI as the render host.",
+  "tooling_guidance": "Use Remotion for repeatable designed templates and FFmpeg for quick one-off assembly, compression, and utility video work.",
   "iteration_count": 2,
   "latest_iteration": {
     "id": "R-002",
