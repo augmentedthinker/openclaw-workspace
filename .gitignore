@@ -20,6 +20,11 @@ USER.md
 
 # Local scratch files.
 tmp/
+node_modules/
+remotion/node_modules/
+remotion/out/
+remotion/.cache/
+remotion/.remotion/
 
 # Local OpenClaw setup/runtime state; do not publish in the Workshop repo.
 openclaw-workspace-state.json

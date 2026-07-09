@@ -115,10 +115,23 @@
                     </div>
 
                     <div class="remotion-code-note">
-                      <h3>Future Remotion Render Shape</h3>
-                      <pre><code>npx remotion render FromMarkToMotion out/remotion/from-mark-to-motion.mp4 --props=content/projects/remotion-experiments-metadata.json</code></pre>
+                      <h3>Render Command</h3>
+                      <pre><code>cd remotion
+npm run render:iteration-1</code></pre>
                     </div>
                   </div>
+                </div>
+
+                <div class="remotion-render-output">
+                  <h3>Rendered MP4</h3>
+                  <p>The first real Remotion export is a 20-second vertical MP4 rendered from the Iteration 1 composition.</p>
+                  <video controls preload="metadata" poster="../assets/images/remotion/from-mark-to-motion-poster.jpg" src="../assets/video/remotion/from-mark-to-motion.mp4"></video>
+                  <ul>
+                    <li><strong>Video path:</strong> <code>assets/video/remotion/from-mark-to-motion.mp4</code></li>
+                    <li><strong>Poster path:</strong> <code>assets/images/remotion/from-mark-to-motion-poster.jpg</code></li>
+                    <li><strong>Render:</strong> 20.05 seconds, 1080x1920, 30 fps, 600 frames.</li>
+                    <li><strong>Source:</strong> Remotion composition <code>FromMarkToMotion</code> in <code>remotion/src/</code>.</li>
+                  </ul>
                 </div>
               </section>
 
@@ -157,6 +170,10 @@
                       <img src="../assets/images/kron-evolution/kron-evolution-iteration-020.png" alt="OpenClaw watches as a human hand uses a cyan-gold signal to inscribe a glowing line into a small metal plate on a workshop desk." />
                       <figcaption>Iteration 1 source image: Kron Iteration 20 becomes the first Remotion template seed.</figcaption>
                     </figure>
+                    <figure class="iteration-figure">
+                      <video controls preload="metadata" poster="../assets/images/remotion/from-mark-to-motion-poster.jpg" src="../assets/video/remotion/from-mark-to-motion.mp4"></video>
+                      <figcaption>Iteration 1 Remotion render: a 20-second vertical MP4 exported from the coded template.</figcaption>
+                    </figure>
                   </section>
 
                   <h2>Template Notes</h2>
@@ -166,16 +183,18 @@
                     <li><strong>Data inputs:</strong> title, source image path, intended idea, display text, optional narration path, optional music path, timing beats, output filename.</li>
                     <li><strong>Motion idea:</strong> begin close on the spark, drift toward the inscribed mark, then settle on the finished evidence.</li>
                     <li><strong>Text idea:</strong> one typewriter-style reveal, timed as a single thought rather than fragments.</li>
-                    <li><strong>First render goal:</strong> a local review render, not an automatic public upload.</li>
+                    <li><strong>First render goal:</strong> completed as a local review render and embedded on this Workshop page.</li>
                   </ul>
 
                   <h2>Output Record</h2>
                   <ul>
                     <li><strong>Source image path:</strong> <code>assets/images/kron-evolution/kron-evolution-iteration-020.png</code></li>
+                    <li><strong>Rendered video path:</strong> <code>assets/video/remotion/from-mark-to-motion.mp4</code></li>
+                    <li><strong>Poster path:</strong> <code>assets/images/remotion/from-mark-to-motion-poster.jpg</code></li>
                     <li><strong>Metadata path:</strong> <code>content/projects/remotion-experiments-metadata.json</code></li>
-                    <li><strong>Source mode:</strong> Workshop lane setup modeled on Kron Evolution, using the latest Kron artifact as the seed.</li>
+                    <li><strong>Source mode:</strong> coded Remotion composition rendered with <code>@remotion/cli</code>.</li>
                     <li><strong>Publication status:</strong> Workshop page only</li>
-                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and no Remotion render was published.</li>
+                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and the render was embedded only in the Workshop.</li>
                   </ul>
                 </div>
               </details>

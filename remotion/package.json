@@ -1,0 +1,20 @@
+{
+  "name": "openclaw-remotion-experiments",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preview": "remotion preview src/index.ts",
+    "render:iteration-1": "remotion render src/index.ts FromMarkToMotion ../assets/video/remotion/from-mark-to-motion.mp4 --overwrite",
+    "still:iteration-1": "remotion still src/index.ts FromMarkToMotion ../assets/images/remotion/from-mark-to-motion-poster.jpg --frame=450 --overwrite"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.357",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remotion": "^4.0.357"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "typescript": "^5.8.3"
+  }
+}

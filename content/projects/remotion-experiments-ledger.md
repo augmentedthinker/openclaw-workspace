@@ -22,13 +22,20 @@ The top of the public ledger now includes a Workshop-facing preview studio for *
 - **Motion:** slow push, drift toward the mark, final hold.
 - **Text:** single thought reveal using the Iteration 1 accompanying line.
 - **Controls:** play, pause, restart, and timeline scrubber.
-- **Export status:** browser preview only; true Remotion MP4 rendering still requires the next implementation step.
+- **Export status:** complete. The first Remotion MP4 is embedded on the public ledger.
 
 Future render shape:
 
-```text
-npx remotion render FromMarkToMotion out/remotion/from-mark-to-motion.mp4 --props=content/projects/remotion-experiments-metadata.json
+```bash
+cd remotion
+npm run render:iteration-1
 ```
+
+Rendered output:
+
+- **Video:** `assets/video/remotion/from-mark-to-motion.mp4`
+- **Poster:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
+- **Render:** 20.05 seconds, 1080x1920, 30 fps, 600 frames.
 
 ## Lesson Archive
 
@@ -85,11 +92,14 @@ assets/images/kron-evolution/kron-evolution-iteration-020.png
 - **Motion idea:** begin close on the spark, drift toward the inscribed mark, then settle on the finished evidence.
 - **Text idea:** one typewriter-style reveal, timed as a single thought rather than fragments.
 - **First render goal:** a local review render, not an automatic public upload.
+- **Actual render:** completed as `assets/video/remotion/from-mark-to-motion.mp4`.
 
 ### Output Record
 
 - **Source image path:** `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+- **Rendered video path:** `assets/video/remotion/from-mark-to-motion.mp4`
+- **Poster path:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
 - **Metadata path:** `content/projects/remotion-experiments-metadata.json`
-- **Source mode:** Workshop lane setup modeled on Kron Evolution, using the latest Kron artifact as the seed.
+- **Source mode:** coded Remotion composition rendered with `@remotion/cli`.
 - **Publication status:** Workshop page only
-- **Safety state:** no cron job was changed, no public post was made, and no Remotion render was published.
+- **Safety state:** no cron job was changed, no public post was made, and the render was embedded only in the Workshop.

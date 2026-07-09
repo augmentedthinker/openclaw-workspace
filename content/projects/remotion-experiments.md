@@ -46,6 +46,9 @@ Can we create one 20-40 second vertical template that accepts artifact metadata,
 - **Markdown ledger:** `content/projects/remotion-experiments-ledger.md`
 - **Metadata companion:** `content/projects/remotion-experiments-metadata.json`
 - **Starting source artifact:** `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+- **Remotion source:** `remotion/src/`
+- **First rendered MP4:** `assets/video/remotion/from-mark-to-motion.mp4`
+- **First poster frame:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
 
 ## Ledger
 

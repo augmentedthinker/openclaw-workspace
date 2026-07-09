@@ -869,6 +869,36 @@ a { color: inherit; }
   word-break: break-word;
 }
 
+.remotion-render-output {
+  border-top: 1px solid var(--line);
+  padding: clamp(1rem, 3vw, 1.35rem);
+}
+
+.remotion-render-output h3 {
+  margin: 0 0 0.6rem;
+  color: var(--soft);
+  font-size: 1.08rem;
+}
+
+.remotion-render-output p {
+  margin: 0 0 1rem;
+  color: rgb(255 246 229 / 0.86);
+}
+
+.remotion-render-output video {
+  display: block;
+  width: min(100%, 22rem);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto 1rem;
+  border: 1px solid rgb(255 246 229 / 0.18);
+  border-radius: 0.65rem;
+  background: #05070b;
+}
+
+.remotion-render-output ul {
+  margin-bottom: 0;
+}
+
 @media (max-width: 760px) {
   .remotion-studio-header,
   .remotion-workbench {

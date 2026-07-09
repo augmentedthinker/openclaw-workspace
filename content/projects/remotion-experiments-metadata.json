@@ -22,8 +22,19 @@
       "motion": "slow push, drift toward the mark, final hold",
       "text_reveal": "single thought reveal"
     },
+    "rendered_output": {
+      "video_path": "assets/video/remotion/from-mark-to-motion.mp4",
+      "poster_path": "assets/images/remotion/from-mark-to-motion-poster.jpg",
+      "duration_seconds": 20.053333,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "frame_count": 600,
+      "source_composition": "remotion/src/compositions/FromMarkToMotion.tsx",
+      "render_command": "cd remotion && npm run render:iteration-1"
+    },
     "publication_status": "Workshop page only",
-    "safety_state": "No cron job was changed, no public post was made, and no Remotion render was published."
+    "safety_state": "No cron job was changed, no public post was made, and the Remotion render was embedded only in the Workshop."
   },
   "lessons": [
     {
