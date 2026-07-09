@@ -31,6 +31,8 @@
       "fps": 30,
       "frame_count": 600,
       "source_composition": "remotion/src/compositions/FromMarkToMotion.tsx",
+      "data_source": "remotion/src/data/iterations.json",
+      "render_script": "remotion/scripts/render-iteration.mjs",
       "render_command": "cd remotion && npm run render:iteration-1"
     },
     "publication_status": "Workshop page only",

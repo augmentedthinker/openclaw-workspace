@@ -35,6 +35,8 @@ Rendered output:
 
 - **Video:** `assets/video/remotion/from-mark-to-motion.mp4`
 - **Poster:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
+- **Data source:** `remotion/src/data/iterations.json`
+- **Render script:** `remotion/scripts/render-iteration.mjs`
 - **Render:** 20.05 seconds, 1080x1920, 30 fps, 600 frames.
 
 ## Lesson Archive
@@ -88,7 +90,7 @@ assets/images/kron-evolution/kron-evolution-iteration-020.png
 
 - **Composition:** vertical, 1080x1920, 30 fps.
 - **Target duration:** 20-40 seconds.
-- **Data inputs:** title, source image path, intended idea, display text, optional narration path, optional music path, timing beats, output filename.
+- **Data inputs:** title, source image path, display text, template label, dimensions, frame rate, duration, output filename, and poster frame.
 - **Motion idea:** begin close on the spark, drift toward the inscribed mark, then settle on the finished evidence.
 - **Text idea:** one typewriter-style reveal, timed as a single thought rather than fragments.
 - **First render goal:** a local review render, not an automatic public upload.
@@ -100,6 +102,6 @@ assets/images/kron-evolution/kron-evolution-iteration-020.png
 - **Rendered video path:** `assets/video/remotion/from-mark-to-motion.mp4`
 - **Poster path:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
 - **Metadata path:** `content/projects/remotion-experiments-metadata.json`
-- **Source mode:** coded Remotion composition rendered with `@remotion/cli`.
+- **Source mode:** coded Remotion composition rendered with `@remotion/cli` from `remotion/src/data/iterations.json`.
 - **Publication status:** Workshop page only
 - **Safety state:** no cron job was changed, no public post was made, and the render was embedded only in the Workshop.

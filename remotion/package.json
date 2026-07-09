@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "preview": "remotion preview src/index.ts",
-    "render:iteration-1": "remotion render src/index.ts FromMarkToMotion ../assets/video/remotion/from-mark-to-motion.mp4 --overwrite",
-    "still:iteration-1": "remotion still src/index.ts FromMarkToMotion ../assets/images/remotion/from-mark-to-motion-poster.jpg --frame=450 --overwrite"
+    "render:iteration": "node scripts/render-iteration.mjs",
+    "render:iteration-1": "node scripts/render-iteration.mjs R-001"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.357",

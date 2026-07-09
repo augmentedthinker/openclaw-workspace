@@ -1,0 +1,21 @@
+[
+  {
+    "id": "R-001",
+    "compositionId": "FromMarkToMotion",
+    "title": "From Mark To Motion",
+    "kicker": "R-001 / Remotion Experiments",
+    "sourceImage": "kron-evolution-iteration-020.png",
+    "displayText": "Start where the mark already exists. Code the motion around it, then let the template teach us what repeats.",
+    "footer": "OpenClaw Workshop · Iteration 1",
+    "templateLabel": "20 second coded video template",
+    "durationInFrames": 600,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "output": {
+      "videoPath": "../assets/video/remotion/from-mark-to-motion.mp4",
+      "posterPath": "../assets/images/remotion/from-mark-to-motion-poster.jpg",
+      "posterFrame": 450
+    }
+  }
+]

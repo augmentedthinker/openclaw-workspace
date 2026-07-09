@@ -14,6 +14,7 @@ export type FromMarkToMotionProps = {
   sourceImage: string;
   displayText: string;
   footer: string;
+  templateLabel: string;
 };
 
 const colors = {
@@ -30,6 +31,7 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
   sourceImage,
   displayText,
   footer,
+  templateLabel,
 }) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
@@ -176,7 +178,7 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
             textTransform: 'uppercase',
           }}
         >
-          20 second coded video template
+          {templateLabel}
         </div>
         <h1
           style={{

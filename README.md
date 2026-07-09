@@ -94,6 +94,7 @@ The current Remotion Experiments references are:
 - `projects/remotion-experiments.html`
 - `projects/remotion-experiments-ledger.html`
 - `remotion/src/`
+- `remotion/src/data/iterations.json`
 - `assets/video/remotion/from-mark-to-motion.mp4`
 
 The current stable public-routine references are:
