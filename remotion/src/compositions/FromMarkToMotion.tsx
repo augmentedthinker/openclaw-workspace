@@ -12,6 +12,7 @@ export type FromMarkToMotionProps = {
   title: string;
   kicker: string;
   sourceImage: string;
+  sourceImages?: string[];
   displayText: string;
   footer: string;
   templateLabel: string;
@@ -29,6 +30,7 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
   title,
   kicker,
   sourceImage,
+  sourceImages,
   displayText,
   footer,
   templateLabel,
@@ -37,6 +39,26 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
   const {durationInFrames} = useVideoConfig();
 
   const progress = frame / Math.max(1, durationInFrames - 1);
+  const imageSequence = sourceImages && sourceImages.length > 0 ? sourceImages : [sourceImage];
+  const rawImagePosition = Math.min(
+    imageSequence.length - 1,
+    progress * imageSequence.length,
+  );
+  const activeImageIndex = Math.min(
+    imageSequence.length - 1,
+    Math.floor(rawImagePosition),
+  );
+  const nextImageIndex = Math.min(imageSequence.length - 1, activeImageIndex + 1);
+  const localImageProgress = rawImagePosition - activeImageIndex;
+  const nextImageOpacity =
+    activeImageIndex === nextImageIndex
+      ? 0
+      : interpolate(localImageProgress, [0.74, 1], [0, 1], {
+          extrapolateLeft: 'clamp',
+          extrapolateRight: 'clamp',
+        });
+  const activeImage = imageSequence[activeImageIndex];
+  const nextImage = imageSequence[nextImageIndex];
   const drift = interpolate(progress, [0, 1], [0, 1], {
     easing: Easing.inOut(Easing.cubic),
     extrapolateLeft: 'clamp',
@@ -65,7 +87,7 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
     <AbsoluteFill style={{backgroundColor: colors.deep, overflow: 'hidden'}}>
       <AbsoluteFill>
         <Img
-          src={sourceImage}
+          src={activeImage}
           style={{
             position: 'absolute',
             inset: '-9%',
@@ -76,6 +98,21 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
             filter: 'blur(18px) saturate(1.08) contrast(1.08)',
           }}
         />
+        {activeImage !== nextImage ? (
+          <Img
+            src={nextImage}
+            style={{
+              position: 'absolute',
+              inset: '-9%',
+              width: '118%',
+              height: '118%',
+              objectFit: 'cover',
+              opacity: nextImageOpacity,
+              transform: `scale(${backgroundScale})`,
+              filter: 'blur(18px) saturate(1.08) contrast(1.08)',
+            }}
+          />
+        ) : null}
       </AbsoluteFill>
 
       <AbsoluteFill
@@ -101,13 +138,28 @@ export const FromMarkToMotion: React.FC<FromMarkToMotionProps> = ({
         }}
       >
         <Img
-          src={sourceImage}
+          src={activeImage}
           style={{
+            position: 'absolute',
+            inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'contain',
           }}
         />
+        {activeImage !== nextImage ? (
+          <Img
+            src={nextImage}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              opacity: nextImageOpacity,
+            }}
+          />
+        ) : null}
       </div>
 
       <AbsoluteFill

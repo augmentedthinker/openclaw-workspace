@@ -5,7 +5,8 @@
   "scripts": {
     "preview": "remotion preview src/index.ts",
     "render:iteration": "node scripts/render-iteration.mjs",
-    "render:iteration-1": "node scripts/render-iteration.mjs R-001"
+    "render:iteration-1": "node scripts/render-iteration.mjs R-001",
+    "render:iteration-2": "node scripts/render-iteration.mjs R-002"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.357",

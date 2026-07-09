@@ -37,7 +37,7 @@
             <h1>Remotion Ledger</h1>
             <div class="article-meta">
               <span>Status: manual proof loop</span>
-              <span>Iteration count: 1</span>
+              <span>Iteration count: 2</span>
               <span>Newest first</span>
               <span>Public posting: none</span>
             </div>
@@ -45,14 +45,14 @@
             <div class="prose">
               <p>This page is the visible running list for Remotion Experiments. Each entry stays collapsed by default so the lane can accumulate tests without becoming a wall of production notes.</p>
 
-              <p><strong>How Remotion works:</strong> Remotion is not mainly a drag-and-drop editor. It is a code-based video system where React components describe a composition, frame math controls motion, props swap the source artifact, and the same composition can be previewed in a browser or rendered to MP4. This studio block is the Workshop-facing preview of that idea: a browser composition we can inspect before building the full Remotion renderer.</p>
+              <p><strong>How Remotion works:</strong> Remotion is not mainly a drag-and-drop editor. It is a code-based video system where React components describe a composition, frame math controls motion, props swap the source artifact, and the same composition can be previewed in a browser or rendered to MP4. This studio block is the Workshop-facing preview of that idea: a browser composition we can inspect beside the real rendered output.</p>
 
               <section class="remotion-studio" aria-labelledby="remotion-studio-title" data-duration="20" data-fps="30">
                 <div class="remotion-studio-header">
                   <div>
                     <div class="eyebrow">Remotion Template Preview</div>
-                    <h2 id="remotion-studio-title">Iteration 1: From Mark To Motion</h2>
-                    <p>Twenty-second vertical preview based on the Iteration 1 source artifact.</p>
+                    <h2 id="remotion-studio-title">Iteration 2: Signal Sequence</h2>
+                    <p>Twenty-second vertical preview based on five existing Kron Evolution images.</p>
                   </div>
                   <div class="remotion-runtime">
                     <span><strong id="remotion-time">0.0s</strong> / 20.0s</span>
@@ -64,13 +64,17 @@
                   <div class="remotion-preview-shell" aria-label="Vertical video preview">
                     <div class="phone-frame">
                       <div class="remotion-composition" id="remotion-composition">
-                        <img class="remotion-source-image" src="../assets/images/kron-evolution/kron-evolution-iteration-020.png" alt="OpenClaw watches as a human hand uses a cyan-gold signal to inscribe a glowing line into a small metal plate on a workshop desk." />
+                        <img class="remotion-source-image" data-remotion-sequence-image src="../assets/images/kron-evolution/kron-evolution-iteration-016.png" alt="OpenClaw studies the first Kron signal image in the Iteration 2 Remotion sequence." />
+                        <img class="remotion-source-image" data-remotion-sequence-image src="../assets/images/kron-evolution/kron-evolution-iteration-017.png" alt="OpenClaw studies the second Kron signal image in the Iteration 2 Remotion sequence." />
+                        <img class="remotion-source-image" data-remotion-sequence-image src="../assets/images/kron-evolution/kron-evolution-iteration-018.png" alt="OpenClaw studies the third Kron signal image in the Iteration 2 Remotion sequence." />
+                        <img class="remotion-source-image" data-remotion-sequence-image src="../assets/images/kron-evolution/kron-evolution-iteration-019.png" alt="OpenClaw offers a cyan-gold signal across a workshop desk while the viewer's hand begins to answer it." />
+                        <img class="remotion-source-image" data-remotion-sequence-image src="../assets/images/kron-evolution/kron-evolution-iteration-020.png" alt="OpenClaw watches as a human hand uses a cyan-gold signal to inscribe a glowing line into a small metal plate on a workshop desk." />
                         <div class="remotion-vignette" aria-hidden="true"></div>
                         <div class="remotion-scanline" aria-hidden="true"></div>
                         <div class="remotion-text-stack">
-                          <span class="remotion-kicker">R-001 / 20 second template</span>
-                          <h3>From Mark To Motion</h3>
-                          <p id="remotion-caption">Start where the mark already exists. Code the motion around it, then let the template teach us what repeats.</p>
+                          <span class="remotion-kicker">R-002 / multi-image template</span>
+                          <h3>Signal Sequence</h3>
+                          <p id="remotion-caption">The signal becomes clearer when each image hands one motion to the next.</p>
                         </div>
                       </div>
                     </div>
@@ -101,15 +105,15 @@
                         </div>
                         <div>
                           <dt>Source</dt>
-                          <dd><code>kron-evolution-iteration-020.png</code></dd>
+                          <dd><code>Kron 016-020</code></dd>
                         </div>
                         <div>
                           <dt>Motion</dt>
-                          <dd>slow push, drift to mark, final hold</dd>
+                          <dd>five-image crossfade, final hold</dd>
                         </div>
                         <div>
                           <dt>Text</dt>
-                          <dd>single thought reveal, not fragments</dd>
+                          <dd>latest iteration line reveal</dd>
                         </div>
                       </dl>
                     </div>
@@ -117,19 +121,19 @@
                     <div class="remotion-code-note">
                       <h3>Render Command</h3>
                       <pre><code>cd remotion
-npm run render:iteration-1</code></pre>
+npm run render:iteration-2</code></pre>
                     </div>
                   </div>
                 </div>
 
                 <div class="remotion-render-output">
                   <h3>Rendered MP4</h3>
-                  <p>The first real Remotion export is a 20-second vertical MP4 rendered from the Iteration 1 composition.</p>
-                  <video controls preload="metadata" poster="../assets/images/remotion/from-mark-to-motion-poster.jpg" src="../assets/video/remotion/from-mark-to-motion.mp4"></video>
+                  <p>The latest Remotion export is a 20-second vertical MP4 rendered from five existing Kron images.</p>
+                  <video controls preload="metadata" poster="../assets/images/remotion/signal-sequence-poster.jpg" src="../assets/video/remotion/signal-sequence.mp4"></video>
                   <ul>
-                    <li><strong>Video path:</strong> <code>assets/video/remotion/from-mark-to-motion.mp4</code></li>
-                    <li><strong>Poster path:</strong> <code>assets/images/remotion/from-mark-to-motion-poster.jpg</code></li>
-                    <li><strong>Render:</strong> 20.05 seconds, 1080x1920, 30 fps, 600 frames.</li>
+                    <li><strong>Video path:</strong> <code>assets/video/remotion/signal-sequence.mp4</code></li>
+                    <li><strong>Poster path:</strong> <code>assets/images/remotion/signal-sequence-poster.jpg</code></li>
+                    <li><strong>Render:</strong> 20 seconds, 1080x1920, 30 fps, 600 frames.</li>
                     <li><strong>Source:</strong> Remotion composition <code>FromMarkToMotion</code> in <code>remotion/src/</code>, driven by <code>remotion/src/data/iterations.json</code>.</li>
                   </ul>
                 </div>
@@ -140,8 +144,56 @@ npm run render:iteration-1</code></pre>
                 <p>A compact memory of what each experiment taught, keyed by iteration number for later consolidation.</p>
                 <ul>
                   <li><strong>R-001:</strong> start by translating one proven Kron artifact into a reusable video-template target before building a broader media system.</li>
+                  <li><strong>R-002:</strong> prove the template can accept a sequence of existing Kron images, not only a single source artifact.</li>
                 </ul>
                 <p><strong>Structured metadata companion:</strong> <code>content/projects/remotion-experiments-metadata.json</code></p>
+              </details>
+
+              <details class="iteration-entry">
+                <summary>
+                  <strong>Iteration 2: Signal Sequence</strong>
+                  <span>Uses Kron Evolution Iterations 16 through 20 as a five-image Remotion sequence.</span>
+                </summary>
+                <div class="iteration-entry-body">
+                  <h2>Starting Point</h2>
+                  <ul>
+                    <li><strong>Source lane:</strong> Kron Evolution</li>
+                    <li><strong>Source iterations:</strong> Iterations 16, 17, 18, 19, and 20.</li>
+                    <li><strong>Source images:</strong> <code>kron-evolution-iteration-016.png</code>, <code>kron-evolution-iteration-017.png</code>, <code>kron-evolution-iteration-018.png</code>, <code>kron-evolution-iteration-019.png</code>, and <code>kron-evolution-iteration-020.png</code></li>
+                  </ul>
+
+                  <h2>Experiment Target</h2>
+                  <p>Use the data-driven manifest to pass a <code>sourceImages</code> array into the existing Remotion composition, then render a 20-second vertical video with slow image motion and crossfades between the five Kron artifacts.</p>
+
+                  <section class="artifact-output" aria-label="Remotion iteration 2 new artifact">
+                    <h2>New Artifact</h2>
+                    <p class="artifact-intent"><strong>Intended idea:</strong> A Remotion template becomes more useful when it can carry a short sequence of related Kron artifacts through one timed video.</p>
+                    <p class="artifact-text">The signal becomes clearer when each image hands one motion to the next.</p>
+                    <figure class="iteration-figure">
+                      <video controls preload="metadata" poster="../assets/images/remotion/signal-sequence-poster.jpg" src="../assets/video/remotion/signal-sequence.mp4"></video>
+                      <figcaption>Iteration 2 Remotion render: a 20-second vertical MP4 created from five existing Kron Evolution images.</figcaption>
+                    </figure>
+                  </section>
+
+                  <h2>Template Notes</h2>
+                  <ul>
+                    <li><strong>Composition:</strong> vertical, 1080x1920, 30 fps.</li>
+                    <li><strong>Duration:</strong> 20 seconds / 600 frames.</li>
+                    <li><strong>Data input added:</strong> <code>sourceImages</code>, a list of image paths in <code>remotion/src/data/iterations.json</code>.</li>
+                    <li><strong>Motion idea:</strong> each image holds for roughly four seconds, then crossfades into the next image while the foreground panel and blurred background keep the same template structure.</li>
+                    <li><strong>Render command:</strong> <code>cd remotion && npm run render:iteration-2</code></li>
+                  </ul>
+
+                  <h2>Output Record</h2>
+                  <ul>
+                    <li><strong>Rendered video path:</strong> <code>assets/video/remotion/signal-sequence.mp4</code></li>
+                    <li><strong>Poster path:</strong> <code>assets/images/remotion/signal-sequence-poster.jpg</code></li>
+                    <li><strong>Metadata path:</strong> <code>content/projects/remotion-experiments-metadata.json</code></li>
+                    <li><strong>Source mode:</strong> data-driven Remotion composition rendered with <code>@remotion/cli</code> from <code>remotion/src/data/iterations.json</code>.</li>
+                    <li><strong>Publication status:</strong> Workshop page only</li>
+                    <li><strong>Safety state:</strong> no cron job was changed, no public post was made, and the render was embedded only in the Workshop.</li>
+                  </ul>
+                </div>
               </details>
 
               <details class="iteration-entry">
@@ -217,6 +269,7 @@ npm run render:iteration-1</code></pre>
         const play = document.getElementById("remotion-play");
         const pause = document.getElementById("remotion-pause");
         const restart = document.getElementById("remotion-restart");
+        const sequenceImages = Array.from(document.querySelectorAll("[data-remotion-sequence-image]"));
 
         let start = 0;
         let current = 0;
@@ -236,6 +289,10 @@ npm run render:iteration-1</code></pre>
           const text = Math.max(0, Math.min(1, (progress - 0.18) / 0.42));
           const hold = progress > 0.78 ? (progress - 0.78) / 0.22 : 0;
           const textY = 1 - text;
+          const imagePosition = Math.min(sequenceImages.length - 1, progress * sequenceImages.length);
+          const activeImage = Math.min(sequenceImages.length - 1, Math.floor(imagePosition));
+          const localImageProgress = imagePosition - activeImage;
+          const fade = Math.max(0, Math.min(1, (localImageProgress - 0.74) / 0.26));
 
           composition.style.setProperty("--preview-zoom", zoom.toFixed(4));
           composition.style.setProperty("--preview-x", `${x.toFixed(2)}%`);
@@ -246,6 +303,11 @@ npm run render:iteration-1</code></pre>
           composition.style.setProperty("--hold-alpha", (0.1 + hold * 0.16).toFixed(4));
           composition.style.setProperty("--scan-opacity", (0.25 + hold * 0.35).toFixed(4));
           composition.style.setProperty("--scan-y", `${(-60 + hold * 90).toFixed(2)}%`);
+          sequenceImages.forEach((image, index) => {
+            const isActive = index === activeImage;
+            const isNext = index === Math.min(sequenceImages.length - 1, activeImage + 1);
+            image.style.opacity = isActive ? String(1 - fade) : isNext ? String(fade) : "0";
+          });
 
           scrubber.value = current.toFixed(3);
           timeOut.textContent = `${current.toFixed(1)}s`;

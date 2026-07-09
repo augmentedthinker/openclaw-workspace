@@ -17,5 +17,31 @@
       "posterPath": "../assets/images/remotion/from-mark-to-motion-poster.jpg",
       "posterFrame": 450
     }
+  },
+  {
+    "id": "R-002",
+    "compositionId": "SignalSequence",
+    "title": "Signal Sequence",
+    "kicker": "R-002 / Remotion Experiments",
+    "sourceImage": "kron-evolution-iteration-020.png",
+    "sourceImages": [
+      "kron-evolution-iteration-016.png",
+      "kron-evolution-iteration-017.png",
+      "kron-evolution-iteration-018.png",
+      "kron-evolution-iteration-019.png",
+      "kron-evolution-iteration-020.png"
+    ],
+    "displayText": "The signal becomes clearer when each image hands one motion to the next.",
+    "footer": "OpenClaw Workshop · Iteration 2",
+    "templateLabel": "20 second multi-image template",
+    "durationInFrames": 600,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "output": {
+      "videoPath": "../assets/video/remotion/signal-sequence.mp4",
+      "posterPath": "../assets/images/remotion/signal-sequence-poster.jpg",
+      "posterFrame": 450
+    }
   }
 ]

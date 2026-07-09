@@ -1,16 +1,23 @@
 {
   "project": "remotion-experiments",
   "updated": "2026-07-09",
-  "iteration_count": 1,
+  "iteration_count": 2,
   "latest_iteration": {
-    "id": "R-001",
-    "number": 1,
-    "title": "From Mark To Motion",
+    "id": "R-002",
+    "number": 2,
+    "title": "Signal Sequence",
     "source_lane": "Kron Evolution",
-    "source_iteration": "I-020",
-    "lesson": "start by translating one proven Kron artifact into a reusable video-template target before building a broader media system.",
-    "intended_idea": "The first Remotion experiment should not invent a new story; it should give timing and motion to the strongest current Kron artifact.",
+    "source_iteration": "I-016 through I-020",
+    "lesson": "prove the template can accept a sequence of existing Kron images, not only a single source artifact.",
+    "intended_idea": "A Remotion template becomes more useful when it can carry a short sequence of related Kron artifacts through one timed video.",
     "source_image_path": "assets/images/kron-evolution/kron-evolution-iteration-020.png",
+    "source_image_paths": [
+      "assets/images/kron-evolution/kron-evolution-iteration-016.png",
+      "assets/images/kron-evolution/kron-evolution-iteration-017.png",
+      "assets/images/kron-evolution/kron-evolution-iteration-018.png",
+      "assets/images/kron-evolution/kron-evolution-iteration-019.png",
+      "assets/images/kron-evolution/kron-evolution-iteration-020.png"
+    ],
     "target_duration_seconds": "20-40",
     "composition": "1080x1920 vertical at 30 fps",
     "browser_preview": {
@@ -19,13 +26,13 @@
       "fps": 30,
       "frame_count": 600,
       "preview_page": "projects/remotion-experiments-ledger.html",
-      "motion": "slow push, drift toward the mark, final hold",
+      "motion": "five-image sequence with slow push and crossfade transitions",
       "text_reveal": "single thought reveal"
     },
     "rendered_output": {
-      "video_path": "assets/video/remotion/from-mark-to-motion.mp4",
-      "poster_path": "assets/images/remotion/from-mark-to-motion-poster.jpg",
-      "duration_seconds": 20.053333,
+      "video_path": "assets/video/remotion/signal-sequence.mp4",
+      "poster_path": "assets/images/remotion/signal-sequence-poster.jpg",
+      "duration_seconds": 20.0,
       "width": 1080,
       "height": 1920,
       "fps": 30,
@@ -33,7 +40,7 @@
       "source_composition": "remotion/src/compositions/FromMarkToMotion.tsx",
       "data_source": "remotion/src/data/iterations.json",
       "render_script": "remotion/scripts/render-iteration.mjs",
-      "render_command": "cd remotion && npm run render:iteration-1"
+      "render_command": "cd remotion && npm run render:iteration-2"
     },
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed, no public post was made, and the Remotion render was embedded only in the Workshop."
@@ -42,6 +49,10 @@
     {
       "id": "R-001",
       "lesson": "start by translating one proven Kron artifact into a reusable video-template target before building a broader media system."
+    },
+    {
+      "id": "R-002",
+      "lesson": "prove the template can accept a sequence of existing Kron images, not only a single source artifact."
     }
   ]
 }

@@ -14,30 +14,30 @@ This page is the visible running list for Remotion Experiments. Each entry stays
 
 Remotion is not mainly a drag-and-drop editor. It is a code-based video system where React components describe a composition, frame math controls motion, props swap the source artifact, and the same composition can be previewed in a browser or rendered to MP4.
 
-The top of the public ledger now includes a Workshop-facing preview studio for **Iteration 1: From Mark To Motion**:
+The top of the public ledger now includes a Workshop-facing preview studio for the latest rendered experiment, currently **Iteration 2: Signal Sequence**:
 
 - **Composition:** 1080x1920 vertical, 30 fps.
 - **Duration:** 20 seconds / 600 frames.
-- **Source:** `assets/images/kron-evolution/kron-evolution-iteration-020.png`
-- **Motion:** slow push, drift toward the mark, final hold.
-- **Text:** single thought reveal using the Iteration 1 accompanying line.
+- **Source:** `assets/images/kron-evolution/kron-evolution-iteration-016.png` through `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+- **Motion:** slow push, five-image crossfade, final hold.
+- **Text:** single thought reveal using the Iteration 2 accompanying line.
 - **Controls:** play, pause, restart, and timeline scrubber.
-- **Export status:** complete. The first Remotion MP4 is embedded on the public ledger.
+- **Export status:** complete. The latest Remotion MP4 is embedded on the public ledger.
 
 Future render shape:
 
 ```bash
 cd remotion
-npm run render:iteration-1
+npm run render:iteration-2
 ```
 
 Rendered output:
 
-- **Video:** `assets/video/remotion/from-mark-to-motion.mp4`
-- **Poster:** `assets/images/remotion/from-mark-to-motion-poster.jpg`
+- **Video:** `assets/video/remotion/signal-sequence.mp4`
+- **Poster:** `assets/images/remotion/signal-sequence-poster.jpg`
 - **Data source:** `remotion/src/data/iterations.json`
 - **Render script:** `remotion/scripts/render-iteration.mjs`
-- **Render:** 20.05 seconds, 1080x1920, 30 fps, 600 frames.
+- **Render:** 20 seconds, 1080x1920, 30 fps, 600 frames.
 
 ## Lesson Archive
 
@@ -47,10 +47,65 @@ A compact memory of what each experiment taught, keyed by iteration number for l
 <summary>Open lesson archive</summary>
 
 - **R-001:** start by translating one proven Kron artifact into a reusable video-template target before building a broader media system.
+- **R-002:** prove the template can accept a sequence of existing Kron images, not only a single source artifact.
 
 </details>
 
 Structured metadata companion: `content/projects/remotion-experiments-metadata.json`
+
+## Iteration 2: Signal Sequence
+
+Uses Kron Evolution Iterations 16 through 20 as a five-image sequence and tests whether the same Remotion template can carry multiple source artifacts.
+
+### Starting Point
+
+- **Source lane:** Kron Evolution
+- **Source iterations:** Iterations 16, 17, 18, 19, and 20.
+- **Source images:**
+  - `assets/images/kron-evolution/kron-evolution-iteration-016.png`
+  - `assets/images/kron-evolution/kron-evolution-iteration-017.png`
+  - `assets/images/kron-evolution/kron-evolution-iteration-018.png`
+  - `assets/images/kron-evolution/kron-evolution-iteration-019.png`
+  - `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+
+### Experiment Target
+
+Use the data-driven manifest to pass a `sourceImages` array into the existing Remotion composition, then render a 20-second vertical video with slow image motion and crossfades between the five Kron artifacts.
+
+### New Artifact
+
+**Intended idea:** A Remotion template becomes more useful when it can carry a short sequence of related Kron artifacts through one timed video.
+
+**Accompanying text:** The signal becomes clearer when each image hands one motion to the next.
+
+Rendered video:
+
+```text
+assets/video/remotion/signal-sequence.mp4
+```
+
+Poster:
+
+```text
+assets/images/remotion/signal-sequence-poster.jpg
+```
+
+### Template Notes
+
+- **Composition:** vertical, 1080x1920, 30 fps.
+- **Duration:** 20 seconds / 600 frames.
+- **Data input added:** `sourceImages`, a list of image paths in `remotion/src/data/iterations.json`.
+- **Motion idea:** each image holds for roughly four seconds, then crossfades into the next image while the foreground panel and blurred background keep the same template structure.
+- **Render command:** `cd remotion && npm run render:iteration-2`
+
+### Output Record
+
+- **Rendered video path:** `assets/video/remotion/signal-sequence.mp4`
+- **Poster path:** `assets/images/remotion/signal-sequence-poster.jpg`
+- **Metadata path:** `content/projects/remotion-experiments-metadata.json`
+- **Source mode:** data-driven Remotion composition rendered with `@remotion/cli` from `remotion/src/data/iterations.json`.
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the render was embedded only in the Workshop.
 
 ## Iteration 1: From Mark To Motion
 
