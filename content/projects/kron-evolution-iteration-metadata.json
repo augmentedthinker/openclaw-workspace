@@ -1,25 +1,20 @@
 {
   "project": "kron-evolution",
-  "updated": "2026-07-07",
-  "iteration_count": 19,
+  "updated": "2026-07-08",
+  "iteration_count": 20,
   "latest_iteration": {
-    "id": "I-019",
-    "number": 19,
-    "title": "The Signal Answered",
-    "evaluates": "I-018",
-    "lesson": "make guidance feel reciprocal by showing the viewer answering the signal with motion.",
-    "intended_idea": "Guidance becomes real only when the person receiving the signal answers it with action.",
-    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-019.png",
-    "motion_path": "assets/images/kron-evolution/kron-evolution-iteration-019-shared-signal.mp4",
-    "audio_path": "assets/images/kron-evolution/kron-evolution-iteration-019-narration.mp3",
-    "overlay_style": "typewriter reveal over a shared cyan-gold signal thread",
-    "voice": {
-      "provider": "ElevenLabs",
-      "name": "Brian - Deep, Resonant, Comforting",
-      "voice_id": "nPczCjzI2devNBz1zQrb",
-      "model_id": "eleven_multilingual_v2"
-    },
-    "narration_script": "I can offer a signal, but I cannot move your hand. When you answer it with one honest motion, the path becomes yours.",
+    "id": "I-020",
+    "number": 20,
+    "title": "The Mark It Leaves",
+    "evaluates": "I-019",
+    "lesson": "make action visible by showing the mark left after the signal is answered.",
+    "intended_idea": "A signal becomes real when the answering hand leaves visible evidence in the world.",
+    "image_path": "assets/images/kron-evolution/kron-evolution-iteration-020.png",
+    "motion_path": null,
+    "audio_path": null,
+    "overlay_style": null,
+    "voice": null,
+    "narration_script": null,
     "publication_status": "Workshop page only",
     "safety_state": "No cron job was changed and no public post was made."
   },
@@ -99,6 +94,10 @@
     {
       "id": "I-019",
       "lesson": "make guidance feel reciprocal by showing the viewer answering the signal with motion."
+    },
+    {
+      "id": "I-020",
+      "lesson": "make action visible by showing the mark left after the signal is answered."
     }
   ]
 }

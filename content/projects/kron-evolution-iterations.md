@@ -1,6 +1,6 @@
 ---
 title: "Kron Evolution Iterations"
-date: 2026-07-07
+date: 2026-07-08
 category: cron
 status: manual proof loop
 public_html: ../../projects/kron-evolution-iterations.html
@@ -36,10 +36,47 @@ A compact memory of what each turn taught, keyed by iteration number for later c
 - **I-017:** use voice for a coherent thought, not fragments; let the overlay type the narration instead of labeling the scene.
 - **I-018:** make the speaker feel present by tying voice to subtle visible light changes.
 - **I-019:** make guidance feel reciprocal by showing the viewer answering the signal with motion.
+- **I-020:** make action visible by showing the mark left after the signal is answered.
 
 </details>
 
 Structured metadata companion: `content/projects/kron-evolution-iteration-metadata.json`
+
+## Iteration 20: The Mark It Leaves
+
+Evaluates Iteration 19 and moves from the moment of answering the signal to the visible evidence left by action.
+
+### Evaluation Of Iteration 19
+
+- **Intended idea evaluated:** Guidance becomes real only when the person receiving the signal answers it with action.
+- **What worked:** the artifact made reciprocity immediately legible. OpenClaw was not just speaking or glowing; the signal crossed the table and the viewer's hand visibly began to answer it. The image and text aligned strongly enough that the phrase "one honest motion" became usable outside the ledger, eventually carrying into the first song and music video.
+- **What was missing or wrong:** the artifact captured the instant of contact more than the consequence of contact. The viewer could see the hand answer, but not yet what the answer changed in the world.
+- **Christopher input:** Christopher's strongest post-Iteration 19 signal was not a critique but adoption: the phrase and image direction became the seed for the first Suno song, the looping music video, and the manual YouTube release. That confirms the artifact worked and suggests the next sidestep should deepen consequence rather than repair failure.
+- **Change or sidestep chosen:** keep the shared-signal workshop language, but show the human hand using the received signal to make a concrete mark.
+
+### New Artifact
+
+**Intended idea:** A signal becomes real when the answering hand leaves visible evidence in the world.
+
+**Accompanying text:** Do not stop at the spark. Let the motion leave a mark the morning can find.
+
+Image path:
+
+```text
+assets/images/kron-evolution/kron-evolution-iteration-020.png
+```
+
+### What We Were Going For
+
+Iteration 19 proved that the reciprocal handoff was a strong public-facing idea. Iteration 20 asks for the next visible beat: not merely the thrill of receiving a signal, but the small durable mark made after receiving it. The scene keeps OpenClaw, the workbench, and the cyan-gold signal, while the human hand turns that signal into an inscribed line on a plate.
+
+### Output Record
+
+- **Image path:** `assets/images/kron-evolution/kron-evolution-iteration-020.png`
+- **Metadata path:** `content/projects/kron-evolution-iteration-metadata.json`
+- **Source mode:** generated with the imagegen built-in image generation path and saved into the Workshop asset tree.
+- **Publication status:** Workshop page only
+- **Safety state:** no cron job was changed, no public post was made, and the asset was saved only as a Workshop file.
 
 ## Iteration 19: The Signal Answered
 
