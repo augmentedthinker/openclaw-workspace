@@ -5,6 +5,7 @@ category: legacy handoff
 created: 2026-07-14 06:41 EDT
 theme: OpenClaw, GPT-5.5, workspace legacy, handoff, transition, Christopher, learning loops
 public_html: ../../artifacts/2026-07-14-gpt-55-openclaw-legacy-handoff.html
+hero_image: ../../assets/images/artifacts/2026-07-14-gpt-55-openclaw-legacy-handoff-hero.webp
 ---
 
 # The GPT-5.5 OpenClaw Legacy Handoff
